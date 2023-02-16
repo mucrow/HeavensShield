@@ -30,6 +30,11 @@ namespace Mtd {
       _healthBar.SetCurrentHealth(healthFraction);
     }
 
+    public void SetPath(Path path, int pathIndex) {
+      _path = path;
+      _pathIndex = pathIndex;
+    }
+
     void MoveTowardNextWaypoint() {
       if (_pathIndex >= _path.WaypointCount()) {
         return;
