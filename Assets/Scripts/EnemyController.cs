@@ -24,8 +24,6 @@ namespace Mtd {
     void Update() {
       MoveTowardNextWaypoint();
 
-      _health -= Random.Range(1, 101) / 100;
-      _health = Math.Max(_health, 0);
       float healthFraction = (float) _health / (float) _maxHealth;
       _healthBar.SetCurrentHealth(healthFraction);
     }
