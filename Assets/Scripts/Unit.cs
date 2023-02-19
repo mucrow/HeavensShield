@@ -7,8 +7,8 @@ namespace Mtd {
   public class Unit: MonoBehaviour {
     [SerializeField] EnemyDetector _enemyDetector;
 
-    int _damage = 10;
-    float _speed = 20.0f;
+    [SerializeField] int _damage = 10;
+    [SerializeField] float _speed = 20.0f;
 
     float _timeBetweenActions = 10000000f;
 
