@@ -28,6 +28,14 @@ namespace Mtd {
       _healthBar.SetCurrentHealth(healthFraction);
     }
 
+    public void ReceiveDamage(int amount) {
+      _health -= amount;
+      if (_health <= 0) {
+        _health = 0;
+        Destroy(gameObject);
+      }
+    }
+
     public void SetPath(Path path, int pathIndex) {
       _path = path;
       _pathIndex = pathIndex;
