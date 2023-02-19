@@ -126,7 +126,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed1a890fdcb1934e91fbed064b3dd5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _idleSprite: {fileID: 0}
+  _attackSprite1: {fileID: 0}
+  _attackSprite2: {fileID: 0}
   _enemyDetector: {fileID: 6612516780576738216}
+  _spriteRenderer: {fileID: 6612516781684231690}
+  _damage: 10
+  _speed: 20
 --- !u!212 &6612516781684231690
 SpriteRenderer:
   m_ObjectHideFlags: 0
