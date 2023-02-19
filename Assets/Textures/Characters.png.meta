@@ -143,7 +143,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: charsheet_0
+      name: Characters_0
       rect:
         serializedVersion: 2
         x: 0
@@ -164,7 +164,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charsheet_1
+      name: Characters_1
       rect:
         serializedVersion: 2
         x: 16
@@ -185,7 +185,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charsheet_2
+      name: Characters_2
       rect:
         serializedVersion: 2
         x: 32
@@ -206,7 +206,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charsheet_3
+      name: Characters_3
       rect:
         serializedVersion: 2
         x: 0
@@ -227,7 +227,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charsheet_4
+      name: Characters_4
       rect:
         serializedVersion: 2
         x: 16
@@ -248,7 +248,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charsheet_5
+      name: Characters_5
       rect:
         serializedVersion: 2
         x: 32
@@ -269,7 +269,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charsheet_6
+      name: Characters_6
       rect:
         serializedVersion: 2
         x: 0
@@ -290,7 +290,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charsheet_7
+      name: Characters_7
       rect:
         serializedVersion: 2
         x: 16
@@ -311,7 +311,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charsheet_8
+      name: Characters_8
       rect:
         serializedVersion: 2
         x: 32
@@ -342,15 +342,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      charsheet_2: -378557211
-      charsheet_1: 911287117
-      charsheet_0: 1639519105
-      charsheet_4: -1501403389
-      charsheet_8: 1938677689
-      charsheet_3: -2053729530
-      charsheet_5: -768229884
-      charsheet_6: 1056912363
-      charsheet_7: 348092798
+      Characters_7: 348092798
+      Characters_1: 911287117
+      Characters_2: -378557211
+      Characters_5: -768229884
+      Characters_0: 1639519105
+      Characters_4: -1501403389
+      Characters_6: 1056912363
+      Characters_3: -2053729530
+      Characters_8: 1938677689
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
