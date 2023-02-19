@@ -19,8 +19,8 @@ namespace Mtd {
 
     float _actionCooldownTimer = 0f;
 
-    float _attackFrame1Length = 5f / 60f;
-    float _attackFrame2Length = 15f / 60f;
+    float _attackFrame1Length = 10f / 60f;
+    float _attackFrame2Length = 20f / 60f;
     float _animationTimer = 0f;
 
     void Awake() {
