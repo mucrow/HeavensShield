@@ -18,6 +18,7 @@ namespace Mtd {
     }
 
     void OnClick(InputValue value) {
+      Debug.Log("OnClick");
       if (value.isPressed) {
         // TODO figure out why value.isPressed is true twice on my (android) phone's touchscreen
         // left click press / touch start
