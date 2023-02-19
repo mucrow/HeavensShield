@@ -25,7 +25,6 @@ namespace Mtd {
       }
 
       if (_enemyDetector.EnemiesInRange.Count > 0) {
-        Debug.Log("here!");
         var enemy = _enemyDetector.EnemiesInRange[^1];
         enemy.ReceiveDamage(_damage);
         _actionCooldownTimer += _timeBetweenActions;

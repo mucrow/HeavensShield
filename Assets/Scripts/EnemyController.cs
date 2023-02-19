@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 
 namespace Mtd {
   public class EnemyController: MonoBehaviour {
+    [SerializeField] Rigidbody2D _rigidbody2D;
+
     [SerializeField] float _speed = 2f;
 
     [SerializeField] Path _path;
@@ -22,10 +24,12 @@ namespace Mtd {
     }
 
     void Update() {
-      MoveTowardNextWaypoint();
-
       float healthFraction = (float) _health / (float) _maxHealth;
       _healthBar.SetCurrentHealth(healthFraction);
+    }
+
+    void FixedUpdate() {
+      MoveTowardNextWaypoint();
     }
 
     public void ReceiveDamage(int amount) {
@@ -48,13 +52,14 @@ namespace Mtd {
 
       Vector3 currentPos = transform.position;
       Vector3 nextWaypoint = _path.GetWaypoint(_pathIndex);
-      if (currentPos == nextWaypoint) {
+      if ((nextWaypoint - currentPos).magnitude < 0.05f) {
         _pathIndex += 1;
         MoveTowardNextWaypoint();
       }
 
-      float dt = Time.deltaTime;
-      transform.position = Vector3.MoveTowards(currentPos, nextWaypoint, _speed * dt);
+      // float dt = Time.deltaTime;
+      // transform.position = Vector3.MoveTowards(currentPos, nextWaypoint, _speed * dt);
+      _rigidbody2D.velocity = (nextWaypoint - currentPos).normalized * _speed;
     }
   }
 }
