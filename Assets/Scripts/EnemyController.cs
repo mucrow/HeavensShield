@@ -46,7 +46,12 @@ namespace Mtd {
     }
 
     void MoveTowardNextWaypoint() {
+      if (_path == null) {
+        return;
+      }
+
       if (_pathIndex >= _path.WaypointCount()) {
+        OnReachEndOfPath();
         return;
       }
 
@@ -60,6 +65,11 @@ namespace Mtd {
       // float dt = Time.deltaTime;
       // transform.position = Vector3.MoveTowards(currentPos, nextWaypoint, _speed * dt);
       _rigidbody2D.velocity = (nextWaypoint - currentPos).normalized * _speed;
+    }
+
+    void OnReachEndOfPath() {
+      _rigidbody2D.velocity = Vector2.zero;
+      _path = null;
     }
   }
 }
