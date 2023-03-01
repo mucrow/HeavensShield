@@ -9,7 +9,7 @@ using UnityEngine.UI;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 namespace Mtd {
-  public class PlayerAgent: MonoBehaviour, MtdInputActions.IMainActions {
+  public class PlayerAgent: MonoBehaviour, MtdInputActions.IMainActions, MtdInputActions.IPinchZoomActions {
     [SerializeField] GameObject _coffeeMugPrefab;
     [SerializeField] EventSystem _eventSystem;
     [SerializeField] GraphicRaycaster _uiGraphicRaycaster;
@@ -20,6 +20,11 @@ namespace Mtd {
     PointEventPosition _pointEventPosition;
     GameObject _itemBeingPlaced;
 
+    Vector2 _pinchZoomInitialDelta;
+    bool _pinchZoomInProgress = false;
+    Vector2 _touch0Position;
+    Vector2 _touch1Position;
+
     void Awake() {
       _mtdInputActions = new MtdInputActions();
     }
@@ -27,6 +32,8 @@ namespace Mtd {
     void OnEnable() {
       _mtdInputActions.Main.SetCallbacks(this);
       _mtdInputActions.Main.Enable();
+      _mtdInputActions.PinchZoom.SetCallbacks(this);
+      _mtdInputActions.PinchZoom.Enable();
     }
 
     void Start() {
@@ -60,6 +67,11 @@ namespace Mtd {
       }
     }
 
+    public void OnMouseScrollZoom(InputAction.CallbackContext context) {
+      var value = context.ReadValue<Vector2>();
+      // Debug.Log(value);
+    }
+
     // is this really the right way to do this?
     bool DidClickHitUI() {
       var pointerEventData = new PointerEventData(_eventSystem);
@@ -78,6 +90,26 @@ namespace Mtd {
     struct PointEventPosition {
       public Vector2 Screen;
       public Vector3 World;
+    }
+
+    public void OnTouch0Position(InputAction.CallbackContext context) {
+      _touch0Position = context.ReadValue<Vector2>();
+    }
+
+    public void OnTouch1Position(InputAction.CallbackContext context) {
+      _touch1Position = context.ReadValue<Vector2>();
+      var currentDelta = _touch1Position - _touch0Position;
+      Debug.Log(currentDelta.magnitude - _pinchZoomInitialDelta.magnitude);
+    }
+
+    public void OnTouch1Press(InputAction.CallbackContext context) {
+      if (context.phase == InputActionPhase.Started) {
+        _pinchZoomInProgress = true;
+        _pinchZoomInitialDelta = _touch1Position - _touch0Position;
+      }
+      else if (context.phase == InputActionPhase.Canceled) {
+        _pinchZoomInProgress = false;
+      }
     }
   }
 }
