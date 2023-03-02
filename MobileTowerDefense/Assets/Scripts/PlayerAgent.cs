@@ -53,18 +53,18 @@ namespace Mtd {
     }
 
     public void OnClick(InputAction.CallbackContext context) {
-      // there are two called to OnClick per touchscreen touch start, i don't know why
-      // (there is a third call when the touch ends as well)
-      if (context.action.IsPressed()) {
-        if (!_itemBeingPlaced) {
-          if (!DidClickHitUI()) {
-            _itemBeingPlaced = Instantiate(_coffeeMugPrefab, _pointEventPosition.World, Quaternion.identity);
-          }
-        }
-      }
-      else {
-        _itemBeingPlaced = null;
-      }
+      // // there are two called to OnClick per touchscreen touch start, i don't know why
+      // // (there is a third call when the touch ends as well)
+      // if (context.action.IsPressed()) {
+      //   if (!_itemBeingPlaced) {
+      //     if (!DidClickHitUI()) {
+      //       _itemBeingPlaced = Instantiate(_coffeeMugPrefab, _pointEventPosition.World, Quaternion.identity);
+      //     }
+      //   }
+      // }
+      // else {
+      //   _itemBeingPlaced = null;
+      // }
     }
 
     public void OnPoint(InputAction.CallbackContext context) {
