@@ -26,6 +26,10 @@ namespace Mtd {
     Vector2 _touch0Position;
     Vector2 _touch1Position;
 
+    [SerializeField] float _zoomScaling = 0.001f;
+    [SerializeField] float _scrollZoomScaling = 1f;
+    [SerializeField] float _pinchZoomScaling = 1f;
+
     void Awake() {
       _mtdInputActions = new MtdInputActions();
     }
@@ -91,18 +95,16 @@ namespace Mtd {
     }
 
     void OnZoom(float amount) {
-      _camera.ChangeZoom(-1f * amount);
+      _camera.ChangeZoomLevel(_zoomScaling * amount);
     }
 
     public void OnMouseScrollZoom(InputAction.CallbackContext context) {
       var value = context.ReadValue<Vector2>();
-      // mouse zoom is scaled by the input system
-      OnZoom(value.y);
+      OnZoom(value.y * _scrollZoomScaling);
     }
 
     void OnPinchZoom(float fingerDistanceDelta) {
-      // pinch zoom is calculated in this script and thus we need to scale it here as well
-      OnZoom(fingerDistanceDelta / 200f);
+      OnZoom(fingerDistanceDelta * _pinchZoomScaling);
     }
 
     public void OnTouch0Position(InputAction.CallbackContext context) {

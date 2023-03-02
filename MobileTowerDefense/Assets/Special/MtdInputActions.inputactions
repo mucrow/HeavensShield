@@ -83,7 +83,7 @@
                     "id": "7c515119-0a28-4278-8274-9ba83923bb70",
                     "path": "<Mouse>/scroll",
                     "interactions": "",
-                    "processors": "ScaleVector2(x=0.008333334,y=0.008333334)",
+                    "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "MouseScrollZoom",
                     "isComposite": false,

@@ -1132,8 +1132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68874c84462163445ad409c7a4f00510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sizeOfClosestZoom: 2.5
-  _sizeOfFarthestZoom: 50
+  _closestZoomSize: 2.5
+  _farthestZoomSize: 10
+  _zoomLevelCurve: 1.5
 --- !u!1 &528378139
 GameObject:
   m_ObjectHideFlags: 0
@@ -2450,6 +2451,9 @@ MonoBehaviour:
   _coffeeMugPrefab: {fileID: 9103857248003904031, guid: 8330b9c320d834d48bf9e1170b020bb3, type: 3}
   _eventSystem: {fileID: 1407569241}
   _uiGraphicRaycaster: {fileID: 625238113}
+  _zoomScaling: 0.001
+  _scrollZoomScaling: 1
+  _pinchZoomScaling: 1
 --- !u!1 &1669924105
 GameObject:
   m_ObjectHideFlags: 0

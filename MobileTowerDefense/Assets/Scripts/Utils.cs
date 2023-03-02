@@ -38,18 +38,19 @@ namespace Mtd {
       return sortedChoices[index];
     }
 
-    public static float MapRange(float minInput, float maxInput, float minOutput, float maxOutput, float input) {
+    public static float MapRange(float minInput, float maxInput, float minOutput, float maxOutput, float input, float tension = 1f) {
       float inputRange = maxInput - minInput;
       float outputRange = maxOutput - minOutput;
 
       float normalizedInput = (input - minInput) / inputRange;
+      float pointInOutputRange = Mathf.Pow(normalizedInput, tension);
 
-      return normalizedInput * outputRange + minOutput;
+      return pointInOutputRange * outputRange + minOutput;
     }
 
     public static Vector2 MapRange(float minInput, float maxInput, Vector2 minOutput, Vector2 maxOutput, float input) {
-      float x = MapRange(minInput, maxInput, minOutput.x, maxOutput.x, input);
-      float y = MapRange(minInput, maxInput, minOutput.y, maxOutput.y, input);
+      float x = MapRange(minInput, maxInput, minOutput.x, maxOutput.x, input, 1f);
+      float y = MapRange(minInput, maxInput, minOutput.y, maxOutput.y, input, 1f);
       return new Vector2(x, y);
     }
   }
