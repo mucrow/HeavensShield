@@ -14,13 +14,14 @@ namespace Mtd {
     [SerializeField] EventSystem _eventSystem;
     [SerializeField] GraphicRaycaster _uiGraphicRaycaster;
 
-    Camera _camera;
+    Camera _rawCamera;
+    CameraController _camera;
     MtdInputActions _mtdInputActions;
 
     PointEventPosition _pointEventPosition;
     GameObject _itemBeingPlaced;
 
-    Vector2 _pinchZoomInitialDelta;
+    Vector2 _pinchZoomInitialPositionDelta;
     bool _pinchZoomInProgress = false;
     Vector2 _touch0Position;
     Vector2 _touch1Position;
@@ -37,7 +38,8 @@ namespace Mtd {
     }
 
     void Start() {
-      _camera = Camera.main;
+      _rawCamera = Camera.main;
+      _camera = _rawCamera.GetComponent<CameraController>();
     }
 
     void Update() {
@@ -67,11 +69,6 @@ namespace Mtd {
       }
     }
 
-    public void OnMouseScrollZoom(InputAction.CallbackContext context) {
-      var value = context.ReadValue<Vector2>();
-      // Debug.Log(value);
-    }
-
     // is this really the right way to do this?
     bool DidClickHitUI() {
       var pointerEventData = new PointerEventData(_eventSystem) {
@@ -84,7 +81,7 @@ namespace Mtd {
 
     void UpdatePointEventPosition(Vector2 screenPosition) {
       _pointEventPosition.Screen = screenPosition;
-      _pointEventPosition.World = _camera.ScreenToWorldPoint(screenPosition);
+      _pointEventPosition.World = _rawCamera.ScreenToWorldPoint(screenPosition);
       _pointEventPosition.World.z = 0f;
     }
 
@@ -93,23 +90,34 @@ namespace Mtd {
       public Vector3 World;
     }
 
+    void OnZoom(float amount) {
+      _camera.ChangeZoom(amount);
+    }
+
+    public void OnMouseScrollZoom(InputAction.CallbackContext context) {
+      var value = context.ReadValue<Vector2>();
+      // mouse zoom is scaled by the input system
+      OnZoom(value.y);
+    }
+
+    void OnPinchZoom(float fingerDistanceDelta) {
+      // pinch zoom is calculated in this script and thus we need to scale it here as well
+      OnZoom(fingerDistanceDelta / 200f);
+    }
+
     public void OnTouch0Position(InputAction.CallbackContext context) {
       _touch0Position = context.ReadValue<Vector2>();
     }
 
     public void OnTouch1Position(InputAction.CallbackContext context) {
       _touch1Position = context.ReadValue<Vector2>();
-      var currentDelta = _touch1Position - _touch0Position;
-      Debug.Log(currentDelta.magnitude - _pinchZoomInitialDelta.magnitude);
+      var currentPositionDelta = _touch1Position - _touch0Position;
+      OnPinchZoom(currentPositionDelta.magnitude - _pinchZoomInitialPositionDelta.magnitude);
     }
 
     public void OnTouch1Press(InputAction.CallbackContext context) {
       if (context.phase == InputActionPhase.Started) {
-        _pinchZoomInProgress = true;
-        _pinchZoomInitialDelta = _touch1Position - _touch0Position;
-      }
-      else if (context.phase == InputActionPhase.Canceled) {
-        _pinchZoomInProgress = false;
+        _pinchZoomInitialPositionDelta = _touch1Position - _touch0Position;
       }
     }
   }
