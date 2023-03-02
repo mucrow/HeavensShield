@@ -21,8 +21,8 @@ namespace Mtd {
     PointEventPosition _pointEventPosition;
     GameObject _itemBeingPlaced;
 
-    Vector2 _pinchZoomInitialPositionDelta;
-    bool _pinchZoomInProgress = false;
+    bool _pinchZoomInitialized = false;
+    Vector2 _pinchZoomPreviousPositionDelta;
     Vector2 _touch0Position;
     Vector2 _touch1Position;
 
@@ -91,7 +91,7 @@ namespace Mtd {
     }
 
     void OnZoom(float amount) {
-      _camera.ChangeZoom(amount);
+      _camera.ChangeZoom(-1f * amount);
     }
 
     public void OnMouseScrollZoom(InputAction.CallbackContext context) {
@@ -111,13 +111,20 @@ namespace Mtd {
 
     public void OnTouch1Position(InputAction.CallbackContext context) {
       _touch1Position = context.ReadValue<Vector2>();
+      if (!_pinchZoomInitialized) {
+        _pinchZoomPreviousPositionDelta = _touch1Position - _touch0Position;
+        _pinchZoomInitialized = true;
+        return;
+      }
       var currentPositionDelta = _touch1Position - _touch0Position;
-      OnPinchZoom(currentPositionDelta.magnitude - _pinchZoomInitialPositionDelta.magnitude);
+      var fingerDistanceDelta = currentPositionDelta.magnitude - _pinchZoomPreviousPositionDelta.magnitude;
+      OnPinchZoom(fingerDistanceDelta);
+      _pinchZoomPreviousPositionDelta = currentPositionDelta;
     }
 
     public void OnTouch1Press(InputAction.CallbackContext context) {
-      if (context.phase == InputActionPhase.Started) {
-        _pinchZoomInitialPositionDelta = _touch1Position - _touch0Position;
+      if (context.phase == InputActionPhase.Canceled) {
+        _pinchZoomInitialized = false;
       }
     }
   }
