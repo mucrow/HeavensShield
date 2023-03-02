@@ -47,7 +47,7 @@ namespace Mtd {
     }
 
     public void OnClick(InputAction.CallbackContext context) {
-      // there are two called to OnClick per touchscreen touch start, i dont know why
+      // there are two called to OnClick per touchscreen touch start, i don't know why
       // (there is a third call when the touch ends as well)
       if (context.action.IsPressed()) {
         if (!_itemBeingPlaced) {
@@ -74,8 +74,9 @@ namespace Mtd {
 
     // is this really the right way to do this?
     bool DidClickHitUI() {
-      var pointerEventData = new PointerEventData(_eventSystem);
-      pointerEventData.position = _pointEventPosition.Screen;
+      var pointerEventData = new PointerEventData(_eventSystem) {
+        position = _pointEventPosition.Screen
+      };
       List<RaycastResult> results = new List<RaycastResult>();
       _uiGraphicRaycaster.Raycast(pointerEventData, results);
       return results.Count > 0;
