@@ -38,7 +38,23 @@ namespace Mtd {
       return sortedChoices[index];
     }
 
-    public static float MapRange(float minInput, float maxInput, float minOutput, float maxOutput, float input, float tension = 1f) {
+    /**
+     * Maps a range of numbers to another range of numbers with a given "tension".
+     *
+     * The `input` value is raised to the power of `tension` and then mapped to the output range.
+     *
+     * For example, given the following arguments:
+     *   minInput = 10.0f
+     *   maxInput = 20.0f
+     *   minOutput = 2.0f
+     *   maxOutput = 3.0f
+     *   tension = 2.0f
+     *
+     * For those values, an `input` of 15.0f is the mean of the input range, and the tension is 2,
+     * so we calculate 0.5^2 = 0.25 and use 0.25 as the index in the output range, giving a return
+     * value of 2.25f (the value 25% of the way through the output range).
+     */
+    public static float MapRange(float minInput, float maxInput, float minOutput, float maxOutput, float input, float tension) {
       float inputRange = maxInput - minInput;
       float outputRange = maxOutput - minOutput;
 
@@ -46,6 +62,24 @@ namespace Mtd {
       float pointInOutputRange = Mathf.Pow(normalizedInput, tension);
 
       return pointInOutputRange * outputRange + minOutput;
+    }
+
+    /**
+     * Maps a range of numbers to another range of numbers linearly.
+     *
+     * For example, given the following arguments:
+     *   minInput = 10.0f
+     *   maxInput = 20.0f
+     *   minOutput = 2.0f
+     *   maxOutput = 3.0f
+     *
+     * These values for the `input` argument give the following return values:
+     *   10 => 2.0f
+     *   15 => 2.5f
+     *   20 => 3.0f
+     */
+    public static float MapRange(float minInput, float maxInput, float minOutput, float maxOutput, float input) {
+      return MapRange(minInput, maxInput, minOutput, maxOutput, 1f);
     }
 
     public static Vector2 MapRange(float minInput, float maxInput, Vector2 minOutput, Vector2 maxOutput, float input) {
