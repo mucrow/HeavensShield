@@ -2,7 +2,7 @@
     "name": "MtdInputActions",
     "maps": [
         {
-            "name": "Main",
+            "name": "Simple",
             "id": "71a7b0e1-8310-4bd0-a2f5-20c7432745de",
             "actions": [
                 {
@@ -19,15 +19,6 @@
                     "type": "PassThrough",
                     "id": "ac3f1e2a-f72d-47c4-a3ab-9f44bdbc193c",
                     "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "MouseScrollZoom",
-                    "type": "PassThrough",
-                    "id": "3c14f10c-c516-4ea5-8aea-8c5af29b2266",
-                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -77,37 +68,26 @@
                     "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7c515119-0a28-4278-8274-9ba83923bb70",
-                    "path": "<Mouse>/scroll",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "MouseScrollZoom",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
         {
-            "name": "PinchZoom",
+            "name": "Zoom",
             "id": "09b291f1-a7fb-4dd0-b1a7-b806ba45a771",
             "actions": [
                 {
-                    "name": "Touch0Position",
+                    "name": "MouseScrollZoom",
                     "type": "PassThrough",
-                    "id": "b9c64042-ca40-40ac-b859-3a2c7be79a24",
+                    "id": "15a493a1-2006-456c-9e62-1d4c36b7892d",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Touch1Position",
+                    "name": "Touch0Position",
                     "type": "PassThrough",
-                    "id": "e8c78c78-b7c1-4ed6-9aab-31903d17356c",
+                    "id": "b9c64042-ca40-40ac-b859-3a2c7be79a24",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -121,9 +101,29 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Touch1Position",
+                    "type": "PassThrough",
+                    "id": "e8c78c78-b7c1-4ed6-9aab-31903d17356c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
+                {
+                    "name": "",
+                    "id": "029e25f9-c33f-4798-9160-fb6d0f905398",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MouseScrollZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
                 {
                     "name": "",
                     "id": "2c075a80-5da4-4f71-ad58-72970b32c0b2",

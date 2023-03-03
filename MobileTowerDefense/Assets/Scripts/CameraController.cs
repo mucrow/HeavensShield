@@ -35,7 +35,7 @@ namespace Mtd {
     }
 
     void UpdateZoomSize() {
-      _camera.orthographicSize = Utils.MapRange(
+      _camera.orthographicSize = Utils.Utils.MapRange(
         0f,
         1f,
         _closestZoomSize,

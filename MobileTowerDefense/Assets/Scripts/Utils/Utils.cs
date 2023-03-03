@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Mtd {
+namespace Mtd.Utils {
   public static class Utils {
     /**
      * Ensure the vector `v` has a magnitude less than or equal to `length`. This is different from

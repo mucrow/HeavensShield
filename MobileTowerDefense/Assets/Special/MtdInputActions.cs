@@ -24,7 +24,7 @@ public partial class @MtdInputActions : IInputActionCollection2, IDisposable
     ""name"": ""MtdInputActions"",
     ""maps"": [
         {
-            ""name"": ""Main"",
+            ""name"": ""Simple"",
             ""id"": ""71a7b0e1-8310-4bd0-a2f5-20c7432745de"",
             ""actions"": [
                 {
@@ -41,15 +41,6 @@ public partial class @MtdInputActions : IInputActionCollection2, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""ac3f1e2a-f72d-47c4-a3ab-9f44bdbc193c"",
                     ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""MouseScrollZoom"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""3c14f10c-c516-4ea5-8aea-8c5af29b2266"",
-                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -99,37 +90,26 @@ public partial class @MtdInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Click"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7c515119-0a28-4278-8274-9ba83923bb70"",
-                    ""path"": ""<Mouse>/scroll"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""MouseScrollZoom"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
         {
-            ""name"": ""PinchZoom"",
+            ""name"": ""Zoom"",
             ""id"": ""09b291f1-a7fb-4dd0-b1a7-b806ba45a771"",
             ""actions"": [
                 {
-                    ""name"": ""Touch0Position"",
+                    ""name"": ""MouseScrollZoom"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""b9c64042-ca40-40ac-b859-3a2c7be79a24"",
+                    ""id"": ""15a493a1-2006-456c-9e62-1d4c36b7892d"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Touch1Position"",
+                    ""name"": ""Touch0Position"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""e8c78c78-b7c1-4ed6-9aab-31903d17356c"",
+                    ""id"": ""b9c64042-ca40-40ac-b859-3a2c7be79a24"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -143,9 +123,29 @@ public partial class @MtdInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Touch1Position"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""e8c78c78-b7c1-4ed6-9aab-31903d17356c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""029e25f9-c33f-4798-9160-fb6d0f905398"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MouseScrollZoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
                 {
                     ""name"": """",
                     ""id"": ""2c075a80-5da4-4f71-ad58-72970b32c0b2"",
@@ -245,16 +245,16 @@ public partial class @MtdInputActions : IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Main
-        m_Main = asset.FindActionMap("Main", throwIfNotFound: true);
-        m_Main_Point = m_Main.FindAction("Point", throwIfNotFound: true);
-        m_Main_Click = m_Main.FindAction("Click", throwIfNotFound: true);
-        m_Main_MouseScrollZoom = m_Main.FindAction("MouseScrollZoom", throwIfNotFound: true);
-        // PinchZoom
-        m_PinchZoom = asset.FindActionMap("PinchZoom", throwIfNotFound: true);
-        m_PinchZoom_Touch0Position = m_PinchZoom.FindAction("Touch0Position", throwIfNotFound: true);
-        m_PinchZoom_Touch1Position = m_PinchZoom.FindAction("Touch1Position", throwIfNotFound: true);
-        m_PinchZoom_Touch1Press = m_PinchZoom.FindAction("Touch1Press", throwIfNotFound: true);
+        // Simple
+        m_Simple = asset.FindActionMap("Simple", throwIfNotFound: true);
+        m_Simple_Point = m_Simple.FindAction("Point", throwIfNotFound: true);
+        m_Simple_Click = m_Simple.FindAction("Click", throwIfNotFound: true);
+        // Zoom
+        m_Zoom = asset.FindActionMap("Zoom", throwIfNotFound: true);
+        m_Zoom_MouseScrollZoom = m_Zoom.FindAction("MouseScrollZoom", throwIfNotFound: true);
+        m_Zoom_Touch0Position = m_Zoom.FindAction("Touch0Position", throwIfNotFound: true);
+        m_Zoom_Touch1Press = m_Zoom.FindAction("Touch1Press", throwIfNotFound: true);
+        m_Zoom_Touch1Position = m_Zoom.FindAction("Touch1Position", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -311,39 +311,34 @@ public partial class @MtdInputActions : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Main
-    private readonly InputActionMap m_Main;
-    private IMainActions m_MainActionsCallbackInterface;
-    private readonly InputAction m_Main_Point;
-    private readonly InputAction m_Main_Click;
-    private readonly InputAction m_Main_MouseScrollZoom;
-    public struct MainActions
+    // Simple
+    private readonly InputActionMap m_Simple;
+    private ISimpleActions m_SimpleActionsCallbackInterface;
+    private readonly InputAction m_Simple_Point;
+    private readonly InputAction m_Simple_Click;
+    public struct SimpleActions
     {
         private @MtdInputActions m_Wrapper;
-        public MainActions(@MtdInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Point => m_Wrapper.m_Main_Point;
-        public InputAction @Click => m_Wrapper.m_Main_Click;
-        public InputAction @MouseScrollZoom => m_Wrapper.m_Main_MouseScrollZoom;
-        public InputActionMap Get() { return m_Wrapper.m_Main; }
+        public SimpleActions(@MtdInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Point => m_Wrapper.m_Simple_Point;
+        public InputAction @Click => m_Wrapper.m_Simple_Click;
+        public InputActionMap Get() { return m_Wrapper.m_Simple; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MainActions set) { return set.Get(); }
-        public void SetCallbacks(IMainActions instance)
+        public static implicit operator InputActionMap(SimpleActions set) { return set.Get(); }
+        public void SetCallbacks(ISimpleActions instance)
         {
-            if (m_Wrapper.m_MainActionsCallbackInterface != null)
+            if (m_Wrapper.m_SimpleActionsCallbackInterface != null)
             {
-                @Point.started -= m_Wrapper.m_MainActionsCallbackInterface.OnPoint;
-                @Point.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnPoint;
-                @Point.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnPoint;
-                @Click.started -= m_Wrapper.m_MainActionsCallbackInterface.OnClick;
-                @Click.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnClick;
-                @Click.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnClick;
-                @MouseScrollZoom.started -= m_Wrapper.m_MainActionsCallbackInterface.OnMouseScrollZoom;
-                @MouseScrollZoom.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnMouseScrollZoom;
-                @MouseScrollZoom.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnMouseScrollZoom;
+                @Point.started -= m_Wrapper.m_SimpleActionsCallbackInterface.OnPoint;
+                @Point.performed -= m_Wrapper.m_SimpleActionsCallbackInterface.OnPoint;
+                @Point.canceled -= m_Wrapper.m_SimpleActionsCallbackInterface.OnPoint;
+                @Click.started -= m_Wrapper.m_SimpleActionsCallbackInterface.OnClick;
+                @Click.performed -= m_Wrapper.m_SimpleActionsCallbackInterface.OnClick;
+                @Click.canceled -= m_Wrapper.m_SimpleActionsCallbackInterface.OnClick;
             }
-            m_Wrapper.m_MainActionsCallbackInterface = instance;
+            m_Wrapper.m_SimpleActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Point.started += instance.OnPoint;
@@ -352,62 +347,67 @@ public partial class @MtdInputActions : IInputActionCollection2, IDisposable
                 @Click.started += instance.OnClick;
                 @Click.performed += instance.OnClick;
                 @Click.canceled += instance.OnClick;
-                @MouseScrollZoom.started += instance.OnMouseScrollZoom;
-                @MouseScrollZoom.performed += instance.OnMouseScrollZoom;
-                @MouseScrollZoom.canceled += instance.OnMouseScrollZoom;
             }
         }
     }
-    public MainActions @Main => new MainActions(this);
+    public SimpleActions @Simple => new SimpleActions(this);
 
-    // PinchZoom
-    private readonly InputActionMap m_PinchZoom;
-    private IPinchZoomActions m_PinchZoomActionsCallbackInterface;
-    private readonly InputAction m_PinchZoom_Touch0Position;
-    private readonly InputAction m_PinchZoom_Touch1Position;
-    private readonly InputAction m_PinchZoom_Touch1Press;
-    public struct PinchZoomActions
+    // Zoom
+    private readonly InputActionMap m_Zoom;
+    private IZoomActions m_ZoomActionsCallbackInterface;
+    private readonly InputAction m_Zoom_MouseScrollZoom;
+    private readonly InputAction m_Zoom_Touch0Position;
+    private readonly InputAction m_Zoom_Touch1Press;
+    private readonly InputAction m_Zoom_Touch1Position;
+    public struct ZoomActions
     {
         private @MtdInputActions m_Wrapper;
-        public PinchZoomActions(@MtdInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Touch0Position => m_Wrapper.m_PinchZoom_Touch0Position;
-        public InputAction @Touch1Position => m_Wrapper.m_PinchZoom_Touch1Position;
-        public InputAction @Touch1Press => m_Wrapper.m_PinchZoom_Touch1Press;
-        public InputActionMap Get() { return m_Wrapper.m_PinchZoom; }
+        public ZoomActions(@MtdInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MouseScrollZoom => m_Wrapper.m_Zoom_MouseScrollZoom;
+        public InputAction @Touch0Position => m_Wrapper.m_Zoom_Touch0Position;
+        public InputAction @Touch1Press => m_Wrapper.m_Zoom_Touch1Press;
+        public InputAction @Touch1Position => m_Wrapper.m_Zoom_Touch1Position;
+        public InputActionMap Get() { return m_Wrapper.m_Zoom; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PinchZoomActions set) { return set.Get(); }
-        public void SetCallbacks(IPinchZoomActions instance)
+        public static implicit operator InputActionMap(ZoomActions set) { return set.Get(); }
+        public void SetCallbacks(IZoomActions instance)
         {
-            if (m_Wrapper.m_PinchZoomActionsCallbackInterface != null)
+            if (m_Wrapper.m_ZoomActionsCallbackInterface != null)
             {
-                @Touch0Position.started -= m_Wrapper.m_PinchZoomActionsCallbackInterface.OnTouch0Position;
-                @Touch0Position.performed -= m_Wrapper.m_PinchZoomActionsCallbackInterface.OnTouch0Position;
-                @Touch0Position.canceled -= m_Wrapper.m_PinchZoomActionsCallbackInterface.OnTouch0Position;
-                @Touch1Position.started -= m_Wrapper.m_PinchZoomActionsCallbackInterface.OnTouch1Position;
-                @Touch1Position.performed -= m_Wrapper.m_PinchZoomActionsCallbackInterface.OnTouch1Position;
-                @Touch1Position.canceled -= m_Wrapper.m_PinchZoomActionsCallbackInterface.OnTouch1Position;
-                @Touch1Press.started -= m_Wrapper.m_PinchZoomActionsCallbackInterface.OnTouch1Press;
-                @Touch1Press.performed -= m_Wrapper.m_PinchZoomActionsCallbackInterface.OnTouch1Press;
-                @Touch1Press.canceled -= m_Wrapper.m_PinchZoomActionsCallbackInterface.OnTouch1Press;
+                @MouseScrollZoom.started -= m_Wrapper.m_ZoomActionsCallbackInterface.OnMouseScrollZoom;
+                @MouseScrollZoom.performed -= m_Wrapper.m_ZoomActionsCallbackInterface.OnMouseScrollZoom;
+                @MouseScrollZoom.canceled -= m_Wrapper.m_ZoomActionsCallbackInterface.OnMouseScrollZoom;
+                @Touch0Position.started -= m_Wrapper.m_ZoomActionsCallbackInterface.OnTouch0Position;
+                @Touch0Position.performed -= m_Wrapper.m_ZoomActionsCallbackInterface.OnTouch0Position;
+                @Touch0Position.canceled -= m_Wrapper.m_ZoomActionsCallbackInterface.OnTouch0Position;
+                @Touch1Press.started -= m_Wrapper.m_ZoomActionsCallbackInterface.OnTouch1Press;
+                @Touch1Press.performed -= m_Wrapper.m_ZoomActionsCallbackInterface.OnTouch1Press;
+                @Touch1Press.canceled -= m_Wrapper.m_ZoomActionsCallbackInterface.OnTouch1Press;
+                @Touch1Position.started -= m_Wrapper.m_ZoomActionsCallbackInterface.OnTouch1Position;
+                @Touch1Position.performed -= m_Wrapper.m_ZoomActionsCallbackInterface.OnTouch1Position;
+                @Touch1Position.canceled -= m_Wrapper.m_ZoomActionsCallbackInterface.OnTouch1Position;
             }
-            m_Wrapper.m_PinchZoomActionsCallbackInterface = instance;
+            m_Wrapper.m_ZoomActionsCallbackInterface = instance;
             if (instance != null)
             {
+                @MouseScrollZoom.started += instance.OnMouseScrollZoom;
+                @MouseScrollZoom.performed += instance.OnMouseScrollZoom;
+                @MouseScrollZoom.canceled += instance.OnMouseScrollZoom;
                 @Touch0Position.started += instance.OnTouch0Position;
                 @Touch0Position.performed += instance.OnTouch0Position;
                 @Touch0Position.canceled += instance.OnTouch0Position;
-                @Touch1Position.started += instance.OnTouch1Position;
-                @Touch1Position.performed += instance.OnTouch1Position;
-                @Touch1Position.canceled += instance.OnTouch1Position;
                 @Touch1Press.started += instance.OnTouch1Press;
                 @Touch1Press.performed += instance.OnTouch1Press;
                 @Touch1Press.canceled += instance.OnTouch1Press;
+                @Touch1Position.started += instance.OnTouch1Position;
+                @Touch1Position.performed += instance.OnTouch1Position;
+                @Touch1Position.canceled += instance.OnTouch1Position;
             }
         }
     }
-    public PinchZoomActions @PinchZoom => new PinchZoomActions(this);
+    public ZoomActions @Zoom => new ZoomActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -453,16 +453,16 @@ public partial class @MtdInputActions : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_XRSchemeIndex];
         }
     }
-    public interface IMainActions
+    public interface ISimpleActions
     {
         void OnPoint(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
-        void OnMouseScrollZoom(InputAction.CallbackContext context);
     }
-    public interface IPinchZoomActions
+    public interface IZoomActions
     {
+        void OnMouseScrollZoom(InputAction.CallbackContext context);
         void OnTouch0Position(InputAction.CallbackContext context);
-        void OnTouch1Position(InputAction.CallbackContext context);
         void OnTouch1Press(InputAction.CallbackContext context);
+        void OnTouch1Position(InputAction.CallbackContext context);
     }
 }

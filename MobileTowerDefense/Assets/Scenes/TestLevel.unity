@@ -197,6 +197,7 @@ Transform:
   m_Children:
   - {fileID: 519420032}
   - {fileID: 370049426}
+  - {fileID: 841301746}
   - {fileID: 1666867098}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1711,6 +1712,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753829056}
   m_CullTransparentMesh: 1
+--- !u!1 &841301743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 841301746}
+  - component: {fileID: 841301744}
+  - component: {fileID: 841301745}
+  m_Layer: 0
+  m_Name: MtdInput
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &841301744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841301743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c72e3e79de732b4ebf9c816a840e3e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputActionsAdapter: {fileID: 841301745}
+--- !u!114 &841301745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841301743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55b71edcc036d214382fff80a1a683bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zoomScaling: 0.001
+  _scrollZoomScaling: 1
+  _pinchZoomScaling: 1
+--- !u!4 &841301746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841301743}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 148484338}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &926016720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,9 +2513,7 @@ MonoBehaviour:
   _coffeeMugPrefab: {fileID: 9103857248003904031, guid: 8330b9c320d834d48bf9e1170b020bb3, type: 3}
   _eventSystem: {fileID: 1407569241}
   _uiGraphicRaycaster: {fileID: 625238113}
-  _zoomScaling: 0.001
-  _scrollZoomScaling: 1
-  _pinchZoomScaling: 1
+  _mtdInput: {fileID: 841301744}
 --- !u!1 &1669924105
 GameObject:
   m_ObjectHideFlags: 0
