@@ -2,11 +2,38 @@
     "name": "MtdInputActions",
     "maps": [
         {
-            "name": "Simple",
+            "name": "Main",
             "id": "71a7b0e1-8310-4bd0-a2f5-20c7432745de",
             "actions": [
                 {
-                    "name": "Point",
+                    "name": "DragPress",
+                    "type": "Button",
+                    "id": "90c88446-4452-42f9-b8e7-4e254d66dd46",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MouseScrollZoom",
+                    "type": "PassThrough",
+                    "id": "d4a21d6c-fc94-4a74-99b3-dc8dda5dd5af",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Tap",
+                    "type": "Button",
+                    "id": "ac3f1e2a-f72d-47c4-a3ab-9f44bdbc193c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Touch0Position",
                     "type": "PassThrough",
                     "id": "444e8ae9-cf36-4a56-8124-fbb6c8df5854",
                     "expectedControlType": "Vector2",
@@ -15,10 +42,19 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Click",
-                    "type": "PassThrough",
-                    "id": "ac3f1e2a-f72d-47c4-a3ab-9f44bdbc193c",
+                    "name": "Touch1Press",
+                    "type": "Button",
+                    "id": "aab6272b-3b4c-482f-9110-7839105e6482",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Touch1Position",
+                    "type": "PassThrough",
+                    "id": "2920512d-6de4-42a0-9350-3152e8b3b5a6",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -27,34 +63,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "c52c8e0b-8179-41d3-b8a1-d149033bbe86",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
+                    "id": "077bec86-3cd7-4185-b22a-21af5b99cba8",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Point",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5693e57a-238a-46ed-b5ae-e64e6e574302",
-                    "path": "<Touchscreen>/touch*/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Touch",
-                    "action": "Point",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4faf7dc9-b979-4210-aa8c-e808e1ef89f5",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Click",
+                    "action": "Tap",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -65,79 +79,13 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Touch",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Zoom",
-            "id": "09b291f1-a7fb-4dd0-b1a7-b806ba45a771",
-            "actions": [
-                {
-                    "name": "MouseScrollZoom",
-                    "type": "PassThrough",
-                    "id": "15a493a1-2006-456c-9e62-1d4c36b7892d",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Touch0Position",
-                    "type": "PassThrough",
-                    "id": "b9c64042-ca40-40ac-b859-3a2c7be79a24",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Touch1Press",
-                    "type": "Button",
-                    "id": "3bf2ab5d-259b-4ae3-a4b4-311a6aa948bb",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Touch1Position",
-                    "type": "PassThrough",
-                    "id": "e8c78c78-b7c1-4ed6-9aab-31903d17356c",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "029e25f9-c33f-4798-9160-fb6d0f905398",
-                    "path": "<Mouse>/scroll",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "MouseScrollZoom",
+                    "action": "Tap",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "2c075a80-5da4-4f71-ad58-72970b32c0b2",
-                    "path": "<Touchscreen>/touch0/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Touch",
-                    "action": "Touch0Position",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5cb9d4b0-db24-4f5a-8215-31af410f23c1",
+                    "id": "7a8394ec-5479-420b-aade-d09199e7a00f",
                     "path": "<Touchscreen>/touch1/position",
                     "interactions": "",
                     "processors": "",
@@ -148,12 +96,67 @@
                 },
                 {
                     "name": "",
-                    "id": "b383e6d6-aeee-4f08-8bdc-ef7a596f82fa",
+                    "id": "4a729e45-5db8-49ba-82a6-f931ce423270",
                     "path": "<Touchscreen>/touch1/press",
                     "interactions": "",
                     "processors": "",
                     "groups": "Touch",
                     "action": "Touch1Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b34b383-d491-465f-b8b1-0871678145c3",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "DragPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "520910ca-9273-4ed2-abc3-aea55e3a53bf",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touch",
+                    "action": "DragPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "28fb8ab4-c6ab-46d1-8e41-d20536fe0b6b",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MouseScrollZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c52c8e0b-8179-41d3-b8a1-d149033bbe86",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Touch0Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5693e57a-238a-46ed-b5ae-e64e6e574302",
+                    "path": "<Touchscreen>/touch0/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touch",
+                    "action": "Touch0Position",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

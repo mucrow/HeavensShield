@@ -22,6 +22,8 @@ namespace Mtd {
     ScreenAndWorldPoint _pointEventPosition;
     GameObject _itemBeingPlaced;
 
+    bool _ignoreCurrentDrag = false;
+
     void Awake() {
       _pointEventPosition = ScreenAndWorldPoint.Zero();
     }
@@ -29,8 +31,9 @@ namespace Mtd {
     void Start() {
       _rawCamera = Camera.main;
       _camera = _rawCamera.GetComponent<CameraController>();
-      _mtdInput.Click.AddListener(OnClick);
-      _mtdInput.Point.AddListener(OnPoint);
+      _mtdInput.DragStart.AddListener(OnDragStart);
+      _mtdInput.Drag.AddListener(OnDrag);
+      _mtdInput.Tap.AddListener(OnTap);
       _mtdInput.Zoom.AddListener(OnZoom);
     }
 
@@ -40,13 +43,23 @@ namespace Mtd {
       }
     }
 
-    void OnClick(bool isPressed) {
+    void OnDragStart(ScreenAndWorldPoint point) {
+      _ignoreCurrentDrag = DoesPointHitUI(point);
+    }
+
+    void OnDrag(Vector3 delta) {
+      if (!_ignoreCurrentDrag) {
+        // _rawCamera.transform.position = _rawCamera.transform.position + delta;
+      }
+    }
+
+    void OnTap(ScreenAndWorldPoint point) {
       // // there are two called to OnClick per touchscreen touch start, i don't know why
       // // (there is a third call when the touch ends as well)
       // if (isPressed) {
       //   if (!_itemBeingPlaced) {
-      //     if (!DidClickHitUI()) {
-      //       _itemBeingPlaced = Instantiate(_coffeeMugPrefab, _pointEventPosition.World, Quaternion.identity);
+      //     if (!DoesPointHitUI(point)) {
+      //       _itemBeingPlaced = Instantiate(_coffeeMugPrefab, point.World, Quaternion.identity);
       //     }
       //   }
       // }
@@ -55,18 +68,14 @@ namespace Mtd {
       // }
     }
 
-    void OnPoint(Vector2 screenPosition) {
-      _pointEventPosition.UpdateFromScreenPoint(_rawCamera, screenPosition);
-    }
-
     void OnZoom(float amount) {
       _camera.ChangeZoomLevel(amount);
     }
 
     // is this really the right way to do this?
-    bool DidClickHitUI() {
+    bool DoesPointHitUI(ScreenAndWorldPoint point) {
       var pointerEventData = new PointerEventData(_eventSystem) {
-        position = _pointEventPosition.Screen
+        position = point.Screen
       };
       List<RaycastResult> results = new List<RaycastResult>();
       _uiGraphicRaycaster.Raycast(pointerEventData, results);
