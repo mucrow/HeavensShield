@@ -53,6 +53,7 @@ namespace Mtd {
     }
 
     public void OnClick(InputAction.CallbackContext context) {
+      Debug.Log(context.phase);
       // // there are two called to OnClick per touchscreen touch start, i don't know why
       // // (there is a third call when the touch ends as well)
       // if (context.action.IsPressed()) {
