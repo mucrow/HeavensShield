@@ -28,36 +28,18 @@ public partial class @MtdInputActions : IInputActionCollection2, IDisposable
             ""id"": ""71a7b0e1-8310-4bd0-a2f5-20c7432745de"",
             ""actions"": [
                 {
-                    ""name"": ""DragPress"",
-                    ""type"": ""Button"",
-                    ""id"": ""90c88446-4452-42f9-b8e7-4e254d66dd46"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""MouseScrollZoom"",
+                    ""name"": ""Touch0Position"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""d4a21d6c-fc94-4a74-99b3-dc8dda5dd5af"",
+                    ""id"": ""444e8ae9-cf36-4a56-8124-fbb6c8df5854"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Tap"",
-                    ""type"": ""Button"",
-                    ""id"": ""ac3f1e2a-f72d-47c4-a3ab-9f44bdbc193c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Touch0Position"",
+                    ""name"": ""Touch1Position"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""444e8ae9-cf36-4a56-8124-fbb6c8df5854"",
+                    ""id"": ""2920512d-6de4-42a0-9350-3152e8b3b5a6"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -73,10 +55,28 @@ public partial class @MtdInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Touch1Position"",
+                    ""name"": ""Tap"",
+                    ""type"": ""Button"",
+                    ""id"": ""ac3f1e2a-f72d-47c4-a3ab-9f44bdbc193c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MouseScrollZoom"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""2920512d-6de4-42a0-9350-3152e8b3b5a6"",
+                    ""id"": ""d4a21d6c-fc94-4a74-99b3-dc8dda5dd5af"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""DragPress"",
+                    ""type"": ""Button"",
+                    ""id"": ""90c88446-4452-42f9-b8e7-4e254d66dd46"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -85,45 +85,34 @@ public partial class @MtdInputActions : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""077bec86-3cd7-4185-b22a-21af5b99cba8"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Tap"",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Tap"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""47c2a644-3ebc-4dae-a106-589b7ca75b59"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Touch"",
-                    ""action"": ""Tap"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7a8394ec-5479-420b-aade-d09199e7a00f"",
-                    ""path"": ""<Touchscreen>/touch1/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Touch"",
-                    ""action"": ""Touch1Position"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""4a729e45-5db8-49ba-82a6-f931ce423270"",
                     ""path"": ""<Touchscreen>/touch1/press"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Touch"",
                     ""action"": ""Touch1Press"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c52c8e0b-8179-41d3-b8a1-d149033bbe86"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Touch0Position"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5693e57a-238a-46ed-b5ae-e64e6e574302"",
+                    ""path"": ""<Touchscreen>/touch0/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touch"",
+                    ""action"": ""Touch0Position"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -162,23 +151,34 @@ public partial class @MtdInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c52c8e0b-8179-41d3-b8a1-d149033bbe86"",
-                    ""path"": ""<Mouse>/position"",
-                    ""interactions"": """",
+                    ""id"": ""077bec86-3cd7-4185-b22a-21af5b99cba8"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Tap"",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Touch0Position"",
+                    ""action"": ""Tap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5693e57a-238a-46ed-b5ae-e64e6e574302"",
-                    ""path"": ""<Touchscreen>/touch0/position"",
+                    ""id"": ""47c2a644-3ebc-4dae-a106-589b7ca75b59"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Touch"",
-                    ""action"": ""Touch0Position"",
+                    ""action"": ""Tap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7a8394ec-5479-420b-aade-d09199e7a00f"",
+                    ""path"": ""<Touchscreen>/touch1/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touch"",
+                    ""action"": ""Touch1Position"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -250,12 +250,12 @@ public partial class @MtdInputActions : IInputActionCollection2, IDisposable
 }");
         // Main
         m_Main = asset.FindActionMap("Main", throwIfNotFound: true);
-        m_Main_DragPress = m_Main.FindAction("DragPress", throwIfNotFound: true);
-        m_Main_MouseScrollZoom = m_Main.FindAction("MouseScrollZoom", throwIfNotFound: true);
-        m_Main_Tap = m_Main.FindAction("Tap", throwIfNotFound: true);
         m_Main_Touch0Position = m_Main.FindAction("Touch0Position", throwIfNotFound: true);
-        m_Main_Touch1Press = m_Main.FindAction("Touch1Press", throwIfNotFound: true);
         m_Main_Touch1Position = m_Main.FindAction("Touch1Position", throwIfNotFound: true);
+        m_Main_Touch1Press = m_Main.FindAction("Touch1Press", throwIfNotFound: true);
+        m_Main_Tap = m_Main.FindAction("Tap", throwIfNotFound: true);
+        m_Main_MouseScrollZoom = m_Main.FindAction("MouseScrollZoom", throwIfNotFound: true);
+        m_Main_DragPress = m_Main.FindAction("DragPress", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -315,22 +315,22 @@ public partial class @MtdInputActions : IInputActionCollection2, IDisposable
     // Main
     private readonly InputActionMap m_Main;
     private IMainActions m_MainActionsCallbackInterface;
-    private readonly InputAction m_Main_DragPress;
-    private readonly InputAction m_Main_MouseScrollZoom;
-    private readonly InputAction m_Main_Tap;
     private readonly InputAction m_Main_Touch0Position;
-    private readonly InputAction m_Main_Touch1Press;
     private readonly InputAction m_Main_Touch1Position;
+    private readonly InputAction m_Main_Touch1Press;
+    private readonly InputAction m_Main_Tap;
+    private readonly InputAction m_Main_MouseScrollZoom;
+    private readonly InputAction m_Main_DragPress;
     public struct MainActions
     {
         private @MtdInputActions m_Wrapper;
         public MainActions(@MtdInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @DragPress => m_Wrapper.m_Main_DragPress;
-        public InputAction @MouseScrollZoom => m_Wrapper.m_Main_MouseScrollZoom;
-        public InputAction @Tap => m_Wrapper.m_Main_Tap;
         public InputAction @Touch0Position => m_Wrapper.m_Main_Touch0Position;
-        public InputAction @Touch1Press => m_Wrapper.m_Main_Touch1Press;
         public InputAction @Touch1Position => m_Wrapper.m_Main_Touch1Position;
+        public InputAction @Touch1Press => m_Wrapper.m_Main_Touch1Press;
+        public InputAction @Tap => m_Wrapper.m_Main_Tap;
+        public InputAction @MouseScrollZoom => m_Wrapper.m_Main_MouseScrollZoom;
+        public InputAction @DragPress => m_Wrapper.m_Main_DragPress;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -340,46 +340,46 @@ public partial class @MtdInputActions : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_MainActionsCallbackInterface != null)
             {
-                @DragPress.started -= m_Wrapper.m_MainActionsCallbackInterface.OnDragPress;
-                @DragPress.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnDragPress;
-                @DragPress.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnDragPress;
-                @MouseScrollZoom.started -= m_Wrapper.m_MainActionsCallbackInterface.OnMouseScrollZoom;
-                @MouseScrollZoom.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnMouseScrollZoom;
-                @MouseScrollZoom.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnMouseScrollZoom;
-                @Tap.started -= m_Wrapper.m_MainActionsCallbackInterface.OnTap;
-                @Tap.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnTap;
-                @Tap.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnTap;
                 @Touch0Position.started -= m_Wrapper.m_MainActionsCallbackInterface.OnTouch0Position;
                 @Touch0Position.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnTouch0Position;
                 @Touch0Position.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnTouch0Position;
-                @Touch1Press.started -= m_Wrapper.m_MainActionsCallbackInterface.OnTouch1Press;
-                @Touch1Press.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnTouch1Press;
-                @Touch1Press.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnTouch1Press;
                 @Touch1Position.started -= m_Wrapper.m_MainActionsCallbackInterface.OnTouch1Position;
                 @Touch1Position.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnTouch1Position;
                 @Touch1Position.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnTouch1Position;
+                @Touch1Press.started -= m_Wrapper.m_MainActionsCallbackInterface.OnTouch1Press;
+                @Touch1Press.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnTouch1Press;
+                @Touch1Press.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnTouch1Press;
+                @Tap.started -= m_Wrapper.m_MainActionsCallbackInterface.OnTap;
+                @Tap.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnTap;
+                @Tap.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnTap;
+                @MouseScrollZoom.started -= m_Wrapper.m_MainActionsCallbackInterface.OnMouseScrollZoom;
+                @MouseScrollZoom.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnMouseScrollZoom;
+                @MouseScrollZoom.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnMouseScrollZoom;
+                @DragPress.started -= m_Wrapper.m_MainActionsCallbackInterface.OnDragPress;
+                @DragPress.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnDragPress;
+                @DragPress.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnDragPress;
             }
             m_Wrapper.m_MainActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @DragPress.started += instance.OnDragPress;
-                @DragPress.performed += instance.OnDragPress;
-                @DragPress.canceled += instance.OnDragPress;
-                @MouseScrollZoom.started += instance.OnMouseScrollZoom;
-                @MouseScrollZoom.performed += instance.OnMouseScrollZoom;
-                @MouseScrollZoom.canceled += instance.OnMouseScrollZoom;
-                @Tap.started += instance.OnTap;
-                @Tap.performed += instance.OnTap;
-                @Tap.canceled += instance.OnTap;
                 @Touch0Position.started += instance.OnTouch0Position;
                 @Touch0Position.performed += instance.OnTouch0Position;
                 @Touch0Position.canceled += instance.OnTouch0Position;
-                @Touch1Press.started += instance.OnTouch1Press;
-                @Touch1Press.performed += instance.OnTouch1Press;
-                @Touch1Press.canceled += instance.OnTouch1Press;
                 @Touch1Position.started += instance.OnTouch1Position;
                 @Touch1Position.performed += instance.OnTouch1Position;
                 @Touch1Position.canceled += instance.OnTouch1Position;
+                @Touch1Press.started += instance.OnTouch1Press;
+                @Touch1Press.performed += instance.OnTouch1Press;
+                @Touch1Press.canceled += instance.OnTouch1Press;
+                @Tap.started += instance.OnTap;
+                @Tap.performed += instance.OnTap;
+                @Tap.canceled += instance.OnTap;
+                @MouseScrollZoom.started += instance.OnMouseScrollZoom;
+                @MouseScrollZoom.performed += instance.OnMouseScrollZoom;
+                @MouseScrollZoom.canceled += instance.OnMouseScrollZoom;
+                @DragPress.started += instance.OnDragPress;
+                @DragPress.performed += instance.OnDragPress;
+                @DragPress.canceled += instance.OnDragPress;
             }
         }
     }
@@ -431,11 +431,11 @@ public partial class @MtdInputActions : IInputActionCollection2, IDisposable
     }
     public interface IMainActions
     {
-        void OnDragPress(InputAction.CallbackContext context);
-        void OnMouseScrollZoom(InputAction.CallbackContext context);
-        void OnTap(InputAction.CallbackContext context);
         void OnTouch0Position(InputAction.CallbackContext context);
-        void OnTouch1Press(InputAction.CallbackContext context);
         void OnTouch1Position(InputAction.CallbackContext context);
+        void OnTouch1Press(InputAction.CallbackContext context);
+        void OnTap(InputAction.CallbackContext context);
+        void OnMouseScrollZoom(InputAction.CallbackContext context);
+        void OnDragPress(InputAction.CallbackContext context);
     }
 }

@@ -27,7 +27,7 @@ namespace Mtd {
     Vector2 _touch0Position;
     Vector2 _touch1Position;
 
-    [SerializeField] float _zoomScaling = 0.001f;
+    [SerializeField] float _zoomScaling = 0.003f;
     [SerializeField] float _scrollZoomScaling = 1f;
     [SerializeField] float _pinchZoomScaling = 1f;
 
@@ -66,7 +66,7 @@ namespace Mtd {
     public void OnTouch0Position(InputAction.CallbackContext context) {
       var nextTouch0Position = context.ReadValue<Vector2>();
       if (_dragInitialized) {
-        _mtdInput.Drag.Invoke(nextTouch0Position - _touch0Position);
+        _mtdInput.Drag.Invoke(nextTouch0Position);
       }
       _touch0Position = nextTouch0Position;
     }
@@ -94,10 +94,10 @@ namespace Mtd {
     public void OnDragPress(InputAction.CallbackContext context) {
       if (context.phase == InputActionPhase.Started) {
         _dragInitialized = true;
-        _mtdInput.DragStart.Invoke(ScreenAndWorldPoint.FromScreenPoint(_camera, _touch0Position));
+        _mtdInput.DragStart.Invoke(_touch0Position);
       }
       else if (context.phase == InputActionPhase.Canceled) {
-        _mtdInput.DragEnd.Invoke(ScreenAndWorldPoint.FromScreenPoint(_camera, _touch0Position));
+        _mtdInput.DragEnd.Invoke(_touch0Position);
         _dragInitialized = false;
       }
     }

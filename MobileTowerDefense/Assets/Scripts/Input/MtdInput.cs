@@ -10,9 +10,9 @@ namespace Mtd {
   public class MtdInput: MonoBehaviour {
     [SerializeField] MtdInputActionsAdapter _inputActionsAdapter;
 
-    public readonly UnityEvent<ScreenAndWorldPoint> DragStart = new UnityEvent<ScreenAndWorldPoint>();
-    public readonly UnityEvent<Vector3> Drag = new UnityEvent<Vector3>();
-    public readonly UnityEvent<ScreenAndWorldPoint> DragEnd = new UnityEvent<ScreenAndWorldPoint>();
+    public readonly UnityEvent<Vector2> DragStart = new UnityEvent<Vector2>();
+    public readonly UnityEvent<Vector2> Drag = new UnityEvent<Vector2>();
+    public readonly UnityEvent<Vector2> DragEnd = new UnityEvent<Vector2>();
     public readonly UnityEvent<ScreenAndWorldPoint> Tap = new UnityEvent<ScreenAndWorldPoint>();
     public readonly UnityEvent<float> Zoom = new UnityEvent<float>();
 

@@ -19,14 +19,11 @@ namespace Mtd {
     Camera _rawCamera;
     CameraController _camera;
 
-    ScreenAndWorldPoint _pointEventPosition;
     GameObject _itemBeingPlaced;
 
     bool _ignoreCurrentDrag = false;
-
-    void Awake() {
-      _pointEventPosition = ScreenAndWorldPoint.Zero();
-    }
+    Vector2 _dragStartScreenPos;
+    Vector3 _dragStartCameraWorldPos;
 
     void Start() {
       _rawCamera = Camera.main;
@@ -37,20 +34,23 @@ namespace Mtd {
       _mtdInput.Zoom.AddListener(OnZoom);
     }
 
-    void Update() {
-      if (_itemBeingPlaced != null) {
-        _itemBeingPlaced.transform.position = _pointEventPosition.World;
-      }
-    }
-
-    void OnDragStart(ScreenAndWorldPoint point) {
-      _ignoreCurrentDrag = DoesPointHitUI(point);
-    }
-
-    void OnDrag(Vector3 delta) {
+    void OnDragStart(Vector2 screenPos) {
+      _ignoreCurrentDrag = DoesPointHitUI(screenPos);
       if (!_ignoreCurrentDrag) {
-        // _rawCamera.transform.position = _rawCamera.transform.position + delta;
+        _dragStartScreenPos = screenPos;
+        _dragStartCameraWorldPos = _rawCamera.gameObject.transform.position;
       }
+    }
+
+    void OnDrag(Vector2 screenPos) {
+      if (_ignoreCurrentDrag) {
+        return;
+      }
+      // we need to calculate the world positions here because the dragging changes them.
+      var dragStartWorldPos = _rawCamera.ScreenToWorldPoint(_dragStartScreenPos);
+      var dragCurrentWorldPos = _rawCamera.ScreenToWorldPoint(screenPos);
+      var worldPosDelta = dragCurrentWorldPos - dragStartWorldPos;
+      _rawCamera.gameObject.transform.position = _dragStartCameraWorldPos + -1f * worldPosDelta;
     }
 
     void OnTap(ScreenAndWorldPoint point) {
@@ -58,7 +58,7 @@ namespace Mtd {
       // // (there is a third call when the touch ends as well)
       // if (isPressed) {
       //   if (!_itemBeingPlaced) {
-      //     if (!DoesPointHitUI(point)) {
+      //     if (!DoesPointHitUI(point.Screen)) {
       //       _itemBeingPlaced = Instantiate(_coffeeMugPrefab, point.World, Quaternion.identity);
       //     }
       //   }
@@ -73,9 +73,9 @@ namespace Mtd {
     }
 
     // is this really the right way to do this?
-    bool DoesPointHitUI(ScreenAndWorldPoint point) {
+    bool DoesPointHitUI(Vector2 screenPos) {
       var pointerEventData = new PointerEventData(_eventSystem) {
-        position = point.Screen
+        position = screenPos
       };
       List<RaycastResult> results = new List<RaycastResult>();
       _uiGraphicRaycaster.Raycast(pointerEventData, results);
