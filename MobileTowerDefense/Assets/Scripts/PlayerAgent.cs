@@ -54,18 +54,9 @@ namespace Mtd {
     }
 
     void OnTap(ScreenAndWorldPoint point) {
-      // // there are two called to OnClick per touchscreen touch start, i don't know why
-      // // (there is a third call when the touch ends as well)
-      // if (isPressed) {
-      //   if (!_itemBeingPlaced) {
-      //     if (!DoesPointHitUI(point.Screen)) {
-      //       _itemBeingPlaced = Instantiate(_coffeeMugPrefab, point.World, Quaternion.identity);
-      //     }
-      //   }
-      // }
-      // else {
-      //   _itemBeingPlaced = null;
-      // }
+      if (!DoesPointHitUI(point.Screen)) {
+        Instantiate(_coffeeMugPrefab, point.World, Quaternion.identity);
+      }
     }
 
     void OnZoom(float amount) {
