@@ -27,6 +27,7 @@ namespace Mtd.Utils {
     public void UpdateFromScreenPoint(Camera camera, Vector2 screen) {
       Screen = screen;
       World = camera.ScreenToWorldPoint(screen);
+      World.z = 0;
     }
 
     public void UpdateFromWorldPoint(Camera camera, Vector3 world) {
