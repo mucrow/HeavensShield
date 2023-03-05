@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace Mtd {
+namespace Mtd.UI {
   public class UnitPanel: MonoBehaviour {
     RectTransform _rectTransform;
 

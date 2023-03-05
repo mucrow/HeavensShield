@@ -25,6 +25,24 @@ namespace Mtd {
       SetZoomLevel(zoomLevel);
     }
 
+    public Vector3 GetPosition() {
+      return gameObject.transform.position;
+    }
+
+    public void SetPosition(Vector3 newPosition) {
+      gameObject.transform.position = newPosition;
+    }
+
+    public Vector3 ScreenToWorldPoint(Vector3 screenPoint) {
+      var ret = _camera.ScreenToWorldPoint(screenPoint);
+      ret.z = 0;
+      return ret;
+    }
+
+    public Vector3 WorldToScreenPoint(Vector3 worldPoint) {
+      return _camera.WorldToScreenPoint(worldPoint);
+    }
+
     public void ChangeZoomLevel(float amount) {
       SetZoomLevel(_zoomLevel + amount);
     }

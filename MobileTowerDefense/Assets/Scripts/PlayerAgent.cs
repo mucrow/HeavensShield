@@ -12,12 +12,7 @@ using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 namespace Mtd {
   public class PlayerAgent: MonoBehaviour {
     [SerializeField] GameObject _coffeeMugPrefab;
-    [SerializeField] EventSystem _eventSystem;
-    [SerializeField] GraphicRaycaster _uiGraphicRaycaster;
     [SerializeField] MtdInput _mtdInput;
-
-    Camera _rawCamera;
-    CameraController _camera;
 
     GameObject _itemBeingPlaced;
 
@@ -26,8 +21,6 @@ namespace Mtd {
     Vector3 _dragStartCameraWorldPos;
 
     void Start() {
-      _rawCamera = Camera.main;
-      _camera = _rawCamera.GetComponent<CameraController>();
       _mtdInput.DragStart.AddListener(OnDragStart);
       _mtdInput.Drag.AddListener(OnDrag);
       _mtdInput.Tap.AddListener(OnTap);
@@ -35,10 +28,10 @@ namespace Mtd {
     }
 
     void OnDragStart(Vector2 screenPos) {
-      _ignoreCurrentDrag = DoesPointHitUI(screenPos);
+      _ignoreCurrentDrag = Globals.UI.DoesUICoverScreenPoint(screenPos);
       if (!_ignoreCurrentDrag) {
         _dragStartScreenPos = screenPos;
-        _dragStartCameraWorldPos = _rawCamera.gameObject.transform.position;
+        _dragStartCameraWorldPos = Globals.Camera.GetPosition();
       }
     }
 
@@ -47,30 +40,21 @@ namespace Mtd {
         return;
       }
       // we need to calculate the world positions here because the dragging changes them.
-      var dragStartWorldPos = _rawCamera.ScreenToWorldPoint(_dragStartScreenPos);
-      var dragCurrentWorldPos = _rawCamera.ScreenToWorldPoint(screenPos);
+      var dragStartWorldPos = Globals.Camera.ScreenToWorldPoint(_dragStartScreenPos);
+      var dragCurrentWorldPos = Globals.Camera.ScreenToWorldPoint(screenPos);
       var worldPosDelta = dragCurrentWorldPos - dragStartWorldPos;
-      _rawCamera.gameObject.transform.position = _dragStartCameraWorldPos + -1f * worldPosDelta;
+      Globals.Camera.SetPosition(_dragStartCameraWorldPos + -1f * worldPosDelta);
     }
 
     void OnTap(ScreenAndWorldPoint point) {
-      if (!DoesPointHitUI(point.Screen)) {
+      // is this really the right way to do this?
+      if (!Globals.UI.DoesUICoverScreenPoint(point.Screen)) {
         Instantiate(_coffeeMugPrefab, point.World, Quaternion.identity);
       }
     }
 
     void OnZoom(float amount) {
-      _camera.ChangeZoomLevel(amount);
-    }
-
-    // is this really the right way to do this?
-    bool DoesPointHitUI(Vector2 screenPos) {
-      var pointerEventData = new PointerEventData(_eventSystem) {
-        position = screenPos
-      };
-      List<RaycastResult> results = new List<RaycastResult>();
-      _uiGraphicRaycaster.Raycast(pointerEventData, results);
-      return results.Count > 0;
+      Globals.Camera.ChangeZoomLevel(amount);
     }
   }
 }
