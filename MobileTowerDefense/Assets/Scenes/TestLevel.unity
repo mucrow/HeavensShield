@@ -918,17 +918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf29ff19a28f564b85aee6cf91c4c48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &519420033 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5281173861425797726, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
-  m_PrefabInstance: {fileID: 5281173861732803295}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68874c84462163445ad409c7a4f00510, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &609599357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15775,10 +15764,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5281173861594878508, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
-      propertyPath: _camera
-      value: 
-      objectReference: {fileID: 519420033}
     - target: {fileID: 5281173861594878509, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
       propertyPath: m_RootOrder
       value: 0

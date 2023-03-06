@@ -45,8 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coffeeMugPrefab: {fileID: 9103857248003904031, guid: 8330b9c320d834d48bf9e1170b020bb3, type: 3}
-  _eventSystem: {fileID: 5281173860401328006}
-  _uiGraphicRaycaster: {fileID: 5281173861250695870}
   _mtdInput: {fileID: 5281173860959149103}
 --- !u!1 &5281173860265815255
 GameObject:
