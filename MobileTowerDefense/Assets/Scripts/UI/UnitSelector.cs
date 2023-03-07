@@ -8,7 +8,7 @@ namespace Mtd.UI {
     RectTransform _rectTransform;
 
     Vector2 _initialPosition = Vector2.zero;
-    bool _isHidden = false;
+    public bool IsHidden { get; private set; } = false;
     float _width = 100f;
 
     void Awake() {
@@ -26,23 +26,26 @@ namespace Mtd.UI {
       Hide();
     }
 
-    public void OnOpenCloseButtonClick() {
-      if (_isHidden) {
-        Show();
-      }
-      else {
-        Hide();
-      }
+    public void StartUnitSelection(Vector3 placementPosition) {
+      Globals.UI.SelectionCircle.Show();
+      Globals.UI.SelectionCircle.SetWorldPosition(placementPosition);
+      Globals.UI.SelectionCircle.StopPreviewingRange();
+      Show();
     }
 
-    public void Show() {
+    public void CancelUnitSelection() {
+      Globals.UI.SelectionCircle.Hide();
+      Hide();
+    }
+
+    void Show() {
       _rectTransform.anchoredPosition = _initialPosition;
-      _isHidden = false;
+      IsHidden = false;
     }
 
-    public void Hide() {
+    void Hide() {
       _rectTransform.anchoredPosition = _initialPosition + Vector2.left * _width;
-      _isHidden = true;
+      IsHidden = true;
     }
   }
 }

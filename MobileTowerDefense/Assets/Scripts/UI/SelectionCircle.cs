@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Mtd.UI {
   public class SelectionCircle: MonoBehaviour {
-    [SerializeField] GameObject _circleScaler;
-    [SerializeField] GameObject _sprite;
+    [FormerlySerializedAs("_sprite")] [SerializeField] GameObject _rotate;
+    [SerializeField] GameObject _showHide;
+    [FormerlySerializedAs("_circleScaler")] [SerializeField] GameObject _squish;
 
     [SerializeField] Vector3 _defaultScale = new Vector3(1.5f, 0.7f, 1f);
 
@@ -19,11 +21,11 @@ namespace Mtd.UI {
     }
 
     void Update() {
-      var currentRotation = _sprite.transform.localRotation.eulerAngles.z;
+      var currentRotation = _rotate.transform.localRotation.eulerAngles.z;
       var rotationDirection = _rotateClockwise ? -1f : 1f;
       var rotationDelta = Time.deltaTime * 360f * _rotationsPerSecond * rotationDirection;
       var newRotation = (currentRotation + rotationDelta) % 360f;
-      _sprite.transform.localRotation = Quaternion.Euler(0f, 0f, newRotation);
+      _rotate.transform.localRotation = Quaternion.Euler(0f, 0f, newRotation);
     }
 
     bool _previewingRange = true;
@@ -38,14 +40,26 @@ namespace Mtd.UI {
       }
     }
 
+    public void Show() {
+      _showHide.SetActive(true);
+    }
+
+    public void Hide() {
+      _showHide.SetActive(false);
+    }
+
+    public void SetWorldPosition(Vector3 pos) {
+      gameObject.transform.position = pos;
+    }
+
     public void PreviewRange(float range) {
       // float scale = range * 2f;
-      _circleScaler.transform.localScale = new Vector3(1f, 1f, 1f);
+      _squish.transform.localScale = new Vector3(1f, 1f, 1f);
       SetParticlesExtension(range);
     }
 
     public void StopPreviewingRange() {
-      _circleScaler.transform.localScale = _defaultScale;
+      _squish.transform.localScale = _defaultScale;
       SetParticlesExtension(0.5f);
     }
 

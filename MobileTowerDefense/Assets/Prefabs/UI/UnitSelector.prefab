@@ -658,8 +658,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4530794140503317070}
-        m_TargetAssemblyTypeName: Mtd.UnitPanel, Assembly-CSharp
-        m_MethodName: OnOpenCloseButtonClick
+        m_TargetAssemblyTypeName: Mtd.UI.UnitSelector, Assembly-CSharp
+        m_MethodName: CancelUnitSelection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

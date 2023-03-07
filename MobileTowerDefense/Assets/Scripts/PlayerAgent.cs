@@ -48,8 +48,18 @@ namespace Mtd {
 
     void OnTap(ScreenAndWorldPoint point) {
       // is this really the right way to do this?
-      if (!Globals.UI.DoesUICoverScreenPoint(point.Screen)) {
-        Instantiate(_coffeeMugPrefab, point.World, Quaternion.identity);
+      var ui = Globals.UI;
+      if (!ui.DoesUICoverScreenPoint(point.Screen)) {
+        var halfTile = new Vector3(0.5f, 0.5f, 0f);
+        var bottomLeftCornerOfTappedTile = new Vector3(Mathf.Floor(point.World.x), Mathf.Floor(point.World.y), point.World.z);
+        var pointCenteredToTile = bottomLeftCornerOfTappedTile + halfTile;
+        var unitSelector = ui.UnitSelector;
+        if (unitSelector.IsHidden) {
+          unitSelector.StartUnitSelection(pointCenteredToTile);
+        }
+        else {
+          unitSelector.CancelUnitSelection();
+        }
       }
     }
 
