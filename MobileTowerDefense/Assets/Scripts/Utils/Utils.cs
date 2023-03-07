@@ -87,5 +87,17 @@ namespace Mtd.Utils {
       float y = MapRange(minInput, maxInput, minOutput.y, maxOutput.y, input, 1f);
       return new Vector2(x, y);
     }
+
+    public static Vector3 SnapPointToBottomLeftOfTile(Vector3 point) {
+      var x = Mathf.Floor(point.x);
+      var y = Mathf.Floor(point.y);
+      return new Vector3(x, y, point.z);
+    }
+
+    public static Vector3 SnapPointToTileCenter(Vector3 point) {
+      var pointSnappedToBottomLeft = SnapPointToBottomLeftOfTile(point);
+      var halfTile = new Vector3(0.5f, 0.5f, 0f);
+      return pointSnappedToBottomLeft + halfTile;
+    }
   }
 }

@@ -50,9 +50,7 @@ namespace Mtd {
       // is this really the right way to do this?
       var ui = Globals.UI;
       if (!ui.DoesUICoverScreenPoint(point.Screen)) {
-        var halfTile = new Vector3(0.5f, 0.5f, 0f);
-        var bottomLeftCornerOfTappedTile = new Vector3(Mathf.Floor(point.World.x), Mathf.Floor(point.World.y), point.World.z);
-        var pointCenteredToTile = bottomLeftCornerOfTappedTile + halfTile;
+        var pointCenteredToTile = Utils.Utils.SnapPointToTileCenter(point.World);
         var unitSelector = ui.UnitSelector;
         if (unitSelector.IsHidden) {
           unitSelector.StartUnitSelection(pointCenteredToTile);
