@@ -422,6 +422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4530794140503317067}
   - component: {fileID: 4530794140503317070}
+  - component: {fileID: 1973657822147005398}
   m_Layer: 5
   m_Name: UnitSelector
   m_TagString: Untagged
@@ -461,6 +462,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c3d5c0b4a4ff98489fdc7fdc83664b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showHideOffscreen: {fileID: 1973657822147005398}
+--- !u!114 &1973657822147005398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4530794140503317066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8526985721853063684
