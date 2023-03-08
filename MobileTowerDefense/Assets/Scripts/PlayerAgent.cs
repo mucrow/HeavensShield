@@ -53,10 +53,10 @@ namespace Mtd {
         var pointCenteredToTile = Utils.Utils.SnapPointToTileCenter(point.World);
         var unitSelector = ui.UnitSelector;
         if (unitSelector.IsHidden) {
-          unitSelector.StartUnitSelection(pointCenteredToTile);
+          unitSelector.Open(pointCenteredToTile);
         }
         else {
-          unitSelector.CancelUnitSelection();
+          unitSelector.Close();
         }
       }
     }
