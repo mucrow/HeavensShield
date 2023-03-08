@@ -1,12 +1,15 @@
 ﻿using System;
+using Mtd.Utils;
 using UnityEngine;
 
 namespace Mtd.UI {
   [RequireComponent(typeof(RectTransform))]
   public class ShowHideOffscreen: MonoBehaviour {
+    [SerializeField] Direction _edge;
+
     RectTransform _rectTransform;
     Vector2 _initialPosition;
-    float _size = 100;
+    Vector2 _size = new Vector2(16, 16);
 
     public bool IsHidden { get; private set; }
 
@@ -21,7 +24,7 @@ namespace Mtd.UI {
       // it has to happen somewhere. probably best that these objects don't get special treatment
       // just for being part of Unity's main library.
       _initialPosition = _rectTransform.anchoredPosition;
-      _size = _rectTransform.rect.width;
+      _size = _rectTransform.rect.size;
       Hide();
     }
 
@@ -31,8 +34,17 @@ namespace Mtd.UI {
     }
 
     public void Hide() {
-      _rectTransform.anchoredPosition = _initialPosition + Vector2.left * _size;
+      var direction = _edge.ToVector2();
+      var relevantDimension = GetRelevantDimension();
+      _rectTransform.anchoredPosition = _initialPosition + direction * relevantDimension;
       IsHidden = true;
+    }
+
+    public float GetRelevantDimension() {
+      if (_edge == Direction.Left || _edge == Direction.Right) {
+        return _size.x;
+      }
+      return _size.y;
     }
   }
 }
