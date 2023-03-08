@@ -91,6 +91,18 @@ PrefabInstance:
       propertyPath: m_text
       value: Confirm
       objectReference: {fileID: 0}
+    - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016298, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_Name
       value: ConfirmButton

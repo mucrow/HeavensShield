@@ -15,6 +15,8 @@ namespace Mtd {
     [SerializeField] int _damage = 10;
     [SerializeField] float _speed = 20.0f;
 
+    public float Range => _enemyDetector.Range;
+
     float _timeBetweenActions = 10000000f;
 
     float _actionCooldownTimer = 0f;

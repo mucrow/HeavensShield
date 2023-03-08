@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee606f19bf9d4e088d6094f2bd5c024e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _circleCollider2D: {fileID: 6612516780576738217}
 --- !u!58 &6612516780576738217
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -112,7 +113,7 @@ Transform:
   m_Children:
   - {fileID: 6612516780576738218}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6612516781684231688
 MonoBehaviour:

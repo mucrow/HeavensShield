@@ -534,7 +534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -553,8 +553,12 @@ PrefabInstance:
       value: Mtd.UI.UnitSelector, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 91cd8594a09c7644096d49a1a6041416, type: 2}
+    - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: Mtd.UnitKind, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016298, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_Name
@@ -672,7 +676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -691,8 +695,12 @@ PrefabInstance:
       value: Mtd.UI.UnitSelector, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d25a80c389a8d6469ad6403f44c5647, type: 2}
+    - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: Mtd.UnitKind, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016298, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_Name
@@ -810,7 +818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -829,8 +837,12 @@ PrefabInstance:
       value: Mtd.UI.UnitSelector, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 9a5ba43300d11a6429048162b0c73418, type: 2}
+    - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: Mtd.UnitKind, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016298, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_Name

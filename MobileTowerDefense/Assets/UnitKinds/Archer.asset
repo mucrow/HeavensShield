@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d89b71603e4a6abcdb0d18ab57dac5, type: 3}
   m_Name: Archer
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 0}
-  _hologramPrefab: {fileID: 0}
+  _name: Archer
+  _placementCost: 300
+  _prefab: {fileID: 720000308538057765, guid: f0a1b5583ef72024cbf64c994349c628, type: 3}
+  _hologramPrefab: {fileID: 6063075878508305896, guid: b33959dcc0eaaf14fb8f230edd0cd00b, type: 3}

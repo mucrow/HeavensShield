@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d89b71603e4a6abcdb0d18ab57dac5, type: 3}
   m_Name: Mage
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 0}
-  _hologramPrefab: {fileID: 0}
+  _name: Mage
+  _placementCost: 300
+  _prefab: {fileID: 7748516855882498667, guid: f86de1bbb39798b43957d49a854a55bc, type: 3}
+  _hologramPrefab: {fileID: 6063075878508305896, guid: b1efa732fa9bcaf4ab627b0f932a23cf, type: 3}

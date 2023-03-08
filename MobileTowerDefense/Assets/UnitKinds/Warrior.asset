@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d89b71603e4a6abcdb0d18ab57dac5, type: 3}
   m_Name: Warrior
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 0}
-  _hologramPrefab: {fileID: 0}
+  _name: Warrior
+  _placementCost: 300
+  _prefab: {fileID: 811014710346029945, guid: 350759c68f4c36245a31398b67259556, type: 3}
+  _hologramPrefab: {fileID: 6063075878508305896, guid: 75cb0426864e6e043a76e9e6bb8dce91, type: 3}
