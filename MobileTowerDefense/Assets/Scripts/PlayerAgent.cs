@@ -18,6 +18,7 @@ namespace Mtd {
     Vector3 _dragStartCameraWorldPos;
 
     int _money = 1200;
+    public int Money => _money;
 
     void Start() {
       _mtdInput.DragStart.AddListener(OnDragStart);

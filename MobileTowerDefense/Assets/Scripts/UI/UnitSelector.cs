@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 namespace Mtd.UI {
   public class UnitSelector: MonoBehaviour {
-    [SerializeField] ShowHideOffscreen _confirmCancelButtons;
+    [SerializeField] ConfirmCancelButtons _confirmCancelButtons;
     [SerializeField] SelectionCircle _selectionCircle;
     [SerializeField] ShowHideOffscreen _unitChoiceGroup;
     [SerializeField] Transform _unitsGroup;
@@ -38,6 +38,15 @@ namespace Mtd.UI {
       _pickedUnit = unitKind;
       var unitRange = unitKind.Prefab.GetComponent<Unit>().Range;
       _selectionCircle.PreviewRange(unitRange);
+
+      int cost = unitKind.PlacementCost;
+      int playerMoney = Globals.Player.Money;
+      if (playerMoney >= cost) {
+        _confirmCancelButtons.ConfigureConfirmButton(true);
+      }
+      else {
+        _confirmCancelButtons.ConfigureConfirmButton(false, "Not Enough Money");
+      }
       _confirmCancelButtons.Show();
     }
 
@@ -49,6 +58,7 @@ namespace Mtd.UI {
     }
 
     public void PlaceUnit() {
+      Globals.Player.AddMoney(-1 * _pickedUnit.PlacementCost);
       var selectedPosition = _selectionCircle.transform.position;
       Destroy(_hologram);
       Instantiate(_pickedUnit.Prefab, selectedPosition, Quaternion.identity, _unitsGroup);

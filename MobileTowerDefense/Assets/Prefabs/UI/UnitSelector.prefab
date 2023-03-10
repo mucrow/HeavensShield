@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3d5c0b4a4ff98489fdc7fdc83664b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _confirmCancelButtons: {fileID: 4491168435590108403}
+  _confirmCancelButtons: {fileID: 3268969593754320743}
   _selectionCircle: {fileID: 1670340741469453854}
   _unitChoiceGroup: {fileID: 5592110562867454786}
   _unitsGroup: {fileID: 0}
@@ -1096,6 +1096,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1791490175137292083, guid: 21fa809326dab3b47ae61bd39db0f3e6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1791490175137292083, guid: 21fa809326dab3b47ae61bd39db0f3e6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1791490175137292083, guid: 21fa809326dab3b47ae61bd39db0f3e6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1791490175137292083, guid: 21fa809326dab3b47ae61bd39db0f3e6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3826179754468847393, guid: 21fa809326dab3b47ae61bd39db0f3e6, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -1208,6 +1224,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8225340464876993650, guid: 21fa809326dab3b47ae61bd39db0f3e6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225340464876993650, guid: 21fa809326dab3b47ae61bd39db0f3e6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225340464876993650, guid: 21fa809326dab3b47ae61bd39db0f3e6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225340464876993650, guid: 21fa809326dab3b47ae61bd39db0f3e6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8929690714121934859, guid: 21fa809326dab3b47ae61bd39db0f3e6, type: 3}
       propertyPath: m_Name
       value: ConfirmCancelUnitPlacement
@@ -1217,15 +1249,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21fa809326dab3b47ae61bd39db0f3e6, type: 3}
---- !u!114 &4491168435590108403 stripped
+--- !u!114 &3268969593754320743 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7244530350610179924, guid: 21fa809326dab3b47ae61bd39db0f3e6, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8613097571888073920, guid: 21fa809326dab3b47ae61bd39db0f3e6, type: 3}
   m_PrefabInstance: {fileID: 6546659482593424295}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
+  m_Script: {fileID: 11500000, guid: a1a31436f91145eeabedb7f9202e0fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &8053344518961126534 stripped
