@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Mtd.UI {
   public class UnitSelector: MonoBehaviour {
-    [SerializeField] SelectionCircle _selectionCircle;
     [SerializeField] ShowHideOffscreen _confirmCancelButtons;
-    [SerializeField] ShowHideOffscreen _showHideOffscreen;
+    [SerializeField] SelectionCircle _selectionCircle;
+    [SerializeField] ShowHideOffscreen _unitChoiceGroup;
     [SerializeField] Transform _unitsGroup;
 
-    public bool IsHidden => _showHideOffscreen.IsHidden;
+    public bool IsHidden => _unitChoiceGroup.IsHidden;
 
     GameObject _hologram;
     UnitKind _pickedUnit;
@@ -25,7 +26,7 @@ namespace Mtd.UI {
       _selectionCircle.Show();
       _selectionCircle.SetWorldPosition(placementPosition);
       _selectionCircle.StopPreviewingRange();
-      _showHideOffscreen.Show();
+      _unitChoiceGroup.Show();
     }
 
     public void PickUnit(UnitKind unitKind) {
@@ -57,7 +58,7 @@ namespace Mtd.UI {
     public void Close() {
       _confirmCancelButtons.Hide();
       _selectionCircle.Hide();
-      _showHideOffscreen.Hide();
+      _unitChoiceGroup.Hide();
       if (_hologram) {
         Destroy(_hologram);
       }

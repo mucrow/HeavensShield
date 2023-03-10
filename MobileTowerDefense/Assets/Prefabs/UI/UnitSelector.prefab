@@ -516,9 +516,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3d5c0b4a4ff98489fdc7fdc83664b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectionCircle: {fileID: 1670340741469453854}
   _confirmCancelButtons: {fileID: 4491168435590108403}
-  _showHideOffscreen: {fileID: 5592110562867454786}
+  _selectionCircle: {fileID: 1670340741469453854}
+  _unitChoiceGroup: {fileID: 5592110562867454786}
   _unitsGroup: {fileID: 0}
 --- !u!1 &8526985721853063684
 GameObject:
