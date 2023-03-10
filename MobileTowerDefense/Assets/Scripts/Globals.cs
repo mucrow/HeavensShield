@@ -9,12 +9,16 @@ namespace Mtd {
     /** Never null during or after Start() */
     public static CameraController Camera;
 
+    /** Never null during or after Start() in a level, but probably null in the start menu. */
+    public static PlayerAgent Player;
+
     /** Never null during or after Start() */
     public static MtdUI UI;
 
     static Globals _instance;
 
     [SerializeField] CameraController _camera;
+    [SerializeField] PlayerAgent _player;
     [SerializeField] MtdUI _ui;
 
     void Awake() {
@@ -35,6 +39,7 @@ namespace Mtd {
 
     void ExposeFields() {
       Camera = _camera;
+      Player = _player;
       UI = _ui;
     }
   }

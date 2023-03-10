@@ -9,6 +9,9 @@ namespace Mtd.UI {
     [SerializeField] EventSystem _eventSystem;
     [SerializeField] GraphicRaycaster _uiGraphicRaycaster;
 
+    [SerializeField] HUD _hud;
+    public HUD HUD => _hud;
+
     [SerializeField] UnitSelector _unitSelector;
     public UnitSelector UnitSelector => _unitSelector;
 

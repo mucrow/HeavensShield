@@ -17,6 +17,8 @@ namespace Mtd {
     [SerializeField] int _maxHealth = 100;
     int _health;
 
+    [SerializeField] int _value = 1;
+
     [SerializeField] HealthBar _healthBar;
 
     void Awake() {
@@ -36,6 +38,7 @@ namespace Mtd {
       _health -= amount;
       if (_health <= 0) {
         _health = 0;
+        Globals.Player.AddMoney(_value);
         Destroy(gameObject);
       }
     }

@@ -13,17 +13,24 @@ namespace Mtd {
   public class PlayerAgent: MonoBehaviour {
     [SerializeField] MtdInput _mtdInput;
 
-    GameObject _itemBeingPlaced;
-
     bool _ignoreCurrentDrag = false;
     Vector2 _dragStartScreenPos;
     Vector3 _dragStartCameraWorldPos;
+
+    int _money = 1200;
 
     void Start() {
       _mtdInput.DragStart.AddListener(OnDragStart);
       _mtdInput.Drag.AddListener(OnDrag);
       _mtdInput.Tap.AddListener(OnTap);
       _mtdInput.Zoom.AddListener(OnZoom);
+
+      AddMoney(0);
+    }
+
+    public void AddMoney(int amount) {
+      _money += amount;
+      Globals.UI.HUD.UpdateGold(_money);
     }
 
     void OnDragStart(Vector2 screenPos) {

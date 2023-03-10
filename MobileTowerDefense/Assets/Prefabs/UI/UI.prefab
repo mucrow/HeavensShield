@@ -514,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventSystem: {fileID: 8118784923185266829}
   _uiGraphicRaycaster: {fileID: 8118784922423979445}
+  _hud: {fileID: 3378910231288904969}
   _unitSelector: {fileID: 171180859654555694}
 --- !u!1 &8118784923185266819
 GameObject:
@@ -602,6 +603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7956778758322020633}
+  - component: {fileID: 3378910231288904969}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -630,6 +632,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3378910231288904969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8192685188891253676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6fc68a0deecf0468b61b2b3649c60c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goldText: {fileID: 3861786128774486852}
 --- !u!1001 &4359683821391663712
 PrefabInstance:
   m_ObjectHideFlags: 0
