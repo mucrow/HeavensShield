@@ -11,7 +11,6 @@ using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 namespace Mtd {
   public class PlayerAgent: MonoBehaviour {
-    [SerializeField] GameObject _coffeeMugPrefab;
     [SerializeField] MtdInput _mtdInput;
 
     GameObject _itemBeingPlaced;

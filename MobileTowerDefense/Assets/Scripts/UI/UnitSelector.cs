@@ -5,13 +5,20 @@ using UnityEngine;
 
 namespace Mtd.UI {
   public class UnitSelector: MonoBehaviour {
-    [SerializeField] ShowHideOffscreen _showHideOffscreen;
     [SerializeField] ShowHideOffscreen _confirmCancelButtons;
+    [SerializeField] ShowHideOffscreen _showHideOffscreen;
+    [SerializeField] Transform _unitsGroup;
 
     public bool IsHidden => _showHideOffscreen.IsHidden;
 
     GameObject _hologram;
     UnitKind _pickedUnit;
+
+    void Awake() {
+      if (!_unitsGroup) {
+        Debug.LogWarning("_unitsGroup is null - created units will be added as top-level game objects in the hierarchy", this);
+      }
+    }
 
     public void Open(Vector3 placementPosition) {
       Globals.UI.SelectionCircle.Show();
@@ -42,7 +49,7 @@ namespace Mtd.UI {
     public void PlaceUnit() {
       var selectedPosition = Globals.UI.SelectionCircle.transform.position;
       Destroy(_hologram);
-      Instantiate(_pickedUnit.Prefab, selectedPosition, Quaternion.identity);
+      Instantiate(_pickedUnit.Prefab, selectedPosition, Quaternion.identity, _unitsGroup);
       Close();
     }
 
