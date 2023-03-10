@@ -12,9 +12,6 @@ namespace Mtd.UI {
     [SerializeField] UnitSelector _unitSelector;
     public UnitSelector UnitSelector => _unitSelector;
 
-    [SerializeField] SelectionCircle _selectionCircle;
-    public SelectionCircle SelectionCircle => _selectionCircle;
-
     /** Check if the UI currently covers the given screen point. */
     public bool DoesUICoverScreenPoint(Vector2 point) {
       var pointerEventData = new PointerEventData(_eventSystem) {

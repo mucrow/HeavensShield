@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Mtd.UI {
   public class UnitSelector: MonoBehaviour {
+    [SerializeField] SelectionCircle _selectionCircle;
     [SerializeField] ShowHideOffscreen _confirmCancelButtons;
     [SerializeField] ShowHideOffscreen _showHideOffscreen;
     [SerializeField] Transform _unitsGroup;
@@ -21,33 +22,33 @@ namespace Mtd.UI {
     }
 
     public void Open(Vector3 placementPosition) {
-      Globals.UI.SelectionCircle.Show();
-      Globals.UI.SelectionCircle.SetWorldPosition(placementPosition);
-      Globals.UI.SelectionCircle.StopPreviewingRange();
+      _selectionCircle.Show();
+      _selectionCircle.SetWorldPosition(placementPosition);
+      _selectionCircle.StopPreviewingRange();
       _showHideOffscreen.Show();
     }
 
     public void PickUnit(UnitKind unitKind) {
-      var selectedPosition = Globals.UI.SelectionCircle.transform.position;
+      var selectedPosition = _selectionCircle.transform.position;
       if (_hologram) {
         Destroy(_hologram);
       }
       _hologram = Instantiate(unitKind.HologramPrefab, selectedPosition, Quaternion.identity);
       _pickedUnit = unitKind;
       var unitRange = unitKind.Prefab.GetComponent<Unit>().Range;
-      Globals.UI.SelectionCircle.PreviewRange(unitRange);
+      _selectionCircle.PreviewRange(unitRange);
       _confirmCancelButtons.Show();
     }
 
     public void UnpickUnit() {
       Destroy(_hologram);
-      Globals.UI.SelectionCircle.StopPreviewingRange();
+      _selectionCircle.StopPreviewingRange();
       _confirmCancelButtons.Hide();
       _pickedUnit = null;
     }
 
     public void PlaceUnit() {
-      var selectedPosition = Globals.UI.SelectionCircle.transform.position;
+      var selectedPosition = _selectionCircle.transform.position;
       Destroy(_hologram);
       Instantiate(_pickedUnit.Prefab, selectedPosition, Quaternion.identity, _unitsGroup);
       Close();
@@ -55,7 +56,7 @@ namespace Mtd.UI {
 
     public void Close() {
       _confirmCancelButtons.Hide();
-      Globals.UI.SelectionCircle.Hide();
+      _selectionCircle.Hide();
       _showHideOffscreen.Hide();
       if (_hologram) {
         Destroy(_hologram);
