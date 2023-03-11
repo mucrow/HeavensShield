@@ -57,7 +57,6 @@ namespace Mtd.UI {
     public void PlaceUnit() {
       Globals.Player.AddMoney(-1 * _pickedUnit.PlacementCost);
       var selectedPosition = _selectionCircle.transform.position;
-      Destroy(_hologram);
       Instantiate(_pickedUnit.Prefab, selectedPosition, Quaternion.identity, _unitsGroup);
       Close();
     }

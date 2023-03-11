@@ -1214,7 +1214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8225340464876993649, guid: 21fa809326dab3b47ae61bd39db0f3e6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UnpickUnit
+      value: Close
       objectReference: {fileID: 0}
     - target: {fileID: 8225340464876993649, guid: 21fa809326dab3b47ae61bd39db0f3e6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
