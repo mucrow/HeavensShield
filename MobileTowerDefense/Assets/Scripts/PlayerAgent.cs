@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Mtd.Utils;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
@@ -17,8 +18,10 @@ namespace Mtd {
     Vector2 _dragStartScreenPos;
     Vector3 _dragStartCameraWorldPos;
 
-    int _money = 1200;
+    int _money = 1100;
     public int Money => _money;
+
+    public readonly UnityEvent<int> MoneyChange = new UnityEvent<int>();
 
     void Start() {
       _mtdInput.DragStart.AddListener(OnDragStart);
@@ -31,7 +34,7 @@ namespace Mtd {
 
     public void AddMoney(int amount) {
       _money += amount;
-      Globals.UI.HUD.UpdateGold(_money);
+      MoneyChange.Invoke(_money);
     }
 
     void OnDragStart(Vector2 screenPos) {

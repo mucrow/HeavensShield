@@ -22,6 +22,10 @@ namespace Mtd.UI {
       }
     }
 
+    void Start() {
+      Globals.Player.MoneyChange.AddListener(UpdateConfirmButton);
+    }
+
     public void Open(Vector3 placementPosition) {
       _selectionCircle.Show();
       _selectionCircle.SetWorldPosition(placementPosition);
@@ -39,14 +43,7 @@ namespace Mtd.UI {
       var unitRange = unitKind.Prefab.GetComponent<Unit>().Range;
       _selectionCircle.PreviewRange(unitRange);
 
-      int cost = unitKind.PlacementCost;
-      int playerMoney = Globals.Player.Money;
-      if (playerMoney >= cost) {
-        _confirmCancelButtons.ConfigureConfirmButton(true);
-      }
-      else {
-        _confirmCancelButtons.ConfigureConfirmButton(false, "Not Enough Money");
-      }
+      UpdateConfirmButton(Globals.Player.Money);
       _confirmCancelButtons.Show();
     }
 
@@ -73,6 +70,18 @@ namespace Mtd.UI {
         Destroy(_hologram);
       }
       _pickedUnit = null;
+    }
+
+    void UpdateConfirmButton(int playerMoney) {
+      if (!_pickedUnit) {
+        _confirmCancelButtons.ConfigureConfirmButton(false, "No Unit Selected");
+      }
+      else if (playerMoney < _pickedUnit.PlacementCost) {
+        _confirmCancelButtons.ConfigureConfirmButton(false, "Not Enough Money");
+      }
+      else {
+        _confirmCancelButtons.ConfigureConfirmButton(true);
+      }
     }
   }
 }
