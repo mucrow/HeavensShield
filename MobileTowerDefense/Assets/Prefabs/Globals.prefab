@@ -353,6 +353,46 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5027769757345898448, guid: b215f1d9ad122ca4c94cab4dbc5eb383, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027769757345898448, guid: b215f1d9ad122ca4c94cab4dbc5eb383, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027769757345898448, guid: b215f1d9ad122ca4c94cab4dbc5eb383, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027769757345898448, guid: b215f1d9ad122ca4c94cab4dbc5eb383, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027769757345898448, guid: b215f1d9ad122ca4c94cab4dbc5eb383, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317570930942625144, guid: b215f1d9ad122ca4c94cab4dbc5eb383, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317570930942625144, guid: b215f1d9ad122ca4c94cab4dbc5eb383, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317570930942625144, guid: b215f1d9ad122ca4c94cab4dbc5eb383, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317570930942625144, guid: b215f1d9ad122ca4c94cab4dbc5eb383, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317570930942625144, guid: b215f1d9ad122ca4c94cab4dbc5eb383, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8118784923050247132, guid: b215f1d9ad122ca4c94cab4dbc5eb383, type: 3}
       propertyPath: m_Name
       value: UI

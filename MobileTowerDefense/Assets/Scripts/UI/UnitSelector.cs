@@ -8,10 +8,10 @@ namespace Mtd.UI {
   public class UnitSelector: MonoBehaviour {
     [SerializeField] ConfirmCancelButtons _confirmCancelButtons;
     [SerializeField] SelectionCircle _selectionCircle;
-    [SerializeField] ShowHideOffscreen _unitChoiceGroup;
+    [SerializeField] ShowHideOffscreen _showHideOffscreen;
     [SerializeField] Transform _unitsGroup;
 
-    public bool IsHidden => _unitChoiceGroup.IsHidden;
+    public bool IsHidden => _showHideOffscreen.IsHidden;
 
     GameObject _hologram;
     UnitKind _pickedUnit;
@@ -27,10 +27,10 @@ namespace Mtd.UI {
     }
 
     public void Open(Vector3 placementPosition) {
+      _showHideOffscreen.Show();
       _selectionCircle.Show();
-      _selectionCircle.SetWorldPosition(placementPosition);
       _selectionCircle.StopPreviewingRange();
-      _unitChoiceGroup.Show();
+      _selectionCircle.SetWorldPosition(placementPosition);
     }
 
     public void PickUnit(UnitKind unitKind) {
@@ -64,7 +64,7 @@ namespace Mtd.UI {
     public void Close() {
       _confirmCancelButtons.Hide();
       _selectionCircle.Hide();
-      _unitChoiceGroup.Hide();
+      _showHideOffscreen.Hide();
       if (_hologram) {
         Destroy(_hologram);
       }
