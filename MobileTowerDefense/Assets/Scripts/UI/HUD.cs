@@ -5,14 +5,20 @@ using UnityEngine;
 
 namespace Mtd {
   public class HUD: MonoBehaviour {
-    [SerializeField] TMP_Text _goldText;
+    [SerializeField] TMP_Text _moneyText;
+    [SerializeField] TMP_Text _scoreText;
 
     void Start() {
-      Globals.Player.MoneyChange.AddListener(UpdateGold);
+      Globals.Player.MoneyChange.AddListener(UpdateMoney);
+      Globals.Player.ScoreChange.AddListener(UpdateScore);
     }
 
-    public void UpdateGold(int amount) {
-      _goldText.text = amount.ToString("N0");
+    public void UpdateMoney(int money) {
+      _moneyText.text = money.ToString("N0");
+    }
+
+    public void UpdateScore(int score) {
+      _scoreText.text = score.ToString("N0");
     }
   }
 }

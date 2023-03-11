@@ -21,7 +21,11 @@ namespace Mtd {
     int _money = 1100;
     public int Money => _money;
 
+    int _score = 0;
+    public int Score => _score;
+
     public readonly UnityEvent<int> MoneyChange = new UnityEvent<int>();
+    public readonly UnityEvent<int> ScoreChange = new UnityEvent<int>();
 
     void Start() {
       _mtdInput.DragStart.AddListener(OnDragStart);
@@ -35,6 +39,11 @@ namespace Mtd {
     public void AddMoney(int amount) {
       _money += amount;
       MoneyChange.Invoke(_money);
+    }
+
+    public void AddToScore(int points) {
+      _score += points;
+      ScoreChange.Invoke(_score);
     }
 
     void OnDragStart(Vector2 screenPos) {

@@ -52,7 +52,8 @@ MonoBehaviour:
   _speed: 2
   _path: {fileID: 0}
   _maxHealth: 100
-  _value: 31
+  _moneyOnKill: 31
+  _scoreOnKill: 37
   _healthBar: {fileID: 342406528237587770}
 --- !u!212 &7458727276083086698
 SpriteRenderer:
