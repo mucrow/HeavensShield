@@ -3,6 +3,63 @@ I should really come up with a title for this game.
 
 
 
+# Goals & Concepts
+stub
+
+
+
+# Gameplay Mechanics
+stub
+
+
+
+# Core Gameplay Loop
+stub
+
+
+
+# Art & Assets
+stub
+
+## Story
+stub
+
+
+## Dialog/Scriptwriting
+stub
+
+
+## Character Art
+stub
+
+
+## Environment Art
+stub
+
+
+## Cutscene Art
+stub
+
+
+## Music
+stub
+
+
+## Sound Design
+stub
+
+
+
+# Accessibility
+stub
+
+
+
+# Scope
+stub
+
+
+
 # Differentiating this game from __Fantasy Defense__
 This game is based on SN Mobile Technology's __Fantasy Defense__, but I want to
 sufficiently differentiate it as a game, primarily for artistic integrity but
