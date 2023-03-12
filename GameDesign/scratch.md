@@ -7,7 +7,7 @@ also as a matter of avoiding legal complications involving copyright.
 
 ### the grid
 placing units in some finite number of squares is more chill than placing them
-in arbitrary positions (cause otherwise players have to use [finicky] touch
+in arbitrary positions (cause otherwise players have to use \[finicky] touch
 screens to try to optimize unit layout).
 
 note that i could also solve this by allowing players to place units right on
