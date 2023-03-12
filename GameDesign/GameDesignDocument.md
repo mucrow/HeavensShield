@@ -61,6 +61,8 @@ stub
 
 
 # Differentiating this game from __Fantasy Defense__
+(From an ideation session on Sunday 2023-03-12.)
+
 This game is based on SN Mobile Technology's __Fantasy Defense__, but I want to
 sufficiently differentiate it as a game, primarily for artistic integrity but
 also as a matter of avoiding legal complications involving copyright.
