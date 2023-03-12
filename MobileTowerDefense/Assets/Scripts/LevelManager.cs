@@ -13,26 +13,63 @@ namespace Mtd {
     int _currentWaveIndex = 0;
     int _currentEnemyIndex = 0;
 
-    float _spawnTimer;
+    float _timer = 0f;
 
-    void Awake() {
-      UpdateCurrentWave();
+    enum State {
+      NotStarted,
+      SpawningWave,
+      FinishingWave,
+      FinishedAllWaves,
     }
+    State _state = State.NotStarted;
 
     void Update() {
-      DoSpawning();
-    }
-
-    void DoSpawning() {
-      if (!_currentWave) {
+      if (_state == State.FinishedAllWaves) {
         return;
       }
+      _timer -= Time.deltaTime;
 
-      _spawnTimer -= Time.deltaTime;
-      if (_spawnTimer <= 0f) {
+      if (_state == State.SpawningWave) {
+        DoSpawningWave();
+      }
+      else if (_state == State.FinishingWave) {
+        DoFinishingWave();
+      }
+      else if (_state == State.NotStarted) {
+        StartWave(0);
+      }
+    }
+
+    void DoFinishingWave() {
+      if (_timer <= 0f) {
+        StartWave(_currentWaveIndex + 1);
+      }
+    }
+
+    void DoSpawningWave() {
+      if (_timer <= 0f) {
         SpawnEnemy();
-        _spawnTimer += _currentWave.TimeBetweenEnemies;
-        UpdateEnemyIndex();
+        _currentEnemyIndex += 1;
+        if (_currentEnemyIndex < _currentWave.EnemyCount) {
+          _timer += _currentWave.WaitTimeBetweenEnemies;
+        }
+        else {
+          _timer += _currentWave.WaitTimeAfterLastEnemy;
+          _state = State.FinishingWave;
+        }
+      }
+    }
+
+    void StartWave(int waveNumber) {
+      _currentWaveIndex = waveNumber;
+      if (_currentWaveIndex < _enemyWaves.Length) {
+        _currentWave = _enemyWaves[_currentWaveIndex];
+        _currentEnemyIndex = 0;
+        _timer += _currentWave.WaitTimeBeforeFirstEnemy;
+        _state = State.SpawningWave;
+      }
+      else {
+        _state = State.FinishedAllWaves;
       }
     }
 
@@ -46,24 +83,6 @@ namespace Mtd {
       GameObject newEnemyObject = Instantiate(prefab, startPosition, Quaternion.identity, _enemyFolder);
       var enemy = newEnemyObject.GetComponent<EnemyController>();
       enemy.SetPath(path, pathIndex);
-    }
-
-    void UpdateEnemyIndex() {
-      _currentEnemyIndex += 1;
-      if (_currentEnemyIndex >= _currentWave.EnemyCount) {
-        _currentWaveIndex += 1;
-        UpdateCurrentWave();
-        _currentEnemyIndex = 0;
-      }
-    }
-
-    void UpdateCurrentWave() {
-      if (_currentWaveIndex < _enemyWaves.Length) {
-        _currentWave = _enemyWaves[_currentWaveIndex];
-      }
-      else {
-        _currentWave = null;
-      }
     }
   }
 }
