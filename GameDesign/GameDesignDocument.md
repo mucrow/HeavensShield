@@ -4,12 +4,145 @@ I should really come up with a title for this game.
 
 
 # Goals & Concepts
-stub
+## Relaxed gameplay with short sessions
+This game should, first and foremost, be a game that is chill to play for 5 or
+10 minutes.
+
+If there are scenarios that take longer than 10 minutes, I will need to
+"quick saves", where a player can halt a battle to quit the game and resume it
+next session.
+
+
+## Do not overwhelm the player
+This game should have a colorful amount of variety that unlocks _slowly_. It
+should be apparent to the player early on that there is depth to discover in
+the game despite the fact that they only have access to a small amount of
+content.
+
+Revealing cool art and music early on will be a great way to entice players
+without overwhelming them (contrast this with making lots of mechanics
+available in the early game.)
 
 
 
 # Gameplay Mechanics
-stub
+## Unit Types
+| Name           | Range      | Durability   | Speed     | Damage    | Aesthetic Notes   | Other Notes                                  |
+|----------------|------------|--------------|-----------|-----------|-------------------|----------------------------------------------|
+| Knight         | Very Short | Very Sturdy  | Fast      | High      | Sword             | -                                            |
+| Dragoon        | Short      | Sturdy       | Slow      | Very High | Polearm           | -                                            |
+| Fire Mage      | Moderate   | Very Fragile | Very Slow | High      | Open hand casting | Area of Effect                               |
+| Thunder Mage   | Moderate   | Very Fragile | Slow      | High      | Open hand casting | -                                            |
+| Crossbowman    | Long       | Sturdy-ish   | Slow      | Moderate  | -                 | -                                            |
+| Archer         | Very Long  | Fragile      | Slow      | Low       | Wooden bow        | -                                            |
+| Javelin Archer | Very Long  | Very Fragile | Moderate  | Low       | AOE2 skirmisher   | Pierce                                       |
+| Warrior        | Short      | Sturdy-ish   | Moderate  | Moderate  | Battle axes       | Taunts enemies (prevents other units from being targeted when in an enemy's range) |
+| Healer         | Short      | Very Fragile | -         | -         | Looks like mage   | Targets allies with slow, continuous healing |
+| Caravan        | -          | Fragile      | -         | -         | Pirate or bandit  | Generates currency                           |
+
+
+
+## Unit Behaviors
+### General unit behavior
+I think units should target the enemy that is farthest along the path.
+
+There are other things to experiment with such as targeting the enemy with the
+lowest health, but we'll see how things go with the above logic first.
+
+### Javelin Archer
+It would be great to code javelin archers to find an optimal or at least "good"
+throw direction. One naive algorithm I can think of is to check sectors (pie
+slices) around the unit for clusters of enemies. Once the sector with the most
+enemies is found, try like 3 to 5 raycasts and then throw the javelin in the
+direction of the one that collides with the most enemies. This already sounds
+a bit complicated for the scope of the project, but I think I should also make
+this an "online" algorithm so the unit can think over the course of its wait
+time between attacks.
+
+### Healer
+Healers should probably target the unit with the lowest health or lowest ratio
+of health to max health ("percent health").
+
+
+
+## Special Personnel
+Special personnel are strong units with in-game narratives. They can be placed
+free of charge, but they require the player reaching a certain score in a
+scenario.
+
+
+
+## Enemy Types
+It would be cool to unify the enemies into a single aesthetic so they feel like
+a "legion". For example, they might all be orcs or zombies, or mostly undead
+with some evil wizards.
+
+| Name   | Move Speed | Durability | Attack Speed | Range | Damage   | Other Notes |
+|--------|------------|------------|--------------|-------|----------|-------------|
+| Knight | Moderate   | Sturdy     | Moderate     | Short | High     | -           |
+| Archer | Moderate   | Fragile    | Moderate     | Long  | Moderate | -           |
+| Thief  | Fast       | Fragile    | Fast         | Short | Moderate | -           |
+| Mage   | Slow       | Fragile    | Slow         | Long  | High     | -           |
+| Healer | Slowish    | Fragile    | -            | Long  | -        | Targets other enemies for slow, continuous healing |
+
+## Enemy Behaviors
+### Attacking Units
+It might be interesting to have enemies do damage to units. That could make
+traps more valuable and also make room for a medic or healer unit.
+
+Would also give clear benefits to ranged units over melee units as opposed to
+the linear tradeoff of range vs damage output. Could attach a certain level of
+risk to placing frail ranged units directly on a path, too!
+
+### Path of Least Resistance
+It would be cool to make enemies avoid things like barracades and caltrops, but
+giving them that intelligence could have the unintended effect of making
+traps a bad investment or a "flat" mechanic (e.g., there's no point in putting
+two traps on a single path branch).
+
+
+
+## Trap Types
+For now, "trap" will be the catch-all term for entities the player can buy and
+place on the map to hinder, damage, or destroy enemies.
+
+### Caltrops
+Caltrops damage enemies. Slower enemies take more damage from caltrops.
+
+### Glue Trap
+Enemies passing over glue traps are slowed down or get temporarily stuck.
+
+### Land Mines
+Land mines cause an explosion that can hit multiple enemies when triggered.
+
+
+
+## Iron Mints
+Iron mints are the currency used during gameplay to place units. Each map has a
+set amount of starting currency. Iron mints do not persist after a battle ends.
+
+
+
+## Political Power
+The score you earn from completing a level feeds proportionally into earning a
+currency called "political power". Political power persists outside of battles,
+unlike iron mints.
+
+In the narrative of the game, you are a tactician tasked with defending parts
+of a kingdom. The more successful encounters you have, the more dangerous the
+efforts entrusted to you.
+
+
+
+## Unlocking Scenarios
+Completing a scenario unlocks another scenario, but some scenarios can only be
+unlocked with political power.
+
+
+
+## Barracks
+Political power can be spent at the barracks to upgrade units and unlock new
+ones.
 
 
 
