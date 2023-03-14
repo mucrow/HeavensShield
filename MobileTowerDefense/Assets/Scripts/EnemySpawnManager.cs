@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Mtd {
-  public class LevelManager: MonoBehaviour {
+  public class EnemySpawnManager: MonoBehaviour {
     [SerializeField] Transform _enemyFolder;
 
     [SerializeField] Path _enemyPath;
