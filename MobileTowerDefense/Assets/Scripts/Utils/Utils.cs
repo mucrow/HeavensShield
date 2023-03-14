@@ -99,5 +99,21 @@ namespace Mtd.Utils {
       var halfTile = new Vector3(0.5f, 0.5f, 0f);
       return pointSnappedToBottomLeft + halfTile;
     }
+
+    public static void DebugDrawBounds(Bounds bounds, Color color) {
+      var bottomLeft = new Vector3(bounds.min.x, bounds.min.y, 0);
+      var bottomRight = new Vector3(bounds.max.x, bounds.min.y, 0);
+      var topLeft = new Vector3(bounds.min.x, bounds.max.y, 0);
+      var topRight = new Vector3(bounds.max.x, bounds.max.y, 0);
+
+      Debug.DrawLine(bottomLeft, bottomRight, color);
+      Debug.DrawLine(topLeft, topRight, color);
+      Debug.DrawLine(bottomLeft, topLeft, color);
+      Debug.DrawLine(bottomRight, topRight, color);
+    }
+
+    public static void DebugDrawBounds(Bounds bounds) {
+      DebugDrawBounds(bounds, Color.white);
+    }
   }
 }
