@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8646346084440761614}
+  - component: {fileID: 8991081697023566062}
+  - component: {fileID: 3482432886125913675}
   m_Layer: 5
   m_Name: StartMenu
   m_TagString: Untagged
@@ -38,6 +40,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8991081697023566062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082174749324636913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d706251b98eda0842ab81f9b6cfd57c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playButton: {fileID: 5713146285848244827}
+  _settingsButton: {fileID: 3989809782673732474}
+  _showHideOffscreen: {fileID: 3482432886125913675}
+--- !u!114 &3482432886125913675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082174749324636913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edge: 2
 --- !u!1 &5950520999360023402
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,8 +300,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7956778758322020633}
-  - {fileID: 171180859654555691}
   - {fileID: 8646346084440761614}
+  - {fileID: 171180859654555691}
   m_Father: {fileID: 8118784923050247133}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -391,6 +421,7 @@ MonoBehaviour:
   _eventSystem: {fileID: 8118784923185266829}
   _uiGraphicRaycaster: {fileID: 8118784922423979445}
   _hud: {fileID: 3378910231288904969}
+  _startMenu: {fileID: 8991081697023566062}
   _unitSelector: {fileID: 171180859654555694}
 --- !u!1 &8118784923185266819
 GameObject:
@@ -637,7 +668,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1021545213763837162, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_text
-      value: Options
+      value: Settings
       objectReference: {fileID: 0}
     - target: {fileID: 1021545213763837162, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_fontSize
@@ -645,7 +676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016298, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_Name
-      value: QuitButton
+      value: SettingsButton
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016299, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_Pivot.x
@@ -741,6 +772,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1021545214826016299, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
   m_PrefabInstance: {fileID: 4139906667809676626}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3989809782673732474 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
+  m_PrefabInstance: {fileID: 4139906667809676626}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4359683821391663712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -948,7 +990,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1021545213763837162, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_text
-      value: Start
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 1021545213763837162, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_fontSize
@@ -956,7 +998,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016298, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_Name
-      value: StartButton
+      value: PlayButton
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016299, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_Pivot.x
@@ -1052,3 +1094,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1021545214826016299, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
   m_PrefabInstance: {fileID: 4712011725273554035}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5713146285848244827 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
+  m_PrefabInstance: {fileID: 4712011725273554035}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -9,6 +9,9 @@ namespace Mtd {
     /** Never null during or after Start() */
     public static CameraController Camera;
 
+    /** Never null during or after Start() */
+    public static GameManager GameManager;
+
     /** Never null during or after Start() in a level, but probably null in the start menu. */
     public static PlayerAgent Player;
 
@@ -18,6 +21,7 @@ namespace Mtd {
     static Globals _instance;
 
     [SerializeField] CameraController _camera;
+    [SerializeField] GameManager _gameManager;
     [SerializeField] PlayerAgent _player;
     [SerializeField] MtdUI _ui;
 
@@ -39,6 +43,7 @@ namespace Mtd {
 
     void ExposeFields() {
       Camera = _camera;
+      GameManager = _gameManager;
       Player = _player;
       UI = _ui;
     }

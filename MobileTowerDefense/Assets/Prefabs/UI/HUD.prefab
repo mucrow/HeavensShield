@@ -195,6 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moneyText: {fileID: 1750128753098752702}
   _scoreText: {fileID: 730436818582935574}
+  _showHideOffscreen: {fileID: 5648231830295711541}
 --- !u!114 &5648231830295711541
 MonoBehaviour:
   m_ObjectHideFlags: 0
