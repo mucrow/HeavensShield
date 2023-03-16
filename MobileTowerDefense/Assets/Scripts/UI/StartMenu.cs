@@ -13,13 +13,7 @@ namespace Mtd.UI {
     public UnityEvent OnClickSettings => _settingsButton.onClick;
 
     [SerializeField] ShowHideOffscreen _showHideOffscreen;
-
-    public void Show() {
-      _showHideOffscreen.Show();
-    }
-
-    public void Hide() {
-      _showHideOffscreen.Hide();
-    }
+    public UnityAction Show => _showHideOffscreen.Show;
+    public UnityAction Hide => _showHideOffscreen.Hide;
   }
 }

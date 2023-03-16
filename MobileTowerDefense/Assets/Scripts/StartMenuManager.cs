@@ -20,7 +20,7 @@ namespace Mtd {
 
     public void OnClickPlay() {
       _startMenu.Hide();
-      Globals.GameManager.LoadScene("Scenes/Scenarios/0000-TestScenario");
+      Globals.GameManager.LoadScene("Scenes/MainMenu");
     }
   }
 }

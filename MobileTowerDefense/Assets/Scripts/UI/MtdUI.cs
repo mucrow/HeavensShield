@@ -12,6 +12,12 @@ namespace Mtd.UI {
     [SerializeField] HUD _hud;
     public HUD HUD => _hud;
 
+    [SerializeField] MainMenu _mainMenu;
+    public MainMenu MainMenu => _mainMenu;
+
+    [SerializeField] ScenarioSelection _scenarioSelection;
+    public ScenarioSelection ScenarioSelection => _scenarioSelection;
+
     [SerializeField] StartMenu _startMenu;
     public StartMenu StartMenu => _startMenu;
 
