@@ -4,10 +4,11 @@ using UnityEngine;
 
 namespace Mtd.UI {
   [RequireComponent(typeof(RectTransform))]
-  public class ShowHideOffscreen: MonoBehaviour {
+  public class ShowHideOffscreen: MonoBehaviour, IEnsureReady {
     [SerializeField] Direction _edge;
 
     RectTransform _rectTransform;
+    bool _isReady = false;
     Vector2 _initialPosition;
     Vector2 _size = new Vector2(16, 16);
 
@@ -23,9 +24,7 @@ namespace Mtd.UI {
       // when Awake() is called. it makes sense - the layout needs to be dynamically calculated and
       // it has to happen somewhere. probably best that these objects don't get special treatment
       // just for being part of Unity's main library.
-      _initialPosition = _rectTransform.anchoredPosition;
-      _size = _rectTransform.rect.size;
-      Hide();
+      EnsureReady();
     }
 
     public void Show() {
@@ -45,6 +44,16 @@ namespace Mtd.UI {
         return _size.x;
       }
       return _size.y;
+    }
+
+    public void EnsureReady() {
+      if (_isReady) {
+        return;
+      }
+      _initialPosition = _rectTransform.anchoredPosition;
+      _size = _rectTransform.rect.size;
+      Hide();
+      _isReady = true;
     }
   }
 }
