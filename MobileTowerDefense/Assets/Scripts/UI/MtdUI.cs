@@ -27,6 +27,10 @@ namespace Mtd.UI {
 
     bool _isWholeUIReady = false;
 
+    void Start() {
+      EnsureReady();
+    }
+
     /** Check if the UI currently covers the given screen point. */
     public bool DoesUICoverScreenPoint(Vector2 point) {
       var pointerEventData = new PointerEventData(_eventSystem) {
