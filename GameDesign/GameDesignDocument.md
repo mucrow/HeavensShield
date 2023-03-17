@@ -193,6 +193,12 @@ stub
 
 
 
+# Scratch
+
+- https://en.wikipedia.org/wiki/Area_denial_weapon
+
+
+
 # Differentiating this game from __Fantasy Defense__
 (From an ideation session on Sunday 2023-03-12.)
 
