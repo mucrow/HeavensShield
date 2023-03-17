@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Properties;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -13,17 +15,12 @@ namespace Mtd.UI {
     [SerializeField] HUD _hud;
     public HUD HUD => _hud;
 
-    [SerializeField] MainMenu _mainMenu;
-    public MainMenu MainMenu => _mainMenu;
-
-    [SerializeField] ScenarioSelection _scenarioSelection;
-    public ScenarioSelection ScenarioSelection => _scenarioSelection;
-
-    [SerializeField] StartMenu _startMenu;
-    public StartMenu StartMenu => _startMenu;
-
     [SerializeField] UnitSelector _unitSelector;
     public UnitSelector UnitSelector => _unitSelector;
+
+    [SerializeField] ShowHideOffscreen _startMenu;
+    [SerializeField] ShowHideOffscreen _mainMenu;
+    [SerializeField] ShowHideOffscreen _scenarioSelection;
 
     bool _isWholeUIReady = false;
 
@@ -59,5 +56,23 @@ namespace Mtd.UI {
       }
       _isWholeUIReady = true;
     }
+
+    public ShowHideOffscreen GetObjectByKey(UIObjectKey key) {
+      switch (key) {
+        case UIObjectKey.StartMenu:
+          return _startMenu;
+        case UIObjectKey.MainMenu:
+          return _mainMenu;
+        case UIObjectKey.ScenarioSelection:
+          return _scenarioSelection;
+      }
+      throw new Exception("Unhandled UIObjectKey " + key);
+    }
+  }
+
+  public enum UIObjectKey {
+    StartMenu,
+    MainMenu,
+    ScenarioSelection,
   }
 }
