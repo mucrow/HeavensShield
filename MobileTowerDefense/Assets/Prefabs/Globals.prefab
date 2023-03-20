@@ -1359,9 +1359,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b71edcc036d214382fff80a1a683bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dragThresholdLength: 16
   _zoomScaling: 0.0015
   _scrollZoomScaling: 1
   _pinchZoomScaling: 1
+  _tapPressReleaseTimeLimit: 0.4
 --- !u!1 &5281173861250695871
 GameObject:
   m_ObjectHideFlags: 0

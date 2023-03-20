@@ -15,7 +15,9 @@ namespace Mtd {
 
     enum DragState { None, Starting, InProgress }
     DragState _dragState = DragState.None;
+    double _dragStartTime;
     Vector2 _dragPreviousPosition;
+    [SerializeField] float _dragThresholdLength = 16f;
 
     enum PinchZoomState { None, Starting, InProgress }
     PinchZoomState _pinchZoomState = PinchZoomState.None;
@@ -27,6 +29,8 @@ namespace Mtd {
     [SerializeField] float _scrollZoomScaling = 1f;
     [SerializeField] float _pinchZoomScaling = 1f;
 
+    [SerializeField] double _tapPressReleaseTimeLimit = 0.4;
+
     void Start() {
       _camera = Camera.main;
     }
@@ -36,13 +40,6 @@ namespace Mtd {
       _mtdInputActions = new MtdInputActions();
       _mtdInputActions.Main.SetCallbacks(this);
       _mtdInputActions.Main.Enable();
-    }
-
-    public void OnTap(InputAction.CallbackContext context) {
-      if (context.phase == InputActionPhase.Performed) {
-        var point = ScreenAndWorldPoint.FromScreenPoint(_camera, _touch0Position);
-        _mtdInput.Tap.Invoke(point);
-      }
     }
 
     void OnZoom(float amount) {
@@ -56,6 +53,24 @@ namespace Mtd {
 
     void OnPinchZoom(float fingerDistanceDelta) {
       OnZoom(fingerDistanceDelta * _pinchZoomScaling);
+    }
+
+    public void OnTouch0Press(InputAction.CallbackContext context) {
+      if (context.phase == InputActionPhase.Started) {
+        _dragState = DragState.Starting;
+        _dragStartTime = Time.realtimeSinceStartupAsDouble;
+      }
+      else if (context.phase == InputActionPhase.Canceled) {
+        _mtdInput.DragEnd.Invoke(_touch0Position);
+        _dragState = DragState.None;
+
+        double dragEndTime = Time.realtimeSinceStartupAsDouble;
+        double dragTime = dragEndTime - _dragStartTime;
+        if (dragTime < _tapPressReleaseTimeLimit) {
+          var screenAndWorldPoint = ScreenAndWorldPoint.FromScreenPoint(_camera, _touch0Position);
+          _mtdInput.Tap.Invoke(screenAndWorldPoint);
+        }
+      }
     }
 
     /** Primary touch position OR mouse position. */
@@ -91,17 +106,6 @@ namespace Mtd {
       }
       else {
         _pinchZoomState = PinchZoomState.Starting;
-      }
-    }
-
-    /** this is different from OnTap because OnTap is bound to tap (quicker than press) */
-    public void OnDragPress(InputAction.CallbackContext context) {
-      if (context.phase == InputActionPhase.Started) {
-        _dragState = DragState.Starting;
-      }
-      else if (context.phase == InputActionPhase.Canceled) {
-        _mtdInput.DragEnd.Invoke(_touch0Position);
-        _dragState = DragState.None;
       }
     }
   }

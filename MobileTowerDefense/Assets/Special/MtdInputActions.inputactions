@@ -33,15 +33,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Tap",
-                    "type": "Button",
-                    "id": "ac3f1e2a-f72d-47c4-a3ab-9f44bdbc193c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "MouseScrollZoom",
                     "type": "PassThrough",
                     "id": "d4a21d6c-fc94-4a74-99b3-dc8dda5dd5af",
@@ -51,7 +42,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "DragPress",
+                    "name": "Touch0Press",
                     "type": "Button",
                     "id": "90c88446-4452-42f9-b8e7-4e254d66dd46",
                     "expectedControlType": "Button",
@@ -79,7 +70,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Touch",
-                    "action": "DragPress",
+                    "action": "Touch0Press",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -90,7 +81,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "DragPress",
+                    "action": "Touch0Press",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -102,28 +93,6 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "MouseScrollZoom",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "47c2a644-3ebc-4dae-a106-589b7ca75b59",
-                    "path": "<Touchscreen>/primaryTouch/tap",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Touch",
-                    "action": "Tap",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "077bec86-3cd7-4185-b22a-21af5b99cba8",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "Tap",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Tap",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
