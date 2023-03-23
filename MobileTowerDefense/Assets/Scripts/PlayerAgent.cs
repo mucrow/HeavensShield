@@ -76,15 +76,27 @@ namespace Mtd {
 
     void OnTap(ScreenAndWorldPoint point) {
       // is this really the right way to do this?
-      var ui = Globals.UI;
-      if (!ui.DoesUICoverScreenPoint(point.Screen)) {
+      if (!Globals.UI.DoesUICoverScreenPoint(point.Screen)) {
         var pointCenteredToTile = Utils.Utils.SnapPointToTileCenter(point.World);
-        var unitSelector = ui.UnitSelector;
-        if (unitSelector.IsHidden) {
-          unitSelector.Open(pointCenteredToTile);
+        bool clickedExistingUnit = false;
+
+        var colliders = Physics2D.OverlapPointAll(point.World);
+        for (int i = 0; i < colliders.Length; ++i) {
+          var clickedObject = colliders[i].transform.gameObject;
+          if (clickedObject.CompareTag("ClickTrigger")) {
+            clickedExistingUnit = true;
+            Debug.LogWarning("Unit stats not yet implemented (game object with \"ClickTrigger\" tag clicked)");
+          }
         }
-        else {
-          unitSelector.Close();
+
+        if (!clickedExistingUnit) {
+          var unitSelector = Globals.UI.UnitSelector;
+          if (unitSelector.IsHidden) {
+            unitSelector.Open(pointCenteredToTile);
+          }
+          else {
+            unitSelector.Close();
+          }
         }
       }
     }
