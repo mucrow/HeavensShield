@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Mtd.Utils;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Mtd {
   /** This class takes care of input processing that the new input system can't do on its own. */
@@ -13,11 +14,35 @@ namespace Mtd {
     MtdInput _mtdInput;
     MtdInputActions _mtdInputActions;
 
-    enum DragState { None, Starting, InProgress }
+    enum DragState {
+      None,
+
+      /**
+       * A touch input was pressed but not yet released. This is a transient state that exists so
+       * we can poll the drag start position the next time Touch0Position is fired.
+       */
+      TouchStart,
+
+      /**
+       * A touch input was pressed and not yet released, AND the drag start position has been set.
+       * The high-level DragStart event has not yet been invoked for MTD components because the
+       * player has not dragged their finger very far (yet).
+       *
+       * Consumers of the DragStart & Drag events should compute the delta between the DragStart
+       * position and Drag event positions in order to compensate for the time delay that the
+       * BelowThreshold state causes.
+       */
+      BelowThreshold,
+
+      /** A drag event is in progress. DragStart has been invoked. */
+      InProgress,
+    }
     DragState _dragState = DragState.None;
+    Vector2 _dragStartPosition;
     double _dragStartTime;
-    Vector2 _dragPreviousPosition;
-    [SerializeField] float _dragThresholdLength = 16f;
+    /** Minimum world distance dragged when camera orthographic size is 5. */
+    [FormerlySerializedAs("_dragThresholdLength")]
+    [SerializeField] float _dragThresholdLengthAtCameraSize5 = 0.25f;
 
     enum PinchZoomState { None, Starting, InProgress }
     PinchZoomState _pinchZoomState = PinchZoomState.None;
@@ -57,18 +82,25 @@ namespace Mtd {
 
     public void OnTouch0Press(InputAction.CallbackContext context) {
       if (context.phase == InputActionPhase.Started) {
-        _dragState = DragState.Starting;
+        _dragState = DragState.TouchStart;
         _dragStartTime = Time.realtimeSinceStartupAsDouble;
       }
       else if (context.phase == InputActionPhase.Canceled) {
-        _mtdInput.DragEnd.Invoke(_touch0Position);
-        _dragState = DragState.None;
+        if (_dragState == DragState.InProgress) {
+          _mtdInput.DragEnd.Invoke(_touch0Position);
+          _dragState = DragState.None;
+        }
+        else {
+          // it's important that the below code lives in this else block - we only want a tap event
+          // if a drag event was never started.
 
-        double dragEndTime = Time.realtimeSinceStartupAsDouble;
-        double dragTime = dragEndTime - _dragStartTime;
-        if (dragTime < _tapPressReleaseTimeLimit) {
-          var screenAndWorldPoint = ScreenAndWorldPoint.FromScreenPoint(_camera, _touch0Position);
-          _mtdInput.Tap.Invoke(screenAndWorldPoint);
+          // TODO rename these "dragFoo" variables so they more generically cover both drag and tap
+          double dragEndTime = Time.realtimeSinceStartupAsDouble;
+          double dragTime = dragEndTime - _dragStartTime;
+          if (dragTime < _tapPressReleaseTimeLimit) {
+            var screenAndWorldPoint = ScreenAndWorldPoint.FromScreenPoint(_camera, _touch0Position);
+            _mtdInput.Tap.Invoke(screenAndWorldPoint);
+          }
         }
       }
     }
@@ -79,9 +111,21 @@ namespace Mtd {
       if (_dragState == DragState.InProgress) {
         _mtdInput.Drag.Invoke(nextTouch0Position);
       }
-      else if (_dragState == DragState.Starting) {
-        _mtdInput.DragStart.Invoke(nextTouch0Position);
-        _dragState = DragState.InProgress;
+      else if (_dragState == DragState.BelowThreshold) {
+        var dragStartPoint = ScreenAndWorldPoint.FromScreenPoint(_camera, _dragStartPosition);
+        var currentTouchPoint = ScreenAndWorldPoint.FromScreenPoint(_camera, nextTouch0Position);
+
+        var dragThresholdLength = (5f / _camera.orthographicSize) * _dragThresholdLengthAtCameraSize5;
+        var dragLength = (currentTouchPoint.World - dragStartPoint.World).magnitude;
+
+        if (dragLength >= dragThresholdLength) {
+          _mtdInput.DragStart.Invoke(_dragStartPosition);
+          _dragState = DragState.InProgress;
+        }
+      }
+      else if (_dragState == DragState.TouchStart) {
+        _dragStartPosition = nextTouch0Position;
+        _dragState = DragState.BelowThreshold;
       }
       _touch0Position = nextTouch0Position;
     }
