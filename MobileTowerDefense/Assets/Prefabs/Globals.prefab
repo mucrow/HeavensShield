@@ -1359,7 +1359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b71edcc036d214382fff80a1a683bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dragThresholdLengthAtCameraSize5: 0.25
+  _dragThresholdLengthAtCameraSize5: 0.125
   _zoomScaling: 0.0015
   _scrollZoomScaling: 1
   _pinchZoomScaling: 1
