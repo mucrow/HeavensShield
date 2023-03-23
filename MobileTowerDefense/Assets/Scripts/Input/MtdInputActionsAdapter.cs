@@ -115,7 +115,7 @@ namespace Mtd {
         var dragStartPoint = ScreenAndWorldPoint.FromScreenPoint(_camera, _dragStartPosition);
         var currentTouchPoint = ScreenAndWorldPoint.FromScreenPoint(_camera, nextTouch0Position);
 
-        var dragThresholdLength = (5f / _camera.orthographicSize) * _dragThresholdLengthAtCameraSize5;
+        var dragThresholdLength = (_camera.orthographicSize / 5f) * _dragThresholdLengthAtCameraSize5;
         var dragLength = (currentTouchPoint.World - dragStartPoint.World).magnitude;
 
         if (dragLength >= dragThresholdLength) {
