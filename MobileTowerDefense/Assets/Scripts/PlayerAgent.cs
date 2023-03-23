@@ -37,6 +37,11 @@ namespace Mtd {
     }
 
     void OnDestroy() {
+      Globals.Input.DragStart.RemoveListener(OnDragStart);
+      Globals.Input.Drag.RemoveListener(OnDrag);
+      Globals.Input.Tap.RemoveListener(OnTap);
+      Globals.Input.Zoom.RemoveListener(OnZoom);
+
       Globals.PlayerAgent.Unregister.Invoke(this);
     }
 
