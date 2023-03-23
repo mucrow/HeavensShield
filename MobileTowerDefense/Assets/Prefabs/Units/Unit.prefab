@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6453784270820012325}
   - component: {fileID: 5471110561075249621}
-  m_Layer: 0
-  m_Name: ClickTrigger
-  m_TagString: ClickTrigger
+  m_Layer: 6
+  m_Name: TapTrigger
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

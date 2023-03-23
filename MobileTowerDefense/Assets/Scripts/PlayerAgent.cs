@@ -25,6 +25,12 @@ namespace Mtd {
     public readonly UnityEvent<int> MoneyChange = new UnityEvent<int>();
     public readonly UnityEvent<int> ScoreChange = new UnityEvent<int>();
 
+    int _tapTriggerLayerMask;
+
+    void Awake() {
+      _tapTriggerLayerMask = LayerMask.GetMask("TapTrigger");
+    }
+
     void Start() {
       Globals.PlayerAgent.Register.Invoke(this);
 
@@ -77,28 +83,33 @@ namespace Mtd {
     void OnTap(ScreenAndWorldPoint point) {
       // is this really the right way to do this?
       if (!Globals.UI.DoesUICoverScreenPoint(point.Screen)) {
-        var pointCenteredToTile = Utils.Utils.SnapPointToTileCenter(point.World);
-        bool clickedExistingUnit = false;
-
-        var colliders = Physics2D.OverlapPointAll(point.World);
-        for (int i = 0; i < colliders.Length; ++i) {
-          var clickedObject = colliders[i].transform.gameObject;
-          if (clickedObject.CompareTag("ClickTrigger")) {
-            clickedExistingUnit = true;
-            Debug.LogWarning("Unit stats not yet implemented (game object with \"ClickTrigger\" tag clicked)");
-          }
-        }
-
-        if (!clickedExistingUnit) {
-          var unitSelector = Globals.UI.UnitSelector;
-          if (unitSelector.IsHidden) {
-            unitSelector.Open(pointCenteredToTile);
-          }
-          else {
-            unitSelector.Close();
-          }
-        }
+        HandleWorldTap(point);
       }
+    }
+
+    void HandleWorldTap(ScreenAndWorldPoint point) {
+      var unitSelector = Globals.UI.UnitSelector;
+      if (!unitSelector.IsHidden) {
+        unitSelector.Close();
+        return;
+      }
+
+      var pointCenteredToTile = Utils.Utils.SnapPointToTileCenter(point.World);
+      var tappedObject = GetTappedObject(point);
+      if (tappedObject) {
+        Debug.LogWarning("Unit stats not yet implemented (game object with \"TapTrigger\" tag clicked)");
+        return;
+      }
+
+      unitSelector.Open(pointCenteredToTile);
+    }
+
+    GameObject GetTappedObject(ScreenAndWorldPoint point) {
+      var result = Physics2D.OverlapPoint(point.World, _tapTriggerLayerMask);
+      if (result) {
+        return result.gameObject;
+      }
+      return null;
     }
 
     void OnZoom(float amount) {
