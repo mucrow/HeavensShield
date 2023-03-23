@@ -49,7 +49,10 @@ namespace Mtd.UI {
       var unitRange = unitKind.Prefab.GetComponent<Unit>().Range;
       _selectionCircle.PreviewRange(unitRange);
 
-      _confirmCancelButtons.Show();
+      Globals.PlayerAgent.With(playerAgent => {
+        UpdateConfirmButton(playerAgent.Money);
+        _confirmCancelButtons.Show();
+      });
     }
 
     public void UnpickUnit() {
