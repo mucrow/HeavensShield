@@ -11,9 +11,19 @@ namespace Mtd {
     [SerializeField] TMP_Text _scoreText;
     [SerializeField] ShowHideOffscreen _showHideOffscreen;
 
-    void Start() {
-      Globals.Player.MoneyChange.AddListener(UpdateMoney);
-      Globals.Player.ScoreChange.AddListener(UpdateScore);
+    void Awake() {
+      Globals.PlayerAgent.Register.AddListener(OnPlayerAgentRegister);
+      Globals.PlayerAgent.Unregister.AddListener(OnPlayerAgentUnregister);
+    }
+
+    void OnPlayerAgentRegister(PlayerAgent playerAgent) {
+      playerAgent.MoneyChange.AddListener(UpdateMoney);
+      playerAgent.ScoreChange.AddListener(UpdateScore);
+    }
+
+    void OnPlayerAgentUnregister(PlayerAgent playerAgent) {
+      playerAgent.MoneyChange.RemoveListener(UpdateMoney);
+      playerAgent.ScoreChange.RemoveListener(UpdateScore);
     }
 
     public void UpdateMoney(int money) {

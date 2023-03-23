@@ -20,10 +20,16 @@ namespace Mtd.UI {
       if (!_unitsGroup) {
         Debug.LogWarning("_unitsGroup is null - created units will be added as top-level game objects in the hierarchy", this);
       }
+      Globals.PlayerAgent.Register.AddListener(OnPlayerAgentRegister);
+      Globals.PlayerAgent.Unregister.AddListener(OnPlayerAgentUnregister);
     }
 
-    void Start() {
-      Globals.Player.MoneyChange.AddListener(UpdateConfirmButton);
+    public void OnPlayerAgentRegister(PlayerAgent playerAgent) {
+      playerAgent.MoneyChange.AddListener(UpdateConfirmButton);
+    }
+
+    public void OnPlayerAgentUnregister(PlayerAgent playerAgent) {
+      playerAgent.MoneyChange.RemoveListener(UpdateConfirmButton);
     }
 
     public void Open(Vector3 placementPosition) {
@@ -43,7 +49,6 @@ namespace Mtd.UI {
       var unitRange = unitKind.Prefab.GetComponent<Unit>().Range;
       _selectionCircle.PreviewRange(unitRange);
 
-      UpdateConfirmButton(Globals.Player.Money);
       _confirmCancelButtons.Show();
     }
 
@@ -55,7 +60,9 @@ namespace Mtd.UI {
     }
 
     public void PlaceUnit() {
-      Globals.Player.AddMoney(-1 * _pickedUnit.PlacementCost);
+      Globals.PlayerAgent.With(playerAgent => {
+        playerAgent.AddMoney(-1 * _pickedUnit.PlacementCost);
+      });
       var selectedPosition = _selectionCircle.transform.position;
       Instantiate(_pickedUnit.Prefab, selectedPosition, Quaternion.identity, _unitsGroup);
       Close();

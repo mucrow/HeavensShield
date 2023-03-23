@@ -39,8 +39,10 @@ namespace Mtd {
       _health -= amount;
       if (_health <= 0) {
         _health = 0;
-        Globals.Player.AddMoney(_moneyOnKill);
-        Globals.Player.AddToScore(_scoreOnKill);
+        Globals.PlayerAgent.With(playerAgent => {
+          playerAgent.AddMoney(_moneyOnKill);
+          playerAgent.AddToScore(_scoreOnKill);
+        });
         Destroy(gameObject);
       }
     }

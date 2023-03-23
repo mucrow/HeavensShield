@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Mtd.UI;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 namespace Mtd {
@@ -12,8 +13,10 @@ namespace Mtd {
     /** Never null during or after Start() */
     public static GameManager GameManager;
 
-    /** Never null during or after Start() in a level, but probably null in the start menu. */
-    public static PlayerAgent Player;
+    /** Never null during or after Start() */
+    public static MtdInput Input;
+
+    public static GlobalsProxy<PlayerAgent> PlayerAgent = new GlobalsProxy<PlayerAgent>();
 
     /** Never null during or after Start() */
     public static MtdUI UI;
@@ -22,8 +25,10 @@ namespace Mtd {
 
     [SerializeField] CameraController _camera;
     [SerializeField] GameManager _gameManager;
-    [SerializeField] PlayerAgent _player;
+    [SerializeField] MtdInput _input;
     [SerializeField] MtdUI _ui;
+
+    PlayerAgent _playerAgent;
 
     void Awake() {
       if (_instance == null) {
@@ -44,7 +49,7 @@ namespace Mtd {
     void ExposeFields() {
       Camera = _camera;
       GameManager = _gameManager;
-      Player = _player;
+      Input = _input;
       UI = _ui;
     }
   }

@@ -12,8 +12,6 @@ using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 namespace Mtd {
   public class PlayerAgent: MonoBehaviour {
-    [SerializeField] MtdInput _mtdInput;
-
     bool _ignoreCurrentDrag = false;
     Vector2 _dragStartScreenPos;
     Vector3 _dragStartCameraWorldPos;
@@ -28,12 +26,18 @@ namespace Mtd {
     public readonly UnityEvent<int> ScoreChange = new UnityEvent<int>();
 
     void Start() {
-      _mtdInput.DragStart.AddListener(OnDragStart);
-      _mtdInput.Drag.AddListener(OnDrag);
-      _mtdInput.Tap.AddListener(OnTap);
-      _mtdInput.Zoom.AddListener(OnZoom);
+      Globals.PlayerAgent.Register.Invoke(this);
+
+      Globals.Input.DragStart.AddListener(OnDragStart);
+      Globals.Input.Drag.AddListener(OnDrag);
+      Globals.Input.Tap.AddListener(OnTap);
+      Globals.Input.Zoom.AddListener(OnZoom);
 
       AddMoney(0);
+    }
+
+    void OnDestroy() {
+      Globals.PlayerAgent.Unregister.Invoke(this);
     }
 
     public void AddMoney(int amount) {
