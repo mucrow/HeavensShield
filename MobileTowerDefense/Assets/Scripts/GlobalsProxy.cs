@@ -6,8 +6,8 @@ namespace Mtd {
   public class GlobalsProxy<T> where T: class {
     T _proxied;
 
-    public UnityEvent<T> Register = new UnityEvent<T>();
-    public UnityEvent<T> Unregister = new UnityEvent<T>();
+    public readonly UnityEvent<T> Register = new UnityEvent<T>();
+    public readonly UnityEvent<T> Unregister = new UnityEvent<T>();
 
     public GlobalsProxy() {
       Register.AddListener(RegisterInternal);
