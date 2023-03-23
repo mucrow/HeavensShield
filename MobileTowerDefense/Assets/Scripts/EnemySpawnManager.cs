@@ -23,6 +23,10 @@ namespace Mtd {
     }
     State _state = State.NotStarted;
 
+    void Awake() {
+      SetupEnemyPathTriggers();
+    }
+
     void Update() {
       if (_state == State.FinishedAllWaves) {
         return;
@@ -37,6 +41,21 @@ namespace Mtd {
       }
       else if (_state == State.NotStarted) {
         StartWave(0);
+      }
+    }
+
+    void SetupEnemyPathTriggers() {
+      var waypointCount = _enemyPath.WaypointCount();
+      if (waypointCount < 2) {
+        return;
+      }
+      var previousWaypoint = _enemyPath.GetWaypoint(0);
+      for (int i = 1; i < waypointCount; ++i) {
+        var currentWaypoint = _enemyPath.GetWaypoint(i);
+
+        // create trigger covering tiles between two waypoints
+
+        previousWaypoint = currentWaypoint;
       }
     }
 
