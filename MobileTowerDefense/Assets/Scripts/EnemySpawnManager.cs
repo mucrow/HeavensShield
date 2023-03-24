@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 namespace Mtd {
   public class EnemySpawnManager: MonoBehaviour {
     [SerializeField] Transform _enemyFolder;
+    [SerializeField] GameObject _enemyPathTriggerPrefab;
+    [SerializeField] Transform _enemyPathTriggersFolder;
 
     [SerializeField] Path _enemyPath;
     [SerializeField] EnemyWave[] _enemyWaves;
@@ -52,11 +55,33 @@ namespace Mtd {
       var previousWaypoint = _enemyPath.GetWaypoint(0);
       for (int i = 1; i < waypointCount; ++i) {
         var currentWaypoint = _enemyPath.GetWaypoint(i);
-
-        // create trigger covering tiles between two waypoints
-
+        CreateTriggerBetweenWaypoints(previousWaypoint, currentWaypoint);
         previousWaypoint = currentWaypoint;
       }
+    }
+
+    void CreateTriggerBetweenWaypoints(Vector3 a, Vector3 b) {
+      // we expect two continuous waypoints to differ in exactly one coordinate. in other words,
+      // there are only two valid cases for a and b:
+      // - a and b have the same X and different Ys
+      // - a and b have the same Y and different Xs
+      //
+      if ((a.x == b.x) == (a.y == b.y)) {
+        Debug.LogWarning("Vector between waypoints has an angle other than 0, 90, 180, or 270. EnemyPathTrigger will likely be wrong.");
+      }
+      var position = new Vector3((a.x + b.x) / 2, (a.y + b.y) / 2, 0);
+      var colliderSize = new Vector2(Mathf.Abs(b.x - a.x) + 1, Mathf.Abs(b.y - a.y) + 1);
+      CreateTriggerWithPositionAndSize(position, colliderSize);
+    }
+
+    void CreateTriggerWithPositionAndSize(Vector3 position, Vector2 size) {
+      var newTrigger = Instantiate(
+        _enemyPathTriggerPrefab,
+        position,
+        Quaternion.identity,
+        _enemyPathTriggersFolder
+      );
+      newTrigger.GetComponent<BoxCollider2D>().size = size;
     }
 
     void DoFinishingWave() {
