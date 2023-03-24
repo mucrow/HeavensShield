@@ -19,8 +19,10 @@ namespace Mtd.UI {
     public UnitSelector UnitSelector => _unitSelector;
 
     [SerializeField] ShowHideOffscreen _startMenu;
+    [SerializeField] ShowHideOffscreen _settingsMenu;
     [SerializeField] ShowHideOffscreen _mainMenu;
     [SerializeField] ShowHideOffscreen _scenarioSelection;
+    [SerializeField] ShowHideOffscreen _barracks;
 
     bool _isWholeUIReady = false;
 
@@ -61,18 +63,24 @@ namespace Mtd.UI {
       switch (key) {
         case UIObjectKey.StartMenu:
           return _startMenu;
+        case UIObjectKey.SettingsMenu:
+          return _settingsMenu;
         case UIObjectKey.MainMenu:
           return _mainMenu;
         case UIObjectKey.ScenarioSelection:
           return _scenarioSelection;
+        case UIObjectKey.Barracks:
+          return _barracks;
       }
       throw new Exception("Unhandled UIObjectKey " + key);
     }
   }
 
   public enum UIObjectKey {
-    StartMenu,
-    MainMenu,
-    ScenarioSelection,
+    StartMenu = 0,
+    SettingsMenu = 1,
+    MainMenu = 2,
+    ScenarioSelection = 3,
+    Barracks = 4,
   }
 }
