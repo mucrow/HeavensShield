@@ -1,7 +1,14 @@
 const fs = require('fs/promises');
 const path = require('path');
 
-const BUILDS_DIR = path.join('.', 'Builds');
+const { getInfoForPlatforms } = require('./platformInfo');
+const {
+  BUILDS_DIR,
+  buildDirNameInvalidExit,
+  buildsDirNotFoundExit,
+  isBuildDirNameValid,
+  dirExists
+} = require('./shared');
 
 async function main(args) {
   if (args.length !== 3) {
@@ -10,24 +17,15 @@ async function main(args) {
     process.exit(1);
   }
   const buildDirBaseName = args[2];
-  if (!/^v\d+\.\d+\.\d+$/.test(buildDirBaseName)) {
-    console.error('Build directory name must be a semantic version number prefixed with a \'v\', such as "v2.14.3"');
-    process.exit(1);
+  if (!isBuildDirNameValid(buildDirBaseName)) {
+    buildDirNameInvalidExit();
   }
+
+  if (!(await dirExists(BUILDS_DIR))) {
+    buildsDirNotFoundExit();
+  }
+
   const buildDir = path.join(BUILDS_DIR, buildDirBaseName);
-
-  // throws an error if BUILDS_DIR does not exist or we don't have permission
-  // to access it
-  try {
-    await fs.access(BUILDS_DIR);
-  }
-  catch (e) {
-    console.error(`Couldn't access ${path.resolve(BUILDS_DIR)}`);
-    console.error('\nBuilds directory not found (or insufficient permissions).');
-    console.error('Be sure to run this script in the root directory of the MobileTowerDefense repository.');
-    process.exit(1);
-  }
-
   try {
     await fs.mkdir(buildDir);
   }
@@ -37,14 +35,14 @@ async function main(args) {
     process.exit(1);
   }
 
-  const xcodeDir = path.join(buildDir, 'Xcode');
+  const platformsInfo = getInfoForPlatforms(buildDirBaseName, buildDir);
   const dirsToCreate = [
-    path.join(buildDir, 'Windows'),
-    path.join(buildDir, 'MacOS'),
-    path.join(buildDir, 'Linux'),
-    xcodeDir,
-    path.join(xcodeDir, `MobileTowerDefense-Xcode-${buildDirBaseName}`),
-    path.join(buildDir, 'Android')
+    platformsInfo.win.dir,
+    platformsInfo.macos.dir,
+    platformsInfo.linux.dir,
+    platformsInfo.ios.dir,
+    platformsInfo.ios.artifactPath,
+    platformsInfo.android.dir
   ];
 
   for (let i = 0; i < dirsToCreate.length; ++i) {
