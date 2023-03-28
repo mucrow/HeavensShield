@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -8,10 +9,10 @@ namespace Mtd.UI {
   public class UnitSelector: MonoBehaviour {
     [SerializeField] ConfirmCancelButtons _confirmCancelButtons;
     [SerializeField] SelectionCircle _selectionCircle;
-    [SerializeField] ShowHideOffscreen _showHideOffscreen;
+    [FormerlySerializedAs("_showHideOffscreen")] [SerializeField] ShowHideOffscreen _unitChoiceGroup;
     [SerializeField] Transform _unitsGroup;
 
-    public bool IsHidden => _showHideOffscreen.IsHidden;
+    public bool IsHidden => _unitChoiceGroup.IsHidden;
 
     GameObject _hologram;
     UnitKind _pickedUnit;
@@ -32,14 +33,14 @@ namespace Mtd.UI {
       playerAgent.MoneyChange.RemoveListener(UpdateConfirmButton);
     }
 
-    public void Open(Vector3 placementPosition) {
-      _showHideOffscreen.ShowInstant();
+    public async Task Open(Vector3 placementPosition) {
+      await _unitChoiceGroup.Show();
       _selectionCircle.Show();
       _selectionCircle.StopPreviewingRange();
       _selectionCircle.SetWorldPosition(placementPosition);
     }
 
-    public void PickUnit(UnitKind unitKind) {
+    public async Task PickUnit(UnitKind unitKind) {
       var selectedPosition = _selectionCircle.transform.position;
       if (_hologram) {
         Destroy(_hologram);
@@ -49,36 +50,52 @@ namespace Mtd.UI {
       var unitRange = unitKind.Prefab.GetComponent<Unit>().Range;
       _selectionCircle.PreviewRange(unitRange);
 
-      Globals.PlayerAgent.With(playerAgent => {
+      await Globals.PlayerAgent.WithAsync(async playerAgent => {
         UpdateConfirmButton(playerAgent.Money);
-        _confirmCancelButtons.Show();
+        await _confirmCancelButtons.Show();
       });
     }
 
-    public void UnpickUnit() {
+    public async void EHPickUnit(UnitKind unitKind) {
+      await PickUnit(unitKind);
+    }
+
+    public async Task UnpickUnit() {
       Destroy(_hologram);
       _selectionCircle.StopPreviewingRange();
-      _confirmCancelButtons.Hide();
+      await _confirmCancelButtons.Hide();
       _pickedUnit = null;
     }
 
-    public void PlaceUnit() {
+    public async void EHUnpickUnit() {
+      await UnpickUnit();
+    }
+
+    public async Task PlaceUnit() {
       Globals.PlayerAgent.With(playerAgent => {
         playerAgent.AddMoney(-1 * _pickedUnit.PlacementCost);
       });
       var selectedPosition = _selectionCircle.transform.position;
       Instantiate(_pickedUnit.Prefab, selectedPosition, Quaternion.identity, _unitsGroup);
-      Close();
+      await Close();
     }
 
-    public void Close() {
-      _confirmCancelButtons.Hide();
+    public async void EHPlaceUnit() {
+      await PlaceUnit();
+    }
+
+    public async Task Close() {
+      await _confirmCancelButtons.Hide();
       _selectionCircle.Hide();
-      _showHideOffscreen.HideInstant();
+      await _unitChoiceGroup.Hide();
       if (_hologram) {
         Destroy(_hologram);
       }
       _pickedUnit = null;
+    }
+
+    public async void EHClose() {
+      await Close();
     }
 
     void UpdateConfirmButton(int playerMoney) {

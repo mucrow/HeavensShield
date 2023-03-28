@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _edge: 0
+  _tweenTime: 0.1
 --- !u!1 &850231903852474593
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _edge: 0
+  _tweenTime: 0.1
 --- !u!1 &939927406895325845
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +288,7 @@ RectTransform:
   m_Father: {fileID: 4287955091002205984}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.3, y: 0}
+  m_AnchorMin: {x: 0.4, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 80}
@@ -319,6 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _edge: 2
+  _tweenTime: 0.1
 --- !u!114 &3982756825690699429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _edge: 2
+  _tweenTime: 0.1
 --- !u!1 &3162581205091705750
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,8 +437,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: 0}
-  m_SizeDelta: {x: 20, y: 40}
+  m_AnchoredPosition: {x: -42, y: 0}
+  m_SizeDelta: {x: -44, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5208421074559357558
 CanvasRenderer:
@@ -483,6 +487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5400227054945884836}
+  - component: {fileID: 1847451858870431530}
   m_Layer: 5
   m_Name: UnitChoiceGroup
   m_TagString: Untagged
@@ -508,10 +513,24 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.3, y: 1}
+  m_AnchorMax: {x: 0.4, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &1847451858870431530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3348425031084706487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edge: 0
+  _tweenTime: 0.1
 --- !u!1 &3384371458082470262
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _edge: 3
+  _tweenTime: 0.1
 --- !u!1 &3660042262539947883
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,9 +829,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8, y: -8}
+  m_AnchoredPosition: {x: -8, y: -8}
   m_SizeDelta: {x: 48, y: 48}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 1, y: 1}
 --- !u!222 &4287955090204936117
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -896,7 +916,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4287955091002205989}
         m_TargetAssemblyTypeName: Mtd.UI.UnitSelector, Assembly-CSharp
-        m_MethodName: Close
+        m_MethodName: EHClose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1051,7 +1071,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4287955091002205984}
   - component: {fileID: 4287955091002205989}
-  - component: {fileID: 8054069782661555632}
   m_Layer: 5
   m_Name: UnitSelector
   m_TagString: Untagged
@@ -1096,21 +1115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _confirmCancelButtons: {fileID: 2899416193982775820}
   _selectionCircle: {fileID: 1319347028181549941}
-  _showHideOffscreen: {fileID: 8054069782661555632}
+  _unitChoiceGroup: {fileID: 1847451858870431530}
   _unitsGroup: {fileID: 0}
---- !u!114 &8054069782661555632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4287955091002205985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _edge: 0
 --- !u!1 &4682598997698869891
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,6 +1462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _edge: 3
+  _tweenTime: 0.1
 --- !u!1 &5281173860265815255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,6 +2150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _edge: 3
+  _tweenTime: 0.1
 --- !u!1 &7892642080233023851
 GameObject:
   m_ObjectHideFlags: 0
@@ -3258,7 +3266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PickUnit
+      value: EHPickUnit
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -4030,7 +4038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Close
+      value: EHClose
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -4538,7 +4546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PickUnit
+      value: EHPickUnit
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -4942,7 +4950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlaceUnit
+      value: EHPlaceUnit
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -5102,7 +5110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PickUnit
+      value: EHPickUnit
       objectReference: {fileID: 0}
     - target: {fileID: 1021545214826016296, guid: 62cbfb457de54774d8e53b80efab3f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

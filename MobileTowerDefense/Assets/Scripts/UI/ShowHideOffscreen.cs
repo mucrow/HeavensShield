@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Mtd.Utils;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ namespace Mtd.UI {
   [RequireComponent(typeof(RectTransform))]
   public class ShowHideOffscreen: MonoBehaviour, IEnsureReady {
     [SerializeField] Direction _edge;
+
+    [SerializeField] float _tweenTime = 0.1f;
 
     RectTransform _rectTransform;
     bool _isReady = false;
@@ -37,6 +40,27 @@ namespace Mtd.UI {
       var relevantDimension = GetRelevantDimension();
       _rectTransform.anchoredPosition = _initialPosition + direction * relevantDimension;
       IsHidden = true;
+    }
+
+    public Task Show() {
+      var tcs = new TaskCompletionSource<bool>();
+      LeanTween.move(_rectTransform, _initialPosition, _tweenTime).setOnComplete(() => {
+        tcs.SetResult(true);
+      });
+      IsHidden = false;
+      return tcs.Task;
+    }
+
+    public Task Hide() {
+      var tcs = new TaskCompletionSource<bool>();
+      var direction = _edge.ToVector2();
+      var relevantDimension = GetRelevantDimension();
+      var hiddenPosition = _initialPosition + direction * relevantDimension;
+      LeanTween.move(_rectTransform, hiddenPosition, _tweenTime).setOnComplete(() => {
+        tcs.SetResult(true);
+      });
+      IsHidden = true;
+      return tcs.Task;
     }
 
     public float GetRelevantDimension() {

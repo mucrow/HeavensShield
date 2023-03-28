@@ -87,10 +87,10 @@ namespace Mtd {
       }
     }
 
-    void HandleWorldTap(ScreenAndWorldPoint point) {
+    async void HandleWorldTap(ScreenAndWorldPoint point) {
       var unitSelector = Globals.UI.UnitSelector;
       if (!unitSelector.IsHidden) {
-        unitSelector.Close();
+        await unitSelector.Close();
         return;
       }
 
@@ -101,7 +101,7 @@ namespace Mtd {
         return;
       }
 
-      unitSelector.Open(pointCenteredToTile);
+      await unitSelector.Open(pointCenteredToTile);
     }
 
     GameObject GetTappedObject(ScreenAndWorldPoint point) {

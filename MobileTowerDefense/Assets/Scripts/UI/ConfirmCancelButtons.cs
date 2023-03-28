@@ -1,4 +1,6 @@
-﻿using TMPro;
+﻿using System;
+using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,13 +10,8 @@ namespace Mtd.UI {
     [SerializeField] TMP_Text _confirmButtonText;
     [SerializeField] ShowHideOffscreen _showHideOffscreen;
 
-    public void Show() {
-      _showHideOffscreen.ShowInstant();
-    }
-
-    public void Hide() {
-      _showHideOffscreen.HideInstant();
-    }
+    public Func<Task> Show => _showHideOffscreen.Show;
+    public Func<Task> Hide => _showHideOffscreen.Hide;
 
     public void ConfigureConfirmButton(bool interactable, string text="Confirm") {
       _confirmButtonText.text = text;
