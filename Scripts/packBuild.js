@@ -34,47 +34,52 @@ async function shouldPackDirectory(path) {
 
 async function packWindows(platformsInfo) {
   if (!(await shouldPackDirectory(platformsInfo.win.dir))) {
-    return;
+    return false;
   }
   await fs.cp(platformsInfo.win.dir, platformsInfo.win.packPath, { recursive: true });
   await removeNoShipSubdirs(platformsInfo.win.packPath);
   await zip(platformsInfo.win.packPath, true);
+  return true;
 }
 
 async function packMacOS(platformsInfo) {
   if (!(await shouldPackDirectory(platformsInfo.macos.dir))) {
-    return;
+    return false;
   }
   await fs.cp(platformsInfo.macos.artifactPath, platformsInfo.macos.packPath, { recursive: true });
   await zip(platformsInfo.macos.packPath, true);
+  return true;
 }
 
 async function packLinux(platformsInfo) {
   if (!(await shouldPackDirectory(platformsInfo.linux.dir))) {
-    return;
+    return false;
   }
   await fs.cp(platformsInfo.linux.dir, platformsInfo.linux.packPath, { recursive: true });
   await removeNoShipSubdirs(platformsInfo.linux.packPath);
   await zip(platformsInfo.linux.packPath, true);
+  return true;
 }
 
 async function packIOS(platformsInfo) {
   if (!(await dirExists(platformsInfo.ios.dir))) {
-    return;
+    return false;
   }
   if (!(await shouldPackDirectory(platformsInfo.ios.artifactPath))) {
-    return;
+    return false;
   }
   await fs.cp(platformsInfo.ios.artifactPath, platformsInfo.ios.packPath, { recursive: true });
   await zip(platformsInfo.ios.packPath, true);
+  return true;
 }
 
 async function packAndroid(platformsInfo) {
   if (!(await shouldPackDirectory(platformsInfo.android.dir))) {
-    return;
+    return false;
   }
   await fs.copyFile(platformsInfo.android.artifactPath, platformsInfo.android.packPath);
   await zip(platformsInfo.android.packPath, false);
+  return true;
 }
 
 const PLATFORM_CODE_TO_PACK_FN = {
@@ -108,8 +113,15 @@ async function main(args) {
     const packFn = PLATFORM_CODE_TO_PACK_FN[platform];
     promises.push(packFn(platformsInfo));
   }
-  await Promise.all(promises);
-  console.log('Done.');
+  const results = await Promise.all(promises);
+
+  if (results.some(performedPacking => performedPacking)) {
+    console.log('Done.');
+  }
+  else {
+    // warn the user if we didn't pack anything
+    console.warn('Nothing to do.');
+  }
 }
 
 main(process.argv);
