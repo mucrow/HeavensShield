@@ -32,13 +32,34 @@ async function shouldPackDirectory(path) {
   return true;
 }
 
+function logPreparingMessage(artifact) {
+  console.log(`Preparing ${artifact} for packing...`);
+}
+
+function logCompressingMessage(artifact) {
+  console.log(`Compressing ${artifact}...`);
+}
+
+function logFinishedMessage(artifact) {
+  console.log(`${artifact} done.`);
+}
+
 async function packWindows(platformsInfo) {
   if (!(await shouldPackDirectory(platformsInfo.win.dir))) {
     return false;
   }
-  await fs.cp(platformsInfo.win.dir, platformsInfo.win.packPath, { recursive: true });
-  await removeNoShipSubdirs(platformsInfo.win.packPath);
-  await zip(platformsInfo.win.packPath, true);
+
+  const info = platformsInfo.win;
+  const artifactName = 'Windows build';
+
+  logPreparingMessage(artifactName);
+  await fs.cp(info.dir, info.packPath, { recursive: true });
+  await removeNoShipSubdirs(info.packPath);
+
+  logCompressingMessage(artifactName);
+  await zip(info.packPath, true);
+
+  logFinishedMessage(artifactName);
   return true;
 }
 
@@ -46,8 +67,17 @@ async function packMacOS(platformsInfo) {
   if (!(await shouldPackDirectory(platformsInfo.macos.dir))) {
     return false;
   }
-  await fs.cp(platformsInfo.macos.artifactPath, platformsInfo.macos.packPath, { recursive: true });
-  await zip(platformsInfo.macos.packPath, true);
+
+  const info = platformsInfo.macos;
+  const artifactName = 'MacOS build';
+
+  logPreparingMessage(artifactName);
+  await fs.cp(info.artifactPath, info.packPath, { recursive: true });
+
+  logCompressingMessage(artifactName);
+  await zip(info.packPath, true);
+
+  logFinishedMessage(artifactName);
   return true;
 }
 
@@ -55,9 +85,18 @@ async function packLinux(platformsInfo) {
   if (!(await shouldPackDirectory(platformsInfo.linux.dir))) {
     return false;
   }
-  await fs.cp(platformsInfo.linux.dir, platformsInfo.linux.packPath, { recursive: true });
-  await removeNoShipSubdirs(platformsInfo.linux.packPath);
-  await zip(platformsInfo.linux.packPath, true);
+
+  const info = platformsInfo.linux;
+  const artifactName = 'Linux build';
+
+  logPreparingMessage(artifactName);
+  await fs.cp(info.dir, info.packPath, { recursive: true });
+  await removeNoShipSubdirs(info.packPath);
+
+  logCompressingMessage(artifactName);
+  await zip(info.packPath, true);
+
+  logFinishedMessage(artifactName);
   return true;
 }
 
@@ -68,8 +107,17 @@ async function packIOS(platformsInfo) {
   if (!(await shouldPackDirectory(platformsInfo.ios.artifactPath))) {
     return false;
   }
-  await fs.cp(platformsInfo.ios.artifactPath, platformsInfo.ios.packPath, { recursive: true });
-  await zip(platformsInfo.ios.packPath, true);
+
+  const info = platformsInfo.ios;
+  const artifactName = 'Xcode project';
+
+  logPreparingMessage(artifactName);
+  await fs.cp(info.artifactPath, info.packPath, { recursive: true });
+
+  logCompressingMessage(artifactName);
+  await zip(info.packPath, true);
+
+  logFinishedMessage(artifactName);
   return true;
 }
 
@@ -77,8 +125,17 @@ async function packAndroid(platformsInfo) {
   if (!(await shouldPackDirectory(platformsInfo.android.dir))) {
     return false;
   }
-  await fs.copyFile(platformsInfo.android.artifactPath, platformsInfo.android.packPath);
-  await zip(platformsInfo.android.packPath, false);
+
+  const info = platformsInfo.android;
+  const artifactName = 'Android build';
+
+  logPreparingMessage(artifactName);
+  await fs.copyFile(info.artifactPath, info.packPath);
+
+  logCompressingMessage(artifactName);
+  await zip(info.packPath, false);
+
+  logFinishedMessage(artifactName);
   return true;
 }
 
@@ -116,7 +173,7 @@ async function main(args) {
   const results = await Promise.all(promises);
 
   if (results.some(performedPacking => performedPacking)) {
-    console.log('Done.');
+    console.log('All artifacts packed.');
   }
   else {
     // warn the user if we didn't pack anything
