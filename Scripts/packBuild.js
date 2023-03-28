@@ -65,6 +65,7 @@ async function packIOS(platformsInfo) {
   if (!(await shouldPackDirectory(platformsInfo.ios.artifactPath))) {
     return;
   }
+  await fs.cp(platformsInfo.ios.artifactPath, platformsInfo.ios.packPath, { recursive: true });
   await zip(platformsInfo.ios.packPath, true);
 }
 
