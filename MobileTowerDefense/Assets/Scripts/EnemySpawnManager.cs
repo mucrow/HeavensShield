@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Mtd {
   public class EnemySpawnManager: MonoBehaviour {
+    [SerializeField] ScenarioManager _scenarioManager;
     [SerializeField] Transform _enemyFolder;
     [SerializeField] GameObject _enemyPathTriggerPrefab;
     [SerializeField] Transform _enemyPathTriggersFolder;
@@ -47,6 +48,7 @@ namespace Mtd {
       }
     }
 
+    // TODO maybe this should be in ScenarioManager
     void SetupEnemyPathTriggers() {
       var waypointCount = _enemyPath.WaypointCount();
       if (waypointCount < 2) {
@@ -114,6 +116,7 @@ namespace Mtd {
       }
       else {
         _state = State.FinishedAllWaves;
+        _scenarioManager.NotifyEnemySpawningComplete();
       }
     }
 
@@ -127,6 +130,8 @@ namespace Mtd {
       GameObject newEnemyObject = Instantiate(prefab, startPosition, Quaternion.identity, _enemyFolder);
       var enemy = newEnemyObject.GetComponent<EnemyController>();
       enemy.SetPath(path, pathIndex);
+      enemy.SetScenarioManager(_scenarioManager);
+      _scenarioManager.NotifyEnemySpawned(enemy);
     }
   }
 }

@@ -10,7 +10,8 @@ namespace Mtd {
 
     [SerializeField] float _speed = 2f;
 
-    [SerializeField] Path _path;
+    Path _path;
+    ScenarioManager _scenarioManager;
 
     int _pathIndex = 0;
 
@@ -35,6 +36,15 @@ namespace Mtd {
       MoveTowardNextWaypoint();
     }
 
+    public void SetPath(Path path, int pathIndex) {
+      _path = path;
+      _pathIndex = pathIndex;
+    }
+
+    public void SetScenarioManager(ScenarioManager scenarioManager) {
+      _scenarioManager = scenarioManager;
+    }
+
     public void ReceiveDamage(int amount) {
       _health -= amount;
       if (_health <= 0) {
@@ -43,13 +53,9 @@ namespace Mtd {
           playerAgent.AddMoney(_moneyOnKill);
           playerAgent.AddToScore(_scoreOnKill);
         });
+        _scenarioManager.NotifyEnemyDestroyed(this);
         Destroy(gameObject);
       }
-    }
-
-    public void SetPath(Path path, int pathIndex) {
-      _path = path;
-      _pathIndex = pathIndex;
     }
 
     void MoveTowardNextWaypoint() {
