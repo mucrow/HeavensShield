@@ -9,11 +9,11 @@ namespace Mtd.UI {
     [SerializeField] ShowHideOffscreen _showHideOffscreen;
 
     public void Show() {
-      _showHideOffscreen.Show();
+      _showHideOffscreen.ShowInstant();
     }
 
     public void Hide() {
-      _showHideOffscreen.Hide();
+      _showHideOffscreen.HideInstant();
     }
 
     public void ConfigureConfirmButton(bool interactable, string text="Confirm") {

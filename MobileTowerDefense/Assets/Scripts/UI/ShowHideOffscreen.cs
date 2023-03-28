@@ -27,12 +27,12 @@ namespace Mtd.UI {
       EnsureReady();
     }
 
-    public void Show() {
+    public void ShowInstant() {
       _rectTransform.anchoredPosition = _initialPosition;
       IsHidden = false;
     }
 
-    public void Hide() {
+    public void HideInstant() {
       var direction = _edge.ToVector2();
       var relevantDimension = GetRelevantDimension();
       _rectTransform.anchoredPosition = _initialPosition + direction * relevantDimension;
@@ -52,7 +52,7 @@ namespace Mtd.UI {
       }
       _initialPosition = _rectTransform.anchoredPosition;
       _size = _rectTransform.rect.size;
-      Hide();
+      HideInstant();
       _isReady = true;
     }
   }

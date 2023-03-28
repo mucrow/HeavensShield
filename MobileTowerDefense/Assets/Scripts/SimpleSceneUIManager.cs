@@ -10,14 +10,14 @@ namespace Mtd {
       Globals.UI.EnsureReady();
       foreach (UIObjectKey uiObjectKey in _uiObjectKeys) {
         var component = Globals.UI.GetObjectByKey(uiObjectKey);
-        component.Show();
+        component.ShowInstant();
       }
     }
 
     void OnDestroy() {
       foreach (UIObjectKey uiObjectKey in _uiObjectKeys) {
         var component = Globals.UI.GetObjectByKey(uiObjectKey);
-        component.Hide();
+        component.HideInstant();
       }
     }
   }

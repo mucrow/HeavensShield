@@ -33,7 +33,7 @@ namespace Mtd.UI {
     }
 
     public void Open(Vector3 placementPosition) {
-      _showHideOffscreen.Show();
+      _showHideOffscreen.ShowInstant();
       _selectionCircle.Show();
       _selectionCircle.StopPreviewingRange();
       _selectionCircle.SetWorldPosition(placementPosition);
@@ -74,7 +74,7 @@ namespace Mtd.UI {
     public void Close() {
       _confirmCancelButtons.Hide();
       _selectionCircle.Hide();
-      _showHideOffscreen.Hide();
+      _showHideOffscreen.HideInstant();
       if (_hologram) {
         Destroy(_hologram);
       }
