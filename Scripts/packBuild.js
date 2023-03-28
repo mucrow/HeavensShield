@@ -17,8 +17,8 @@ async function removeNoShipSubdirs(dir) {
   const subdirA = path.join(dir, `${GAME_NAME}_BackUpThisFolder_ButDontShipItWithYourGame`);
   const subdirB = path.join(dir, `${GAME_NAME}_BurstDebugInformation_DoNotShip`);
   await Promise.all([
-    fs.rm(subdirA, { recursive: true, force: true }),
-    fs.rm(subdirB, { recursive: true, force: true })
+    fs.rm(subdirA, { recursive: true }),
+    fs.rm(subdirB, { recursive: true })
   ]);
 }
 
@@ -40,6 +40,10 @@ function logCompressingMessage(artifact) {
   console.log(`Compressing ${artifact}...`);
 }
 
+function logCleanupMessage(artifact) {
+  console.log(`Cleaning up ${artifact} files we no longer need...`);
+}
+
 function logFinishedMessage(artifact) {
   console.log(`${artifact} done.`);
 }
@@ -59,6 +63,9 @@ async function packWindows(platformsInfo) {
   logCompressingMessage(artifactName);
   await zip(info.packPath, true);
 
+  logCleanupMessage(artifactName);
+  await fs.rm(info.packPath, { recursive: true });
+
   logFinishedMessage(artifactName);
   return true;
 }
@@ -76,6 +83,9 @@ async function packMacOS(platformsInfo) {
 
   logCompressingMessage(artifactName);
   await zip(info.packPath, true);
+
+  logCleanupMessage(artifactName);
+  await fs.rm(info.packPath, { recursive: true });
 
   logFinishedMessage(artifactName);
   return true;
@@ -95,6 +105,9 @@ async function packLinux(platformsInfo) {
 
   logCompressingMessage(artifactName);
   await zip(info.packPath, true);
+
+  logCleanupMessage(artifactName);
+  await fs.rm(info.packPath, { recursive: true });
 
   logFinishedMessage(artifactName);
   return true;
@@ -117,6 +130,9 @@ async function packIOS(platformsInfo) {
   logCompressingMessage(artifactName);
   await zip(info.packPath, true);
 
+  logCleanupMessage(artifactName);
+  await fs.rm(info.packPath, { recursive: true });
+
   logFinishedMessage(artifactName);
   return true;
 }
@@ -134,6 +150,9 @@ async function packAndroid(platformsInfo) {
 
   logCompressingMessage(artifactName);
   await zip(info.packPath, false);
+
+  logCleanupMessage(artifactName);
+  await fs.rm(info.packPath);
 
   logFinishedMessage(artifactName);
   return true;
