@@ -21,6 +21,9 @@ namespace Mtd.UI {
     [SerializeField] ShowHideOffscreen _scenarioLeftSideButtons;
     public ShowHideOffscreen ScenarioLeftSideButtons => _scenarioLeftSideButtons;
 
+    [SerializeField] ShowHideOffscreen _scenarioMenu;
+    public ShowHideOffscreen ScenarioMenu => _scenarioMenu;
+
     [SerializeField] ShowHideOffscreen _startMenu;
     [SerializeField] ShowHideOffscreen _settingsMenu;
     [SerializeField] ShowHideOffscreen _mainMenu;
