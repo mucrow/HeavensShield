@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Mtd.UI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Mtd {
   [RequireComponent(typeof(ShowHideOffscreen))]
@@ -10,6 +13,11 @@ namespace Mtd {
     [SerializeField] TMP_Text _moneyText;
     [SerializeField] TMP_Text _scoreText;
     [SerializeField] ShowHideOffscreen _showHideOffscreen;
+
+    public Func<Task> Show => _showHideOffscreen.Show;
+    public Func<Task> Hide => _showHideOffscreen.Hide;
+    public UnityAction ShowInstant => _showHideOffscreen.ShowInstant;
+    public UnityAction HideInstant => _showHideOffscreen.HideInstant;
 
     void Awake() {
       Globals.PlayerAgent.Register.AddListener(OnPlayerAgentRegister);
@@ -32,14 +40,6 @@ namespace Mtd {
 
     public void UpdateScore(int score) {
       _scoreText.text = score.ToString("N0");
-    }
-
-    public void Show() {
-      _showHideOffscreen.ShowInstant();
-    }
-
-    public void Hide() {
-      _showHideOffscreen.HideInstant();
     }
   }
 }

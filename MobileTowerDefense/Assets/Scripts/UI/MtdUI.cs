@@ -18,6 +18,9 @@ namespace Mtd.UI {
     [SerializeField] UnitSelector _unitSelector;
     public UnitSelector UnitSelector => _unitSelector;
 
+    [SerializeField] ShowHideOffscreen _scenarioLeftSideButtons;
+    public ShowHideOffscreen ScenarioLeftSideButtons => _scenarioLeftSideButtons;
+
     [SerializeField] ShowHideOffscreen _startMenu;
     [SerializeField] ShowHideOffscreen _settingsMenu;
     [SerializeField] ShowHideOffscreen _mainMenu;

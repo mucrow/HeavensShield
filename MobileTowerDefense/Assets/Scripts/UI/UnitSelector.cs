@@ -34,6 +34,7 @@ namespace Mtd.UI {
     }
 
     public async Task Open(Vector3 placementPosition) {
+      await Globals.UI.ScenarioLeftSideButtons.Hide();
       await _unitChoiceGroup.Show();
       _selectionCircle.Show();
       _selectionCircle.StopPreviewingRange();
@@ -92,6 +93,7 @@ namespace Mtd.UI {
         Destroy(_hologram);
       }
       _pickedUnit = null;
+      await Globals.UI.ScenarioLeftSideButtons.Show();
     }
 
     public async void EHClose() {

@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 5053895631272181218}
   - component: {fileID: 7265696029325099462}
   - component: {fileID: 8683740631261798600}
+  - component: {fileID: 2980690867050128294}
   m_Layer: 5
   m_Name: LeftSideButtons
   m_TagString: Untagged
@@ -291,6 +292,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!114 &2980690867050128294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507184236074151785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _edge: 0
+  _tweenTime: 0.1
 --- !u!1 &1977429531868478954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,6 +1784,7 @@ MonoBehaviour:
   _uiGraphicRaycaster: {fileID: 5281173861250695870}
   _hud: {fileID: 1658877764115468802}
   _unitSelector: {fileID: 4287955091002205989}
+  _scenarioLeftSideButtons: {fileID: 2980690867050128294}
   _startMenu: {fileID: 699709649957521728}
   _settingsMenu: {fileID: 1475730971632294134}
   _mainMenu: {fileID: 3320223281641733637}

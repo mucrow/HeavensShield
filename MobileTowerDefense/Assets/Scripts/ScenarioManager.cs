@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,13 @@ namespace Mtd {
     bool _enemySpawningComplete = false;
 
     void Start() {
-      Globals.UI.HUD.Show();
+      Globals.UI.HUD.ShowInstant();
+      Globals.UI.ScenarioLeftSideButtons.ShowInstant();
+    }
+
+    void OnDestroy() {
+      Globals.UI.ScenarioLeftSideButtons.HideInstant();
+      Globals.UI.HUD.HideInstant();
     }
 
     public void NotifyEnemySpawned(EnemyController enemy) {

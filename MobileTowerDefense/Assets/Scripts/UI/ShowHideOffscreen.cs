@@ -2,10 +2,11 @@
 using System.Threading.Tasks;
 using Mtd.Utils;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Mtd.UI {
   [RequireComponent(typeof(RectTransform))]
-  public class ShowHideOffscreen: MonoBehaviour, IEnsureReady {
+  public class ShowHideOffscreen: UIBehaviour, IEnsureReady {
     [SerializeField] Direction _edge;
 
     [SerializeField] float _tweenTime = 0.1f;
@@ -30,15 +31,26 @@ namespace Mtd.UI {
       EnsureReady();
     }
 
+    protected override void OnRectTransformDimensionsChange() {
+      base.OnRectTransformDimensionsChange();
+      if (!_rectTransform) {
+        return;
+      }
+      _size = _rectTransform.rect.size;
+      if (IsHidden) {
+        var hiddenPosition = GetHiddenPosition();
+        _rectTransform.anchoredPosition = hiddenPosition;
+      }
+    }
+
     public void ShowInstant() {
       _rectTransform.anchoredPosition = _initialPosition;
       IsHidden = false;
     }
 
     public void HideInstant() {
-      var direction = _edge.ToVector2();
-      var relevantDimension = GetRelevantDimension();
-      _rectTransform.anchoredPosition = _initialPosition + direction * relevantDimension;
+      var hiddenPosition = GetHiddenPosition();
+      _rectTransform.anchoredPosition = hiddenPosition;
       IsHidden = true;
     }
 
@@ -53,14 +65,18 @@ namespace Mtd.UI {
 
     public Task Hide() {
       var tcs = new TaskCompletionSource<bool>();
-      var direction = _edge.ToVector2();
-      var relevantDimension = GetRelevantDimension();
-      var hiddenPosition = _initialPosition + direction * relevantDimension;
+      var hiddenPosition = GetHiddenPosition();
       LeanTween.move(_rectTransform, hiddenPosition, _tweenTime).setOnComplete(() => {
         tcs.SetResult(true);
       });
       IsHidden = true;
       return tcs.Task;
+    }
+
+    Vector2 GetHiddenPosition() {
+      var direction = _edge.ToVector2();
+      var relevantDimension = GetRelevantDimension();
+      return _initialPosition + direction * relevantDimension;
     }
 
     public float GetRelevantDimension() {
