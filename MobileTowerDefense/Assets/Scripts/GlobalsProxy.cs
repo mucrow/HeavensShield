@@ -26,7 +26,7 @@ namespace Mtd {
         callback(_proxied);
       }
       else {
-        Debug.LogWarning("With() called on GlobalsProxy when object was null (use WithIfRegistered())");
+        Debug.LogWarning("With() called on GlobalsProxy when object was null (use WithIfRegistered() if this is ok)");
       }
     }
 
@@ -41,7 +41,7 @@ namespace Mtd {
         await callback(_proxied);
       }
       else {
-        Debug.LogWarning("WithAsync() called on GlobalsProxy when object was null (use WithIfRegisteredAsync())");
+        Debug.LogWarning("WithAsync() called on GlobalsProxy when object was null (use WithIfRegisteredAsync() if this is ok)");
       }
     }
 
