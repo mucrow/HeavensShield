@@ -18,11 +18,11 @@ namespace Mtd.UI {
 
     public bool IsHidden { get; private set; }
 
-    void Awake() {
+    protected override void Awake() {
       _rectTransform = GetComponent<RectTransform>();
     }
 
-    void Start() {
+    protected override void Start() {
       // trying to check initial position and width in Awake() result in inaccurate values. i
       // believe this is because Unity UI components are not guaranteed to be finished resizing
       // when Awake() is called. it makes sense - the layout needs to be dynamically calculated and
