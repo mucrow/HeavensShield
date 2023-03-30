@@ -38,8 +38,10 @@ namespace Mtd.UI {
       }
       _size = _rectTransform.rect.size;
       if (IsHidden) {
-        var hiddenPosition = GetHiddenPosition();
-        _rectTransform.anchoredPosition = hiddenPosition;
+        HideInstant();
+      }
+      else {
+        ShowInstant();
       }
     }
 
