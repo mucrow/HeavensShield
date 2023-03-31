@@ -4,6 +4,7 @@ namespace Mtd {
   [System.Serializable]
   public class SaveData {
     public SettingsSaveData Settings = new SettingsSaveData();
+    public GameSaveData Game = new GameSaveData();
 
     [System.Serializable]
     public class SettingsSaveData {
@@ -25,7 +26,7 @@ namespace Mtd {
 
     [System.Serializable]
     public class GameSaveData {
-      public int PoliticalCapital;
+      public float PoliticalCapital;
       public List<int> UnlockedScenarioIDs;
       public List<int> UnlockedUnitIDs;
     }

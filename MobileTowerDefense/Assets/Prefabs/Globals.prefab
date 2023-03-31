@@ -2227,6 +2227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 5281173861425797726}
   _gameManager: {fileID: 8553589073084172789}
+  _saveManager: {fileID: 0}
   _input: {fileID: 5281173860959149103}
   _ui: {fileID: 5281173860265815253}
 --- !u!1 &6633529037930888260

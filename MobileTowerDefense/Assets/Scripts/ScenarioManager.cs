@@ -34,9 +34,33 @@ namespace Mtd {
       CheckIfPlayerWon();
     }
 
-    public void CheckIfPlayerWon() {
+    async void CheckIfPlayerWon() {
       if (_enemySpawningComplete && _livingEnemies.Count == 0) {
-        Debug.Log("u won!");
+        Debug.Log("u won! (showing win banner)");
+
+        // show win banner
+        await Task.Delay(1000);
+
+        Debug.Log("showing score dialog");
+
+        // bring up score dialog
+        // play animation that converts gold/score/tower health into political capital
+        // buttons to play next scenario, replay the current scenario, or go back to main menu
+        Globals.PlayerAgent.With(playerAgent => {
+          Globals.GameManager.SaveData.Game.PoliticalCapital += playerAgent.Money / 300f;
+          Globals.GameManager.SaveData.Game.PoliticalCapital += playerAgent.Score / 100f;
+          float towerHealth = 100f;
+          Globals.GameManager.SaveData.Game.PoliticalCapital += towerHealth / 2f;
+        });
+        Debug.Log("Political Capital: " + Globals.GameManager.SaveData.Game.PoliticalCapital);
+
+        await Globals.GameManager.WriteSaveData();
+        Debug.Log("writing save data");
+
+        await Task.Delay(1000);
+        Debug.Log("going back to main menu");
+
+        Globals.GameManager.LoadScene("Scenes/MainMenu");
       }
     }
   }
