@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Mtd.UI {
   public class ScenarioUI: MonoBehaviour {
@@ -28,6 +29,17 @@ namespace Mtd.UI {
 
     public async void QuitToMainMenuEH() {
       await QuitToMainMenu();
+    }
+
+    public async Task RestartScenario() {
+      await HideScenarioMenu();
+      // TODO this feels gross
+      Scene scene = SceneManager.GetActiveScene();
+      Globals.GameManager.LoadScene(scene.name);
+    }
+
+    public async void RestartScenarioEH() {
+      await RestartScenario();
     }
   }
 }
