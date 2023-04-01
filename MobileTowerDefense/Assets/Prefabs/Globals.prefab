@@ -173,6 +173,7 @@ MonoBehaviour:
   _scenarioOrder: {fileID: 11400000, guid: c6871c396b8a1104ebba6f842f1f5628, type: 2}
   _chapterListChapterGroupPrefab: {fileID: 5511858844002979159, guid: 96829483269b58d409f0a27b3b258213, type: 3}
   _chapterListScenarioPrefab: {fileID: 7447021878153235249, guid: ffe5b4e296f3a4a4d94e40038086b9b2, type: 3}
+  _showHideOffscreen: {fileID: 820684017765603264}
 --- !u!114 &820684017765603264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1816,10 +1817,10 @@ MonoBehaviour:
   _unitSelector: {fileID: 4287955091002205989}
   _scenarioLeftSideButtons: {fileID: 2980690867050128294}
   _scenarioMenu: {fileID: 4020656424004786153}
+  _scenarioSelection: {fileID: 7854375680738551527}
   _startMenu: {fileID: 699709649957521728}
   _settingsMenu: {fileID: 1475730971632294134}
   _mainMenu: {fileID: 3320223281641733637}
-  _scenarioSelection: {fileID: 820684017765603264}
   _barracks: {fileID: 6759841138502256274}
 --- !u!1 &5281173860401328008
 GameObject:
@@ -2227,7 +2228,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 5281173861425797726}
   _gameManager: {fileID: 8553589073084172789}
-  _saveManager: {fileID: 0}
   _input: {fileID: 5281173860959149103}
   _ui: {fileID: 5281173860265815253}
 --- !u!1 &6633529037930888260

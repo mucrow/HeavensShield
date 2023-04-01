@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Mtd.Utils;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace Mtd {
@@ -9,8 +10,8 @@ namespace Mtd {
     SaveData _saveData;
     public SaveData SaveData => _saveData;
 
-    async void Awake() {
-      var result = await SaveAndLoad.TryReadSaveData();
+    void Awake() {
+      var result = SaveAndLoad.TryReadSaveData();
       if (result.Code == SaveAndLoad.TryReadSaveDataResultCode.ExceptionThrown) {
         // TODO could do handling here for corrupted save data, etc.
         throw result.Exception;
@@ -26,15 +27,15 @@ namespace Mtd {
       }
     }
 
-    async void OnDestroy() {
+    void OnDestroy() {
       if (this == Globals.GameManager) {
-        await SaveAndLoad.TryWriteSaveData(_saveData);
+        SaveAndLoad.TryWriteSaveData(_saveData);
       }
     }
 
-    public async Task WriteSaveData() {
+    public void WriteSaveData() {
       try {
-        await SaveAndLoad.TryWriteSaveData(_saveData);
+        SaveAndLoad.TryWriteSaveData(_saveData);
       }
       catch (Exception e) {
         Debug.LogError("Couldn't write save data to disk");

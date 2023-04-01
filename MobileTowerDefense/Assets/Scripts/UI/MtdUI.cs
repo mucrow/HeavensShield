@@ -24,10 +24,12 @@ namespace Mtd.UI {
     [SerializeField] ShowHideOffscreen _scenarioMenu;
     public ShowHideOffscreen ScenarioMenu => _scenarioMenu;
 
+    [SerializeField] ScenarioSelection _scenarioSelection;
+    public ScenarioSelection ScenarioSelection => _scenarioSelection;
+
     [SerializeField] ShowHideOffscreen _startMenu;
     [SerializeField] ShowHideOffscreen _settingsMenu;
     [SerializeField] ShowHideOffscreen _mainMenu;
-    [SerializeField] ShowHideOffscreen _scenarioSelection;
     [SerializeField] ShowHideOffscreen _barracks;
 
     bool _isWholeUIReady = false;
@@ -73,8 +75,6 @@ namespace Mtd.UI {
           return _settingsMenu;
         case UIObjectKey.MainMenu:
           return _mainMenu;
-        case UIObjectKey.ScenarioSelection:
-          return _scenarioSelection;
         case UIObjectKey.Barracks:
           return _barracks;
       }
@@ -86,7 +86,7 @@ namespace Mtd.UI {
     StartMenu = 0,
     SettingsMenu = 1,
     MainMenu = 2,
-    ScenarioSelection = 3,
+    // free slot
     Barracks = 4,
   }
 }

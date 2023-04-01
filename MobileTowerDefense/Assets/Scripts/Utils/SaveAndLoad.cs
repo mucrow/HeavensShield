@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace Mtd.Utils {
   public class SaveAndLoad {
-    public static async Task<TryReadSaveDataResult> TryReadSaveData() {
+    public static TryReadSaveDataResult TryReadSaveData() {
       var saveFilePath = GetSaveFilePath();
       if (!System.IO.File.Exists(saveFilePath)) {
         return TryReadSaveDataResult.DoesNotExist();
       }
 
       try {
-        string jsonString = await System.IO.File.ReadAllTextAsync(saveFilePath);
+        string jsonString = System.IO.File.ReadAllText(saveFilePath);
         var saveData = JsonUtility.FromJson<SaveData>(jsonString);
         return TryReadSaveDataResult.Success(saveData);
       }
@@ -21,10 +21,10 @@ namespace Mtd.Utils {
     }
 
     /** This may throw an exception if we don't have permission to write to the _saveFilePath. */
-    public static async Task TryWriteSaveData(SaveData saveData) {
+    public static void TryWriteSaveData(SaveData saveData) {
       var saveFilePath = GetSaveFilePath();
       string jsonString = JsonUtility.ToJson(saveData, true);
-      await System.IO.File.WriteAllTextAsync(saveFilePath, jsonString);
+      System.IO.File.WriteAllText(saveFilePath, jsonString);
     }
 
     static string GetSaveFilePath() {

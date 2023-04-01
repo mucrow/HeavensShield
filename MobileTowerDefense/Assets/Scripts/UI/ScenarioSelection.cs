@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Mtd.UI;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Mtd {
   public class ScenarioSelection: MonoBehaviour {
@@ -11,33 +14,60 @@ namespace Mtd {
     [SerializeField] GameObject _chapterListChapterGroupPrefab;
     [SerializeField] GameObject _chapterListScenarioPrefab;
 
-    void Awake() {
-      var chapters = _scenarioOrder.Chapters;
-      for (int i = 0; i < chapters.Length; ++i) {
-        var chapterInfo = chapters[i];
+    [SerializeField] ShowHideOffscreen _showHideOffscreen;
 
-        var chapterGameObject = Instantiate(
-          _chapterListChapterGroupPrefab,
-          Vector3.zero,
-          Quaternion.identity,
-          _chapterListUIObject
-        );
-        var chapter = chapterGameObject.GetComponent<ChapterListChapterGroup>();
-        chapter.SetHeadingText("Chapter " + (i + 1));
+    public UnityAction ShowInstant => _showHideOffscreen.ShowInstant;
+    public UnityAction HideInstant => _showHideOffscreen.HideInstant;
 
-        var scenarios = chapterInfo.Scenarios;
-        for (int j = 0; j < scenarios.Length; ++j) {
-          var scenarioInfo = scenarios[j];
-          var scenarioGameObject = Instantiate(
-            _chapterListScenarioPrefab,
-            Vector3.zero,
-            Quaternion.identity,
-            chapterGameObject.transform
-          );
-          var scenario = scenarioGameObject.GetComponent<ChapterListScenario>();
-          scenario.InitFromScenarioInfo(scenarioInfo);
-        }
+    public void RefreshUI() {
+      DeleteOldUI();
+      BuildUI();
+    }
+
+    void DeleteOldUI() {
+      foreach (Transform child in _chapterListUIObject.transform) {
+        Destroy(child.gameObject);
       }
+    }
+
+    void BuildUI() {
+      var unlockedScenarioIDs = Globals.GameManager.SaveData.Game.UnlockedScenarioIDs;
+      var chapterGameObjects = new Dictionary<int, GameObject>();
+
+      foreach (int scenarioID in unlockedScenarioIDs) {
+        var scenarioInfo = _scenarioOrder.GetScenarioByID(scenarioID);
+        var chapterID = scenarioInfo.ChapterID;
+
+        if (!chapterGameObjects.TryGetValue(chapterID, out GameObject chapterGameObject)) {
+          chapterGameObject = BuildUIForUnlockedChapter(chapterID);
+          chapterGameObjects[chapterID] = chapterGameObject;
+        }
+
+        BuildUIForUnlockedScenario(chapterGameObject, scenarioInfo);
+      }
+    }
+
+    GameObject BuildUIForUnlockedChapter(int chapterID) {
+      var ret = Instantiate(
+        _chapterListChapterGroupPrefab,
+        Vector3.zero,
+        Quaternion.identity,
+        _chapterListUIObject
+      );
+      var chapter = ret.GetComponent<ChapterListChapterGroup>();
+      chapter.SetHeadingText("Chapter " + (chapterID + 1));
+      return ret;
+    }
+
+    void BuildUIForUnlockedScenario(GameObject chapterGameObject, OrderedScenarioInfo scenarioInfo) {
+      var scenarioGameObject = Instantiate(
+        _chapterListScenarioPrefab,
+        Vector3.zero,
+        Quaternion.identity,
+        chapterGameObject.transform
+      );
+      var scenario = scenarioGameObject.GetComponent<ChapterListScenario>();
+      scenario.InitFromScenarioInfo(scenarioInfo);
     }
   }
 }

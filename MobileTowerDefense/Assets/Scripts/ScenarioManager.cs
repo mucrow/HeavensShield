@@ -55,12 +55,12 @@ namespace Mtd {
           Globals.GameManager.SaveData.Game.PoliticalCapital += playerAgent.Money / 300f;
           Globals.GameManager.SaveData.Game.PoliticalCapital += playerAgent.Score / 100f;
           Globals.GameManager.SaveData.Game.PoliticalCapital += towerHealth / 2f;
-          Globals.GameManager.SaveData.Game.UnlockedScenarioIDs.AddRange(unlockedScenarioIDs);
+          Globals.GameManager.SaveData.Game.UnlockScenarios(unlockedScenarioIDs.ToArray());
         });
         Debug.Log("Political Capital: " + Globals.GameManager.SaveData.Game.PoliticalCapital);
         Debug.Log("Unlocked Scenarios: " + string.Join(", ", Globals.GameManager.SaveData.Game.UnlockedScenarioIDs));
 
-        await Globals.GameManager.WriteSaveData();
+        Globals.GameManager.WriteSaveData();
         Debug.Log("writing save data");
 
         await Task.Delay(1000);
