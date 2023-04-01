@@ -11,7 +11,6 @@ namespace Mtd.Utils {
       }
 
       try {
-        Debug.Log(saveFilePath);
         string jsonString = await System.IO.File.ReadAllTextAsync(saveFilePath);
         var saveData = JsonUtility.FromJson<SaveData>(jsonString);
         return TryReadSaveDataResult.Success(saveData);
