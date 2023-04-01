@@ -26,9 +26,20 @@ namespace Mtd {
 
     [System.Serializable]
     public class GameSaveData {
-      public float PoliticalCapital;
-      public List<int> UnlockedScenarioIDs;
-      public List<int> UnlockedUnitIDs;
+      public float PoliticalCapital = 0f;
+
+      // Do not convert these to HashSets. HashSets are not serialized by JsonUtility. HashSet
+      // fields on an object getting serialized are ignored without warnings or errors.
+      public List<int> UnlockedScenarioIDs = new List<int>() { 0 };
+      public List<int> UnlockedUnitIDs = new List<int>() { 0, 1, 2 };
+
+      public void UnlockScenarios(params int[] ids) {
+        Utils.Utils.AddNewToList(UnlockedScenarioIDs, ids);
+      }
+
+      public void UnlockUnits(params int[] ids) {
+        Utils.Utils.AddNewToList(UnlockedUnitIDs, ids);
+      }
     }
   }
 }

@@ -47,12 +47,18 @@ namespace Mtd {
         // play animation that converts gold/score/tower health into political capital
         // buttons to play next scenario, replay the current scenario, or go back to main menu
         Globals.PlayerAgent.With(playerAgent => {
+          // TODO this is stubbed with a dummy value
+          float towerHealth = 100f;
+          // TODO this is stubbed with a dummy value
+          var unlockedScenarioIDs = new List<int>() { 1 };
+
           Globals.GameManager.SaveData.Game.PoliticalCapital += playerAgent.Money / 300f;
           Globals.GameManager.SaveData.Game.PoliticalCapital += playerAgent.Score / 100f;
-          float towerHealth = 100f;
           Globals.GameManager.SaveData.Game.PoliticalCapital += towerHealth / 2f;
+          Globals.GameManager.SaveData.Game.UnlockedScenarioIDs.AddRange(unlockedScenarioIDs);
         });
         Debug.Log("Political Capital: " + Globals.GameManager.SaveData.Game.PoliticalCapital);
+        Debug.Log("Unlocked Scenarios: " + string.Join(", ", Globals.GameManager.SaveData.Game.UnlockedScenarioIDs));
 
         await Globals.GameManager.WriteSaveData();
         Debug.Log("writing save data");

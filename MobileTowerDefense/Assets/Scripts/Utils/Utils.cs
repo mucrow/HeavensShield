@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Mtd.Utils {
@@ -86,6 +87,15 @@ namespace Mtd.Utils {
       float x = MapRange(minInput, maxInput, minOutput.x, maxOutput.x, input, 1f);
       float y = MapRange(minInput, maxInput, minOutput.y, maxOutput.y, input, 1f);
       return new Vector2(x, y);
+    }
+
+    /**
+     * Adds items to the given list only if they are not already present.
+     *
+     * Be warned this method may be a bit slow.
+     */
+    public static void AddNewToList<T>(List<T> list, params T[] items) {
+      list.AddRange(items.Except(list));
     }
 
     public static Vector3 SnapPointToBottomLeftOfTile(Vector3 point) {
