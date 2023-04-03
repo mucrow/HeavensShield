@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -8,6 +9,14 @@ namespace Mtd {
   public class ScenarioManager: MonoBehaviour {
     List<EnemyController> _livingEnemies = new List<EnemyController>();
     bool _enemySpawningComplete = false;
+
+    public bool IsPaused { get; private set; } = false;
+    public float BattleSpeed { get; private set; } = 1f;
+    float[] _battleSpeeds = new float[] {1f, 2f, 3f};
+
+    void Awake() {
+      Globals.ScenarioManager.Register(this);
+    }
 
     void Start() {
       Globals.UI.HUD.ShowInstant();
@@ -17,6 +26,45 @@ namespace Mtd {
     void OnDestroy() {
       Globals.UI.ScenarioLeftSideButtons.HideInstant();
       Globals.UI.HUD.HideInstant();
+      Globals.ScenarioManager.Unregister(this);
+    }
+
+    public void SetScenarioPaused(bool isPaused) {
+      IsPaused = isPaused;
+      UpdateTimeScale();
+    }
+
+    public void ToggleScenarioPaused() {
+      SetScenarioPaused(!IsPaused);
+    }
+
+    public void SetBattleSpeed(float newSpeed) {
+      if (!_battleSpeeds.Contains(newSpeed)) {
+        Debug.LogWarning("Expected discreet battle speed of 1f, 2f, or 3f, but received " + newSpeed);
+      }
+      BattleSpeed = newSpeed;
+      UpdateTimeScale();
+    }
+
+    /** Cycle through the available battle speeds (1x, 2x, and 3x). */
+    public void CycleBattleSpeed() {
+      int indexOfCurrentBattleSpeed = Array.IndexOf(_battleSpeeds, BattleSpeed);
+      if (indexOfCurrentBattleSpeed >= 0) {
+        int indexOfNextBattleSpeed = (indexOfCurrentBattleSpeed + 1) % _battleSpeeds.Length;
+        SetBattleSpeed(_battleSpeeds[indexOfNextBattleSpeed]);
+      }
+      else {
+        SetBattleSpeed(_battleSpeeds[0]);
+      }
+    }
+
+    void UpdateTimeScale() {
+      if (IsPaused) {
+        Time.timeScale = 0f;
+      }
+      else {
+        Time.timeScale = BattleSpeed;
+      }
     }
 
     public void NotifyEnemySpawned(EnemyController enemy) {

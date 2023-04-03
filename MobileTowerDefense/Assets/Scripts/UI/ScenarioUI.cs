@@ -39,5 +39,17 @@ namespace Mtd.UI {
     public async void RestartScenarioEH() {
       await RestartScenario();
     }
+
+    public void ToggleScenarioPaused() {
+      Globals.ScenarioManager.With(scenarioManager => {
+        scenarioManager.ToggleScenarioPaused();
+      });
+    }
+
+    public void CycleBattleSpeed() {
+      Globals.ScenarioManager.With(scenarioManager => {
+        scenarioManager.CycleBattleSpeed();
+      });
+    }
   }
 }

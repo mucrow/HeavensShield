@@ -16,7 +16,9 @@ namespace Mtd {
     /** Never null during or after Start() */
     public static MtdInput Input;
 
-    public static Proxy<PlayerAgent> PlayerAgent = new Proxy<PlayerAgent>();
+    public static readonly Proxy<PlayerAgent> PlayerAgent = new Proxy<PlayerAgent>();
+    public static readonly Proxy<OrderedScenarioInfo> LoadedScenario = new Proxy<OrderedScenarioInfo>();
+    public static readonly Proxy<ScenarioManager> ScenarioManager = new Proxy<ScenarioManager>();
 
     /** Never null during or after Start() */
     public static MtdUI UI;

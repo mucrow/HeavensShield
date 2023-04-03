@@ -10,8 +10,6 @@ namespace Mtd {
     SaveData _saveData;
     public SaveData SaveData => _saveData;
 
-    public readonly Proxy<OrderedScenarioInfo> LoadedScenario = new Proxy<OrderedScenarioInfo>();
-
     void Awake() {
       var result = SaveAndLoad.TryReadSaveData();
       if (result.Code == SaveAndLoad.TryReadSaveDataResultCode.ExceptionThrown) {
@@ -69,15 +67,15 @@ namespace Mtd {
     }
 
     public void ReloadScenario() {
-      LoadedScenario.With(scenarioInfo => LoadScenario(scenarioInfo));
+      Globals.LoadedScenario.With(scenarioInfo => LoadScenario(scenarioInfo));
     }
 
     void LoadSceneHelper(string path, OrderedScenarioInfo scenario) {
       if (scenario != null) {
-        LoadedScenario.Register(scenario);
+        Globals.LoadedScenario.Register(scenario);
       }
       else {
-        LoadedScenario.Unregister();
+        Globals.LoadedScenario.Unregister();
       }
       SceneManager.LoadScene(path);
     }
