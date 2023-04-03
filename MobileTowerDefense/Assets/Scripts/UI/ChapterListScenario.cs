@@ -7,28 +7,20 @@ namespace Mtd.UI {
   public class ChapterListScenario: MonoBehaviour {
     [SerializeField] TMP_Text _text;
 
-    string _path;
-
-    void InitFromNameAndPath(string scenarioName, string scenarioScenePath) {
-      gameObject.name = scenarioName;
-      _text.text = scenarioName;
-      _path = scenarioScenePath;
-    }
-
-    public void InitFromScenarioInfo(ScenarioInfo info) {
-      InitFromNameAndPath(info.Name, info.Path);
-    }
+    OrderedScenarioInfo _info;
 
     public void InitFromScenarioInfo(OrderedScenarioInfo info) {
-      InitFromNameAndPath(info.Name, info.Path);
+      gameObject.name = info.Name;
+      _text.text = info.Name;
+      _info = info;
     }
 
     public void LoadAssociatedScenario() {
-      if (string.IsNullOrEmpty(_path)) {
+      if (_info == null) {
         Debug.LogWarning("Tried to load scenario from ChapterListScenario (button) but scene path not set (use InitFromScenarioInfo(...))");
         return;
       }
-      Globals.GameManager.LoadScene("Scenes/Scenarios/" + _path);
+      Globals.GameManager.LoadScenario(_info);
     }
   }
 }

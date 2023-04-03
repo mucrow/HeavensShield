@@ -66,7 +66,7 @@ namespace Mtd {
         await Task.Delay(1000);
         Debug.Log("going back to main menu");
 
-        Globals.GameManager.LoadScene("Scenes/MainMenu");
+        Globals.GameManager.LoadMainMenuScene();
       }
     }
   }

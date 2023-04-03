@@ -21,8 +21,8 @@ namespace Mtd.UI {
       if (!_unitsGroup) {
         Debug.LogWarning("_unitsGroup is null - created units will be added as top-level game objects in the hierarchy", this);
       }
-      Globals.PlayerAgent.Register.AddListener(OnPlayerAgentRegister);
-      Globals.PlayerAgent.Unregister.AddListener(OnPlayerAgentUnregister);
+      Globals.PlayerAgent.AddRegisterListener(OnPlayerAgentRegister);
+      Globals.PlayerAgent.AddUnregisterListener(OnPlayerAgentUnregister);
     }
 
     public void OnPlayerAgentRegister(PlayerAgent playerAgent) {

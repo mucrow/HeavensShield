@@ -24,7 +24,7 @@ namespace Mtd.UI {
 
     public async Task QuitToMainMenu() {
       await HideScenarioMenu();
-      Globals.GameManager.LoadScene("Scenes/MainMenu");
+      Globals.GameManager.LoadMainMenuScene();
     }
 
     public async void QuitToMainMenuEH() {
@@ -33,9 +33,7 @@ namespace Mtd.UI {
 
     public async Task RestartScenario() {
       await HideScenarioMenu();
-      // TODO this feels gross
-      Scene scene = SceneManager.GetActiveScene();
-      Globals.GameManager.LoadScene(scene.name);
+      Globals.GameManager.ReloadScenario();
     }
 
     public async void RestartScenarioEH() {

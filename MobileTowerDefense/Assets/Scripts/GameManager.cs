@@ -10,6 +10,8 @@ namespace Mtd {
     SaveData _saveData;
     public SaveData SaveData => _saveData;
 
+    public readonly Proxy<OrderedScenarioInfo> LoadedScenario = new Proxy<OrderedScenarioInfo>();
+
     void Awake() {
       var result = SaveAndLoad.TryReadSaveData();
       if (result.Code == SaveAndLoad.TryReadSaveDataResultCode.ExceptionThrown) {
@@ -42,8 +44,42 @@ namespace Mtd {
       }
     }
 
-    public void LoadScene(string sceneName) {
-      SceneManager.LoadScene(sceneName);
+    public void LoadBarracksScene() {
+      LoadSceneHelper("Scenes/Barracks", null);
+    }
+
+    public void LoadMainMenuScene() {
+      LoadSceneHelper("Scenes/MainMenu", null);
+    }
+
+    public void LoadScenarioSelectionScene() {
+      LoadSceneHelper("Scenes/ScenarioSelection", null);
+    }
+
+    public void LoadSettingsMenuScene() {
+      LoadSceneHelper("Scenes/SettingsMenu", null);
+    }
+
+    public void LoadStartMenuScene() {
+      LoadSceneHelper("Scenes/StartMenu", null);
+    }
+
+    public void LoadScenario(OrderedScenarioInfo scenarioInfo) {
+      LoadSceneHelper("Scenes/Scenarios/" + scenarioInfo.Path, scenarioInfo);
+    }
+
+    public void ReloadScenario() {
+      LoadedScenario.With(scenarioInfo => LoadScenario(scenarioInfo));
+    }
+
+    void LoadSceneHelper(string path, OrderedScenarioInfo scenario) {
+      if (scenario != null) {
+        LoadedScenario.Register(scenario);
+      }
+      else {
+        LoadedScenario.Unregister();
+      }
+      SceneManager.LoadScene(path);
     }
   }
 }

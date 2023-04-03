@@ -16,7 +16,7 @@ namespace Mtd {
     /** Never null during or after Start() */
     public static MtdInput Input;
 
-    public static GlobalsProxy<PlayerAgent> PlayerAgent = new GlobalsProxy<PlayerAgent>();
+    public static Proxy<PlayerAgent> PlayerAgent = new Proxy<PlayerAgent>();
 
     /** Never null during or after Start() */
     public static MtdUI UI;

@@ -32,7 +32,7 @@ namespace Mtd {
     }
 
     void Start() {
-      Globals.PlayerAgent.Register.Invoke(this);
+      Globals.PlayerAgent.Register(this);
 
       Globals.Input.DragStart.AddListener(OnDragStart);
       Globals.Input.Drag.AddListener(OnDrag);
@@ -48,7 +48,7 @@ namespace Mtd {
       Globals.Input.Tap.RemoveListener(OnTap);
       Globals.Input.Zoom.RemoveListener(OnZoom);
 
-      Globals.PlayerAgent.Unregister.Invoke(this);
+      Globals.PlayerAgent.Unregister(this);
     }
 
     public void AddMoney(int amount) {

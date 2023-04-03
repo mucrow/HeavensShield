@@ -4,21 +4,54 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace Mtd {
-  public class GlobalsProxy<T> where T: class {
+  public class Proxy<T> where T: class {
     T _proxied;
 
-    public readonly UnityEvent<T> Register = new UnityEvent<T>();
-    public readonly UnityEvent<T> Unregister = new UnityEvent<T>();
+    readonly UnityEvent<T> _register = new UnityEvent<T>();
+    readonly UnityEvent<T> _unregister = new UnityEvent<T>();
 
-    public GlobalsProxy() {
-      Register.AddListener(RegisterInternal);
-      Unregister.AddListener(UnregisterInternal);
+    public Proxy() { }
+
+    public Proxy(T item) {
+      _proxied = item;
     }
 
-    public GlobalsProxy(T proxied) {
-      Register.AddListener(RegisterInternal);
-      Unregister.AddListener(UnregisterInternal);
-      RegisterInternal(proxied);
+    public void Register(T item) {
+      T temp = _proxied;
+      _proxied = item;
+      if (temp != null) {
+        _unregister.Invoke(temp);
+      }
+      _register.Invoke(_proxied);
+    }
+
+    public void Unregister() {
+      T temp = _proxied;
+      _proxied = null;
+      _unregister.Invoke(temp);
+    }
+
+    public void Unregister(T temp) {
+      if (_proxied == temp) {
+        _proxied = null;
+        _unregister.Invoke(temp);
+      }
+    }
+
+    public void AddRegisterListener(UnityAction<T> listener) {
+      _register.AddListener(listener);
+    }
+
+    public void RemoveRegisterListener(UnityAction<T> listener) {
+      _register.RemoveListener(listener);
+    }
+
+    public void AddUnregisterListener(UnityAction<T> listener) {
+      _unregister.AddListener(listener);
+    }
+
+    public void RemoveUnregisterListener(UnityAction<T> listener) {
+      _unregister.RemoveListener(listener);
     }
 
     public void With(UnityAction<T> callback) {
@@ -49,14 +82,6 @@ namespace Mtd {
       if (_proxied != null) {
         await callback(_proxied);
       }
-    }
-
-    void RegisterInternal(T proxied) {
-      _proxied = proxied;
-    }
-
-    void UnregisterInternal(T proxied) {
-      _proxied = null;
     }
   }
 }

@@ -20,8 +20,8 @@ namespace Mtd {
     public UnityAction HideInstant => _showHideOffscreen.HideInstant;
 
     void Awake() {
-      Globals.PlayerAgent.Register.AddListener(OnPlayerAgentRegister);
-      Globals.PlayerAgent.Unregister.AddListener(OnPlayerAgentUnregister);
+      Globals.PlayerAgent.AddRegisterListener(OnPlayerAgentRegister);
+      Globals.PlayerAgent.AddUnregisterListener(OnPlayerAgentUnregister);
     }
 
     void OnPlayerAgentRegister(PlayerAgent playerAgent) {
