@@ -31,7 +31,7 @@ namespace Mtd {
 
     void OnDestroy() {
       if (this == Globals.GameManager) {
-        SaveAndLoad.TryWriteSaveData(_saveData);
+        WriteSaveData();
       }
     }
 
