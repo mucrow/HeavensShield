@@ -22,7 +22,7 @@ namespace Mtd.UI {
     void Update() {
       var currentRotation = _rotate.transform.localRotation.eulerAngles.z;
       var rotationDirection = _rotateClockwise ? -1f : 1f;
-      var rotationDelta = Time.deltaTime * 360f * _rotationsPerSecond * rotationDirection;
+      var rotationDelta = Time.unscaledDeltaTime * 360f * _rotationsPerSecond * rotationDirection;
       var newRotation = (currentRotation + rotationDelta) % 360f;
       _rotate.transform.localRotation = Quaternion.Euler(0f, 0f, newRotation);
     }
