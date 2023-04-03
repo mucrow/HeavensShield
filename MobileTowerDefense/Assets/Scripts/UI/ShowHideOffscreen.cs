@@ -60,7 +60,7 @@ namespace Mtd.UI {
       var tcs = new TaskCompletionSource<bool>();
       LeanTween.move(_rectTransform, _initialPosition, _tweenTime).setOnComplete(() => {
         tcs.SetResult(true);
-      });
+      }).setIgnoreTimeScale(true);
       IsHidden = false;
       return tcs.Task;
     }
@@ -70,7 +70,7 @@ namespace Mtd.UI {
       var hiddenPosition = GetHiddenPosition();
       LeanTween.move(_rectTransform, hiddenPosition, _tweenTime).setOnComplete(() => {
         tcs.SetResult(true);
-      });
+      }).setIgnoreTimeScale(true);
       IsHidden = true;
       return tcs.Task;
     }

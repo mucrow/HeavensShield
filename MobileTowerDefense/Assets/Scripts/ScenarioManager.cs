@@ -19,6 +19,7 @@ namespace Mtd {
     }
 
     void Start() {
+      Time.timeScale = 1f;
       Globals.UI.HUD.ShowInstant();
       Globals.UI.ScenarioLeftSideButtons.ShowInstant();
     }
@@ -27,6 +28,7 @@ namespace Mtd {
       Globals.UI.ScenarioLeftSideButtons.HideInstant();
       Globals.UI.HUD.HideInstant();
       Globals.ScenarioManager.Unregister(this);
+      Time.timeScale = 1f;
     }
 
     public void SetScenarioPaused(bool isPaused) {

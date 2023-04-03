@@ -6,7 +6,13 @@ using UnityEngine.SceneManagement;
 
 namespace Mtd.UI {
   public class ScenarioUI: MonoBehaviour {
+    bool _pauseStateBeforeOpeningScenarioMenu;
+
     public async Task ShowScenarioMenu() {
+      Globals.ScenarioManager.With(scenarioManager => {
+        _pauseStateBeforeOpeningScenarioMenu = scenarioManager.IsPaused;
+        scenarioManager.SetScenarioPaused(true);
+      });
       await Globals.UI.ScenarioMenu.Show();
     }
 
@@ -15,6 +21,9 @@ namespace Mtd.UI {
     }
 
     public async Task HideScenarioMenu() {
+      Globals.ScenarioManager.With(scenarioManager => {
+        scenarioManager.SetScenarioPaused(_pauseStateBeforeOpeningScenarioMenu);
+      });
       await Globals.UI.ScenarioMenu.Hide();
     }
 
