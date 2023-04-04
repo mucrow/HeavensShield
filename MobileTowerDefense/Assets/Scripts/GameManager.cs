@@ -74,15 +74,15 @@ namespace Mtd {
       LoadScenario(Globals.ScenarioOrder.GetScenarioByID(id), quitTarget);
     }
 
-    public void LoadScenario(OrderedScenarioInfo scenarioInfo, ScenarioSceneQuitTarget quitTarget) {
-      Globals.ScenarioSceneQuitTarget = quitTarget;
-      LoadSceneHelper("Scenes/Scenarios/" + scenarioInfo.Path, scenarioInfo);
-    }
-
     public void ReloadScenario() {
       Globals.LoadedScenario.With(scenarioInfo => {
         LoadScenario(scenarioInfo, Globals.ScenarioSceneQuitTarget);
       });
+    }
+
+    public void LoadScenario(OrderedScenarioInfo scenarioInfo, ScenarioSceneQuitTarget quitTarget) {
+      Globals.ScenarioSceneQuitTarget = quitTarget;
+      LoadSceneHelper("Scenes/Scenarios/" + scenarioInfo.Path, scenarioInfo);
     }
 
     void LoadSceneHelper(string path, OrderedScenarioInfo scenario) {
