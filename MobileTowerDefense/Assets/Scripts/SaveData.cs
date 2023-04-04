@@ -28,6 +28,8 @@ namespace Mtd {
     public class GameSaveData {
       public float PoliticalCapital = 0f;
 
+      public int NextStoryScenarioID = 0;
+
       // Do not convert these to HashSets. HashSets are not serialized by JsonUtility. HashSet
       // fields on an object getting serialized are ignored without warnings or errors.
       public List<int> UnlockedScenarioIDs = new List<int>() { 0 };

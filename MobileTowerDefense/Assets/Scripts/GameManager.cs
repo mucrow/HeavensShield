@@ -62,6 +62,14 @@ namespace Mtd {
       LoadSceneHelper("Scenes/StartMenu", null);
     }
 
+    public void LoadNextStoryScenario() {
+      LoadScenarioByID(_saveData.Game.NextStoryScenarioID);
+    }
+
+    public void LoadScenarioByID(int id) {
+      LoadScenario(Globals.ScenarioOrder.GetScenarioByID(id));
+    }
+
     public void LoadScenario(OrderedScenarioInfo scenarioInfo) {
       LoadSceneHelper("Scenes/Scenarios/" + scenarioInfo.Path, scenarioInfo);
     }

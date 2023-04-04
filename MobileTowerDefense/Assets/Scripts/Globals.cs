@@ -21,6 +21,9 @@ namespace Mtd {
     public static readonly Proxy<ScenarioManager> ScenarioManager = new Proxy<ScenarioManager>();
 
     /** Never null during or after Start() */
+    public static ScenarioOrder ScenarioOrder;
+
+    /** Never null during or after Start() */
     public static MtdUI UI;
 
     static Globals _instance;
@@ -28,6 +31,7 @@ namespace Mtd {
     [SerializeField] CameraController _camera;
     [SerializeField] GameManager _gameManager;
     [SerializeField] MtdInput _input;
+    [SerializeField] ScenarioOrder _scenarioOrder;
     [SerializeField] MtdUI _ui;
 
     PlayerAgent _playerAgent;
@@ -52,6 +56,7 @@ namespace Mtd {
       Camera = _camera;
       GameManager = _gameManager;
       Input = _input;
+      ScenarioOrder = _scenarioOrder;
       UI = _ui;
     }
   }

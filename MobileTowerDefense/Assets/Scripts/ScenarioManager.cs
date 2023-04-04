@@ -98,12 +98,16 @@ namespace Mtd {
         // buttons to play next scenario, replay the current scenario, or go back to main menu
         Globals.PlayerAgent.With(playerAgent => {
           Globals.LoadedScenario.With(loadedScenario => {
+            var saveData = Globals.GameManager.SaveData;
             // TODO this is stubbed with a dummy value
             float towerHealth = 100f;
-            Globals.GameManager.SaveData.Game.PoliticalCapital += playerAgent.Money / 300f;
-            Globals.GameManager.SaveData.Game.PoliticalCapital += playerAgent.Score / 100f;
-            Globals.GameManager.SaveData.Game.PoliticalCapital += towerHealth / 2f;
-            Globals.GameManager.SaveData.Game.UnlockScenarios(loadedScenario.Unlocks.ToArray());
+            saveData.Game.PoliticalCapital += playerAgent.Money / 300f;
+            saveData.Game.PoliticalCapital += playerAgent.Score / 100f;
+            saveData.Game.PoliticalCapital += towerHealth / 2f;
+            saveData.Game.UnlockScenarios(loadedScenario.Unlocks.ToArray());
+            if (saveData.Game.NextStoryScenarioID == loadedScenario.ID) {
+              saveData.Game.NextStoryScenarioID += 1;
+            }
           });
         });
         Debug.Log("Political Capital: " + Globals.GameManager.SaveData.Game.PoliticalCapital);
