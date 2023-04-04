@@ -20,7 +20,7 @@ namespace Mtd.UI {
         Debug.LogWarning("Tried to load scenario from ChapterListScenario (button) but scene path not set (use InitFromScenarioInfo(...))");
         return;
       }
-      Globals.GameManager.LoadScenario(_info);
+      Globals.GameManager.LoadScenario(_info, ScenarioSceneQuitTarget.ScenarioSelection);
     }
   }
 }

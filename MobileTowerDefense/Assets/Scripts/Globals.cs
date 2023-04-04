@@ -20,6 +20,8 @@ namespace Mtd {
     public static readonly Proxy<OrderedScenarioInfo> LoadedScenario = new Proxy<OrderedScenarioInfo>();
     public static readonly Proxy<ScenarioManager> ScenarioManager = new Proxy<ScenarioManager>();
 
+    public static ScenarioSceneQuitTarget ScenarioSceneQuitTarget;
+
     /** Never null during or after Start() */
     public static ScenarioOrder ScenarioOrder;
 

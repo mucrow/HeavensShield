@@ -62,20 +62,27 @@ namespace Mtd {
       LoadSceneHelper("Scenes/StartMenu", null);
     }
 
-    public void LoadNextStoryScenario() {
-      LoadScenarioByID(_saveData.Game.NextStoryScenarioID);
+    public void LoadNextStoryScenarioFromMainMenu() {
+      LoadNextStoryScenario(ScenarioSceneQuitTarget.MainMenu);
     }
 
-    public void LoadScenarioByID(int id) {
-      LoadScenario(Globals.ScenarioOrder.GetScenarioByID(id));
+    public void LoadNextStoryScenario(ScenarioSceneQuitTarget quitTarget) {
+      LoadScenarioByID(_saveData.Game.NextStoryScenarioID, quitTarget);
     }
 
-    public void LoadScenario(OrderedScenarioInfo scenarioInfo) {
+    public void LoadScenarioByID(int id, ScenarioSceneQuitTarget quitTarget) {
+      LoadScenario(Globals.ScenarioOrder.GetScenarioByID(id), quitTarget);
+    }
+
+    public void LoadScenario(OrderedScenarioInfo scenarioInfo, ScenarioSceneQuitTarget quitTarget) {
+      Globals.ScenarioSceneQuitTarget = quitTarget;
       LoadSceneHelper("Scenes/Scenarios/" + scenarioInfo.Path, scenarioInfo);
     }
 
     public void ReloadScenario() {
-      Globals.LoadedScenario.With(scenarioInfo => LoadScenario(scenarioInfo));
+      Globals.LoadedScenario.With(scenarioInfo => {
+        LoadScenario(scenarioInfo, Globals.ScenarioSceneQuitTarget);
+      });
     }
 
     void LoadSceneHelper(string path, OrderedScenarioInfo scenario) {

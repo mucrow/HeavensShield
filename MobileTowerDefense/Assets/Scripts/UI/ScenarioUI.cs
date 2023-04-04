@@ -31,13 +31,22 @@ namespace Mtd.UI {
       await HideScenarioMenu();
     }
 
-    public async Task QuitToMainMenu() {
+    public async Task QuitScenario() {
       await HideScenarioMenu();
-      Globals.GameManager.LoadMainMenuScene();
+      if (Globals.ScenarioSceneQuitTarget == ScenarioSceneQuitTarget.MainMenu) {
+        Globals.GameManager.LoadMainMenuScene();
+      }
+      else if (Globals.ScenarioSceneQuitTarget == ScenarioSceneQuitTarget.ScenarioSelection) {
+        Globals.GameManager.LoadScenarioSelectionScene();
+      }
+      else {
+        Debug.LogWarning("Unhandled ScenarioSceneQuitTarget " + Globals.ScenarioSceneQuitTarget + ". Quitting to main menu.");
+        Globals.GameManager.LoadMainMenuScene();
+      }
     }
 
-    public async void QuitToMainMenuEH() {
-      await QuitToMainMenu();
+    public async void QuitScenarioEH() {
+      await QuitScenario();
     }
 
     public async Task RestartScenario() {
