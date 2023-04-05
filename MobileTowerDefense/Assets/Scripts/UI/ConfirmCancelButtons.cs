@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Mtd.UI {
@@ -12,6 +13,8 @@ namespace Mtd.UI {
 
     public Func<Task> Show => _showHideOffscreen.Show;
     public Func<Task> Hide => _showHideOffscreen.Hide;
+    public UnityAction ShowInstant => _showHideOffscreen.ShowInstant;
+    public UnityAction HideInstant => _showHideOffscreen.HideInstant;
 
     public void ConfigureConfirmButton(bool interactable, string text="Confirm") {
       _confirmButtonText.text = text;

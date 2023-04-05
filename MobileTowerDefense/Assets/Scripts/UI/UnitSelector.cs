@@ -100,6 +100,17 @@ namespace Mtd.UI {
       await Close();
     }
 
+    public void CloseInstant() {
+      _confirmCancelButtons.HideInstant();
+      _selectionCircle.Hide();
+      _unitChoiceGroup.HideInstant();
+      if (_hologram) {
+        Destroy(_hologram);
+      }
+      _pickedUnit = null;
+      Globals.UI.ScenarioLeftSideButtons.ShowInstant();
+    }
+
     void UpdateConfirmButton(int playerMoney) {
       if (!_pickedUnit) {
         _confirmCancelButtons.ConfigureConfirmButton(false, "No Unit Selected");

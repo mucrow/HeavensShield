@@ -25,8 +25,9 @@ namespace Mtd {
     }
 
     void OnDestroy() {
-      Globals.UI.ScenarioLeftSideButtons.HideInstant();
+      Globals.UI.UnitSelector.CloseInstant();
       Globals.UI.HUD.HideInstant();
+      Globals.UI.ScenarioLeftSideButtons.HideInstant();
       Globals.ScenarioManager.Unregister(this);
       Time.timeScale = 1f;
     }
@@ -92,6 +93,8 @@ namespace Mtd {
         await Task.Delay(1000);
 
         Debug.Log("showing score dialog");
+
+        Globals.UI.UnitSelector.CloseInstant();
 
         // bring up score dialog
         // play animation that converts gold/score/tower health into political capital
