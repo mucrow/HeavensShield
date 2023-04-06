@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 namespace Mtd.UI {
   public class ScenarioUI: MonoBehaviour {
+    [SerializeField] PauseButton _pauseButton;
+    [SerializeField] SpeedButton _speedButton;
+
     bool _pauseStateBeforeOpeningScenarioMenu;
 
     public async Task ShowScenarioMenu() {
@@ -61,13 +64,20 @@ namespace Mtd.UI {
     public void ToggleScenarioPaused() {
       Globals.ScenarioManager.With(scenarioManager => {
         scenarioManager.ToggleScenarioPaused();
+        UpdateLeftSideButtons(scenarioManager);
       });
     }
 
     public void CycleBattleSpeed() {
       Globals.ScenarioManager.With(scenarioManager => {
         scenarioManager.CycleBattleSpeed();
+        UpdateLeftSideButtons(scenarioManager);
       });
+    }
+
+    public void UpdateLeftSideButtons(ScenarioManager scenarioManager) {
+      _pauseButton.UpdatePausedState(scenarioManager.IsPaused);
+      _speedButton.UpdateSpeedState(scenarioManager.BattleSpeed);
     }
   }
 }

@@ -21,6 +21,7 @@ namespace Mtd {
     void Start() {
       Time.timeScale = 1f;
       Globals.UI.HUD.ShowInstant();
+      Globals.UI.ScenarioUI.UpdateLeftSideButtons(this);
       Globals.UI.ScenarioLeftSideButtons.ShowInstant();
     }
 
