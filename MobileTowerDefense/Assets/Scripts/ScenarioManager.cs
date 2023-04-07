@@ -22,18 +22,26 @@ namespace Mtd {
     }
 
     void Start() {
-      Time.timeScale = 1f;
+      IsPaused = true;
+      BattleSpeed = 1f;
+      UpdateTimeScale();
+
       Globals.UI.HUD.ShowInstant();
       Globals.UI.ScenarioUI.UpdateLeftSideButtons(this);
       Globals.UI.ScenarioLeftSideButtons.ShowInstant();
+      Globals.UI.ScenarioTapToStartOverlay.ShowInstant();
     }
 
     void OnDestroy() {
+      Globals.UI.ScenarioTapToStartOverlay.HideInstant();
       Globals.UI.UnitSelector.CloseInstant();
       Globals.UI.HUD.HideInstant();
       Globals.UI.ScenarioLeftSideButtons.HideInstant();
       Globals.ScenarioManager.Unregister(this);
-      Time.timeScale = 1f;
+
+      IsPaused = false;
+      BattleSpeed = 1f;
+      UpdateTimeScale();
     }
 
     public void SetScenarioPaused(bool isPaused) {
