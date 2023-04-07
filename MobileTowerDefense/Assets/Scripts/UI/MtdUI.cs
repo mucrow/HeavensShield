@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace Mtd.UI {
   public class MtdUI: MonoBehaviour {
-    [SerializeField] EventSystem _eventSystem;
+    [SerializeField] GameObject _eventSystemPrefab;
     [SerializeField] GraphicRaycaster _uiGraphicRaycaster;
 
     [SerializeField] HUD _hud;
@@ -35,9 +35,12 @@ namespace Mtd.UI {
     [SerializeField] ShowHideOffscreen _mainMenu;
     [SerializeField] ShowHideOffscreen _barracks;
 
+    EventSystem _eventSystem;
     bool _isWholeUIReady = false;
 
     void Start() {
+      var eventSystemObject = Instantiate(_eventSystemPrefab, Vector3.zero, Quaternion.identity, transform);
+      _eventSystem = eventSystemObject.GetComponent<EventSystem>();
       EnsureReady();
     }
 
