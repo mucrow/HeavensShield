@@ -10,7 +10,6 @@ namespace Mtd.UI {
     [SerializeField] ConfirmCancelButtons _confirmCancelButtons;
     [SerializeField] SelectionCircle _selectionCircle;
     [FormerlySerializedAs("_showHideOffscreen")] [SerializeField] ShowHideOffscreen _unitChoiceGroup;
-    [SerializeField] Transform _unitsGroup;
 
     public bool IsHidden => _unitChoiceGroup.IsHidden;
 
@@ -18,9 +17,6 @@ namespace Mtd.UI {
     UnitKind _pickedUnit;
 
     void Awake() {
-      if (!_unitsGroup) {
-        Debug.LogWarning("_unitsGroup is null - created units will be added as top-level game objects in the hierarchy", this);
-      }
       Globals.PlayerAgent.AddRegisterListener(OnPlayerAgentRegister);
       Globals.PlayerAgent.AddUnregisterListener(OnPlayerAgentUnregister);
     }
@@ -77,7 +73,9 @@ namespace Mtd.UI {
         playerAgent.AddMoney(-1 * _pickedUnit.PlacementCost);
       });
       var selectedPosition = _selectionCircle.transform.position;
-      Instantiate(_pickedUnit.Prefab, selectedPosition, Quaternion.identity, _unitsGroup);
+      Globals.ScenarioManager.With(scenarioManager => {
+        Instantiate(_pickedUnit.Prefab, selectedPosition, Quaternion.identity, scenarioManager.UnitsGroup);
+      });
       await Close();
     }
 

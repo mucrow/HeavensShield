@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace Mtd {
   public class ScenarioManager: MonoBehaviour {
+    [SerializeField] Transform _unitsGroup;
+    public Transform UnitsGroup => _unitsGroup;
+
     List<EnemyController> _livingEnemies = new List<EnemyController>();
     bool _enemySpawningComplete = false;
 
