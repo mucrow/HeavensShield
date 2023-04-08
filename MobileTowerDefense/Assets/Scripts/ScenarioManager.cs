@@ -116,9 +116,9 @@ namespace Mtd {
             var saveData = Globals.GameManager.SaveData;
             // TODO this is stubbed with a dummy value
             float towerHealth = 100f;
-            saveData.Game.PoliticalCapital += playerAgent.Money / 300f;
-            saveData.Game.PoliticalCapital += playerAgent.Score / 100f;
-            saveData.Game.PoliticalCapital += towerHealth / 2f;
+            saveData.Game.PoliticalCapital += playerAgent.Money / 100f;
+            saveData.Game.PoliticalCapital += playerAgent.Score / 1000f;
+            saveData.Game.PoliticalCapital += towerHealth * 2f;
             saveData.Game.UnlockScenarios(loadedScenario.Unlocks.ToArray());
             if (saveData.Game.NextStoryScenarioID == loadedScenario.ID) {
               saveData.Game.NextStoryScenarioID += 1;
