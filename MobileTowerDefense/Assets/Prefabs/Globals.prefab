@@ -2301,6 +2301,8 @@ MonoBehaviour:
   _scenarioTapToStartOverlay: {fileID: 7286841258276815817}
   _scenarioUI: {fileID: 142395017021165339}
   _scenarioMenu: {fileID: 4020656424004786153}
+  _victoryBanner: {fileID: 8987191298133773445}
+  _scoreTallyModal: {fileID: 7886227084595970870}
   _scenarioSelection: {fileID: 7854375680738551527}
   _startMenu: {fileID: 699709649957521728}
   _settingsMenu: {fileID: 1475730971632294134}
@@ -2899,7 +2901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _edge: 3
+  _edge: 2
   _tweenTime: 0.1
 --- !u!1 &7106694176263624441
 GameObject:

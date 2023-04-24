@@ -99,18 +99,6 @@ namespace Mtd {
 
     async void CheckIfPlayerWon() {
       if (_enemySpawningComplete && _livingEnemies.Count == 0) {
-        Debug.Log("u won! (showing win banner)");
-
-        // show win banner
-        await Task.Delay(1000);
-
-        Debug.Log("showing score dialog");
-
-        Globals.UI.UnitSelector.CloseInstant();
-
-        // bring up score dialog
-        // play animation that converts gold/score/tower health into political capital
-        // buttons to play next scenario, replay the current scenario, or go back to main menu
         Globals.PlayerAgent.With(playerAgent => {
           Globals.LoadedScenario.With(loadedScenario => {
             var saveData = Globals.GameManager.SaveData;
@@ -125,16 +113,16 @@ namespace Mtd {
             }
           });
         });
-        Debug.Log("Political Capital: " + Globals.GameManager.SaveData.Game.PoliticalCapital);
-        Debug.Log("Unlocked Scenarios: " + string.Join(", ", Globals.GameManager.SaveData.Game.UnlockedScenarioIDs));
-
         Globals.GameManager.WriteSaveData();
-        Debug.Log("writing save data");
 
-        await Task.Delay(1000);
-        Debug.Log("going back to main menu");
+        Globals.UI.UnitSelector.CloseInstant();
+        Globals.UI.VictoryBanner.ShowInstant();
+        await Task.Delay(2000);
 
-        Globals.GameManager.LoadMainMenuScene();
+        await Task.WhenAll(
+          Globals.UI.VictoryBanner.Hide(),
+          Globals.UI.ScoreTallyModal.Show()
+        );
       }
     }
   }
