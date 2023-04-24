@@ -660,18 +660,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 132578710344425291, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
-      propertyPath: m_fontSize
-      value: 32.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 634460889381984307, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
-      propertyPath: m_fontSize
-      value: 35.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2057492825922636885, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
-      propertyPath: m_fontSize
-      value: 27.65
-      objectReference: {fileID: 0}
     - target: {fileID: 2758460851162128878, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -823,10 +811,6 @@ PrefabInstance:
     - target: {fileID: 8883528698455097259, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8972339147787757174, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
-      propertyPath: m_fontSize
-      value: 26.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
