@@ -125,5 +125,9 @@ namespace Mtd.Utils {
     public static void DebugDrawBounds(Bounds bounds) {
       DebugDrawBounds(bounds, Color.white);
     }
+
+    public static string FormatNumberWithCommas(float n) {
+      return n.ToString("N0");
+    }
   }
 }

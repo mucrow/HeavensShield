@@ -35,11 +35,11 @@ namespace Mtd {
     }
 
     public void UpdateMoney(int money) {
-      _moneyText.text = money.ToString("N0");
+      _moneyText.text = Utils.Utils.FormatNumberWithCommas(money);
     }
 
     public void UpdateScore(int score) {
-      _scoreText.text = score.ToString("N0");
+      _scoreText.text = Utils.Utils.FormatNumberWithCommas(score);
     }
   }
 }
