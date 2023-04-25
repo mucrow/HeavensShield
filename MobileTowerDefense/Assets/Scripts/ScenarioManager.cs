@@ -33,6 +33,8 @@ namespace Mtd {
     }
 
     void OnDestroy() {
+      Globals.UI.ScoreTallyModal.HideInstant();
+      Globals.UI.VictoryBanner.HideInstant();
       Globals.UI.ScenarioTapToStartOverlay.HideInstant();
       Globals.UI.UnitSelector.CloseInstant();
       Globals.UI.HUD.HideInstant();
