@@ -79,5 +79,12 @@ namespace Mtd.UI {
       _pauseButton.UpdatePausedState(scenarioManager.IsPaused);
       _speedButton.UpdateSpeedState(scenarioManager.BattleSpeed);
     }
+
+    public void LoadScenarioAfterCurrentlyLoadedScenario() {
+      Globals.LoadedScenario.With(scenarioInfo => {
+        var nextScenario = scenarioInfo.Unlocks[0];
+        Globals.GameManager.LoadScenarioByID(nextScenario, Globals.ScenarioSceneQuitTarget);
+      });
+    }
   }
 }

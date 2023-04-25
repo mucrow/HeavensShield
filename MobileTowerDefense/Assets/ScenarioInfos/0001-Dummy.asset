@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: 0001-Dummy
   m_EditorClassIdentifier: 
   _name: Dummy Scenario 1
-  _path: 
+  _path: 0001-FakeScenario
