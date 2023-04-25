@@ -117,7 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _edge: 0
+  _hideMode: 0
+  _canvasGroup: {fileID: 0}
   _tweenTime: 0.1
 --- !u!1 &850231903852474593
 GameObject:
@@ -187,7 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _edge: 0
+  _hideMode: 0
+  _canvasGroup: {fileID: 0}
   _tweenTime: 0.1
 --- !u!1 &939927406895325845
 GameObject:
@@ -553,7 +555,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _edge: 0
+  _hideMode: 0
+  _canvasGroup: {fileID: 0}
   _tweenTime: 0.1
 --- !u!1 &1710190251427307791
 GameObject:
@@ -630,6 +633,7 @@ GameObject:
   m_Component:
   - component: {fileID: 531381182523297591}
   - component: {fileID: 4020656424004786153}
+  - component: {fileID: 469260917718423981}
   m_Layer: 5
   m_Name: ScenarioMenu
   m_TagString: Untagged
@@ -670,8 +674,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _edge: 2
-  _tweenTime: 0.1
+  _hideMode: 4
+  _canvasGroup: {fileID: 469260917718423981}
+  _tweenTime: 0.3
+--- !u!225 &469260917718423981
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977429531868478954}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2548673301396400952
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,7 +801,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _edge: 2
+  _hideMode: 2
+  _canvasGroup: {fileID: 0}
   _tweenTime: 0.1
 --- !u!114 &3982756825690699429
 MonoBehaviour:
@@ -863,7 +881,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _edge: 2
+  _hideMode: 2
+  _canvasGroup: {fileID: 0}
   _tweenTime: 0.1
 --- !u!1 &3162581205091705750
 GameObject:
@@ -1114,7 +1133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _edge: 0
+  _hideMode: 0
+  _canvasGroup: {fileID: 0}
   _tweenTime: 0.1
 --- !u!1 &3384371458082470262
 GameObject:
@@ -1167,7 +1187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _edge: 3
+  _hideMode: 3
+  _canvasGroup: {fileID: 0}
   _tweenTime: 0.1
 --- !u!1 &3660042262539947883
 GameObject:
@@ -2246,7 +2267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _edge: 3
+  _hideMode: 3
+  _canvasGroup: {fileID: 0}
   _tweenTime: 0.1
 --- !u!1 &5281173860265815255
 GameObject:
@@ -2901,7 +2923,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _edge: 2
+  _hideMode: 2
+  _canvasGroup: {fileID: 0}
   _tweenTime: 0.1
 --- !u!1 &7106694176263624441
 GameObject:
@@ -3127,7 +3150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _edge: 3
+  _hideMode: 3
+  _canvasGroup: {fileID: 0}
   _tweenTime: 0.1
 --- !u!1 &7892642080233023851
 GameObject:
@@ -3380,7 +3404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _edge: 3
+  _hideMode: 3
+  _canvasGroup: {fileID: 0}
   _tweenTime: 0.1
 --- !u!1 &8712947685600739601
 GameObject:
@@ -3541,7 +3566,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09a28da2cf946cbb368e33fb9579a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _edge: 2
+  _hideMode: 2
+  _canvasGroup: {fileID: 0}
   _tweenTime: 0.1
 --- !u!1 &8984551500350435635
 GameObject:
