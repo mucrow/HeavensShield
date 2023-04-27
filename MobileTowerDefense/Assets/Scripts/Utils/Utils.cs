@@ -129,5 +129,16 @@ namespace Mtd.Utils {
     public static string FormatNumberWithCommas(float n) {
       return n.ToString("N0");
     }
+
+    public static Bounds GetWorldBoundsInCameraView(Camera cam) {
+      var position = cam.transform.position;
+      position.z = 0f;
+
+      var height = cam.orthographicSize * 2f;
+      var width = height * cam.aspect;
+      var size = new Vector3(width, height, 1f);
+
+      return new Bounds(position, size);
+    }
   }
 }
