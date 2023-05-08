@@ -4,7 +4,11 @@ const path = require('path');
 exports.BUILDS_DIR = path.join('.', 'Builds');
 
 exports.buildDirNameInvalidExit = function() {
-  console.error('Build directory name must be a semantic version number prefixed with a \'v\', such as "v2.14.3"');
+  console.error(
+    'Build directory name must match one of the following formats:\n' +
+    '- a semantic version number prefixed with a \'v\', such as "v2.14.3"\n' +
+    '- a date and letter identifier prefixed with \'dev\', such as "dev-2023-05-08-a"'
+  );
   process.exit(1);
 }
 
@@ -16,7 +20,9 @@ exports.buildsDirNotFoundExit = function() {
 }
 
 exports.isBuildDirNameValid = function(name) {
-  return /^v\d+\.\d+\.\d+$/.test(name);
+  const SEMANTIC_BUILD_NAME_PATTERN = /^v\d+\.\d+\.\d+$/;
+  const DEV_BUILD_NAME_PATTERN = /^dev-\d{4}-\d{2}-\d{2}-[a-z]$/;
+  return SEMANTIC_BUILD_NAME_PATTERN.test(name) || DEV_BUILD_NAME_PATTERN.test(name);
 }
 
 exports.isDirEmpty = async function(path) {
