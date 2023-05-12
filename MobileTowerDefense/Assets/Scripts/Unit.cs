@@ -46,7 +46,7 @@ namespace Mtd {
     }
 
     void StartAttackAnimation(EnemyController target) {
-      _spriteRenderer.flipX = target.transform.position.x < transform.position.x;
+      _spriteRenderer.flipX = target.transform.position.x > transform.position.x;
       _spriteRenderer.sprite = _attackSprite1;
       _animationTimer = _attackFrame1Length;
     }

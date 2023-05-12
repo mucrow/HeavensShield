@@ -23,15 +23,15 @@ PrefabInstance:
     - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: _idleSprite
       value: 
-      objectReference: {fileID: 1056912363, guid: 662acafc5b003564988d771f76160804, type: 3}
+      objectReference: {fileID: 21300000, guid: 669fca3e6675f9341b2a88d91f58713c, type: 3}
     - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: _attackSprite1
       value: 
-      objectReference: {fileID: 348092798, guid: 662acafc5b003564988d771f76160804, type: 3}
+      objectReference: {fileID: 21300000, guid: 33b4f8881712188408e7f765c6724f53, type: 3}
     - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: _attackSprite2
       value: 
-      objectReference: {fileID: 1938677689, guid: 662acafc5b003564988d771f76160804, type: 3}
+      objectReference: {fileID: 21300000, guid: be36a9db6583b1e4aa882e36cce413b5, type: 3}
     - target: {fileID: 6612516781684231689, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -79,7 +79,7 @@ PrefabInstance:
     - target: {fileID: 6612516781684231690, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1056912363, guid: 662acafc5b003564988d771f76160804, type: 3}
+      objectReference: {fileID: 21300000, guid: 669fca3e6675f9341b2a88d91f58713c, type: 3}
     - target: {fileID: 6612516781684231690, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

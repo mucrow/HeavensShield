@@ -11,14 +11,14 @@ PrefabInstance:
     - target: {fileID: 6051311124664780420, guid: 326c207c0d39ddd469c67fdec3e7643a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1088449048, guid: 662acafc5b003564988d771f76160804, type: 3}
+      objectReference: {fileID: 21300000, guid: 2ea7e945c54553246973608f7df8f92d, type: 3}
     - target: {fileID: 6051311124664780420, guid: 326c207c0d39ddd469c67fdec3e7643a, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6051311124664780421, guid: 326c207c0d39ddd469c67fdec3e7643a, type: 3}
       propertyPath: m_Name
-      value: ArcherHologram 1
+      value: MageHologram
       objectReference: {fileID: 0}
     - target: {fileID: 6051311124664780423, guid: 326c207c0d39ddd469c67fdec3e7643a, type: 3}
       propertyPath: m_RootOrder
