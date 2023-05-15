@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.Tilemaps;
 
 namespace Mtd {
   [RequireComponent(typeof(Camera))]
@@ -11,9 +12,10 @@ namespace Mtd {
     [SerializeField] float _farthestZoomSize = 10f;
     [SerializeField] float _zoomLevelCurve = 1.5f;
 
-    float _zoomLevel;
-
     Camera _camera;
+    Bounds _limits;
+    Tilemap _tilemap;
+    float _zoomLevel;
 
     void Awake() {
       _camera = GetComponent<Camera>();
@@ -30,7 +32,10 @@ namespace Mtd {
     }
 
     public void SetPosition(Vector3 newPosition) {
-      gameObject.transform.position = newPosition;
+      var x = Mathf.Clamp(newPosition.x, _limits.min.x, _limits.max.x);
+      var y = Mathf.Clamp(newPosition.y, _limits.min.y, _limits.max.y);
+      var limitedPosition = new Vector3(x, y, -10f);
+      gameObject.transform.position = limitedPosition;
     }
 
     public Vector3 ScreenToWorldPoint(Vector3 screenPoint) {
@@ -52,6 +57,17 @@ namespace Mtd {
       UpdateZoomSize();
     }
 
+    public void OnScenarioStart(Tilemap tilemap) {
+      _tilemap = tilemap;
+      _tilemap.CompressBounds();
+      UpdateCameraPositionLimits();
+    }
+
+    public void OnScenarioEnd() {
+      _tilemap = null;
+      UpdateCameraPositionLimits();
+    }
+
     void UpdateZoomSize() {
       _camera.orthographicSize = Utils.Utils.MapRange(
         0f,
@@ -61,6 +77,41 @@ namespace Mtd {
         1f - _zoomLevel,
         _zoomLevelCurve
       );
+      UpdateCameraPositionLimits();
+    }
+
+    void UpdateCameraPositionLimits() {
+      if (!_tilemap) {
+        SetCameraPositionLimits(0f, 0f, 0f, 0f);
+        return;
+      }
+
+      var viewportBounds = Utils.Utils.GetWorldBoundsInCameraView(_camera);
+      var mapBounds = _tilemap.localBounds;
+      mapBounds.Expand(0f * Vector3.one);
+
+      var minX = mapBounds.min.x + viewportBounds.size.x / 2f;
+      var maxX = mapBounds.max.x - viewportBounds.size.x / 2f;
+
+      var minY = mapBounds.min.y + viewportBounds.size.y / 2f;
+      var maxY = mapBounds.max.y - viewportBounds.size.y / 2f;
+
+      if (minX > maxX) {
+        minX = mapBounds.center.x;
+        maxX = mapBounds.center.x;
+      }
+      if (minY > maxY) {
+        minY = mapBounds.center.y;
+        maxY = mapBounds.center.y;
+      }
+
+      SetCameraPositionLimits(minX, minY, maxX, maxY);
+    }
+
+    void SetCameraPositionLimits(float minX, float minY, float maxX, float maxY) {
+      _limits.min = new Vector3(minX, minY, 0f);
+      _limits.max = new Vector3(maxX, maxY, 0f);
+      SetPosition(GetPosition());
     }
   }
 }

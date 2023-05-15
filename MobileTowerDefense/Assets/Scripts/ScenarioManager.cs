@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace Mtd {
   public class ScenarioManager: MonoBehaviour {
     [SerializeField] Transform _unitsGroup;
+    [SerializeField] Tilemap _tilemap;
     public Transform UnitsGroup => _unitsGroup;
 
     List<EnemyController> _livingEnemies = new List<EnemyController>();
@@ -30,6 +32,8 @@ namespace Mtd {
       Globals.UI.ScenarioUI.UpdateLeftSideButtons(this);
       Globals.UI.ScenarioLeftSideButtons.ShowInstant();
       Globals.UI.ScenarioTapToStartOverlay.ShowInstant();
+
+      Globals.Camera.OnScenarioStart(_tilemap);
     }
 
     void OnDestroy() {
@@ -39,6 +43,9 @@ namespace Mtd {
       Globals.UI.UnitSelector.CloseInstant();
       Globals.UI.HUD.HideInstant();
       Globals.UI.ScenarioLeftSideButtons.HideInstant();
+
+      Globals.Camera.OnScenarioEnd();
+
       Globals.ScenarioManager.Unregister(this);
 
       IsPaused = false;

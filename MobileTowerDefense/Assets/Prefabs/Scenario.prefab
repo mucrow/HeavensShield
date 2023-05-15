@@ -2192,6 +2192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitsGroup: {fileID: 2834857969647157517}
+  _tilemap: {fileID: 2834857968637578140}
 --- !u!1 &2834857970562622748
 GameObject:
   m_ObjectHideFlags: 0

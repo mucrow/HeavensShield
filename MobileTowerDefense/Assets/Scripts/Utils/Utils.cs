@@ -111,10 +111,25 @@ namespace Mtd.Utils {
     }
 
     public static void DebugDrawBounds(Bounds bounds, Color color) {
-      var bottomLeft = new Vector3(bounds.min.x, bounds.min.y, 0);
-      var bottomRight = new Vector3(bounds.max.x, bounds.min.y, 0);
-      var topLeft = new Vector3(bounds.min.x, bounds.max.y, 0);
-      var topRight = new Vector3(bounds.max.x, bounds.max.y, 0);
+      var minX = bounds.min.x;
+      var maxX = bounds.max.y;
+      var minY = bounds.min.x;
+      var maxY = bounds.max.y;
+
+      if (minX == maxX) {
+        minX -= 0.05f;
+        maxX += 0.05f;
+      }
+
+      if (minY == maxY) {
+        minY -= 0.05f;
+        maxY += 0.05f;
+      }
+
+      var bottomLeft = new Vector3(minX, minY, 0);
+      var bottomRight = new Vector3(maxX, minY, 0);
+      var topLeft = new Vector3(minX, maxY, 0);
+      var topRight = new Vector3(maxX, maxY, 0);
 
       Debug.DrawLine(bottomLeft, bottomRight, color);
       Debug.DrawLine(topLeft, topRight, color);
