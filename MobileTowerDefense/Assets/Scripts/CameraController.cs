@@ -27,6 +27,12 @@ namespace Mtd {
       SetZoomLevel(zoomLevel);
     }
 
+    void Update() {
+      if (_tilemap) {
+        Utils.Utils.DebugDrawBounds(_limits, Color.red);
+      }
+    }
+
     public Vector3 GetPosition() {
       return gameObject.transform.position;
     }
@@ -81,31 +87,56 @@ namespace Mtd {
     }
 
     void UpdateCameraPositionLimits() {
+      Debug.Log("");
       if (!_tilemap) {
         SetCameraPositionLimits(0f, 0f, 0f, 0f);
         return;
       }
 
       var viewportBounds = Utils.Utils.GetWorldBoundsInCameraView(_camera);
+      Debug.Log("viewportBounds: " + viewportBounds);
       var mapBounds = _tilemap.localBounds;
+      Debug.Log("mapBounds before expansion: " + mapBounds);
       mapBounds.Expand(0f * Vector3.one);
+      Debug.Log("mapBounds after expansion: " + mapBounds);
 
-      var minX = mapBounds.min.x + viewportBounds.size.x / 2f;
-      var maxX = mapBounds.max.x - viewportBounds.size.x / 2f;
-
-      var minY = mapBounds.min.y + viewportBounds.size.y / 2f;
-      var maxY = mapBounds.max.y - viewportBounds.size.y / 2f;
+      // var minX = mapBounds.min.x + viewportBounds.size.x / 2f;
+      // var maxX = mapBounds.max.x - viewportBounds.size.x / 2f;
+      // var minY = mapBounds.min.y + viewportBounds.size.y / 2f;
+      // var maxY = mapBounds.max.y - viewportBounds.size.y / 2f;
+      
+      // var minX = viewportBounds.min.x + mapBounds.size.x / 2f;
+      // var maxX = viewportBounds.max.x - mapBounds.size.x / 2f;
+      // var minY = viewportBounds.min.y + mapBounds.size.y / 2f;
+      // var maxY = viewportBounds.max.y - mapBounds.size.y / 2f;
+      
+      var minX = (viewportBounds.size.x / 2f - mapBounds.size.x / 2f) * -1f;
+      var maxX = (viewportBounds.size.x / 2f - mapBounds.size.x / 2f) *  1f;
+      var minY = (viewportBounds.size.y / 2f - mapBounds.size.y / 2f) * -1f;
+      var maxY = (viewportBounds.size.y / 2f - mapBounds.size.y / 2f) *  1f;
 
       if (minX > maxX) {
         minX = mapBounds.center.x;
         maxX = mapBounds.center.x;
       }
+      else {
+        minX += mapBounds.center.x;
+        maxX += mapBounds.center.x;
+      }
+      
       if (minY > maxY) {
         minY = mapBounds.center.y;
         maxY = mapBounds.center.y;
       }
+      else {
+        minY += mapBounds.center.y;
+        maxY += mapBounds.center.y;
+      }
 
       SetCameraPositionLimits(minX, minY, maxX, maxY);
+
+      Debug.Log("Limits updated: " + _limits);
+      Debug.Log("");
     }
 
     void SetCameraPositionLimits(float minX, float minY, float maxX, float maxY) {
