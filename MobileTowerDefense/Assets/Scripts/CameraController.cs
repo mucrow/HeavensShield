@@ -116,22 +116,16 @@ namespace Mtd {
       var maxY = (viewportBounds.size.y / 2f - mapBounds.size.y / 2f) *  1f;
 
       if (minX > maxX) {
-        minX = mapBounds.center.x;
-        maxX = mapBounds.center.x;
+        (maxX, minX) = (minX, maxX);
       }
-      else {
-        minX += mapBounds.center.x;
-        maxX += mapBounds.center.x;
-      }
+      minX += mapBounds.center.x;
+      maxX += mapBounds.center.x;
       
       if (minY > maxY) {
-        minY = mapBounds.center.y;
-        maxY = mapBounds.center.y;
+        (maxY, minY) = (minY, maxY);
       }
-      else {
-        minY += mapBounds.center.y;
-        maxY += mapBounds.center.y;
-      }
+      minY += mapBounds.center.y;
+      maxY += mapBounds.center.y;
 
       SetCameraPositionLimits(minX, minY, maxX, maxY);
 
