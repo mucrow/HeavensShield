@@ -87,28 +87,14 @@ namespace Mtd {
     }
 
     void UpdateCameraPositionLimits() {
-      Debug.Log("");
       if (!_tilemap) {
         SetCameraPositionLimits(0f, 0f, 0f, 0f);
         return;
       }
 
       var viewportBounds = Utils.Utils.GetWorldBoundsInCameraView(_camera);
-      Debug.Log("viewportBounds: " + viewportBounds);
       var mapBounds = _tilemap.localBounds;
-      Debug.Log("mapBounds before expansion: " + mapBounds);
       mapBounds.Expand(0f * Vector3.one);
-      Debug.Log("mapBounds after expansion: " + mapBounds);
-
-      // var minX = mapBounds.min.x + viewportBounds.size.x / 2f;
-      // var maxX = mapBounds.max.x - viewportBounds.size.x / 2f;
-      // var minY = mapBounds.min.y + viewportBounds.size.y / 2f;
-      // var maxY = mapBounds.max.y - viewportBounds.size.y / 2f;
-      
-      // var minX = viewportBounds.min.x + mapBounds.size.x / 2f;
-      // var maxX = viewportBounds.max.x - mapBounds.size.x / 2f;
-      // var minY = viewportBounds.min.y + mapBounds.size.y / 2f;
-      // var maxY = viewportBounds.max.y - mapBounds.size.y / 2f;
       
       var minX = (viewportBounds.size.x / 2f - mapBounds.size.x / 2f) * -1f;
       var maxX = (viewportBounds.size.x / 2f - mapBounds.size.x / 2f) *  1f;
@@ -128,9 +114,6 @@ namespace Mtd {
       maxY += mapBounds.center.y;
 
       SetCameraPositionLimits(minX, minY, maxX, maxY);
-
-      Debug.Log("Limits updated: " + _limits);
-      Debug.Log("");
     }
 
     void SetCameraPositionLimits(float minX, float minY, float maxX, float maxY) {
