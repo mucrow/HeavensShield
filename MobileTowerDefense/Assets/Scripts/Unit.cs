@@ -38,7 +38,7 @@ namespace Mtd {
       }
 
       if (_enemyDetector.EnemiesInRange.Count > 0) {
-        var enemy = _enemyDetector.EnemiesInRange[^1];
+        var enemy = _enemyDetector.EnemiesInRange[0];
         enemy.ReceiveDamage(_damage);
         StartAttackAnimation(enemy);
         _actionCooldownTimer += _timeBetweenActions;
