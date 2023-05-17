@@ -73,6 +73,7 @@ namespace Mtd {
       if ((nextWaypoint - currentPos).magnitude < 0.05f) {
         _pathIndex += 1;
         MoveTowardNextWaypoint();
+        return;
       }
 
       // float dt = Time.deltaTime;

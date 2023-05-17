@@ -22,11 +22,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
       propertyPath: _speed
-      value: 1.8
+      value: 4.4
       objectReference: {fileID: 0}
     - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
       propertyPath: _maxHealth
-      value: 110
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
       propertyPath: _moneyOnKill

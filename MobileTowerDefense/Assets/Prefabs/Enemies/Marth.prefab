@@ -18,7 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: c3c9c0c3b88ff4042b5cd41a4ffccb5d, type: 3}
     - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
       propertyPath: _speed
-      value: 1.5
+      value: 3.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _maxHealth
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4467403111871537242, guid: 79506bb289fc81241a41905375020013, type: 3}
       propertyPath: m_RootOrder

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mtd.Utils;
 using UnityEngine;
 
 namespace Mtd {
@@ -26,7 +27,7 @@ namespace Mtd {
     float _animationTimer = 0f;
 
     void Awake() {
-      _timeBetweenActions = CalculateTimeBetweenActions(_speed);
+      _timeBetweenActions = UnitSpeed.ToTimeBetweenActions(_speed);
     }
 
     void Update() {
@@ -65,21 +66,6 @@ namespace Mtd {
           _spriteRenderer.sprite = _idleSprite;
         }
       }
-    }
-
-    float CalculateTimeBetweenActions(float speed) {
-      float minSpeed = 1f;
-      float maxTimeBetweenActions = 2f;
-      float maxSpeed = 200f;
-      float minTimeBetweenActions = 1f / 20f;
-
-      float speedRange = maxSpeed - minSpeed;
-      float timeBetweenActionsRange = maxTimeBetweenActions - minTimeBetweenActions;
-
-      float pointInSpeedRange = (Mathf.Clamp(speed, minSpeed, maxSpeed) - minSpeed) / speedRange;
-      float pointInTimeRange = Mathf.Pow(1 - pointInSpeedRange, 2);
-
-      return pointInTimeRange * timeBetweenActionsRange + minTimeBetweenActions;
     }
   }
 }

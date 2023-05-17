@@ -211,7 +211,7 @@ MonoBehaviour:
   _enemyDetector: {fileID: 6612516780576738216}
   _spriteRenderer: {fileID: 6612516781684231690}
   _damage: 10
-  _speed: 20
+  _speed: 70
 --- !u!212 &6612516781684231690
 SpriteRenderer:
   m_ObjectHideFlags: 0
