@@ -4,6 +4,7 @@ using UnityEngine;
 namespace Mtd {
   public class ScenarioSelectionManager: MonoBehaviour {
     void Start() {
+      Globals.UI.EnsureReady();
       Globals.UI.ScenarioSelection.RefreshUI();
       Globals.UI.ScenarioSelection.ShowInstant();
     }
