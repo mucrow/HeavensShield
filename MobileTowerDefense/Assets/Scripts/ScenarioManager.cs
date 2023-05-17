@@ -28,6 +28,7 @@ namespace Mtd {
       BattleSpeed = 1f;
       UpdateTimeScale();
 
+      Globals.UI.EnsureReady();
       Globals.UI.HUD.ShowInstant();
       Globals.UI.ScenarioUI.UpdateLeftSideButtons(this);
       Globals.UI.ScenarioLeftSideButtons.ShowInstant();
