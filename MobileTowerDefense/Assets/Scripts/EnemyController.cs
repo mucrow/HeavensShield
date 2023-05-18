@@ -15,11 +15,20 @@ namespace Mtd {
 
     int _pathIndex = 0;
 
-    [SerializeField] int _maxHealth = 100;
+    [SerializeField] int _maxHealth = 50;
     int _health;
 
-    [SerializeField] int _moneyOnKill = 1;
-    [SerializeField] int _scoreOnKill = 1;
+    [SerializeField] int _moneyOnKill = 17;
+    [SerializeField] int _scoreOnKill = 21;
+
+    [SerializeField] int _defaultEnemyCount = 10;
+    public int DefaultEnemyCount => _defaultEnemyCount;
+    [SerializeField] float _defaultWaitTimeBetweenEach = 1.5f;
+    public float DefaultWaitTimeBetweenEach => _defaultWaitTimeBetweenEach;
+    [SerializeField] float _defaultWaitTimeBeforeWave = 5f;
+    public float DefaultWaitTimeBeforeWave => _defaultWaitTimeBeforeWave;
+    [SerializeField] float _defaultWaitTimeAfterWave = 10f;
+    public float DefaultWaitTimeAfterWave => _defaultWaitTimeAfterWave;
 
     [SerializeField] HealthBar _healthBar;
 

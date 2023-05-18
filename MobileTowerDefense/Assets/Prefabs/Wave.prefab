@@ -45,7 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 0}
-  _enemyCount: 5
-  _waitTimeBetweenEnemies: 1.5
-  _waitTimeBeforeFirstEnemy: 5
-  _waitTimeAfterLastEnemy: 5
+  _enemyCountMultiplier: 1
+  _enemyCountIncrease: 0
+  _waitTimeBetweenEnemiesMultiplier: 1
+  _waitTimeBetweenEnemiesIncrease: 0
+  _waitTimeBeforeFirstEnemyMultiplier: 1
+  _waitTimeBeforeFirstEnemyIncrease: 0
+  _waitTimeAfterLastEnemyMultiplier: 1
+  _waitTimeAfterLastEnemyIncrease: 0

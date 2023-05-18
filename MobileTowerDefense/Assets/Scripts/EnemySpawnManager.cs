@@ -94,8 +94,13 @@ namespace Mtd {
 
     void DoSpawningWave() {
       if (_timer <= 0f) {
-        SpawnEnemy();
-        _currentEnemyIndex += 1;
+        // TODO this feels gross (same if-condition is a few lines down)
+        //      i should really add a StartingWave state to make this tidy 
+        if (_currentEnemyIndex < _currentWave.EnemyCount) {
+          SpawnEnemy();
+          _currentEnemyIndex += 1;
+        }
+        
         if (_currentEnemyIndex < _currentWave.EnemyCount) {
           _timer += _currentWave.WaitTimeBetweenEnemies;
         }
@@ -110,6 +115,11 @@ namespace Mtd {
       _currentWaveIndex = waveNumber;
       if (_currentWaveIndex < _enemyWaves.Length) {
         _currentWave = _enemyWaves[_currentWaveIndex];
+        // TODO gross
+        if (_currentWave.DisableWave) {
+          StartWave(_currentWaveIndex + 1);
+          return;
+        }
         _currentEnemyIndex = 0;
         _timer += _currentWave.WaitTimeBeforeFirstEnemy;
         _state = State.SpawningWave;

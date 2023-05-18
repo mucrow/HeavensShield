@@ -21,10 +21,10 @@ EditorBuildSettings:
     path: Assets/Scenes/ScenarioSelection.unity
     guid: b12b911776a05af42837de6354e032af
   - enabled: 1
-    path: Assets/Scenes/Scenarios/9000-TestScenario.unity
+    path: Assets/Scenes/Scenarios/D-0000-TestScenario.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
-    path: Assets/Scenes/Scenarios/0000-ADroveOfSlimes.unity
+    path: Assets/Scenes/Scenarios/S-0000-ADroveOfSlimes.unity
     guid: 34a1717ab445321428e12723f52b7a78
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 0a973215422802b45b1325e4a9892a4d, type: 2}

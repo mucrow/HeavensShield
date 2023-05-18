@@ -28,6 +28,30 @@ PrefabInstance:
       propertyPath: _maxHealth
       value: 135
       objectReference: {fileID: 0}
+    - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _moneyOnKill
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _scoreOnKill
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _defaultEnemyCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _defaultWaitTimeAfterWave
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _defaultWaitTimeBeforeWave
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _defaultWaitTimeBetweenEach
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4467403111871537242, guid: 79506bb289fc81241a41905375020013, type: 3}
       propertyPath: m_RootOrder
       value: 0

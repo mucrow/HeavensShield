@@ -51,9 +51,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 5768397711725846968}
   _speed: 2.2
-  _maxHealth: 100
-  _moneyOnKill: 31
-  _scoreOnKill: 37
+  _maxHealth: 50
+  _moneyOnKill: 17
+  _scoreOnKill: 21
+  _defaultEnemyCount: 10
+  _defaultWaitTimeBetweenEach: 1.5
+  _defaultWaitTimeBeforeWave: 5
+  _defaultWaitTimeAfterWave: 10
   _healthBar: {fileID: 342406528237587770}
 --- !u!114 &-7384697093893124003
 MonoBehaviour:
