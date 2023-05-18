@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: _damage
-      value: 84
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: _idleSprite
@@ -32,6 +32,10 @@ PrefabInstance:
       propertyPath: _attackSprite2
       value: 
       objectReference: {fileID: 21300000, guid: 1ad1e7262a498ce41a4120cb9434a2e4, type: 3}
+    - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
+      propertyPath: _doesComboDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6612516781684231689, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: m_RootOrder
       value: 0

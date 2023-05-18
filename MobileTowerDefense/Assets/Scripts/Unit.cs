@@ -16,6 +16,9 @@ namespace Mtd {
     [SerializeField] int _damage = 10;
     [SerializeField] float _speed = 20.0f;
 
+    [Header("If a unit does combo damage, the second strike on an enemy does double damage, and all subsequent strikes on that enemy do triple damage.")]
+    [SerializeField] bool _doesComboDamage = false;
+
     public float Range => _enemyDetector.Range;
 
     float _timeBetweenActions = 10000000f;
@@ -25,6 +28,9 @@ namespace Mtd {
     float _attackFrame1Length = 10f / 60f;
     float _attackFrame2Length = 20f / 60f;
     float _animationTimer = 0f;
+
+    int comboCount = 1;
+    EnemyController _enemyBeingCombod;
 
     void Awake() {
       _timeBetweenActions = UnitSpeed.ToTimeBetweenActions(_speed);
@@ -40,7 +46,19 @@ namespace Mtd {
 
       if (_enemyDetector.EnemiesInRange.Count > 0) {
         var enemy = _enemyDetector.EnemiesInRange[0];
-        enemy.ReceiveDamage(_damage);
+
+        if (_doesComboDamage) {
+          if (enemy == _enemyBeingCombod) {
+            comboCount += 1;
+          }
+          else {
+            comboCount = 1;
+          }
+        }
+        
+        enemy.ReceiveDamage(_damage * Mathf.Min(comboCount, 3));
+        _enemyBeingCombod = enemy;
+        
         StartAttackAnimation(enemy);
         _actionCooldownTimer += _timeBetweenActions;
       }
