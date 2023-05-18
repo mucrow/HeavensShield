@@ -13,6 +13,16 @@ namespace Mtd {
     [SerializeField] Path _enemyPath;
     [SerializeField] EnemyWave[] _enemyWaves;
 
+    [SerializeField] float _startingHealthScaling = 1f;
+    [SerializeField] float _healthScalingPerMinute = 0.75f;
+    [SerializeField] float _maxHealthScaling = 20f;
+    float _healthScaling;
+    
+    [SerializeField] float _startingSpeedScaling = 1f;
+    [SerializeField] float _speedScalingPerMinute = 0f;
+    [SerializeField] float _maxSpeedScaling = 1f;
+    float _speedScaling;
+
     EnemyWave _currentWave;
     int _currentWaveIndex = 0;
     int _currentEnemyIndex = 0;
@@ -28,6 +38,8 @@ namespace Mtd {
     State _state = State.NotStarted;
 
     void Awake() {
+      _healthScaling = _startingHealthScaling;
+      _speedScaling = _startingSpeedScaling;
       SetupEnemyPathTriggers();
     }
 
@@ -35,7 +47,11 @@ namespace Mtd {
       if (_state == State.FinishedAllWaves) {
         return;
       }
-      _timer -= Time.deltaTime;
+      float dt = Time.deltaTime;
+      _timer -= dt;
+      if (_state != State.NotStarted) {
+        UpdateScaling(dt);
+      }
 
       if (_state == State.SpawningWave) {
         DoSpawningWave();
@@ -46,6 +62,13 @@ namespace Mtd {
       else if (_state == State.NotStarted) {
         StartWave(0);
       }
+    }
+
+    void UpdateScaling(float dt) {
+      var healthScalingPerSecond = _healthScalingPerMinute / 60f;
+      _healthScaling = Mathf.Min(_healthScaling + healthScalingPerSecond * dt, _maxHealthScaling);
+      var speedScalingPerSecond = _speedScalingPerMinute / 60f;
+      _speedScaling = Mathf.Min(_speedScaling + speedScalingPerSecond * dt, _maxSpeedScaling);
     }
 
     // TODO maybe this should be in ScenarioManager
@@ -138,8 +161,8 @@ namespace Mtd {
     void SpawnEnemy(EnemyWave wave, Vector3 startPosition, Path path, int pathIndex) {
       GameObject newEnemyObject = Instantiate(wave.EnemyPrefab, startPosition, Quaternion.identity, _enemyFolder);
       var enemy = newEnemyObject.GetComponent<EnemyController>();
-      enemy.SetMaxHealth(wave.EnemyMaxHealth);
-      enemy.SetSpeed(wave.EnemySpeed);
+      enemy.SetMaxHealth(Mathf.RoundToInt(wave.EnemyMaxHealth * _healthScaling));
+      enemy.SetSpeed(wave.EnemySpeed * _speedScaling);
       enemy.SetPath(path, pathIndex);
       enemy.SetScenarioManager(_scenarioManager);
       _scenarioManager.NotifyEnemySpawned(enemy);

@@ -336,7 +336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &85327824
 Transform:
   m_ObjectHideFlags: 0
@@ -7482,8 +7482,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
+      propertyPath: _maxSpeedScaling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
       propertyPath: _enemyWaves.Array.size
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
+      propertyPath: _speedScalingPerMinute
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
       propertyPath: _enemyWaves.Array.data[0]
