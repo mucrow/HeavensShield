@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: _speed
-      value: 70
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: _damage
-      value: 70
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: _idleSprite

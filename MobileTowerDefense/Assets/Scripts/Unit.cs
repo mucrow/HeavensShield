@@ -56,7 +56,7 @@ namespace Mtd {
           }
         }
         
-        enemy.ReceiveDamage(_damage * Mathf.Min(comboCount, 3));
+        enemy.ReceiveDamage(_damage * Mathf.Min(comboCount, 10));
         _enemyBeingCombod = enemy;
         
         StartAttackAnimation(enemy);

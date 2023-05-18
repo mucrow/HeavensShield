@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6612516780576738217, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: m_Radius
-      value: 3.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: _speed
