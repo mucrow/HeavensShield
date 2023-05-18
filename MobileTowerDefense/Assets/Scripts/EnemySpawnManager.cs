@@ -131,14 +131,15 @@ namespace Mtd {
     }
 
     void SpawnEnemy() {
-      var prefab = _currentWave.EnemyPrefab;
       var startPosition = _enemyPath.GetWaypoint(0);
-      SpawnEnemy(prefab, startPosition, _enemyPath, 1);
+      SpawnEnemy(_currentWave, startPosition, _enemyPath, 1);
     }
 
-    void SpawnEnemy(GameObject prefab, Vector3 startPosition, Path path, int pathIndex) {
-      GameObject newEnemyObject = Instantiate(prefab, startPosition, Quaternion.identity, _enemyFolder);
+    void SpawnEnemy(EnemyWave wave, Vector3 startPosition, Path path, int pathIndex) {
+      GameObject newEnemyObject = Instantiate(wave.EnemyPrefab, startPosition, Quaternion.identity, _enemyFolder);
       var enemy = newEnemyObject.GetComponent<EnemyController>();
+      enemy.SetMaxHealth(wave.EnemyMaxHealth);
+      enemy.SetSpeed(wave.EnemySpeed);
       enemy.SetPath(path, pathIndex);
       enemy.SetScenarioManager(_scenarioManager);
       _scenarioManager.NotifyEnemySpawned(enemy);

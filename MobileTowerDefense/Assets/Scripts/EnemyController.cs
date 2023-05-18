@@ -8,14 +8,18 @@ namespace Mtd {
   public class EnemyController: MonoBehaviour {
     [SerializeField] Rigidbody2D _rigidbody2D;
 
+    // TODO consider renaming these to "default speed"
     [SerializeField] float _speed = 2f;
+    public float Speed => _speed;
 
     Path _path;
     ScenarioManager _scenarioManager;
 
     int _pathIndex = 0;
 
+    // TODO consider renaming these to "default max health"
     [SerializeField] int _maxHealth = 50;
+    public int MaxHealth => _maxHealth;
     int _health;
 
     [SerializeField] int _moneyOnKill = 17;
@@ -52,6 +56,22 @@ namespace Mtd {
 
     public void SetScenarioManager(ScenarioManager scenarioManager) {
       _scenarioManager = scenarioManager;
+    }
+
+    /**
+     * Intended for use when an enemy is first spawned. Sets enemy health to max health after
+     * modification.
+     */
+    public void SetMaxHealth(int newMaxHealth) {
+      _maxHealth = newMaxHealth;
+      _health = newMaxHealth;
+    }
+    
+    /**
+     * Intended for use when an enemy is first spawned. Does not update velocity.
+     */
+    public void SetSpeed(float newSpeed) {
+      _speed = newSpeed;
     }
 
     public void ReceiveDamage(int amount) {

@@ -39,5 +39,17 @@ namespace Mtd {
     public float WaitTimeAfterLastEnemy => (
       _enemyComponent.DefaultWaitTimeAfterWave * _waitTimeAfterLastEnemyMultiplier + _waitTimeAfterLastEnemyIncrease
     );
+
+    [SerializeField] float _enemyMaxHealthMultiplier = 1f;
+    [SerializeField] float _enemyMaxHealthIncrease = 0f;
+    public int EnemyMaxHealth => (
+      Mathf.RoundToInt(_enemyComponent.MaxHealth * _enemyMaxHealthMultiplier + _enemyMaxHealthIncrease)
+    );
+
+    [SerializeField] float _enemySpeedMultiplier = 1f;
+    [SerializeField] float _enemySpeedIncrease = 0f;
+    public float EnemySpeed => (
+      _enemyComponent.Speed * _enemySpeedMultiplier + _enemySpeedIncrease
+    );
   }
 }
