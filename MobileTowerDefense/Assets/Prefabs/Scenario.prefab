@@ -2446,6 +2446,12 @@ MonoBehaviour:
   _enemyPath: {fileID: 2834857968904258584}
   _enemyWaves:
   - {fileID: 6317129224778859893}
+  _startingHealthScaling: 1
+  _healthScalingPerMinute: 0.75
+  _maxHealthScaling: 20
+  _startingSpeedScaling: 1
+  _speedScalingPerMinute: 0
+  _maxSpeedScaling: 1
 --- !u!1 &5358135647499059359
 GameObject:
   m_ObjectHideFlags: 0

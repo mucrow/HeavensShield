@@ -7482,7 +7482,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
-      propertyPath: _maxSpeedScaling
+      propertyPath: _maxHealthScaling
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
@@ -7490,7 +7490,7 @@ PrefabInstance:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
-      propertyPath: _speedScalingPerMinute
+      propertyPath: _healthScalingPerMinute
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}

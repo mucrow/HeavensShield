@@ -99,7 +99,9 @@ namespace Mtd {
 
       Vector3 currentPos = transform.position;
       Vector3 nextWaypoint = _path.GetWaypoint(_pathIndex);
-      if ((nextWaypoint - currentPos).magnitude < 0.05f) {
+      float waypointProximityThreshold = 0.05f * (_speed / 2f) * (Time.timeScale / 2f);
+      if ((nextWaypoint - currentPos).magnitude < waypointProximityThreshold) {
+        // transform.position = nextWaypoint;
         _pathIndex += 1;
         MoveTowardNextWaypoint();
         return;
@@ -113,6 +115,14 @@ namespace Mtd {
     void OnReachEndOfPath() {
       _rigidbody2D.velocity = Vector2.zero;
       _path = null;
+    }
+
+    float GetWaypointProximityThreshold() {
+      // float speedFactor = Mathf.Max(_speed / 2f, 1f);
+      // float timeFactor = Mathf.Max(Time.timeScale / 2f, 1f);
+      float speedFactor = _speed / 2f;
+      float timeFactor = Time.timeScale / 2f;
+      return 0.05f * speedFactor * timeFactor;
     }
   }
 }
