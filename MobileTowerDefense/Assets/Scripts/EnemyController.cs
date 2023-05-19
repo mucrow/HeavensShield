@@ -36,8 +36,6 @@ namespace Mtd {
 
     [SerializeField] HealthBar _healthBar;
 
-    float _initialWaypointAngle;
-
     void Awake() {
       _health = _maxHealth;
     }
@@ -48,14 +46,12 @@ namespace Mtd {
     }
 
     void FixedUpdate() {
-      UpdateMovement();
+      MoveTowardNextWaypoint();
     }
 
     public void SetPath(Path path, int pathIndex) {
-      Debug.Log("SetPath (index=" + pathIndex + ")");
       _path = path;
       _pathIndex = pathIndex;
-      SetVelocityTowardNextWaypoint();
     }
 
     public void SetScenarioManager(ScenarioManager scenarioManager) {
@@ -91,7 +87,7 @@ namespace Mtd {
       }
     }
 
-    void UpdateMovement() {
+    void MoveTowardNextWaypoint() {
       if (_path == null) {
         return;
       }
@@ -101,43 +97,22 @@ namespace Mtd {
         return;
       }
 
-      if (_rigidbody2D.velocity == Vector2.zero) {
-        SetVelocityTowardNextWaypoint();
+      Vector3 currentPos = transform.position;
+      Vector3 nextWaypoint = _path.GetWaypoint(_pathIndex);
+      if ((nextWaypoint - currentPos).magnitude < 0.05f) {
+        _pathIndex += 1;
+        MoveTowardNextWaypoint();
         return;
       }
 
-      // Vector2 currentPos = transform.position;
-      // Vector2 nextWaypoint = _path.GetWaypoint(_pathIndex);
-      float angle = GetAngleToNextWaypoint();
-      float epsilon = 10f;
-      Debug.Log("angle: " + angle);
-      if (Mathf.Abs(angle - _initialWaypointAngle) > epsilon) {
-        Debug.Log("Incrementing _pathIndex");
-        _pathIndex += 1;
-        _rigidbody2D.velocity = Vector2.zero;
-        UpdateMovement();
-      }
-    }
-
-    void SetVelocityTowardNextWaypoint() {
-      Debug.Log("Updating velocity");
-      Vector2 currentPos = transform.position;
-      Vector2 nextWaypoint = _path.GetWaypoint(_pathIndex);
+      // float dt = Time.deltaTime;
+      // transform.position = Vector3.MoveTowards(currentPos, nextWaypoint, _speed * dt);
       _rigidbody2D.velocity = (nextWaypoint - currentPos).normalized * _speed;
-      _initialWaypointAngle = GetAngleToNextWaypoint();
-      Debug.Log("_initialWaypointAngle: " + _initialWaypointAngle);
     }
 
     void OnReachEndOfPath() {
-      Debug.Log("OnReachEndOfPath");
       _rigidbody2D.velocity = Vector2.zero;
       _path = null;
-    }
-
-    float GetAngleToNextWaypoint() {
-      Vector2 currentPos = transform.position;
-      Vector2 nextWaypoint = _path.GetWaypoint(_pathIndex);
-      return Vector2.SignedAngle(currentPos, nextWaypoint);
     }
   }
 }
