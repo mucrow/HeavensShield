@@ -882,6 +882,14 @@ PrefabInstance:
       propertyPath: _waitTimeBeforeFirstEnemy
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
+      propertyPath: _waitTimeAfterLastEnemyIncrease
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
+      propertyPath: _waitTimeAfterLastEnemyMultiplier
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5306283372070004193, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
       propertyPath: m_RootOrder
       value: -1

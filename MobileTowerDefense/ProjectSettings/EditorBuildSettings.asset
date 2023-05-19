@@ -35,6 +35,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scenarios/S-0003-TheBrickMen.unity
     guid: f6d5c263cf6edf7428a5a0f4f7b28da6
+  - enabled: 1
+    path: Assets/Scenes/Scenarios/S-0004-ShinHeitaiHighway.unity
+    guid: b547306a50481224d88ffcf0cdf6c265
+  - enabled: 1
+    path: Assets/Scenes/Scenarios/S-0005-ABalancedApproach.unity
+    guid: 47c5272b4b85592459908d024843b982
+  - enabled: 1
+    path: Assets/Scenes/Scenarios/S-0006-AndNowHisBoss.unity
+    guid: 3b2e0691e2679d444b029c1f2e0e5f2a
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 0a973215422802b45b1325e4a9892a4d, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 8227f14c061c5f541bd1d184274b701a, type: 2}
