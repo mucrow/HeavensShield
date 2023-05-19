@@ -52,7 +52,11 @@ namespace Mtd {
     }
 
     public void AddMoney(int amount) {
-      _money += amount;
+      SetMoney(_money + amount);
+    }
+
+    public void SetMoney(int amount) {
+      _money = amount;
       MoneyChange.Invoke(_money);
     }
 

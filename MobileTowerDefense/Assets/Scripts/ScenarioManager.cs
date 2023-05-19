@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
 namespace Mtd {
@@ -19,8 +20,11 @@ namespace Mtd {
     public float BattleSpeed { get; private set; } = 1f;
     float[] _battleSpeeds = new float[] {1f, 2f, 3f};
 
+    [FormerlySerializedAs("_startingCash")] [SerializeField] int _startingMoney = 1100;
+
     void Awake() {
       Globals.ScenarioManager.Register(this);
+      Globals.PlayerAgent.AddRegisterListener(OnPlayerAgentRegistered);
     }
 
     void Start() {
@@ -52,6 +56,11 @@ namespace Mtd {
       IsPaused = false;
       BattleSpeed = 1f;
       UpdateTimeScale();
+    }
+
+    void OnPlayerAgentRegistered(PlayerAgent playerAgent) {
+      playerAgent.SetMoney(_startingMoney);
+      Globals.PlayerAgent.RemoveRegisterListener(OnPlayerAgentRegistered);
     }
 
     public void SetScenarioPaused(bool isPaused) {
