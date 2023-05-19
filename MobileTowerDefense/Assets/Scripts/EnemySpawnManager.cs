@@ -18,8 +18,11 @@ namespace Mtd {
     [SerializeField] float _maxHealthScaling = 20f;
     float _healthScaling;
     
+    [Header("uh...don't actually do speed scaling")]
     [SerializeField] float _startingSpeedScaling = 1f;
+    [Header("enemies can get stuck at waypoints if")]
     [SerializeField] float _speedScalingPerMinute = 0f;
+    [Header("they're moving too fast. youve been warned")]
     [SerializeField] float _maxSpeedScaling = 1f;
     float _speedScaling;
 
