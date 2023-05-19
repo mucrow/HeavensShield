@@ -743,6 +743,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8192809573855771634, guid: d617326adc3a24c48a3f094799c764b4, type: 3}
     - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
+      propertyPath: _enemyMaxHealthMultiplier
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
       propertyPath: _waitTimeBeforeFirstEnemyIncrease
       value: 10
       objectReference: {fileID: 0}
