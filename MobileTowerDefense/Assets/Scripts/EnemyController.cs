@@ -25,6 +25,11 @@ namespace Mtd {
     [SerializeField] int _moneyOnKill = 17;
     [SerializeField] int _scoreOnKill = 21;
 
+    [SerializeField] int _damage = 1;
+    public int Damage => _damage;
+
+    [SerializeField] float _durationBetweenAttacks = 0.64f;
+
     [SerializeField] int _defaultEnemyCount = 10;
     public int DefaultEnemyCount => _defaultEnemyCount;
     [SerializeField] float _defaultWaitTimeBetweenEach = 1.5f;
@@ -36,17 +41,43 @@ namespace Mtd {
 
     [SerializeField] HealthBar _healthBar;
 
+    float _attackTimer;
+    Tower _targetTower = null;
+
     void Awake() {
       _health = _maxHealth;
     }
 
+    void Start() {
+      UpdateHealthBar();
+    }
+
     void Update() {
-      float healthFraction = (float) _health / (float) _maxHealth;
-      _healthBar.SetCurrentHealth(healthFraction);
+      if (_targetTower) {
+        _attackTimer -= Time.deltaTime;
+        if (_attackTimer <= 0f) {
+          _targetTower.ReceiveDamage(_damage);
+          _attackTimer += _durationBetweenAttacks;
+        }
+      }
     }
 
     void FixedUpdate() {
       MoveTowardNextWaypoint();
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+      if (other.CompareTag("Tower")) {
+        _targetTower = other.GetComponent<Tower>();
+        _targetTower.ReceiveDamage(_damage);
+        _attackTimer = _durationBetweenAttacks;
+      }
+    }
+
+    void OnTriggerExit2D(Collider2D other) {
+      if (_targetTower && other.gameObject == _targetTower.gameObject) {
+        _targetTower = null;
+      }
     }
 
     public void SetPath(Path path, int pathIndex) {
@@ -75,9 +106,9 @@ namespace Mtd {
     }
 
     public void ReceiveDamage(int amount) {
-      _health -= amount;
+      _health = Mathf.Max(_health - amount, 0);
+      UpdateHealthBar();
       if (_health <= 0) {
-        _health = 0;
         Globals.PlayerAgent.With(playerAgent => {
           playerAgent.AddMoney(_moneyOnKill);
           playerAgent.AddToScore(_scoreOnKill);
@@ -123,6 +154,11 @@ namespace Mtd {
       float speedFactor = _speed / 2f;
       float timeFactor = Time.timeScale / 2f;
       return 0.05f * speedFactor * timeFactor;
+    }
+
+    void UpdateHealthBar() {
+      float healthFraction = (float) _health / (float) _maxHealth;
+      _healthBar.SetCurrentHealth(healthFraction);
     }
   }
 }
