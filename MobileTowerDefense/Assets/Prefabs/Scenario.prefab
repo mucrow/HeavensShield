@@ -3553,6 +3553,8 @@ MonoBehaviour:
   _enemyPathTriggerPrefab: {fileID: 5105360050935463225, guid: 7db58c2b20f249b49b5397a3c05f42d0, type: 3}
   _enemyPathTriggersFolder: {fileID: 2834857970262218444}
   _enemyPath: {fileID: 2834857968904258584}
+  _overrideWaitTimeBeforeFirstWave: 15
+  _overrideWaitTimeAfterLastWave: 2
   _enemyWaves:
   - {fileID: 6317129224778859893}
   _startingHealthScaling: 1

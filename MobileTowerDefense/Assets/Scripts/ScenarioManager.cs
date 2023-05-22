@@ -150,7 +150,7 @@ namespace Mtd {
         Globals.GameManager.WriteSaveData();
 
         Globals.UI.UnitSelector.CloseInstant();
-        Globals.UI.VictoryBanner.ShowInstant();
+        await Globals.UI.VictoryBanner.Show();
         await Task.Delay(2000);
 
         await Task.WhenAll(

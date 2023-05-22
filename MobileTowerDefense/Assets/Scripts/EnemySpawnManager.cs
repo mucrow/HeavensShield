@@ -11,13 +11,18 @@ namespace Mtd {
     [SerializeField] Transform _enemyPathTriggersFolder;
 
     [SerializeField] Path _enemyPath;
+
+    [Header("Use -1 if you don't want to override.")]
+    [SerializeField] float _overrideWaitTimeBeforeFirstWave = 15f;
+    [Header("Use -1 if you don't want to override.")]
+    [SerializeField] float _overrideWaitTimeAfterLastWave = 1f;
     [SerializeField] EnemyWave[] _enemyWaves;
 
     [SerializeField] float _startingHealthScaling = 1f;
     [SerializeField] float _healthScalingPerMinute = 0.75f;
     [SerializeField] float _maxHealthScaling = 20f;
     float _healthScaling;
-    
+
     [Header("uh...don't actually do speed scaling")]
     [SerializeField] float _startingSpeedScaling = 1f;
     [Header("enemies can get stuck at waypoints if")]
@@ -121,17 +126,23 @@ namespace Mtd {
     void DoSpawningWave() {
       if (_timer <= 0f) {
         // TODO this feels gross (same if-condition is a few lines down)
-        //      i should really add a StartingWave state to make this tidy 
+        //      i should really add a StartingWave state to make this tidy
         if (_currentEnemyIndex < _currentWave.EnemyCount) {
           SpawnEnemy();
           _currentEnemyIndex += 1;
         }
-        
+
         if (_currentEnemyIndex < _currentWave.EnemyCount) {
           _timer += _currentWave.WaitTimeBetweenEnemies;
         }
         else {
-          _timer += _currentWave.WaitTimeAfterLastEnemy;
+          bool isLastWave = _currentWaveIndex + 1 >= _enemyWaves.Length;
+          float waitTime = _currentWave.WaitTimeAfterLastEnemy;
+          if (isLastWave && _overrideWaitTimeAfterLastWave >= 0) {
+            waitTime = _overrideWaitTimeAfterLastWave;
+          }
+          _timer += waitTime;
+
           _state = State.FinishingWave;
         }
       }
@@ -147,7 +158,13 @@ namespace Mtd {
           return;
         }
         _currentEnemyIndex = 0;
-        _timer += _currentWave.WaitTimeBeforeFirstEnemy;
+
+        float waitTime = _currentWave.WaitTimeBeforeFirstEnemy;
+        if (waveNumber == 0 && _overrideWaitTimeBeforeFirstWave >= 0) {
+          waitTime = _overrideWaitTimeBeforeFirstWave;
+        }
+        _timer += waitTime;
+
         _state = State.SpawningWave;
       }
       else {
