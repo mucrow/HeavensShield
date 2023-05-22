@@ -3,7 +3,7 @@
 namespace Mtd {
   public class Tower: MonoBehaviour {
     [SerializeField] int _health = 100;
-    
+
     enum TowerDirection { DoorFacesNorth, DoorFacesSouth, DoorFacesEast, DoorFacesWest }
     [SerializeField] TowerDirection _direction;
 
