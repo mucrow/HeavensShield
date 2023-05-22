@@ -103,7 +103,6 @@ namespace Mtd {
 
     public void NotifyEnemySpawned(EnemyController enemy) {
       _livingEnemies.Add(enemy);
-      enemy.SetScenarioManager(this);
     }
 
     public void NotifyEnemyDestroyed(EnemyController enemy) {

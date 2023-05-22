@@ -167,7 +167,6 @@ namespace Mtd {
       enemy.SetMaxHealth(Mathf.RoundToInt(wave.EnemyMaxHealth * _healthScaling));
       enemy.SetSpeed(wave.EnemySpeed * _speedScaling);
       enemy.SetPath(path, pathIndex);
-      enemy.SetScenarioManager(_scenarioManager);
       _scenarioManager.NotifyEnemySpawned(enemy);
     }
   }

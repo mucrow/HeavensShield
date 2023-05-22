@@ -13,7 +13,6 @@ namespace Mtd {
     public float Speed => _speed;
 
     Path _path;
-    ScenarioManager _scenarioManager;
 
     int _pathIndex = 0;
 
@@ -85,10 +84,6 @@ namespace Mtd {
       _pathIndex = pathIndex;
     }
 
-    public void SetScenarioManager(ScenarioManager scenarioManager) {
-      _scenarioManager = scenarioManager;
-    }
-
     /**
      * Intended for use when an enemy is first spawned. Sets enemy health to max health after
      * modification.
@@ -113,7 +108,9 @@ namespace Mtd {
           playerAgent.AddMoney(_moneyOnKill);
           playerAgent.AddToScore(_scoreOnKill);
         });
-        _scenarioManager.NotifyEnemyDestroyed(this);
+        Globals.ScenarioManager.With(scenarioManager => {
+          scenarioManager.NotifyEnemyDestroyed(this);
+        });
         Destroy(gameObject);
       }
     }
