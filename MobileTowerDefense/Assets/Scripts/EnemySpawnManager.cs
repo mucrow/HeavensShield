@@ -15,7 +15,7 @@ namespace Mtd {
     [Header("Use -1 if you don't want to override.")]
     [SerializeField] float _overrideWaitTimeBeforeFirstWave = 15f;
     [Header("Use -1 if you don't want to override.")]
-    [SerializeField] float _overrideWaitTimeAfterLastWave = 1f;
+    [SerializeField] float _overrideWaitTimeAfterLastWave = 2f;
     [SerializeField] EnemyWave[] _enemyWaves;
 
     [SerializeField] float _startingHealthScaling = 1f;
