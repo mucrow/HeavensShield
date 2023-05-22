@@ -3,6 +3,7 @@
 namespace Mtd {
   public class Tower: MonoBehaviour {
     [SerializeField] int _health = 100;
+    public int Health => _health;
 
     enum TowerDirection { DoorFacesNorth, DoorFacesSouth, DoorFacesEast, DoorFacesWest }
     [SerializeField] TowerDirection _direction;
@@ -16,6 +17,11 @@ namespace Mtd {
 
     public void ReceiveDamage(int amount) {
       _health -= amount;
+      if (_health <= 0) {
+        Globals.ScenarioManager.With(scenarioManager => {
+          scenarioManager.NotifyTowerDestroyed();
+        });
+      }
     }
 
     public void OnValidate() {

@@ -3344,6 +3344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitsGroup: {fileID: 2834857969647157517}
   _tilemap: {fileID: 2834857968637578140}
+  _tower: {fileID: 4652466448195734645}
   _startingMoney: 1100
 --- !u!1 &2834857970562622748
 GameObject:
@@ -3473,7 +3474,7 @@ Tilemap:
     m_Data: {r: 3.6137e-41, g: 3.6137e-41, b: 3.6137e-41, a: 3.6137e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0.101960786}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.0627451}
   m_Origin: {x: -18, y: -14, z: 0}
   m_Size: {x: 42, y: 34, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -3838,6 +3839,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 879975547802243429bb986dc6835752, type: 3}
+--- !u!114 &4652466448195734645 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2551898994176171704, guid: 879975547802243429bb986dc6835752, type: 3}
+  m_PrefabInstance: {fileID: 7204293793123488461}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00ecf76b9be4413be7672cb90487bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4652466448195734647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2551898994176171706, guid: 879975547802243429bb986dc6835752, type: 3}

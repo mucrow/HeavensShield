@@ -13,6 +13,8 @@ namespace Mtd {
     [SerializeField] Tilemap _tilemap;
     public Transform UnitsGroup => _unitsGroup;
 
+    [SerializeField] Tower _tower;
+
     List<EnemyController> _livingEnemies = new List<EnemyController>();
     bool _enemySpawningComplete = false;
 
@@ -115,20 +117,23 @@ namespace Mtd {
       CheckIfPlayerWon();
     }
 
+    public void NotifyTowerDestroyed() {
+      Debug.Log(":skull: The Tower Has Fallen :skull:");
+    }
+
     async void CheckIfPlayerWon() {
       if (_enemySpawningComplete && _livingEnemies.Count == 0) {
         Globals.PlayerAgent.With(playerAgent => {
           Globals.LoadedScenario.With(loadedScenario => {
             var saveData = Globals.GameManager.SaveData;
-            // TODO this is stubbed with a dummy value
-            float towerHealth = 100f;
 
+            float towerHP = _tower.Health;
             float money = playerAgent.Money;
             float score = playerAgent.Score;
 
             float moneyPC = money / 100f;
             float scorePC = score / 1000f;
-            float towerPC = towerHealth * 2f;
+            float towerPC = towerHP * 2f;
 
             saveData.Game.PoliticalCapital += moneyPC;
             saveData.Game.PoliticalCapital += scorePC;
@@ -139,7 +144,7 @@ namespace Mtd {
               saveData.Game.NextStoryScenarioID += 1;
             }
 
-            Globals.UI.ScoreTallyModal.SetEarnings(towerHealth, towerPC, score, scorePC, money, moneyPC);
+            Globals.UI.ScoreTallyModal.SetEarnings(towerHP, towerPC, score, scorePC, money, moneyPC);
           });
         });
         Globals.GameManager.WriteSaveData();
