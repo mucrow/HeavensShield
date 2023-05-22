@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Mtd {
   public class Waypoint: MonoBehaviour {
     void OnDrawGizmos() {
-      Gizmos.DrawIcon(transform.position, "Waypoint.png", false);
+      Gizmos.DrawIcon(transform.position, "Waypoint.png", true);
     }
   }
 }
