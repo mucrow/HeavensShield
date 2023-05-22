@@ -827,6 +827,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2594168471070753122, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2834857968637578140, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
       propertyPath: m_Tiles.Array.size
       value: 240
@@ -5010,7 +5014,7 @@ PrefabInstance:
     - target: {fileID: 2834857968904258584, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
       propertyPath: _waypoints.Array.data[1]
       value: 
-      objectReference: {fileID: 2116039889}
+      objectReference: {fileID: 0}
     - target: {fileID: 2834857968904258584, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
       propertyPath: _waypoints.Array.data[2]
       value: 
@@ -5150,10 +5154,5 @@ PrefabInstance:
 --- !u!4 &2025973483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5841505497593585669, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
-  m_PrefabInstance: {fileID: 2025973482}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2116039889 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5358135647499059359, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
   m_PrefabInstance: {fileID: 2025973482}
   m_PrefabAsset: {fileID: 0}
