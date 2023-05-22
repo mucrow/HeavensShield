@@ -117,12 +117,33 @@ namespace Mtd {
       CheckIfPlayerWon();
     }
 
-    public void NotifyTowerDestroyed() {
-      Debug.Log(":skull: The Tower Has Fallen :skull:");
+    public async void NotifyTowerDestroyed() {
+      SetScenarioPaused(true);
+
+      Globals.PlayerAgent.With(playerAgent => {
+        Globals.UI.ScoreTallyModal.SetEarnings(
+          _tower.Health, 0f,
+          playerAgent.Score, 0f,
+          playerAgent.Money, 0f
+        );
+      });
+      // there isn't anything to save here, but we'll do it just in case that changes later.
+      Globals.GameManager.WriteSaveData();
+
+      Globals.UI.UnitSelector.CloseInstant();
+      await Globals.UI.DefeatBanner.Show();
+      await Task.Delay(2000);
+
+      await Task.WhenAll(
+        Globals.UI.DefeatBanner.Hide(),
+        Globals.UI.ScoreTallyModal.Show()
+      );
     }
 
     async void CheckIfPlayerWon() {
       if (_enemySpawningComplete && _livingEnemies.Count == 0) {
+        SetScenarioPaused(true);
+
         Globals.PlayerAgent.With(playerAgent => {
           Globals.LoadedScenario.With(loadedScenario => {
             var saveData = Globals.GameManager.SaveData;

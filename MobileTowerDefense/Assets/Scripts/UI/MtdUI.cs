@@ -33,6 +33,9 @@ namespace Mtd.UI {
     [SerializeField] ShowHideOffscreen _victoryBanner;
     public ShowHideOffscreen VictoryBanner => _victoryBanner;
 
+    [SerializeField] ShowHideOffscreen _defeatBanner;
+    public ShowHideOffscreen DefeatBanner => _defeatBanner;
+
     [SerializeField] ScoreTallyModal _scoreTallyModal;
     public ScoreTallyModal ScoreTallyModal => _scoreTallyModal;
 
