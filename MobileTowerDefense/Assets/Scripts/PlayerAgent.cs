@@ -7,11 +7,14 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 namespace Mtd {
   public class PlayerAgent: MonoBehaviour {
+    [SerializeField] Tilemap _tilemap;
+
     bool _ignoreCurrentDrag = false;
     Vector2 _dragStartScreenPos;
     Vector3 _dragStartCameraWorldPos;
@@ -95,6 +98,10 @@ namespace Mtd {
       var unitSelector = Globals.UI.UnitSelector;
       if (!unitSelector.IsHidden) {
         await unitSelector.Close();
+        return;
+      }
+
+      if (!_tilemap.localBounds.Contains(point.World)) {
         return;
       }
 
