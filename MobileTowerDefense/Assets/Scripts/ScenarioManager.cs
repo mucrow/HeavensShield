@@ -120,44 +120,39 @@ namespace Mtd {
       CheckIfPlayerWon();
     }
 
-    public async void NotifyTowerDestroyed() {
-      SetScenarioPaused(true);
-
-      Globals.PlayerAgent.With(playerAgent => {
-        Globals.UI.DefeatScoreTallyModal.SetEarnings(
-          _tower.Health, 0f,
-          playerAgent.Score, 0f,
-          playerAgent.Money, 0f
-        );
-      });
-      // there isn't anything to save here, but we'll do it just in case that changes later.
-      Globals.GameManager.WriteSaveData();
-
-      Globals.UI.UnitSelector.CloseInstant();
-      await Globals.UI.DefeatBanner.Show();
-      await Task.Delay(2000);
-
-      await Task.WhenAll(
-        Globals.UI.DefeatBanner.Hide(),
-        Globals.UI.DefeatScoreTallyModal.Show()
-      );
+    public void NotifyTowerDestroyed() {
+      DoScenarioOutcome(false);
     }
 
-    async void CheckIfPlayerWon() {
+    void CheckIfPlayerWon() {
       if (_enemySpawningComplete && _livingEnemies.Count == 0) {
-        SetScenarioPaused(true);
+        DoScenarioOutcome(true);
+      }
+    }
 
-        Globals.PlayerAgent.With(playerAgent => {
-          Globals.LoadedScenario.With(loadedScenario => {
-            var saveData = Globals.GameManager.SaveData;
+    async void DoScenarioOutcome(bool isVictory) {
+      SetScenarioPaused(true);
 
-            float towerHP = _tower.Health;
-            float money = playerAgent.Money;
-            float score = playerAgent.Score;
+      var saveData = Globals.GameManager.SaveData;
+      var scoreTallyModal = (
+        isVictory ? Globals.UI.ScoreTallyModal : Globals.UI.DefeatScoreTallyModal
+      );
+      var banner = isVictory ? Globals.UI.VictoryBanner : Globals.UI.DefeatBanner;
 
-            float moneyPC = money / 100f;
-            float scorePC = score / 1000f;
-            float towerPC = towerHP * 2f;
+      Globals.PlayerAgent.With(playerAgent => {
+        Globals.LoadedScenario.With(loadedScenario => {
+          float towerHP = _tower.Health;
+          float money = playerAgent.Money;
+          float score = playerAgent.Score;
+
+          float moneyPC = 0f;
+          float scorePC = 0f;
+          float towerPC = 0f;
+
+          if (isVictory) {
+            moneyPC = money / 100f;
+            scorePC = score / 1000f;
+            towerPC = towerHP * 2f;
 
             saveData.Game.PoliticalCapital += moneyPC;
             saveData.Game.PoliticalCapital += scorePC;
@@ -167,21 +162,21 @@ namespace Mtd {
             if (saveData.Game.NextStoryScenarioID == loadedScenario.ID) {
               saveData.Game.NextStoryScenarioID += 1;
             }
+          }
 
-            Globals.UI.ScoreTallyModal.SetEarnings(towerHP, towerPC, score, scorePC, money, moneyPC);
-          });
+          scoreTallyModal.SetEarnings(towerHP, towerPC, score, scorePC, money, moneyPC);
         });
-        Globals.GameManager.WriteSaveData();
+      });
+      Globals.GameManager.WriteSaveData();
 
-        Globals.UI.UnitSelector.CloseInstant();
-        await Globals.UI.VictoryBanner.Show();
-        await Task.Delay(2000);
+      Globals.UI.UnitSelector.CloseInstant();
+      await banner.Show();
+      await Task.Delay(2000);
 
-        await Task.WhenAll(
-          Globals.UI.VictoryBanner.Hide(),
-          Globals.UI.ScoreTallyModal.Show()
-        );
-      }
+      await Task.WhenAll(
+        banner.Hide(),
+        scoreTallyModal.Show()
+      );
     }
   }
 }
