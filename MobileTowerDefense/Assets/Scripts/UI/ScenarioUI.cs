@@ -35,7 +35,6 @@ namespace Mtd.UI {
     }
 
     public async Task QuitScenario() {
-      await HideScenarioMenu();
       if (Globals.ScenarioSceneQuitTarget == ScenarioSceneQuitTarget.MainMenu) {
         Globals.GameManager.LoadMainMenuScene();
       }
@@ -53,7 +52,6 @@ namespace Mtd.UI {
     }
 
     public async Task RestartScenario() {
-      await HideScenarioMenu();
       Globals.GameManager.ReloadScenario();
     }
 

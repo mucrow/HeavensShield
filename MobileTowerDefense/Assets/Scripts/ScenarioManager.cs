@@ -44,9 +44,12 @@ namespace Mtd {
     }
 
     void OnDestroy() {
+      Globals.UI.DefeatScoreTallyModal.HideInstant();
+      Globals.UI.DefeatBanner.HideInstant();
       Globals.UI.ScoreTallyModal.HideInstant();
       Globals.UI.VictoryBanner.HideInstant();
       Globals.UI.ScenarioTapToStartOverlay.HideInstant();
+      Globals.UI.ScenarioMenu.HideInstant();
       Globals.UI.UnitSelector.CloseInstant();
       Globals.UI.HUD.HideInstant();
       Globals.UI.ScenarioLeftSideButtons.HideInstant();
@@ -121,7 +124,7 @@ namespace Mtd {
       SetScenarioPaused(true);
 
       Globals.PlayerAgent.With(playerAgent => {
-        Globals.UI.ScoreTallyModal.SetEarnings(
+        Globals.UI.DefeatScoreTallyModal.SetEarnings(
           _tower.Health, 0f,
           playerAgent.Score, 0f,
           playerAgent.Money, 0f
@@ -136,7 +139,7 @@ namespace Mtd {
 
       await Task.WhenAll(
         Globals.UI.DefeatBanner.Hide(),
-        Globals.UI.ScoreTallyModal.Show()
+        Globals.UI.DefeatScoreTallyModal.Show()
       );
     }
 
