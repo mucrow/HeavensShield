@@ -10,6 +10,8 @@ namespace Mtd {
     readonly UnityEvent<T> _register = new UnityEvent<T>();
     readonly UnityEvent<T> _unregister = new UnityEvent<T>();
 
+    public bool IsRegistered => _proxied != null;
+
     public Proxy() { }
 
     public Proxy(T item) {
