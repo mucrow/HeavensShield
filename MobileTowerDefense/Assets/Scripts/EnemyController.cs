@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 namespace Mtd {
   public class EnemyController: MonoBehaviour {
     [SerializeField] Rigidbody2D _rigidbody2D;
+    [SerializeField] SpriteRenderer _spriteRenderer;
 
     // TODO consider renaming these to "default speed"
     [SerializeField] float _speed = 2f;
@@ -92,7 +93,7 @@ namespace Mtd {
       _maxHealth = newMaxHealth;
       _health = newMaxHealth;
     }
-    
+
     /**
      * Intended for use when an enemy is first spawned. Does not update velocity.
      */
@@ -137,7 +138,11 @@ namespace Mtd {
 
       // float dt = Time.deltaTime;
       // transform.position = Vector3.MoveTowards(currentPos, nextWaypoint, _speed * dt);
-      _rigidbody2D.velocity = (nextWaypoint - currentPos).normalized * _speed;
+      var nextVelocity = (nextWaypoint - currentPos).normalized * _speed;
+      _rigidbody2D.velocity = nextVelocity;
+      if (nextVelocity.x < 0) {
+        _spriteRenderer.flipX = true;
+      }
     }
 
     void OnReachEndOfPath() {

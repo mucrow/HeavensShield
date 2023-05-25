@@ -50,10 +50,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 5768397711725846968}
+  _spriteRenderer: {fileID: 7458727276083086698}
   _speed: 2.2
   _maxHealth: 50
   _moneyOnKill: 17
   _scoreOnKill: 21
+  _damage: 1
+  _durationBetweenAttacks: 0.64
   _defaultEnemyCount: 10
   _defaultWaitTimeBetweenEach: 1.5
   _defaultWaitTimeBeforeWave: 5
