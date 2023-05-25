@@ -99,7 +99,7 @@ namespace Mtd {
       var viewportBounds = Utils.Utils.GetWorldBoundsInCameraView(_camera);
       var mapBounds = _tilemap.localBounds;
       mapBounds.Expand(0f * Vector3.one);
-      
+
       var minX = (viewportBounds.size.x / 2f - mapBounds.size.x / 2f) * -1f;
       var maxX = (viewportBounds.size.x / 2f - mapBounds.size.x / 2f) *  1f;
       var minY = (viewportBounds.size.y / 2f - mapBounds.size.y / 2f) * -1f;
@@ -110,7 +110,7 @@ namespace Mtd {
       }
       minX += mapBounds.center.x;
       maxX += mapBounds.center.x;
-      
+
       if (minY > maxY) {
         (maxY, minY) = (minY, maxY);
       }
