@@ -27,6 +27,10 @@ namespace Mtd {
       SetZoomLevel(zoomLevel);
     }
 
+    void Start() {
+      _tilemap.CompressBounds();
+    }
+
     void Update() {
       if (_tilemap) {
         Utils.Utils.DebugDrawBounds(_limits, Color.red);
