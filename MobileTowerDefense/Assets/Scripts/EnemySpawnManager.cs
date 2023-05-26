@@ -10,13 +10,14 @@ namespace Mtd {
     [SerializeField] GameObject _enemyPathTriggerPrefab;
     [SerializeField] Transform _enemyPathTriggersFolder;
 
-    [SerializeField] Path _enemyPath;
+    [SerializeField] EnemyPath _enemyPath;
+
+    [SerializeField] EnemyWaves _enemyWaves;
 
     [Header("Use -1 if you don't want to override.")]
     [SerializeField] float _overrideWaitTimeBeforeFirstWave = 15f;
     [Header("Use -1 if you don't want to override.")]
     [SerializeField] float _overrideWaitTimeAfterLastWave = 2f;
-    [SerializeField] EnemyWave[] _enemyWaves;
 
     [SerializeField] float _startingHealthScaling = 1f;
     [SerializeField] float _healthScalingPerMinute = 0.75f;
@@ -81,13 +82,13 @@ namespace Mtd {
 
     // TODO maybe this should be in ScenarioManager
     void SetupEnemyPathTriggers() {
-      var waypointCount = _enemyPath.WaypointCount();
+      var waypointCount = _enemyPath.WaypointCount;
       if (waypointCount < 2) {
         return;
       }
-      var previousWaypoint = _enemyPath.GetWaypoint(0);
+      var previousWaypoint = _enemyPath[0];
       for (int i = 1; i < waypointCount; ++i) {
-        var currentWaypoint = _enemyPath.GetWaypoint(i);
+        var currentWaypoint = _enemyPath[i];
         CreateTriggerBetweenWaypoints(previousWaypoint, currentWaypoint);
         previousWaypoint = currentWaypoint;
       }
@@ -174,11 +175,11 @@ namespace Mtd {
     }
 
     void SpawnEnemy() {
-      var startPosition = _enemyPath.GetWaypoint(0);
+      var startPosition = _enemyPath[0];
       SpawnEnemy(_currentWave, startPosition, _enemyPath, 1);
     }
 
-    void SpawnEnemy(EnemyWave wave, Vector3 startPosition, Path path, int pathIndex) {
+    void SpawnEnemy(EnemyWave wave, Vector3 startPosition, EnemyPath path, int pathIndex) {
       GameObject newEnemyObject = Instantiate(wave.EnemyPrefab, startPosition, Quaternion.identity, _enemyFolder);
       var enemy = newEnemyObject.GetComponent<EnemyController>();
       enemy.SetMaxHealth(Mathf.RoundToInt(wave.EnemyMaxHealth * _healthScaling));

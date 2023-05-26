@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5306283372070004193}
   - component: {fileID: 5306283372070004192}
   m_Layer: 0
-  m_Name: Wave
+  m_Name: EnemyWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 0}
+  _disableWave: 0
   _enemyCountMultiplier: 1
   _enemyCountIncrease: 0
   _waitTimeBetweenEnemiesMultiplier: 1
@@ -53,3 +54,7 @@ MonoBehaviour:
   _waitTimeBeforeFirstEnemyIncrease: 0
   _waitTimeAfterLastEnemyMultiplier: 1
   _waitTimeAfterLastEnemyIncrease: 0
+  _enemyMaxHealthMultiplier: 1
+  _enemyMaxHealthIncrease: 0
+  _enemySpeedMultiplier: 1
+  _enemySpeedIncrease: 0

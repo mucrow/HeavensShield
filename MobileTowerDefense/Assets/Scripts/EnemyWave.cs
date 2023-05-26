@@ -11,11 +11,11 @@ namespace Mtd {
     public bool DisableWave => _disableWave;
 
     EnemyController _enemyComponent;
-    
-    void Start() {
+
+    void Awake() {
       _enemyComponent = _enemyPrefab.GetComponent<EnemyController>();
     }
-    
+
     [SerializeField] float _enemyCountMultiplier = 1f;
     [SerializeField] float _enemyCountIncrease = 0f;
     public int EnemyCount => (
@@ -33,7 +33,7 @@ namespace Mtd {
     public float WaitTimeBeforeFirstEnemy => (
       _enemyComponent.DefaultWaitTimeBeforeWave * _waitTimeBeforeFirstEnemyMultiplier + _waitTimeBeforeFirstEnemyIncrease
     );
-    
+
     [SerializeField] float _waitTimeAfterLastEnemyMultiplier = 1f;
     [SerializeField] float _waitTimeAfterLastEnemyIncrease = 0f;
     public float WaitTimeAfterLastEnemy => (

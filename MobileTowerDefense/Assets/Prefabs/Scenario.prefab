@@ -3555,10 +3555,9 @@ MonoBehaviour:
   _enemyPathTriggerPrefab: {fileID: 5105360050935463225, guid: 7db58c2b20f249b49b5397a3c05f42d0, type: 3}
   _enemyPathTriggersFolder: {fileID: 2834857970262218444}
   _enemyPath: {fileID: 2834857968904258584}
+  _enemyWaves: {fileID: 4441091304132848362}
   _overrideWaitTimeBeforeFirstWave: 15
   _overrideWaitTimeAfterLastWave: 2
-  _enemyWaves:
-  - {fileID: 6317129224778859893}
   _startingHealthScaling: 1
   _healthScalingPerMinute: 0.75
   _maxHealthScaling: 20
@@ -3627,8 +3626,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5841505497593585669}
+  - component: {fileID: 4441091304132848362}
   m_Layer: 0
-  m_Name: Waves
+  m_Name: EnemyWaves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3650,6 +3650,18 @@ Transform:
   m_Father: {fileID: 2834857970575314690}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4441091304132848362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8294831620807421075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88fa5d3d9d543b993e1b9d152d3a0e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1884601119903103922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3783,7 +3795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5306283372070004198, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
       propertyPath: m_Name
-      value: Wave
+      value: EnemyWave
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3795,17 +3807,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5306283372070004193, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
   m_PrefabInstance: {fileID: 2164339245524033685}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6317129224778859893 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
-  m_PrefabInstance: {fileID: 2164339245524033685}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6737cd4d2417e043a3d317a9dc0670c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2273462587749234514
 PrefabInstance:
   m_ObjectHideFlags: 0

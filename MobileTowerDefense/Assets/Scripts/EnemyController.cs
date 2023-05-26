@@ -13,7 +13,7 @@ namespace Mtd {
     [SerializeField] float _speed = 2f;
     public float Speed => _speed;
 
-    Path _path;
+    EnemyPath _path;
 
     int _pathIndex = 0;
 
@@ -80,7 +80,7 @@ namespace Mtd {
       }
     }
 
-    public void SetPath(Path path, int pathIndex) {
+    public void SetPath(EnemyPath path, int pathIndex) {
       _path = path;
       _pathIndex = pathIndex;
     }
@@ -121,13 +121,13 @@ namespace Mtd {
         return;
       }
 
-      if (_pathIndex >= _path.WaypointCount()) {
+      if (_pathIndex >= _path.WaypointCount) {
         OnReachEndOfPath();
         return;
       }
 
       Vector3 currentPos = transform.position;
-      Vector3 nextWaypoint = _path.GetWaypoint(_pathIndex);
+      Vector3 nextWaypoint = _path[_pathIndex];
       float waypointProximityThreshold = 0.05f * (_speed / 2f) * (Time.timeScale / 2f);
       if ((nextWaypoint - currentPos).magnitude < waypointProximityThreshold) {
         // transform.position = nextWaypoint;
