@@ -14,6 +14,7 @@ namespace Mtd {
     AudioSource[] _soundEffectSources;
 
     AudioClip _currentMusicClip;
+    int _nextSoundEffectSourceIndex = 0;
 
     void Awake() {
       _musicSource = InitAudioSource(_musicSourcePrefab, "MusicSource");
@@ -47,12 +48,11 @@ namespace Mtd {
      * sounds from playing at the same time.
      */
     public void PlaySoundEffect(AudioClip soundEffectClip) {
-      foreach (var soundEffectSource in _soundEffectSources) {
-        if (!soundEffectSource.isPlaying) {
-          soundEffectSource.PlayOneShot(soundEffectClip);
-          break;
-        }
+      var source = _soundEffectSources[_nextSoundEffectSourceIndex];
+      if (!source.isPlaying) {
+        source.PlayOneShot(soundEffectClip);
       }
+      _nextSoundEffectSourceIndex = (_nextSoundEffectSourceIndex + 1) % _soundEffectSources.Length;
     }
   }
 }
