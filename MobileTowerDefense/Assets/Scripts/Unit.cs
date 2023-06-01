@@ -32,6 +32,8 @@ namespace Mtd {
     int comboCount = 1;
     EnemyController _enemyBeingCombod;
 
+    [SerializeField] AudioClip _attackSoundEffect;
+
     void Awake() {
       _timeBetweenActions = UnitSpeed.ToTimeBetweenActions(_speed);
     }
@@ -55,10 +57,11 @@ namespace Mtd {
             comboCount = 1;
           }
         }
-        
+
+        Globals.AudioManager.PlaySoundEffect(_attackSoundEffect);
         enemy.ReceiveDamage(_damage * Mathf.Min(comboCount, 10));
         _enemyBeingCombod = enemy;
-        
+
         StartAttackAnimation(enemy);
         _actionCooldownTimer += _timeBetweenActions;
       }

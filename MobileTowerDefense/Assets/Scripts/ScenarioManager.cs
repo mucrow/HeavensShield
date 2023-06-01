@@ -24,12 +24,18 @@ namespace Mtd {
 
     [FormerlySerializedAs("_startingCash")] [SerializeField] int _startingMoney = 1100;
 
+    [SerializeField] AudioClip _music;
+
     void Awake() {
       Globals.ScenarioManager.Register(this);
       Globals.PlayerAgent.AddRegisterListener(OnPlayerAgentRegistered);
     }
 
     void Start() {
+      if (_music) {
+        Globals.AudioManager.PlayMusic(_music);
+      }
+
       IsPaused = true;
       BattleSpeed = 1f;
       UpdateTimeScale();

@@ -8,6 +8,9 @@ using UnityEngine.Serialization;
 namespace Mtd {
   public class Globals: MonoBehaviour {
     /** Never null during or after Start() */
+    public static AudioManager AudioManager;
+
+    /** Never null during or after Start() */
     public static CameraController Camera;
 
     /** Never null during or after Start() */
@@ -30,6 +33,7 @@ namespace Mtd {
 
     static Globals _instance;
 
+    [SerializeField] AudioManager _audioManager;
     [SerializeField] CameraController _camera;
     [SerializeField] GameManager _gameManager;
     [SerializeField] MtdInput _input;
@@ -55,6 +59,7 @@ namespace Mtd {
     }
 
     void ExposeFields() {
+      AudioManager = _audioManager;
       Camera = _camera;
       GameManager = _gameManager;
       Input = _input;

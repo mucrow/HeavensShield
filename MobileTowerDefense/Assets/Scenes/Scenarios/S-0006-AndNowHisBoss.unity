@@ -991,12 +991,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8192809573855771634, guid: 9a694c81563073547ba86f8afa894490, type: 3}
     - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
+      propertyPath: _enemyCountIncrease
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
       propertyPath: _enemyCountMultiplier
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
       propertyPath: _enemySpeedMultiplier
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
+      propertyPath: _enemyMaxHealthMultiplier
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
       propertyPath: _waitTimeBeforeFirstEnemy
@@ -6028,6 +6036,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2834857970355891945, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
+      propertyPath: _music
+      value: 
+      objectReference: {fileID: 8300000, guid: c4ee85e981a077842b6484e76504dcaa, type: 3}
     - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
       propertyPath: _enemyWaves.Array.size
       value: 8

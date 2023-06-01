@@ -32,6 +32,10 @@ PrefabInstance:
       propertyPath: _attackSprite2
       value: 
       objectReference: {fileID: 21300000, guid: 9401eac122bd67d4ea13b834efe447cf, type: 3}
+    - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
+      propertyPath: _attackSoundEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b6acb76a364cb746994aa368a92a90c, type: 3}
     - target: {fileID: 6612516781684231689, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: m_RootOrder
       value: 0
