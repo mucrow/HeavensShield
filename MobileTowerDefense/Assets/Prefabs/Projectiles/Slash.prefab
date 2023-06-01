@@ -72,6 +72,42 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3443340626295671402, guid: 3baceaba6c8d2df4ab7212a40b6330f8, type: 3}
+      propertyPath: m_Size.x
+      value: 0.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443340626295671402, guid: 3baceaba6c8d2df4ab7212a40b6330f8, type: 3}
+      propertyPath: m_Size.y
+      value: 0.1875
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443340626295671402, guid: 3baceaba6c8d2df4ab7212a40b6330f8, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443340626295671402, guid: 3baceaba6c8d2df4ab7212a40b6330f8, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443340626295671402, guid: 3baceaba6c8d2df4ab7212a40b6330f8, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443340626295671402, guid: 3baceaba6c8d2df4ab7212a40b6330f8, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443340626295671402, guid: 3baceaba6c8d2df4ab7212a40b6330f8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443340626295671402, guid: 3baceaba6c8d2df4ab7212a40b6330f8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.3125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443340626295671402, guid: 3baceaba6c8d2df4ab7212a40b6330f8, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
