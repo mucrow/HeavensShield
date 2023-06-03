@@ -42,6 +42,7 @@ namespace Mtd {
       }
       _musicSource.Stop();
       _musicSource.clip = musicClip;
+      _musicSource.volume = 1f;
       _musicSource.Play();
       _currentMusicClip = musicClip;
     }
@@ -63,6 +64,7 @@ namespace Mtd {
       ).setOnComplete(() => {
         if (!resumeMusic) {
           _musicSource.Stop();
+          _musicSource.volume = 1f;
         }
         _jingleEffectSource.PlayOneShot(jingleClip);
         StartCoroutine(JingleFinished(jingleClip.length + 0.25f, resumeMusic, tcs));
