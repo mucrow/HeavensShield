@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1389387072826975986, guid: 3baceaba6c8d2df4ab7212a40b6330f8, type: 3}
+      propertyPath: _impactSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 01a522402a0e11d4382f598fa40454f6, type: 3}
     - target: {fileID: 1768973171486265444, guid: 3baceaba6c8d2df4ab7212a40b6330f8, type: 3}
       propertyPath: m_Size.x
       value: 0.15
@@ -107,6 +111,10 @@ PrefabInstance:
     - target: {fileID: 3443340626295671402, guid: 3baceaba6c8d2df4ab7212a40b6330f8, type: 3}
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823291536701814494, guid: 3baceaba6c8d2df4ab7212a40b6330f8, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

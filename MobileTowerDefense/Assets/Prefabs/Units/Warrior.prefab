@@ -37,9 +37,25 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
+      propertyPath: _projectileSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
+      propertyPath: _projectilePrefab
+      value: 
+      objectReference: {fileID: 4272175546611879794, guid: 2d84595a9f50dc841bcfdbf4fa581a47, type: 3}
+    - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: _attackSoundEffect
       value: 
       objectReference: {fileID: 8300000, guid: 01a522402a0e11d4382f598fa40454f6, type: 3}
+    - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
+      propertyPath: _projectileRotationType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
+      propertyPath: _createProjectileOnTopOfEnemy
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6612516781684231689, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: m_RootOrder
       value: 0

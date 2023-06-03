@@ -10,22 +10,33 @@ namespace Mtd {
     [SerializeField] AudioClip _impactSound;
 
     int _damage;
+    EnemyController _target;
 
-    public void Init(int damage, float speed, Vector3 creatorPosition, Vector3 targetPosition, float spriteRotation) {
-      // float angle = Vector2.SignedAngle(creatorPosition, targetPosition);
-      _damage = damage;
-      transform.rotation = Quaternion.Euler(0f, 0f, spriteRotation);
-      Vector2 positionDelta = targetPosition - creatorPosition;
-      _rigidbody2D.velocity = positionDelta.normalized * speed;
+    bool _struckTarget = false;
+
+    void FixedUpdate() {
+      float speed = _rigidbody2D.velocity.magnitude;
+      if (speed > 0f && _target != null) {
+        var positionDelta = _target.transform.position - transform.position;
+        _rigidbody2D.velocity = positionDelta.normalized * speed;
+      }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-      if (other.CompareTag("Enemy")) {
+      if (!_struckTarget && other.CompareTag("Enemy")) {
         Globals.AudioManager.PlaySoundEffect(_impactSound);
         var enemy = other.GetComponent<EnemyController>();
         enemy.ReceiveDamage(_damage);
+        _struckTarget = true;
         Destroy(gameObject);
       }
+    }
+
+    public void Init(int damage, Vector2 velocity, float spriteRotation, EnemyController target) {
+      _damage = damage;
+      transform.rotation = Quaternion.Euler(0f, 0f, spriteRotation);
+      _rigidbody2D.velocity = velocity;
+      _target = target;
     }
   }
 }

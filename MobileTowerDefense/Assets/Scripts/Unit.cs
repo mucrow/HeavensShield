@@ -19,6 +19,12 @@ namespace Mtd {
     [Header("If a unit does combo damage, the second strike on an enemy does double damage, and all subsequent strikes on that enemy do triple damage.")]
     [SerializeField] bool _doesComboDamage = false;
 
+    [SerializeField] GameObject _projectilePrefab;
+    [SerializeField] bool _createProjectileOnTopOfEnemy = false;
+    [SerializeField] Vector3 _projectileStartingPosition = Vector3.zero;
+    [SerializeField] float _projectileSpeed = 5f;
+    [SerializeField] ProjectileRotationType _projectileRotationType = ProjectileRotationType.Arrow;
+
     public float Range => _enemyDetector.Range;
 
     float _timeBetweenActions = 10000000f;
@@ -29,10 +35,8 @@ namespace Mtd {
     float _attackFrame2Length = 20f / 60f;
     float _animationTimer = 0f;
 
-    int comboCount = 1;
+    int _comboCount = 1;
     EnemyController _enemyBeingCombod;
-
-    [SerializeField] AudioClip _attackSoundEffect;
 
     void Awake() {
       _timeBetweenActions = UnitSpeed.ToTimeBetweenActions(_speed);
@@ -47,24 +51,59 @@ namespace Mtd {
       }
 
       if (_enemyDetector.EnemiesInRange.Count > 0) {
-        var enemy = _enemyDetector.EnemiesInRange[0];
-
-        if (_doesComboDamage) {
-          if (enemy == _enemyBeingCombod) {
-            comboCount += 1;
-          }
-          else {
-            comboCount = 1;
-          }
-        }
-
-        Globals.AudioManager.PlaySoundEffect(_attackSoundEffect);
-        enemy.ReceiveDamage(_damage * Mathf.Min(comboCount, 10));
-        _enemyBeingCombod = enemy;
-
-        StartAttackAnimation(enemy);
-        _actionCooldownTimer += _timeBetweenActions;
+        AttackEnemy(_enemyDetector.EnemiesInRange[0]);
       }
+    }
+
+    void AttackEnemy(EnemyController enemy) {
+      if (_doesComboDamage) {
+        if (enemy == _enemyBeingCombod) {
+          _comboCount += 1;
+        }
+        else {
+          _comboCount = 1;
+        }
+      }
+
+      StartAttackAnimation(enemy);
+      CreateProjectile(enemy);
+
+      _actionCooldownTimer += _timeBetweenActions;
+      _enemyBeingCombod = enemy;
+    }
+
+    enum ProjectileRotationType { None, Slash, Arrow }
+
+    void CreateProjectile(EnemyController enemy) {
+      var startingPosition = GetProjectileStartingPosition(enemy);
+
+      var projectileObject = Instantiate(_projectilePrefab, startingPosition, Quaternion.identity);
+      var projectile = projectileObject.GetComponent<Projectile>();
+
+      int damage = Mathf.FloorToInt(_damage * Mathf.Min(_comboCount, 10f));
+      var positionDelta = enemy.transform.position - transform.position;
+      var velocity = (Vector2)positionDelta.normalized * _projectileSpeed;
+
+      float spriteRotation = GetProjectileSpriteRotation(projectile, enemy);
+      projectile.Init(damage, velocity, spriteRotation, enemy);
+    }
+
+    Vector3 GetProjectileStartingPosition(EnemyController enemy) {
+      if (_createProjectileOnTopOfEnemy) {
+        return enemy.transform.position;
+      }
+      return transform.position + _projectileStartingPosition;
+    }
+
+    float GetProjectileSpriteRotation(Projectile projectile, EnemyController enemy) {
+      if (_projectileRotationType == ProjectileRotationType.Arrow) {
+        var positionDelta = projectile.transform.position - enemy.transform.position;
+        return Vector2.SignedAngle(Vector2.right, positionDelta);
+      }
+      if (_projectileRotationType == ProjectileRotationType.Slash) {
+        return enemy.transform.position.x > transform.position.x ? 45f : 135f;
+      }
+      return 0f;
     }
 
     void StartAttackAnimation(EnemyController target) {

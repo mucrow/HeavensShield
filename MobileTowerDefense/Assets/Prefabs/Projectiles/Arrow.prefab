@@ -76,9 +76,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1389387072826975986, guid: 3baceaba6c8d2df4ab7212a40b6330f8, type: 3}
+      propertyPath: _impactSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 07349e7aa162570428d4d479873dab69, type: 3}
     - target: {fileID: 1768973171486265444, guid: 3baceaba6c8d2df4ab7212a40b6330f8, type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1768973171486265444, guid: 3baceaba6c8d2df4ab7212a40b6330f8, type: 3}
       propertyPath: m_Sprite
