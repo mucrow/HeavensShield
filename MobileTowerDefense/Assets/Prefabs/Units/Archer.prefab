@@ -44,6 +44,10 @@ PrefabInstance:
       propertyPath: _attackSoundEffect
       value: 
       objectReference: {fileID: 8300000, guid: 07349e7aa162570428d4d479873dab69, type: 3}
+    - target: {fileID: 6612516781684231688, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
+      propertyPath: _projectileStartingPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6612516781684231689, guid: 2dfed5f1bd505b143a11ba54178c0522, type: 3}
       propertyPath: m_RootOrder
       value: 0
