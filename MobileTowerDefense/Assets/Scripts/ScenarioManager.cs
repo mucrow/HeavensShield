@@ -145,11 +145,6 @@ namespace Mtd {
 
       var jingle = ChooseJingle(isVictory);
       var saveData = Globals.GameManager.SaveData;
-      var scoreTallyModalHeading = (
-        isVictory
-          ? "The tower is standing tall!"
-          : "The tower was razed..."
-      );
       var banner = isVictory ? Globals.UI.VictoryBanner : Globals.UI.DefeatBanner;
 
       Globals.PlayerAgent.With(playerAgent => {
@@ -173,7 +168,7 @@ namespace Mtd {
 
           Globals.GameManager.WriteSaveData();
 
-          Globals.UI.ScoreTallyModal.SetText(scoreTallyModalHeading, towerHP, towerHPBonus, baseScore, money, moneyBonus, totalScore);
+          Globals.UI.ScoreTallyModal.SetText(isVictory, towerHP, towerHPBonus, baseScore, money, moneyBonus, totalScore);
         });
       });
 

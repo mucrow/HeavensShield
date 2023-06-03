@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace Mtd.UI {
   public class ScoreTallyModal: MonoBehaviour {
     [SerializeField] ShowHideOffscreen _showHideOffscreen;
 
     [SerializeField] TMP_Text _heading;
+
     [SerializeField] TMP_Text _baseScoreField;
     [SerializeField] TMP_Text _towerHPField;
     [SerializeField] TMP_Text _towerHPBonusField;
@@ -19,13 +19,16 @@ namespace Mtd.UI {
     [SerializeField] TMP_Text _moneyBonusField;
     [SerializeField] TMP_Text _totalScoreField;
 
+    [SerializeField] GameObject _victoryButtons;
+    [SerializeField] GameObject _defeatButtons;
+
     public Func<Task> Show => _showHideOffscreen.Show;
     public Func<Task> Hide => _showHideOffscreen.Hide;
     public UnityAction ShowInstant => _showHideOffscreen.ShowInstant;
     public UnityAction HideInstant => _showHideOffscreen.HideInstant;
 
     public void SetText(
-      string heading,
+      bool isVictory,
       float towerHP,
       float towerHPBonus,
       float score,
@@ -33,7 +36,16 @@ namespace Mtd.UI {
       float moneyBonus,
       float totalScore
     ) {
-      _heading.text = heading;
+      if (isVictory) {
+        _heading.text = "The tower is standing tall!";
+        _victoryButtons.SetActive(true);
+        _defeatButtons.SetActive(false);
+      }
+      else {
+        _heading.text = "The tower was razed...";
+        _victoryButtons.SetActive(false);
+        _defeatButtons.SetActive(true);
+      }
 
       _baseScoreField.text = FormatScoreBonus(score);
 
