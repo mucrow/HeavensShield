@@ -50,9 +50,23 @@ namespace Mtd {
         return;
       }
 
-      if (_enemyDetector.EnemiesInRange.Count > 0) {
-        AttackEnemy(_enemyDetector.EnemiesInRange[0]);
+      var enemy = GetEnemyInRange();
+      if (enemy != null) {
+        AttackEnemy(enemy);
       }
+    }
+
+    EnemyController GetEnemyInRange() {
+      var enemiesInRange = _enemyDetector.EnemiesInRange;
+      if (enemiesInRange.Count <= 0) {
+        return null;
+      }
+      foreach (var enemy in enemiesInRange) {
+        if (enemy != null) {
+          return enemy;
+        }
+      }
+      return null;
     }
 
     void AttackEnemy(EnemyController enemy) {
