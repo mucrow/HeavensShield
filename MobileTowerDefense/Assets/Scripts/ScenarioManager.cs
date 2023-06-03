@@ -183,7 +183,7 @@ namespace Mtd {
 
       Globals.UI.UnitSelector.CloseInstant();
 
-      bool resumeMusicAfterJingle = !_isBigBattle;
+      bool resumeMusicAfterJingle = isVictory && !_isBigBattle;
       var jingleTask = Globals.AudioManager.PlayJingle(jingle, resumeMusicAfterJingle);
       await banner.Show();
       await jingleTask;
