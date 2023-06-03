@@ -10,6 +10,7 @@ using UnityEngine.Events;
 namespace Mtd {
   [RequireComponent(typeof(ShowHideOffscreen))]
   public class HUD: MonoBehaviour {
+    [SerializeField] TMP_Text _towerHealthText;
     [SerializeField] TMP_Text _moneyText;
     [SerializeField] TMP_Text _scoreText;
     [SerializeField] ShowHideOffscreen _showHideOffscreen;
@@ -22,6 +23,9 @@ namespace Mtd {
     void Awake() {
       Globals.PlayerAgent.AddRegisterListener(OnPlayerAgentRegister);
       Globals.PlayerAgent.AddUnregisterListener(OnPlayerAgentUnregister);
+      UpdateTowerHealth(100);
+      UpdateMoney(100);
+      UpdateScore(0);
     }
 
     void OnPlayerAgentRegister(PlayerAgent playerAgent) {
@@ -32,6 +36,10 @@ namespace Mtd {
     void OnPlayerAgentUnregister(PlayerAgent playerAgent) {
       playerAgent.MoneyChange.RemoveListener(UpdateMoney);
       playerAgent.ScoreChange.RemoveListener(UpdateScore);
+    }
+
+    public void UpdateTowerHealth(int towerHealth) {
+      _towerHealthText.text = Utils.Utils.FormatNumberWithCommas(towerHealth) + "HP";
     }
 
     public void UpdateMoney(int money) {

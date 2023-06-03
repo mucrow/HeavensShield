@@ -15,8 +15,13 @@ namespace Mtd {
     [SerializeField] Sprite _doorFacesEastSprite;
     [SerializeField] Sprite _doorFacesWestSprite;
 
+    void Start() {
+      Globals.UI.HUD.UpdateTowerHealth(_health);
+    }
+
     public void ReceiveDamage(int amount) {
       _health -= amount;
+      Globals.UI.HUD.UpdateTowerHealth(_health);
       if (_health <= 0) {
         Globals.ScenarioManager.With(scenarioManager => {
           scenarioManager.NotifyTowerDestroyed();
