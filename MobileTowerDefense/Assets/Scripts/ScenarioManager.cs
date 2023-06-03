@@ -9,6 +9,10 @@ using UnityEngine.Tilemaps;
 
 namespace Mtd {
   public class ScenarioManager: MonoBehaviour {
+    [SerializeField] AudioClip _victoryJingle;
+    [SerializeField] AudioClip _bigVictoryJingle;
+    [SerializeField] AudioClip _defeatJingle;
+
     [SerializeField] Transform _unitsGroup;
     [SerializeField] Tilemap _tilemap;
     public Transform UnitsGroup => _unitsGroup;
@@ -25,6 +29,7 @@ namespace Mtd {
     [FormerlySerializedAs("_startingCash")] [SerializeField] int _startingMoney = 1100;
 
     [SerializeField] AudioClip _music;
+    [SerializeField] bool _isBigBattle = false;
 
     void Awake() {
       Globals.ScenarioManager.Register(this);
@@ -139,6 +144,7 @@ namespace Mtd {
     async void DoScenarioOutcome(bool isVictory) {
       SetScenarioPaused(true);
 
+      var jingle = ChooseJingle(isVictory);
       var saveData = Globals.GameManager.SaveData;
       var scoreTallyModal = (
         isVictory ? Globals.UI.ScoreTallyModal : Globals.UI.DefeatScoreTallyModal
@@ -176,13 +182,26 @@ namespace Mtd {
       Globals.GameManager.WriteSaveData();
 
       Globals.UI.UnitSelector.CloseInstant();
+
+      bool resumeMusicAfterJingle = !_isBigBattle;
+      var jingleTask = Globals.AudioManager.PlayJingle(jingle, resumeMusicAfterJingle);
       await banner.Show();
-      await Task.Delay(2000);
+      await jingleTask;
 
       await Task.WhenAll(
         banner.Hide(),
         scoreTallyModal.Show()
       );
+    }
+
+    AudioClip ChooseJingle(bool outcomeIsVictory) {
+      if (!outcomeIsVictory) {
+        return _defeatJingle;
+      }
+      if (_isBigBattle) {
+        return _bigVictoryJingle;
+      }
+      return _victoryJingle;
     }
   }
 }

@@ -3030,9 +3030,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aaf7d0555f006344b5a37db24afde3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waypoints:
-  - {fileID: 2834857968791850332}
-  - {fileID: 0}
 --- !u!1 &2834857969110962128
 GameObject:
   m_ObjectHideFlags: 0
@@ -3300,10 +3297,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ec344924886084db49b5bbaac16e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _victoryJingle: {fileID: 8300000, guid: 651710f269768b7418cad29cbf5a26a1, type: 3}
+  _bigVictoryJingle: {fileID: 8300000, guid: 84044569bccf3f14ba5c9ed2b82ec001, type: 3}
+  _defeatJingle: {fileID: 8300000, guid: 85d973fa110fac14bb17b1da8b0b654b, type: 3}
   _unitsGroup: {fileID: 2834857969647157517}
   _tilemap: {fileID: 2834857968637578140}
   _tower: {fileID: 4652466448195734645}
   _startingMoney: 1100
+  _music: {fileID: 0}
+  _isBigBattle: 0
 --- !u!1 &2834857970562622748
 GameObject:
   m_ObjectHideFlags: 0
@@ -4165,11 +4167,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66ccbe811c8980f40a9ff0b76a561c50, type: 3}
---- !u!1 &2834857968791850332 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6119454287365055041, guid: 66ccbe811c8980f40a9ff0b76a561c50, type: 3}
-  m_PrefabInstance: {fileID: 8339499983940398877}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2834857968791850333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6119454287365055040, guid: 66ccbe811c8980f40a9ff0b76a561c50, type: 3}
