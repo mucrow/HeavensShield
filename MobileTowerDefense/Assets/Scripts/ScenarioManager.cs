@@ -55,9 +55,8 @@ namespace Mtd {
     }
 
     void OnDestroy() {
-      Globals.UI.DefeatScoreTallyModal.HideInstant();
-      Globals.UI.DefeatBanner.HideInstant();
       Globals.UI.ScoreTallyModal.HideInstant();
+      Globals.UI.DefeatBanner.HideInstant();
       Globals.UI.VictoryBanner.HideInstant();
       Globals.UI.ScenarioTapToStartOverlay.HideInstant();
       Globals.UI.ScenarioMenu.HideInstant();
@@ -146,8 +145,10 @@ namespace Mtd {
 
       var jingle = ChooseJingle(isVictory);
       var saveData = Globals.GameManager.SaveData;
-      var scoreTallyModal = (
-        isVictory ? Globals.UI.ScoreTallyModal : Globals.UI.DefeatScoreTallyModal
+      var scoreTallyModalHeading = (
+        isVictory
+          ? "The tower is standing tall!"
+          : "The tower was razed..."
       );
       var banner = isVictory ? Globals.UI.VictoryBanner : Globals.UI.DefeatBanner;
 
@@ -155,20 +156,16 @@ namespace Mtd {
         Globals.LoadedScenario.With(loadedScenario => {
           float towerHP = _tower.Health;
           float money = playerAgent.Money;
-          float score = playerAgent.Score;
+          float baseScore = playerAgent.Score;
 
-          float moneyPC = 0f;
-          float scorePC = 0f;
-          float towerPC = 0f;
+          float moneyBonus = money / 100f;
+          float towerHPBonus = towerHP * 2f;
+          float totalScore = 0f;
 
           if (isVictory) {
-            moneyPC = money / 100f;
-            scorePC = score / 1000f;
-            towerPC = towerHP * 2f;
+            totalScore = baseScore + moneyBonus + towerHPBonus;
 
-            saveData.Game.PoliticalCapital += moneyPC;
-            saveData.Game.PoliticalCapital += scorePC;
-            saveData.Game.PoliticalCapital += towerPC;
+            saveData.Game.PoliticalCapital += totalScore;
             saveData.Game.UnlockScenarios(loadedScenario.Unlocks.ToArray());
 
             if (saveData.Game.NextStoryScenarioID == loadedScenario.ID) {
@@ -176,7 +173,7 @@ namespace Mtd {
             }
           }
 
-          scoreTallyModal.SetEarnings(towerHP, towerPC, score, scorePC, money, moneyPC);
+          Globals.UI.ScoreTallyModal.SetText(scoreTallyModalHeading, towerHP, towerHPBonus, baseScore, money, moneyBonus, totalScore);
         });
       });
       Globals.GameManager.WriteSaveData();
@@ -190,7 +187,7 @@ namespace Mtd {
 
       await Task.WhenAll(
         banner.Hide(),
-        scoreTallyModal.Show()
+        Globals.UI.ScoreTallyModal.Show()
       );
     }
 

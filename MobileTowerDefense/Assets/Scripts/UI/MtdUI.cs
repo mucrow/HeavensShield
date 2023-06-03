@@ -39,9 +39,6 @@ namespace Mtd.UI {
     [SerializeField] ShowHideOffscreen _defeatBanner;
     public ShowHideOffscreen DefeatBanner => _defeatBanner;
 
-    [SerializeField] ScoreTallyModal _defeatScoreTallyModal;
-    public ScoreTallyModal DefeatScoreTallyModal => _defeatScoreTallyModal;
-
     [SerializeField] ScenarioSelection _scenarioSelection;
     public ScenarioSelection ScenarioSelection => _scenarioSelection;
 
