@@ -11,9 +11,10 @@ namespace Mtd.UI {
   public class ScoreTallyModal: MonoBehaviour {
     [SerializeField] ShowHideOffscreen _showHideOffscreen;
 
+    [SerializeField] TMP_Text _heading;
+    [SerializeField] TMP_Text _baseScoreField;
     [SerializeField] TMP_Text _towerHPField;
     [SerializeField] TMP_Text _towerHPBonusField;
-    [SerializeField] TMP_Text _scoreField;
     [SerializeField] TMP_Text _moneyField;
     [SerializeField] TMP_Text _moneyBonusField;
     [SerializeField] TMP_Text _totalScoreField;
@@ -32,24 +33,33 @@ namespace Mtd.UI {
       float moneyBonus,
       float totalScore
     ) {
+      _heading.text = heading;
+
+      _baseScoreField.text = FormatScoreBonus(score);
+
       _towerHPField.text = FormatTowerHP(towerHP);
-      _towerHPBonusField.text = FormatScore(towerHPBonus);
-      _scoreField.text = FormatScore(score);
+      _towerHPBonusField.text = FormatScoreBonus(towerHPBonus);
+
       _moneyField.text = FormatMoney(money);
-      _moneyBonusField.text = FormatScore(moneyBonus);
-      _totalScoreField.text = FormatScore(totalScore);
+      _moneyBonusField.text = FormatScoreBonus(moneyBonus);
+
+      _totalScoreField.text = FormatTotalScore(totalScore);
+    }
+
+    string FormatScoreBonus(float score) {
+      return "+" + Utils.Utils.FormatNumberWithCommas(score);
     }
 
     string FormatTowerHP(float towerHP) {
       return Utils.Utils.FormatNumberWithCommas(towerHP) + "HP";
     }
 
-    string FormatScore(float score) {
-      return Utils.Utils.FormatNumberWithCommas(score);
-    }
-
     string FormatMoney(float money) {
       return Utils.Utils.FormatNumberWithCommas(money);
+    }
+
+    string FormatTotalScore(float score) {
+      return Utils.Utils.FormatNumberWithCommas(score);
     }
   }
 }

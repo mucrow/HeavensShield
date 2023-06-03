@@ -160,11 +160,9 @@ namespace Mtd {
 
           float moneyBonus = money / 100f;
           float towerHPBonus = towerHP * 2f;
-          float totalScore = 0f;
+          float totalScore = baseScore + moneyBonus + towerHPBonus;
 
           if (isVictory) {
-            totalScore = baseScore + moneyBonus + towerHPBonus;
-
             saveData.Game.PoliticalCapital += totalScore;
             saveData.Game.UnlockScenarios(loadedScenario.Unlocks.ToArray());
 
@@ -173,10 +171,11 @@ namespace Mtd {
             }
           }
 
+          Globals.GameManager.WriteSaveData();
+
           Globals.UI.ScoreTallyModal.SetText(scoreTallyModalHeading, towerHP, towerHPBonus, baseScore, money, moneyBonus, totalScore);
         });
       });
-      Globals.GameManager.WriteSaveData();
 
       Globals.UI.UnitSelector.CloseInstant();
 
