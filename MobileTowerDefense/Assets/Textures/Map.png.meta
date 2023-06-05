@@ -255,8 +255,8 @@ TextureImporter:
         y: 96
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: -0.3125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -676,7 +676,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -697,7 +697,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -718,7 +718,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -739,7 +739,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -747,6 +747,195 @@ TextureImporter:
       bones: []
       spriteID: 703c3eae7c01da746bf21ddeb10caaea
       internalID: 1310383369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PathEdge3Lef
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff866714c4e9c114e8505ccfc9d8153d
+      internalID: -367072251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PathEdge3Right
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb130123ee2d6b4eb9fce0d948a24cc
+      internalID: -604261436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PathEdge3Top
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f6a219baa395a43a4387bb4fa50e63
+      internalID: -144467439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PathEdge3Bottom
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f69ec326cbae5d046a630ce08e5cfb11
+      internalID: 1130024153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PathEdge4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aac29689f9dd20742a293de487d67f0d
+      internalID: 1737798663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PathEdge2TL
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ce22bda218af42428903bea4b5b66a9
+      internalID: -1753957470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PathEdge2TR
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c54d0fada1f63ab40bc74be36362e21d
+      internalID: 1408039168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PathEdge2BL
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f171f35b8a20c4a9eb1f35382a1151
+      internalID: -233437657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PathEdge2BR
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a2d19227011da443acec25028816a0d
+      internalID: -1820821406
       vertices: []
       indices: 
       edges: []
@@ -762,47 +951,56 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tiles_7: 1707198037
-      tiles_9: -1834507335
       Weed: -1579357476
-      WaterRight: -826379376
       WaterTopLeft: -101034694
-      tiles_22: -1106657727
-      tiles_11: 1923481094
-      BigFlower: -995821088
       WaterBottomLeft: 521888339
       tiles_5: -2081100833
       tiles_14: -1210079810
       tiles_19: -1099245951
-      tiles_18: -317590901
-      tiles_1: 1632304769
       WaterCenter: 2057487192
-      tiles_20: -323725298
-      FlowerPair: -673734970
       WaterBend4: 1310383369
       tiles_6: 11632520
-      WaterTop: 260172956
-      WaterTopRight: 2114805801
+      PathEdge3Lef: -367072251
       WaterBend1: 1293106344
       tiles_16: 1593566479
-      tiles_3: -1760306654
       tiles_4: -367630493
+      PathEdge3Top: -144467439
       tiles_21: -1335965555
-      tiles_26: 115580694
       Flower: -91175311
-      WaterBend3: -605740389
-      Bush: -480430633
       WaterBottom: -880940868
       WaterBend2: 1632635553
       WaterLeft: -2042250969
+      PathEdge3Right: -604261436
+      tiles_24: -498899092
+      tiles_13: 2141073574
+      tiles_2: -492439088
+      tiles_17: 1406550379
+      PathEdge2TL: -1753957470
+      tiles_7: 1707198037
+      tiles_9: -1834507335
+      PathEdge2TR: 1408039168
+      WaterRight: -826379376
+      tiles_22: -1106657727
+      tiles_11: 1923481094
+      BigFlower: -995821088
+      FlowerPair: -673734970
+      tiles_18: -317590901
+      tiles_1: 1632304769
+      tiles_20: -323725298
+      PathEdge4: 1737798663
+      PathEdge3Bottom: 1130024153
+      WaterTop: 260172956
+      WaterTopRight: 2114805801
+      tiles_3: -1760306654
+      WaterBend3: -605740389
+      tiles_26: 115580694
+      Bush: -480430633
       tiles_15: 1017031572
       tiles_0: 878226083
-      tiles_13: 2141073574
-      tiles_24: -498899092
-      tiles_2: -492439088
-      tiles_12: 755175667
       WaterBottomRight: 1696338227
-      tiles_17: 1406550379
+      PathEdge2BL: -233437657
+      tiles_12: 755175667
+      PathEdge2BR: -1820821406
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &10606784828251549
+--- !u!1001 &2625511445952910567
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -14,12 +14,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1191241320202616968, guid: 405b1587c1b3a73408a6073b5b52223d, type: 3}
       propertyPath: m_Size.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1191241320202616968, guid: 405b1587c1b3a73408a6073b5b52223d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1106657727, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
+      objectReference: {fileID: -480430633, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
     - target: {fileID: 1191241320202616968, guid: 405b1587c1b3a73408a6073b5b52223d, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5791667491939857961, guid: 405b1587c1b3a73408a6073b5b52223d, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.25
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5791667491939857961, guid: 405b1587c1b3a73408a6073b5b52223d, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5791667491939857961, guid: 405b1587c1b3a73408a6073b5b52223d, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5791667491939857961, guid: 405b1587c1b3a73408a6073b5b52223d, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -86,11 +86,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5791667491939857961, guid: 405b1587c1b3a73408a6073b5b52223d, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5878785352584744449, guid: 405b1587c1b3a73408a6073b5b52223d, type: 3}
       propertyPath: m_Name
-      value: Rock2
+      value: Bush
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
