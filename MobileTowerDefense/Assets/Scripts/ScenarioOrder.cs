@@ -52,6 +52,7 @@ namespace Mtd {
             unlocks.Add(id + 1);
           }
           var orderedScenarioInfo = new OrderedScenarioInfo() {
+            ChapterID = indexOfChapter,
             ID = id,
             Name = scenario.Name,
             Path = scenario.Path,
@@ -59,6 +60,7 @@ namespace Mtd {
           };
           indexedOrdering.Add(orderedScenarioInfo);
         }
+        idOfFirstScenarioInChapter += scenarios.Length;
       }
 
       // the ordering was indexed successfully

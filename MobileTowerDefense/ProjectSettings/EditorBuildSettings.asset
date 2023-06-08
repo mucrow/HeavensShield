@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/ScenarioSelection.unity
     guid: b12b911776a05af42837de6354e032af
   - enabled: 1
-    path: Assets/Scenes/Scenarios/Debug/D-0000-TestScenario.unity
-    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
-  - enabled: 1
     path: Assets/Scenes/Scenarios/Chapter1/S-0000-BarrageOfTheBlobs.unity
     guid: 34a1717ab445321428e12723f52b7a78
   - enabled: 1
@@ -44,6 +41,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scenarios/Chapter1/S-0006-AndNowHisBoss.unity
     guid: 3b2e0691e2679d444b029c1f2e0e5f2a
+  - enabled: 1
+    path: Assets/Scenes/Scenarios/Chapter2/S-0007-HauntedWoodsI.unity
+    guid: d22b31c4952130a46800fb608fa55047
+  - enabled: 1
+    path: Assets/Scenes/Scenarios/Chapter2/S-0008-SlightSwampPassage.unity
+    guid: 6b81d63b225e42c4ca986d9870165a5c
+  - enabled: 1
+    path: Assets/Scenes/Scenarios/Chapter2/S-0009-SwampClearing.unity
+    guid: aac149a04fa83e14a840e13a94224f8c
+  - enabled: 1
+    path: Assets/Scenes/Scenarios/Chapter2/S-0010-HauntedWoodsII.unity
+    guid: a65b30b5f3acfc54ba57b80078de2fb4
+  - enabled: 1
+    path: Assets/Scenes/Scenarios/Chapter2/S-0011-BridgeOverTheBog.unity
+    guid: f618c17a249a5d848a50079979c9c37f
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 0a973215422802b45b1325e4a9892a4d, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 8227f14c061c5f541bd1d184274b701a, type: 2}
