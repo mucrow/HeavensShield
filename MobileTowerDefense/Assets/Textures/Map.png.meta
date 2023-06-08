@@ -940,6 +940,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: BridgeVertical
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82fd6a83e4ef8e74f8f438a10214b220
+      internalID: 530055341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeHorizontal
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7047de07051a1e043a6de9c7db93541c
+      internalID: -1774298751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BridgeHorizontalSupports
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8799ba2ec8bf464386073007d6e825d
+      internalID: -1562382815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -951,6 +1014,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      BridgeVertical: 530055341
       Weed: -1579357476
       WaterTopLeft: -101034694
       WaterBottomLeft: 521888339
@@ -978,11 +1042,13 @@ TextureImporter:
       PathEdge2TL: -1753957470
       tiles_7: 1707198037
       tiles_9: -1834507335
+      BridgeHorizontalSupports: -1562382815
       PathEdge2TR: 1408039168
       WaterRight: -826379376
       tiles_22: -1106657727
       tiles_11: 1923481094
       BigFlower: -995821088
+      BridgeHorizontal: -1774298751
       FlowerPair: -673734970
       tiles_18: -317590901
       tiles_1: 1632304769

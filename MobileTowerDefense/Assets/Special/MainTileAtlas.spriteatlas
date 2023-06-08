@@ -64,9 +64,11 @@ SpriteAtlas:
     - d745f6cfd20f6a34982fd171f991c133: -1753957470
     - d745f6cfd20f6a34982fd171f991c133: -605740389
     - d745f6cfd20f6a34982fd171f991c133: 1632635553
+    - d745f6cfd20f6a34982fd171f991c133: -1774298751
     - d745f6cfd20f6a34982fd171f991c133: 1293106344
     - d745f6cfd20f6a34982fd171f991c133: -1106657727
     - d745f6cfd20f6a34982fd171f991c133: 1408039168
+    - d745f6cfd20f6a34982fd171f991c133: 530055341
     - d745f6cfd20f6a34982fd171f991c133: 1593566479
     - d745f6cfd20f6a34982fd171f991c133: 1310383369
     - d745f6cfd20f6a34982fd171f991c133: 1406550379
@@ -76,6 +78,7 @@ SpriteAtlas:
     - d745f6cfd20f6a34982fd171f991c133: -1760306654
     - d745f6cfd20f6a34982fd171f991c133: -492439088
     - d745f6cfd20f6a34982fd171f991c133: 1632304769
+    - d745f6cfd20f6a34982fd171f991c133: -1562382815
     - d745f6cfd20f6a34982fd171f991c133: 878226083
     - d745f6cfd20f6a34982fd171f991c133: -317590901
     - d745f6cfd20f6a34982fd171f991c133: 11632520
@@ -104,9 +107,11 @@ SpriteAtlas:
   - {fileID: -1753957470, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: -605740389, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: 1632635553, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
+  - {fileID: -1774298751, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: 1293106344, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: -1106657727, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: 1408039168, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
+  - {fileID: 530055341, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: 1593566479, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: 1310383369, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: 1406550379, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
@@ -116,6 +121,7 @@ SpriteAtlas:
   - {fileID: -1760306654, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: -492439088, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: 1632304769, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
+  - {fileID: -1562382815, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: 878226083, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: -317590901, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: 11632520, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
@@ -143,9 +149,11 @@ SpriteAtlas:
   - PathEdge2TL
   - WaterBend3
   - WaterBend2
+  - BridgeHorizontal
   - WaterBend1
   - tiles_22
   - PathEdge2TR
+  - BridgeVertical
   - tiles_16
   - WaterBend4
   - tiles_17
@@ -155,6 +163,7 @@ SpriteAtlas:
   - tiles_3
   - tiles_2
   - tiles_1
+  - BridgeHorizontalSupports
   - tiles_0
   - tiles_18
   - tiles_6
