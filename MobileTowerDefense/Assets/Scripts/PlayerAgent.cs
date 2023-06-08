@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Mtd.Utils;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,6 +15,7 @@ using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 namespace Mtd {
   public class PlayerAgent: MonoBehaviour {
     [SerializeField] Tilemap _tilemap;
+    [SerializeField] TileBase[] _validUnitPlacementTiles;
 
     bool _ignoreCurrentDrag = false;
     Vector2 _dragStartScreenPos;
@@ -105,10 +107,18 @@ namespace Mtd {
         return;
       }
 
+      var tileCell = _tilemap.WorldToCell(point.World);
+      var tileInfo = _tilemap.GetTile(tileCell);
+      if (!_validUnitPlacementTiles.Contains(tileInfo)) {
+        return;
+      }
+
       var pointCenteredToTile = Utils.Utils.SnapPointToTileCenter(point.World);
       var tappedObject = GetTappedObject(point);
       if (tappedObject) {
-        Debug.LogWarning("Unit stats not yet implemented (game object with \"TapTrigger\" tag clicked)");
+        // This is where we could get unit stats, but those were taken out of scope.
+        // This block is still required to prevent units from being placed on the enemy path or on
+        // top of trees, etc.
         return;
       }
 

@@ -3321,6 +3321,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tilemap: {fileID: 2834857968637578140}
+  _validUnitPlacementTiles:
+  - {fileID: 11400000, guid: 8cf4a7bb377617f439f88869b0cbfc5d, type: 2}
+  - {fileID: 11400000, guid: 7b25de7c8873ee94aad86c82528539b7, type: 2}
+  - {fileID: 11400000, guid: 7507c67518a7a344e81771c208034222, type: 2}
 --- !u!1 &2834857969425113745
 GameObject:
   m_ObjectHideFlags: 0
