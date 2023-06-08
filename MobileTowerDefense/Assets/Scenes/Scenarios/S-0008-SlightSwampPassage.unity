@@ -1699,6 +1699,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8192809573855771634, guid: 70fe9f3c8f452204294d6a63c92d78d9, type: 3}
     - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
+      propertyPath: _enemyMaxHealthMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
       propertyPath: _waitTimeBeforeFirstEnemy
       value: 10
       objectReference: {fileID: 0}
@@ -17865,6 +17869,10 @@ PrefabInstance:
     - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
       propertyPath: _enemyWaves.Array.size
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
+      propertyPath: _healthScalingPerMinute
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
       propertyPath: _enemyWaves.Array.data[0]

@@ -1526,6 +1526,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8192809573855771634, guid: 75e61191f7ee4c94da41721292554aa5, type: 3}
     - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
+      propertyPath: _enemySpeedMultiplier
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
       propertyPath: _waitTimeBeforeFirstEnemy
       value: 10
       objectReference: {fileID: 0}
@@ -2005,11 +2009,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
       propertyPath: _enemySpeedMultiplier
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
       propertyPath: _enemyMaxHealthMultiplier
-      value: 3
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
       propertyPath: _waitTimeBeforeFirstEnemy
@@ -6335,6 +6339,10 @@ PrefabInstance:
       propertyPath: _enemyPrefab
       value: 
       objectReference: {fileID: 783202959313184716, guid: 8b014e7c23537ee419bf57fbba7e824e, type: 3}
+    - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
+      propertyPath: _enemySpeedMultiplier
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 5306283372070004192, guid: d0fda93f31ee83344a41a2c897e7f5c6, type: 3}
       propertyPath: _waitTimeBeforeFirstEnemy
       value: 10
@@ -22171,10 +22179,6 @@ PrefabInstance:
     - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
       propertyPath: _enemyWaves.Array.size
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
-      propertyPath: _healthScalingPerMinute
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
       propertyPath: _enemyWaves.Array.data[0]
