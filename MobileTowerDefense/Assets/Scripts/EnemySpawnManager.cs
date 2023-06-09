@@ -49,6 +49,9 @@ namespace Mtd {
     void Awake() {
       _healthScaling = _startingHealthScaling;
       _speedScaling = _startingSpeedScaling;
+    }
+
+    void Start() {
       SetupEnemyPathTriggers();
     }
 
