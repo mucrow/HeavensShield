@@ -42,10 +42,6 @@ namespace Mtd {
       }
     }
 
-    public void LoadBarracksScene() {
-      LoadSceneHelper("Scenes/Barracks", null);
-    }
-
     public void LoadMainMenuScene() {
       LoadSceneHelper("Scenes/MainMenu", null);
     }

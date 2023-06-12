@@ -45,7 +45,6 @@ namespace Mtd.UI {
     [SerializeField] ShowHideOffscreen _startMenu;
     [SerializeField] ShowHideOffscreen _settingsMenu;
     [SerializeField] ShowHideOffscreen _mainMenu;
-    [SerializeField] ShowHideOffscreen _barracks;
 
     EventSystem _eventSystem;
     bool _isWholeUIReady = false;
@@ -93,8 +92,6 @@ namespace Mtd.UI {
           return _settingsMenu;
         case UIObjectKey.MainMenu:
           return _mainMenu;
-        case UIObjectKey.Barracks:
-          return _barracks;
       }
       throw new Exception("Unhandled UIObjectKey " + key);
     }
@@ -104,7 +101,5 @@ namespace Mtd.UI {
     StartMenu = 0,
     SettingsMenu = 1,
     MainMenu = 2,
-    // free slot
-    Barracks = 4,
   }
 }

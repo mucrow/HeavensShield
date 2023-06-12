@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7594923164829760348}
   - component: {fileID: 5959591224935212573}
   m_Layer: 0
-  m_Name: MusicSource
+  m_Name: JingleEffectSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,12 +41,12 @@ AudioSource:
   m_GameObject: {fileID: 3103988263488228206}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3121158569770301346, guid: 221c98453170f0b4fafdf949ef34461c, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

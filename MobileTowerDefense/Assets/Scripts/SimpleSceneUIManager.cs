@@ -4,9 +4,11 @@ using UnityEngine;
 
 namespace Mtd {
   public class SimpleUISceneManager: MonoBehaviour {
+    [SerializeField] AudioClip _music;
     [SerializeField] UIObjectKey[] _uiObjectKeys;
 
     void Start() {
+      Globals.AudioManager.PlayMusic(_music);
       Globals.UI.EnsureReady();
       foreach (UIObjectKey uiObjectKey in _uiObjectKeys) {
         var component = Globals.UI.GetObjectByKey(uiObjectKey);

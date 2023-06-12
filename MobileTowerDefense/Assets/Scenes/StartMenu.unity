@@ -896,4 +896,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91dfcbd4e154293b2592b18e390cff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _music: {fileID: 8300000, guid: 5f3413fad8e0a254989a29b641400435, type: 3}
   _uiObjectKeys: 00000000

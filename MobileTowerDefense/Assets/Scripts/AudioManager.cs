@@ -8,6 +8,7 @@ using UnityEngine;
 namespace Mtd {
   public class AudioManager: MonoBehaviour {
     [SerializeField] GameObject _musicSourcePrefab;
+    [SerializeField] GameObject _jingleEffectSourcePrefab;
     [SerializeField] GameObject _soundEffectSourcePrefab;
     [SerializeField] int _numSoundEffectSources = 16;
 
@@ -20,7 +21,7 @@ namespace Mtd {
 
     void Awake() {
       _musicSource = InitAudioSource(_musicSourcePrefab, "MusicSource");
-      _jingleEffectSource = InitAudioSource(_soundEffectSourcePrefab, "JingleEffectSource");
+      _jingleEffectSource = InitAudioSource(_jingleEffectSourcePrefab, "JingleEffectSource");
 
       _soundEffectSources = new AudioSource[_numSoundEffectSources];
       for (int i = 0; i < _numSoundEffectSources; ++i) {
@@ -52,7 +53,7 @@ namespace Mtd {
      *
      * The background music fades back in shortly after the jingle finishes.
      */
-    public Task PlayJingle(AudioClip jingleClip, bool resumeMusic) {
+    public Task PlayJingleEffect(AudioClip jingleClip, bool resumeMusic) {
       var tcs = new TaskCompletionSource<bool>();
 
       LeanTween.value(
