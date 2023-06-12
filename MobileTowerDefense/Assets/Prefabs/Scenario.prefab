@@ -3576,7 +3576,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8871ff8ae041672439e7f8556f7b8168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tilemap: {fileID: 2834857970562622751}
+  _playerAgent: {fileID: 2834857969379877535}
+  _groundTilemap: {fileID: 2834857968637578140}
+  _gridTilemap: {fileID: 2834857970562622751}
   _gridTile: {fileID: 11400000, guid: c1a265f4532c1654988cc3aa314098f0, type: 2}
 --- !u!1839735485 &2834857970562622751
 Tilemap:

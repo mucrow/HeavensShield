@@ -103,30 +103,40 @@ namespace Mtd {
         return;
       }
 
-      if (!_tilemap.localBounds.Contains(point.World)) {
+      var worldPosition = point.World;
+
+      if (!CanPlaceUnit(worldPosition)) {
         return;
       }
 
-      var tileCell = _tilemap.WorldToCell(point.World);
+      var pointCenteredToTile = Utils.Utils.SnapPointToTileCenter(worldPosition);
+      await unitSelector.Open(pointCenteredToTile);
+    }
+
+    public bool CanPlaceUnit(Vector3 worldPosition) {
+      if (!_tilemap.localBounds.Contains(worldPosition)) {
+        return false;
+      }
+
+      var tileCell = _tilemap.WorldToCell(worldPosition);
       var tileInfo = _tilemap.GetTile(tileCell);
       if (!_validUnitPlacementTiles.Contains(tileInfo)) {
-        return;
+        return false;
       }
 
-      var pointCenteredToTile = Utils.Utils.SnapPointToTileCenter(point.World);
-      var tappedObject = GetTappedObject(point);
+      var tappedObject = GetTappedObject(worldPosition);
       if (tappedObject) {
         // This is where we could get unit stats, but those were taken out of scope.
         // This block is still required to prevent units from being placed on the enemy path or on
         // top of trees, etc.
-        return;
+        return false;
       }
 
-      await unitSelector.Open(pointCenteredToTile);
+      return true;
     }
 
-    GameObject GetTappedObject(ScreenAndWorldPoint point) {
-      var result = Physics2D.OverlapPoint(point.World, _tapTriggerLayerMask);
+    GameObject GetTappedObject(Vector3 worldPosition) {
+      var result = Physics2D.OverlapPoint(worldPosition, _tapTriggerLayerMask);
       if (result) {
         return result.gameObject;
       }
