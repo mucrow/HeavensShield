@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.Properties;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -41,6 +42,11 @@ namespace Mtd.UI {
 
     [SerializeField] ScenarioSelection _scenarioSelection;
     public ScenarioSelection ScenarioSelection => _scenarioSelection;
+
+    [SerializeField] TMP_Text _settingsMenuMusicVolumeText;
+    public TMP_Text SettingsMenuMusicVolumeText => _settingsMenuMusicVolumeText;
+    [SerializeField] TMP_Text _settingsMenuSoundEffectsVolumeText;
+    public TMP_Text SettingsMenuSoundEffectsVolumeText => _settingsMenuSoundEffectsVolumeText;
 
     [SerializeField] ShowHideOffscreen _startMenu;
     [SerializeField] ShowHideOffscreen _settingsMenu;

@@ -14,9 +14,8 @@ namespace Mtd {
 
     [System.Serializable]
     public class AudioSettingsSaveData {
-      public int MasterVolume = 7;
-      public int SoundEffectsVolume = 7;
-      public int MusicVolume = 7;
+      public float MusicVolume = 1f;
+      public float SoundEffectsVolume = 1f;
     }
 
     [System.Serializable]
