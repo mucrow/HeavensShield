@@ -27,8 +27,61 @@ namespace Mtd.Utils {
       System.IO.File.WriteAllText(saveFilePath, jsonString);
     }
 
+    /** Deletes existing save data and returns newly initialized save data. */
+    public static ClearSaveDataResult ClearSaveData() {
+      try {
+        var saveFilePath = GetSaveFilePath();
+        if (System.IO.File.Exists(saveFilePath)) {
+          System.IO.File.Delete(saveFilePath);
+          return ClearSaveDataResult.DataCleared();
+        }
+        return ClearSaveDataResult.NoDataToClear();
+      }
+      catch (Exception e) {
+        return ClearSaveDataResult.ExceptionThrown(e);
+      }
+    }
+
     static string GetSaveFilePath() {
       return System.IO.Path.Combine(Application.persistentDataPath, "SaveData.json");
+    }
+
+    public class ClearSaveDataResult {
+      public ClearSaveDataResultCode Code;
+      public SaveData NewSaveData;
+      public Exception Exception;
+
+      private ClearSaveDataResult() {}
+
+      public static ClearSaveDataResult DataCleared() {
+        return new ClearSaveDataResult() {
+          Code = ClearSaveDataResultCode.DataCleared,
+          NewSaveData = new SaveData(),
+          Exception = null,
+        };
+      }
+
+      public static ClearSaveDataResult ExceptionThrown(Exception exception) {
+        return new ClearSaveDataResult() {
+          Code = ClearSaveDataResultCode.ExceptionThrown,
+          NewSaveData = null,
+          Exception = exception,
+        };
+      }
+
+      public static ClearSaveDataResult NoDataToClear() {
+        return new ClearSaveDataResult() {
+          Code = ClearSaveDataResultCode.NoDataToClear,
+          NewSaveData = new SaveData(),
+          Exception = null,
+        };
+      }
+    }
+
+    public enum ClearSaveDataResultCode {
+      DataCleared,
+      ExceptionThrown,
+      NoDataToClear,
     }
 
     public class TryReadSaveDataResult {

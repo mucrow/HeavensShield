@@ -42,6 +42,23 @@ namespace Mtd {
       }
     }
 
+    public void ClearSaveData() {
+      var result = SaveAndLoad.ClearSaveData();
+      if (result.Code == SaveAndLoad.ClearSaveDataResultCode.ExceptionThrown) {
+        // TODO not sure what can really be done here
+        throw result.Exception;
+      }
+      else if (result.Code == SaveAndLoad.ClearSaveDataResultCode.NoDataToClear) {
+        _saveData = result.NewSaveData;
+      }
+      else if (result.Code == SaveAndLoad.ClearSaveDataResultCode.DataCleared) {
+        _saveData = result.NewSaveData;
+      }
+      else {
+        Debug.LogWarning("Unhandled ClearSaveDataResultCode: " + result.Code);
+      }
+    }
+
     public void LoadMainMenuScene() {
       LoadSceneHelper("Scenes/MainMenu", null);
     }
