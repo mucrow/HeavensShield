@@ -115,6 +115,14 @@ namespace Mtd.UI {
       return tcs.Task;
     }
 
+    public async void ShowEH() {
+      await Show();
+    }
+
+    public async void HideEH() {
+      await Hide();
+    }
+
     Vector2 GetHiddenPosition() {
       var direction = _hideMode.ToVector2();
       var relevantDimension = GetRelevantDimension();
