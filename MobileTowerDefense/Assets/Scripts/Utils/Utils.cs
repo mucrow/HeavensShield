@@ -80,7 +80,7 @@ namespace Mtd.Utils {
      *   20 => 3.0f
      */
     public static float MapRange(float minInput, float maxInput, float minOutput, float maxOutput, float input) {
-      return MapRange(minInput, maxInput, minOutput, maxOutput, 1f);
+      return MapRange(minInput, maxInput, minOutput, maxOutput, input, 1f);
     }
 
     public static Vector2 MapRange(float minInput, float maxInput, Vector2 minOutput, Vector2 maxOutput, float input) {
