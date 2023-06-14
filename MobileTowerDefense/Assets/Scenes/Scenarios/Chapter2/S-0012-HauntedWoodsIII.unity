@@ -676,6 +676,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5253485188281876861, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5281173861594878509, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -934,6 +938,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7948093787512154739, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8310705932255355886, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8550334845184531795, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
@@ -32215,7 +32223,7 @@ PrefabInstance:
     - target: {fileID: 2834857970355891945, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
       propertyPath: _music
       value: 
-      objectReference: {fileID: 8300000, guid: 2bdd0243443a2e948b9cdb44dc6b3ec7, type: 3}
+      objectReference: {fileID: 8300000, guid: b23958babf2486c458209db8d71d8c62, type: 3}
     - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
       propertyPath: _enemyWaves.Array.size
       value: 8
