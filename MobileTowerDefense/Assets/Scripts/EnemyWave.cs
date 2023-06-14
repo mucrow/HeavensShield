@@ -51,5 +51,17 @@ namespace Mtd {
     public float EnemySpeed => (
       _enemyComponent.Speed * _enemySpeedMultiplier + _enemySpeedIncrease
     );
+
+    [SerializeField] float _enemyMoneyOnKillMultiplier = 1f;
+    [SerializeField] float _enemyMoneyOnKillIncrease = 0f;
+    public float EnemyMoneyOnKill => (
+      _enemyComponent.MoneyOnKill * _enemyMoneyOnKillMultiplier + _enemyMoneyOnKillIncrease
+    );
+
+    [SerializeField] float _enemyScoreOnKillMultiplier = 1f;
+    [SerializeField] float _enemyScoreOnKillIncrease = 0f;
+    public float EnemyScoreOnKill => (
+      _enemyComponent.ScoreOnKill * _enemyScoreOnKillMultiplier + _enemyScoreOnKillIncrease
+    );
   }
 }

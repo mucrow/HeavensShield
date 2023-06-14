@@ -187,6 +187,8 @@ namespace Mtd {
       var enemy = newEnemyObject.GetComponent<EnemyController>();
       enemy.SetMaxHealth(Mathf.RoundToInt(wave.EnemyMaxHealth * _healthScaling));
       enemy.SetSpeed(wave.EnemySpeed * _speedScaling);
+      enemy.SetMoneyOnKill(Mathf.RoundToInt(wave.EnemyMoneyOnKill));
+      enemy.SetScoreOnKill(Mathf.RoundToInt(wave.EnemyScoreOnKill));
       enemy.SetPath(path, pathIndex);
       _scenarioManager.NotifyEnemySpawned(enemy);
     }

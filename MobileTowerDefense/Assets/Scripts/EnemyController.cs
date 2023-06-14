@@ -23,7 +23,9 @@ namespace Mtd {
     int _health;
 
     [SerializeField] int _moneyOnKill = 17;
+    public int MoneyOnKill => _moneyOnKill;
     [SerializeField] int _scoreOnKill = 21;
+    public int ScoreOnKill => _scoreOnKill;
 
     [SerializeField] int _damage = 1;
     public int Damage => _damage;
@@ -94,11 +96,19 @@ namespace Mtd {
       _health = newMaxHealth;
     }
 
-    /**
-     * Intended for use when an enemy is first spawned. Does not update velocity.
-     */
+    /** Intended for use when an enemy is first spawned. Does not update velocity. */
     public void SetSpeed(float newSpeed) {
       _speed = newSpeed;
+    }
+
+    /** Intended for use when an enemy is first spawned. */
+    public void SetMoneyOnKill(int newValue) {
+      _moneyOnKill = newValue;
+    }
+
+    /** Intended for use when an enemy is first spawned. */
+    public void SetScoreOnKill(int newValue) {
+      _scoreOnKill = newValue;
     }
 
     public void ReceiveDamage(int amount) {
