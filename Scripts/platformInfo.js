@@ -1,6 +1,6 @@
 const path = require('path');
 
-const GAME_NAME = 'MobileTowerDefense';
+const GAME_NAME = 'HeavensShield';
 exports.GAME_NAME = GAME_NAME;
 
 const PLATFORM_CODES = ['win', 'macos', 'linux', 'ios', 'android'];
