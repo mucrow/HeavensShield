@@ -59,6 +59,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenarios/Chapter2/S-0013-HauntedWoodsIV.unity
     guid: c18a728b25a016947af8c164183bebb7
+  - enabled: 1
+    path: Assets/Scenarios/Chapter3/S-0014-ColdBattlefield.unity
+    guid: 115eb0ba174a5714ba278860675e7198
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 0a973215422802b45b1325e4a9892a4d, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 8227f14c061c5f541bd1d184274b701a, type: 2}
