@@ -149,16 +149,20 @@ namespace Mtd {
 
       Globals.PlayerAgent.With(playerAgent => {
         Globals.LoadedScenario.With(loadedScenario => {
-          float towerHP = _tower.Health;
-          float money = playerAgent.Money;
-          float baseScore = playerAgent.Score;
+          int towerHP = _tower.Health;
+          int money = playerAgent.Money;
+          int baseScore = playerAgent.Score;
 
-          float moneyBonus = money / 100f;
-          float towerHPBonus = towerHP * 2f;
-          float totalScore = baseScore + moneyBonus + towerHPBonus;
+          int moneyBonus = Mathf.FloorToInt(money / 100f);
+          int towerHPBonus = Mathf.FloorToInt(towerHP * 2f);
+          int totalScore = Mathf.FloorToInt(baseScore + moneyBonus + towerHPBonus);
 
           if (isVictory) {
-            saveData.Game.PoliticalCapital += totalScore;
+            bool newHighScore = saveData.Game.RegisterScore(loadedScenario.ID, totalScore);
+            if (newHighScore) {
+              // TODO you can do somethin abt it..
+            }
+
             saveData.Game.UnlockScenarios(loadedScenario.Unlocks.ToArray());
 
             if (saveData.Game.NextStoryScenarioID == loadedScenario.ID) {

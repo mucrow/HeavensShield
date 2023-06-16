@@ -29,12 +29,12 @@ namespace Mtd.UI {
 
     public void SetText(
       bool isVictory,
-      float towerHP,
-      float towerHPBonus,
-      float score,
-      float money,
-      float moneyBonus,
-      float totalScore
+      int towerHP,
+      int towerHPBonus,
+      int score,
+      int money,
+      int moneyBonus,
+      int totalScore
     ) {
       if (isVictory) {
         _heading.text = "The tower is standing tall!";
@@ -58,19 +58,19 @@ namespace Mtd.UI {
       _totalScoreField.text = FormatTotalScore(totalScore);
     }
 
-    string FormatScoreBonus(float score) {
+    string FormatScoreBonus(int score) {
       return "+" + Utils.Utils.FormatNumberWithCommas(score);
     }
 
-    string FormatTowerHP(float towerHP) {
+    string FormatTowerHP(int towerHP) {
       return Utils.Utils.FormatNumberWithCommas(towerHP) + "HP";
     }
 
-    string FormatMoney(float money) {
+    string FormatMoney(int money) {
       return Utils.Utils.FormatNumberWithCommas(money);
     }
 
-    string FormatTotalScore(float score) {
+    string FormatTotalScore(int score) {
       return Utils.Utils.FormatNumberWithCommas(score);
     }
   }
