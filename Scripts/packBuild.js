@@ -17,8 +17,8 @@ async function removeNoShipSubdirs(dir) {
   const subdirA = path.join(dir, `${GAME_NAME}_BackUpThisFolder_ButDontShipItWithYourGame`);
   const subdirB = path.join(dir, `${GAME_NAME}_BurstDebugInformation_DoNotShip`);
   await Promise.all([
-    fs.rm(subdirA, { recursive: true }),
-    fs.rm(subdirB, { recursive: true })
+    fs.rm(subdirA, { force: true, recursive: true }),
+    fs.rm(subdirB, { force: true, recursive: true })
   ]);
 }
 
