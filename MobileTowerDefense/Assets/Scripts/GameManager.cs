@@ -96,7 +96,7 @@ namespace Mtd {
     public void LoadScenario(OrderedScenarioInfo scenarioInfo, ScenarioSceneQuitTarget quitTarget) {
       Globals.ScenarioSceneQuitTarget = quitTarget;
       int chapterNumber = scenarioInfo.ChapterID + 1;
-      string chapterFolder = "Scenes/Scenarios/Chapter" + chapterNumber + "/";
+      string chapterFolder = "Scenarios/Chapter" + chapterNumber + "/";
       LoadSceneHelper(chapterFolder + scenarioInfo.Path, scenarioInfo);
     }
 
