@@ -6130,7 +6130,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &858508257877500663
 CanvasRenderer:
@@ -6160,12 +6160,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Untitled Tower
-
-    Defense Game'
+  m_text: Heaven's Shield
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7c098640bdbb69d40b8141d9feeba04d, type: 2}
-  m_sharedMaterial: {fileID: 8892956514967447918, guid: 7c098640bdbb69d40b8141d9feeba04d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d2b3bc610a128cc49b3ef350253bff0c, type: 2}
+  m_sharedMaterial: {fileID: 8892956514967447918, guid: d2b3bc610a128cc49b3ef350253bff0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6189,12 +6187,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 118
   m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 118
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
