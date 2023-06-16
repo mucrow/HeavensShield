@@ -146,15 +146,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Example Text: "Chapter 1"'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7c098640bdbb69d40b8141d9feeba04d, type: 2}
-  m_sharedMaterial: {fileID: 8892956514967447918, guid: 7c098640bdbb69d40b8141d9feeba04d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8adec88c76ffc2e479ad1c23131f20ee, type: 2}
+  m_sharedMaterial: {fileID: 8892956514967447918, guid: 8adec88c76ffc2e479ad1c23131f20ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285851903
-  m_fontColor: {r: 1, g: 0.9094763, b: 0.45660377, a: 1}
+    rgba: 4285321709
+  m_fontColor: {r: 0.92941177, g: 0.81960785, b: 0.42352942, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
