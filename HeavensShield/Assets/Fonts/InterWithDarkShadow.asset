@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: InterWithDarkShadow
   m_EditorClassIdentifier: 
-  hashCode: -967916281
+  hashCode: -1832255780
   material: {fileID: 8892956514967447918}
-  materialHashCode: -1958429369
+  materialHashCode: 1232477308
   m_Version: 1.1.0
   m_SourceFontFileGUID: b2f9eb66a4e9b1f41b952f98632cee12
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: b2f9eb66a4e9b1f41b952f98632cee12, type: 3}

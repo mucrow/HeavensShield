@@ -58,3 +58,7 @@ MonoBehaviour:
   _enemyMaxHealthIncrease: 0
   _enemySpeedMultiplier: 1
   _enemySpeedIncrease: 0
+  _enemyMoneyOnKillMultiplier: 1
+  _enemyMoneyOnKillIncrease: 0
+  _enemyScoreOnKillMultiplier: 1
+  _enemyScoreOnKillIncrease: 0

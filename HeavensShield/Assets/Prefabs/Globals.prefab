@@ -588,7 +588,7 @@ MonoBehaviour:
   _scenarioOrder: {fileID: 11400000, guid: c6871c396b8a1104ebba6f842f1f5628, type: 2}
   _chapterListChapterGroupPrefab: {fileID: 5511858844002979159, guid: 96829483269b58d409f0a27b3b258213, type: 3}
   _chapterListScenarioPrefab: {fileID: 7447021878153235249, guid: ffe5b4e296f3a4a4d94e40038086b9b2, type: 3}
-  _showHideOffscreen: {fileID: 820684017765603264}
+  _showHide: {fileID: 820684017765603264}
 --- !u!114 &820684017765603264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2251,7 +2251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _confirmButton: {fileID: 5145278890018198012}
   _confirmButtonText: {fileID: 5145278891027948350}
-  _showHideOffscreen: {fileID: 4265657381248510360}
+  _showHide: {fileID: 4265657381248510360}
 --- !u!114 &4265657381248510360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4457,7 +4457,7 @@ MonoBehaviour:
   _towerHealthText: {fileID: 3309514277544773568}
   _moneyText: {fileID: 897934297534542927}
   _scoreText: {fileID: 2169792476482186983}
-  _showHideOffscreen: {fileID: 6511398315834030532}
+  _showHide: {fileID: 6511398315834030532}
 --- !u!114 &6511398315834030532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7959,7 +7959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4493394f38dd54a9fc98df9a36476e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showHideOffscreen: {fileID: 7886227084595970870}
+  _showHide: {fileID: 7886227084595970870}
   _heading: {fileID: 2493617511430728967}
   _baseScoreField: {fileID: 278429080863740116}
   _towerHPField: {fileID: 5941024986477561002}

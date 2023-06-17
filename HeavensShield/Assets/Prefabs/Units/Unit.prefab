@@ -212,6 +212,12 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 6612516781684231690}
   _damage: 10
   _speed: 70
+  _doesComboDamage: 0
+  _projectilePrefab: {fileID: 0}
+  _createProjectileOnTopOfEnemy: 0
+  _projectileStartingPosition: {x: 0, y: 0, z: 0}
+  _projectileSpeed: 5
+  _projectileRotationType: 2
 --- !u!212 &6612516781684231690
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -110,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6953710727018059057, guid: 79506bb289fc81241a41905375020013, type: 3}
       propertyPath: m_Name
-      value: BrickManJunior 1
+      value: YuleLogBoy
       objectReference: {fileID: 0}
     - target: {fileID: 7458727276083086698, guid: 79506bb289fc81241a41905375020013, type: 3}
       propertyPath: m_Size.y
