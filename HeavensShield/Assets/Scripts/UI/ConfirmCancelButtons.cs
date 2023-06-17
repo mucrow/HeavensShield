@@ -10,7 +10,7 @@ namespace Mtd.UI {
   public class ConfirmCancelButtons: MonoBehaviour {
     [SerializeField] Button _confirmButton;
     [SerializeField] TMP_Text _confirmButtonText;
-    [FormerlySerializedAs("_showHideOffscreen")] [SerializeField] ShowHideUIElement _showHide;
+    [SerializeField] ShowHideUIElement _showHide;
 
     public Func<Task> Show => _showHide.Show;
     public Func<Task> Hide => _showHide.Hide;

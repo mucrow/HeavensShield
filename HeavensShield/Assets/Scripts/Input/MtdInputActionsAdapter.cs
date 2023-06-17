@@ -36,7 +36,6 @@ namespace Mtd {
      * Drag events actually happen even if this threshold isn't met. This threshold exists for the
      * purposes of preventing tap events on fast drags.
      */
-    [FormerlySerializedAs("_dragThresholdLength")]
     [SerializeField] float _dragThresholdLengthAtCameraSize5 = 1f / 8f;
 
     enum PinchZoomState { None, Starting, InProgress }

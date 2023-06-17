@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 
 namespace Mtd.UI {
   public class ScoreTallyModal: MonoBehaviour {
-    [FormerlySerializedAs("_showHideOffscreen")] [SerializeField] ShowHideUIElement _showHide;
+    [SerializeField] ShowHideUIElement _showHide;
 
     [SerializeField] TMP_Text _heading;
 

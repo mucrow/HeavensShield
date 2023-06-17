@@ -26,7 +26,7 @@ namespace Mtd {
     public float BattleSpeed { get; private set; } = 1f;
     float[] _battleSpeeds = new float[] {1f, 2f, 3f};
 
-    [FormerlySerializedAs("_startingCash")] [SerializeField] int _startingMoney = 1100;
+    [SerializeField] int _startingMoney = 1100;
 
     [SerializeField] AudioClip _music;
     [SerializeField] bool _isBigBattle = false;

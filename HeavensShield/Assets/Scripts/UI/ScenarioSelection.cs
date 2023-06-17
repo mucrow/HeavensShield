@@ -15,7 +15,7 @@ namespace Mtd {
     [SerializeField] GameObject _chapterListChapterGroupPrefab;
     [SerializeField] GameObject _chapterListScenarioPrefab;
 
-    [FormerlySerializedAs("_showHideOffscreen")] [SerializeField] ShowHideUIElement _showHide;
+    [SerializeField] ShowHideUIElement _showHide;
 
     public UnityAction ShowInstant => _showHide.ShowInstant;
     public UnityAction HideInstant => _showHide.HideInstant;

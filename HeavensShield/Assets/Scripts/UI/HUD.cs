@@ -14,7 +14,7 @@ namespace Mtd {
     [SerializeField] TMP_Text _towerHealthText;
     [SerializeField] TMP_Text _moneyText;
     [SerializeField] TMP_Text _scoreText;
-    [FormerlySerializedAs("_showHideOffscreen")] [SerializeField] ShowHideUIElement _showHide;
+    [SerializeField] ShowHideUIElement _showHide;
 
     public Func<Task> Show => _showHide.Show;
     public Func<Task> Hide => _showHide.Hide;

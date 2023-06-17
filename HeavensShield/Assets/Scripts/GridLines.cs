@@ -9,7 +9,7 @@ namespace Mtd {
   public class GridLines: MonoBehaviour {
     [SerializeField] PlayerAgent _playerAgent;
     [SerializeField] Tilemap _groundTilemap;
-    [FormerlySerializedAs("_tilemap")] [SerializeField] Tilemap _gridTilemap;
+    [SerializeField] Tilemap _gridTilemap;
     [SerializeField] TileBase _gridTile;
 
     void Start() {

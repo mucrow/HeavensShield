@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 namespace Mtd.UI {
   [RequireComponent(typeof(RectTransform))]
   public class ShowHideUIElement: UIBehaviour, IEnsureReady {
-    [FormerlySerializedAs("_edge")] [SerializeField] HideMode _hideMode;
+    [SerializeField] HideMode _hideMode;
 
     [Header("Can be null unless Hide Mode is \"Fade\".")]
     [SerializeField] CanvasGroup _canvasGroup;
