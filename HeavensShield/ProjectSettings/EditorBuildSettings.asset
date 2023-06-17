@@ -65,6 +65,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenarios/Chapter3/S-0015-FrozenWarland.unity
     guid: 79c21be0391484f46bf4d5063e124a2f
+  - enabled: 1
+    path: Assets/Scenarios/Chapter3/S-0016-FrozenWarlandII.unity
+    guid: e838e374af066d542a4937603158986f
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 0a973215422802b45b1325e4a9892a4d, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 8227f14c061c5f541bd1d184274b701a, type: 2}
