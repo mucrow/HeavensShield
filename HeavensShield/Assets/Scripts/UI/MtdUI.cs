@@ -43,6 +43,9 @@ namespace Mtd.UI {
     [SerializeField] ScenarioSelection _scenarioSelection;
     public ScenarioSelection ScenarioSelection => _scenarioSelection;
 
+    [SerializeField] TMP_Text _startMenuVersionText;
+    public TMP_Text StartMenuVersionText => _startMenuVersionText;
+
     [SerializeField] TMP_Text _settingsMenuMusicVolumeText;
     public TMP_Text SettingsMenuMusicVolumeText => _settingsMenuMusicVolumeText;
     [SerializeField] TMP_Text _settingsMenuSoundEffectsVolumeText;
