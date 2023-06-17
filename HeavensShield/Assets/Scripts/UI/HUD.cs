@@ -6,19 +6,20 @@ using Mtd.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Mtd {
-  [RequireComponent(typeof(ShowHideOffscreen))]
+  [RequireComponent(typeof(ShowHideUIElement))]
   public class HUD: MonoBehaviour {
     [SerializeField] TMP_Text _towerHealthText;
     [SerializeField] TMP_Text _moneyText;
     [SerializeField] TMP_Text _scoreText;
-    [SerializeField] ShowHideOffscreen _showHideOffscreen;
+    [FormerlySerializedAs("_showHideOffscreen")] [SerializeField] ShowHideUIElement _showHide;
 
-    public Func<Task> Show => _showHideOffscreen.Show;
-    public Func<Task> Hide => _showHideOffscreen.Hide;
-    public UnityAction ShowInstant => _showHideOffscreen.ShowInstant;
-    public UnityAction HideInstant => _showHideOffscreen.HideInstant;
+    public Func<Task> Show => _showHide.Show;
+    public Func<Task> Hide => _showHide.Hide;
+    public UnityAction ShowInstant => _showHide.ShowInstant;
+    public UnityAction HideInstant => _showHide.HideInstant;
 
     void Awake() {
       Globals.PlayerAgent.AddRegisterListener(OnPlayerAgentRegister);

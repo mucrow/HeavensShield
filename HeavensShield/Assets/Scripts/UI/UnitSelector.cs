@@ -9,7 +9,7 @@ namespace Mtd.UI {
   public class UnitSelector: MonoBehaviour {
     [SerializeField] ConfirmCancelButtons _confirmCancelButtons;
     [SerializeField] SelectionCircle _selectionCircle;
-    [FormerlySerializedAs("_showHideOffscreen")] [SerializeField] ShowHideOffscreen _unitChoiceGroup;
+    [FormerlySerializedAs("_showHideOffscreen")] [SerializeField] ShowHideUIElement _unitChoiceGroup;
 
     public bool IsHidden => _unitChoiceGroup.IsHidden;
 

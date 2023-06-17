@@ -19,26 +19,26 @@ namespace Mtd.UI {
     [SerializeField] UnitSelector _unitSelector;
     public UnitSelector UnitSelector => _unitSelector;
 
-    [SerializeField] ShowHideOffscreen _scenarioLeftSideButtons;
-    public ShowHideOffscreen ScenarioLeftSideButtons => _scenarioLeftSideButtons;
+    [SerializeField] ShowHideUIElement _scenarioLeftSideButtons;
+    public ShowHideUIElement ScenarioLeftSideButtons => _scenarioLeftSideButtons;
 
-    [SerializeField] ShowHideOffscreen _scenarioTapToStartOverlay;
-    public ShowHideOffscreen ScenarioTapToStartOverlay => _scenarioTapToStartOverlay;
+    [SerializeField] ShowHideUIElement _scenarioTapToStartOverlay;
+    public ShowHideUIElement ScenarioTapToStartOverlay => _scenarioTapToStartOverlay;
 
     [SerializeField] ScenarioUI _scenarioUI;
     public ScenarioUI ScenarioUI => _scenarioUI;
 
-    [SerializeField] ShowHideOffscreen _scenarioMenu;
-    public ShowHideOffscreen ScenarioMenu => _scenarioMenu;
+    [SerializeField] ShowHideUIElement _scenarioMenu;
+    public ShowHideUIElement ScenarioMenu => _scenarioMenu;
 
-    [SerializeField] ShowHideOffscreen _victoryBanner;
-    public ShowHideOffscreen VictoryBanner => _victoryBanner;
+    [SerializeField] ShowHideUIElement _victoryBanner;
+    public ShowHideUIElement VictoryBanner => _victoryBanner;
 
     [SerializeField] ScoreTallyModal _scoreTallyModal;
     public ScoreTallyModal ScoreTallyModal => _scoreTallyModal;
 
-    [SerializeField] ShowHideOffscreen _defeatBanner;
-    public ShowHideOffscreen DefeatBanner => _defeatBanner;
+    [SerializeField] ShowHideUIElement _defeatBanner;
+    public ShowHideUIElement DefeatBanner => _defeatBanner;
 
     [SerializeField] ScenarioSelection _scenarioSelection;
     public ScenarioSelection ScenarioSelection => _scenarioSelection;
@@ -48,9 +48,9 @@ namespace Mtd.UI {
     [SerializeField] TMP_Text _settingsMenuSoundEffectsVolumeText;
     public TMP_Text SettingsMenuSoundEffectsVolumeText => _settingsMenuSoundEffectsVolumeText;
 
-    [SerializeField] ShowHideOffscreen _startMenu;
-    [SerializeField] ShowHideOffscreen _settingsMenu;
-    [SerializeField] ShowHideOffscreen _mainMenu;
+    [SerializeField] ShowHideUIElement _startMenu;
+    [SerializeField] ShowHideUIElement _settingsMenu;
+    [SerializeField] ShowHideUIElement _mainMenu;
 
     EventSystem _eventSystem;
     bool _isWholeUIReady = false;
@@ -90,7 +90,7 @@ namespace Mtd.UI {
       _isWholeUIReady = true;
     }
 
-    public ShowHideOffscreen GetObjectByKey(UIObjectKey key) {
+    public ShowHideUIElement GetObjectByKey(UIObjectKey key) {
       switch (key) {
         case UIObjectKey.StartMenu:
           return _startMenu;

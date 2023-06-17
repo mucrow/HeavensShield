@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 
 namespace Mtd.UI {
   [RequireComponent(typeof(RectTransform))]
-  public class ShowHideOffscreen: UIBehaviour, IEnsureReady {
+  public class ShowHideUIElement: UIBehaviour, IEnsureReady {
     [FormerlySerializedAs("_edge")] [SerializeField] HideMode _hideMode;
 
     [Header("Can be null unless Hide Mode is \"Fade\".")]

@@ -5,6 +5,7 @@ using Mtd.UI;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Mtd {
   public class ScenarioSelection: MonoBehaviour {
@@ -14,10 +15,10 @@ namespace Mtd {
     [SerializeField] GameObject _chapterListChapterGroupPrefab;
     [SerializeField] GameObject _chapterListScenarioPrefab;
 
-    [SerializeField] ShowHideOffscreen _showHideOffscreen;
+    [FormerlySerializedAs("_showHideOffscreen")] [SerializeField] ShowHideUIElement _showHide;
 
-    public UnityAction ShowInstant => _showHideOffscreen.ShowInstant;
-    public UnityAction HideInstant => _showHideOffscreen.HideInstant;
+    public UnityAction ShowInstant => _showHide.ShowInstant;
+    public UnityAction HideInstant => _showHide.HideInstant;
 
     public void RefreshUI() {
       DeleteOldUI();

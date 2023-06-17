@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Mtd.UI {
   public class ScoreTallyModal: MonoBehaviour {
-    [SerializeField] ShowHideOffscreen _showHideOffscreen;
+    [FormerlySerializedAs("_showHideOffscreen")] [SerializeField] ShowHideUIElement _showHide;
 
     [SerializeField] TMP_Text _heading;
 
@@ -22,10 +23,10 @@ namespace Mtd.UI {
     [SerializeField] GameObject _victoryButtons;
     [SerializeField] GameObject _defeatButtons;
 
-    public Func<Task> Show => _showHideOffscreen.Show;
-    public Func<Task> Hide => _showHideOffscreen.Hide;
-    public UnityAction ShowInstant => _showHideOffscreen.ShowInstant;
-    public UnityAction HideInstant => _showHideOffscreen.HideInstant;
+    public Func<Task> Show => _showHide.Show;
+    public Func<Task> Hide => _showHide.Hide;
+    public UnityAction ShowInstant => _showHide.ShowInstant;
+    public UnityAction HideInstant => _showHide.HideInstant;
 
     public void SetText(
       bool isVictory,
