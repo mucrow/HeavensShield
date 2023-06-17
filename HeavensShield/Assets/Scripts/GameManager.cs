@@ -38,7 +38,7 @@ namespace Mtd {
         SaveAndLoad.TryWriteSaveData(_saveData);
       }
       catch (Exception e) {
-        Debug.LogError("Couldn't write save data to disk");
+        Debug.LogError("Couldn't write save data to disk. Error: " + e);
       }
     }
 
