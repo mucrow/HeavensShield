@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -7384697093893124003, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _timePerFrame
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: -7384697093893124003, guid: 79506bb289fc81241a41905375020013, type: 3}
       propertyPath: _animationFrames.Array.size
       value: 2
       objectReference: {fileID: 0}
