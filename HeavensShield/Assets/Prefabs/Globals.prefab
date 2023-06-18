@@ -3331,12 +3331,12 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 1
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 0
+  m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
-  m_ChildControlHeight: 0
+  m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -3901,7 +3901,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 60}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4674050803899262902
 GameObject:
@@ -4344,7 +4344,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 60}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5030006143921225724
 GameObject:
@@ -8456,7 +8456,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 60}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8984551500350435635
 GameObject:
@@ -8613,7 +8613,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 60}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9202002098055978764
 GameObject:
@@ -10465,7 +10465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 603997673470662044, guid: 1b77b6e2c05f0ad4bb893fca4bfcaf5a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.85
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 603997673470662044, guid: 1b77b6e2c05f0ad4bb893fca4bfcaf5a, type: 3}
       propertyPath: m_AnchorMin.x
@@ -10473,7 +10473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 603997673470662044, guid: 1b77b6e2c05f0ad4bb893fca4bfcaf5a, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.15
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 603997673470662044, guid: 1b77b6e2c05f0ad4bb893fca4bfcaf5a, type: 3}
       propertyPath: m_SizeDelta.x
