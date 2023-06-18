@@ -133,10 +133,21 @@ namespace Mtd.UI {
       if (_hideMode == HideMode.Fade) {
         return 0f;
       }
-      if (_hideMode == HideMode.SlideLeft || _hideMode == HideMode.SlideRight) {
-        return _size.x;
+      var safeAreaPadding = Globals.UI.Canvas.GetSafeAreaPadding();
+      if (_hideMode == HideMode.SlideLeft) {
+        return _size.x + safeAreaPadding.Left;
       }
-      return _size.y;
+      if (_hideMode == HideMode.SlideRight) {
+        return _size.x + safeAreaPadding.Right;
+      }
+      if (_hideMode == HideMode.SlideUp) {
+        return _size.y + safeAreaPadding.Top;
+      }
+      if (_hideMode == HideMode.SlideDown) {
+        return _size.y + safeAreaPadding.Bottom;
+      }
+      Debug.LogWarning("Unhandled HideMode: " + _hideMode);
+      return 0f;
     }
 
     public void EnsureReady() {

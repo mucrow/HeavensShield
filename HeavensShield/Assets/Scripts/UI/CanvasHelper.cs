@@ -36,7 +36,11 @@ namespace Mtd.UI {
         _lastResolution.x = Screen.width;
         _lastResolution.y = Screen.height;
         _lastSafeArea = Screen.safeArea;
-        Debug.Log("SafeArea: " + _lastSafeArea);
+
+        // var safeAreaPadding = GetSafeAreaPadding();
+        // Debug.Log("LastResolution: " + _lastResolution);
+        // Debug.Log("SafeArea: " + _lastSafeArea);
+        // Debug.Log("SafeAreaPadding: " + safeAreaPadding);
 
         _screenChangeVarsInitialized = true;
       }
@@ -97,7 +101,7 @@ namespace Mtd.UI {
     }
 
     static void ResolutionChanged() {
-      Debug.Log("Resolution changed from " + _lastResolution + " to (" + Screen.width + ", " + Screen.height + ") at " + Time.time);
+      // Debug.Log("Resolution changed from " + _lastResolution + " to (" + Screen.width + ", " + Screen.height + ") at " + Time.time);
 
       _lastResolution.x = Screen.width;
       _lastResolution.y = Screen.height;
@@ -106,7 +110,7 @@ namespace Mtd.UI {
     }
 
     static void SafeAreaChanged() {
-      Debug.Log("Safe Area changed from " + _lastSafeArea + " to " + Screen.safeArea.size + " at " + Time.time);
+      // Debug.Log("Safe Area changed from " + _lastSafeArea + " to " + Screen.safeArea.size + " at " + Time.time);
 
       _lastSafeArea = Screen.safeArea;
 
@@ -117,15 +121,10 @@ namespace Mtd.UI {
 
     public SafeAreaPadding GetSafeAreaPadding() {
       var ret = new SafeAreaPadding();
-
-      var safeAreaRect = _safeAreaTransform.rect;
-      var safeAreaSize = safeAreaRect.size;
-
-      ret.Left = (int) safeAreaRect.x;
-      ret.Bottom = (int) safeAreaRect.y;
-      ret.Right = (int) (_lastResolution.x - (ret.Left + safeAreaSize.x));
-      ret.Top = (int) (_lastResolution.y - (ret.Bottom + safeAreaSize.y));
-
+      ret.Left = (int) _lastSafeArea.x;
+      ret.Bottom = (int) _lastSafeArea.y;
+      ret.Right = (int) (_lastResolution.x - (ret.Left + _lastSafeArea.width));
+      ret.Top = (int) (_lastResolution.y - (ret.Bottom + _lastSafeArea.height));
       return ret;
     }
   }
