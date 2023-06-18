@@ -256,7 +256,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 9
-      pivot: {x: 0.5, y: -0.3125}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1516,7 +1516,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1537,7 +1537,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1558,7 +1558,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1579,7 +1579,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1611,7 +1611,7 @@ TextureImporter:
       WaterTopLeft: -101034694
       WaterColdTop: 1349510651
       PathColdCornerTR: 241393239
-      tiles_12: 755175667
+      WaterColdBottomRight: -1422293799
       WaterBottomLeft: 521888339
       PathCold: -1183214887
       tiles_5: -2081100833
@@ -1640,8 +1640,8 @@ TextureImporter:
       tiles_24: -498899092
       tiles_13: 2141073574
       tiles_2: -492439088
-      WaterColdCenter: 2062682621
       PathEdge2TL: -1753957470
+      WaterColdCenter: 2062682621
       tiles_7: 1707198037
       tiles_9: -1834507335
       tiles_17: 1406550379
@@ -1678,10 +1678,10 @@ TextureImporter:
       WaterBottomRight: 1696338227
       PathEdge2BL: -233437657
       TreeSnowy: 1114041034
+      tiles_12: 755175667
       PathEdge2BR: -1820821406
-      WaterColdLeft: -1873154885
       ColdFlower2: 1957230119
-      WaterColdBottomRight: -1422293799
+      WaterColdLeft: -1873154885
       WaterColdBend4: 321993773
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
