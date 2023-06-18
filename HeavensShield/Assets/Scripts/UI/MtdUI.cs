@@ -13,6 +13,9 @@ namespace Mtd.UI {
     [SerializeField] GameObject _eventSystemPrefab;
     [SerializeField] GraphicRaycaster _uiGraphicRaycaster;
 
+    [SerializeField] CanvasHelper _canvas;
+    public CanvasHelper Canvas => _canvas;
+
     [SerializeField] HUD _hud;
     public HUD HUD => _hud;
 

@@ -4522,6 +4522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventSystemPrefab: {fileID: 1648568800632270621, guid: 5395c019335b73c4eb9734c4e4e31e86, type: 3}
   _uiGraphicRaycaster: {fileID: 5281173861250695870}
+  _canvas: {fileID: 1257358792567449009}
   _hud: {fileID: 1658877764115468802}
   _unitSelector: {fileID: 4287955091002205989}
   _scenarioLeftSideButtons: {fileID: 2980690867050128294}

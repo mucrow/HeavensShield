@@ -1,6 +1,7 @@
 ﻿//source: https://forum.unity.com/threads/canvashelper-resizes-a-recttransform-to-iphone-xs-safe-area.521107
 
 using System.Collections.Generic;
+using Mtd.Utils;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -35,6 +36,7 @@ namespace Mtd.UI {
         _lastResolution.x = Screen.width;
         _lastResolution.y = Screen.height;
         _lastSafeArea = Screen.safeArea;
+        Debug.Log("SafeArea: " + _lastSafeArea);
 
         _screenChangeVarsInitialized = true;
       }
@@ -111,6 +113,20 @@ namespace Mtd.UI {
       for (int i = 0; i < _helpers.Count; i++) {
         _helpers[i].ApplySafeArea();
       }
+    }
+
+    public SafeAreaPadding GetSafeAreaPadding() {
+      var ret = new SafeAreaPadding();
+
+      var safeAreaRect = _safeAreaTransform.rect;
+      var safeAreaSize = safeAreaRect.size;
+
+      ret.Left = (int) safeAreaRect.x;
+      ret.Bottom = (int) safeAreaRect.y;
+      ret.Right = (int) (_lastResolution.x - (ret.Left + safeAreaSize.x));
+      ret.Top = (int) (_lastResolution.y - (ret.Bottom + safeAreaSize.y));
+
+      return ret;
     }
   }
 }
