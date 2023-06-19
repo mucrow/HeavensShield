@@ -71,6 +71,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenarios/Chapter3/S-0017-BattleInTheBlizzard.unity
     guid: 07fd46cf295c7c84593673327040c984
+  - enabled: 1
+    path: Assets/Scenarios/Chapter3/S-0018-AntarcticEdge.unity
+    guid: d150145b54aa5de4bb1785f6cad2df2a
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 0a973215422802b45b1325e4a9892a4d, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 8227f14c061c5f541bd1d184274b701a, type: 2}
