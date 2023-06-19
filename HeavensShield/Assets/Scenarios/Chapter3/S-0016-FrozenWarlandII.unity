@@ -463,6 +463,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1760618787333433621, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760618787333433621, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -480,6 +484,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1966284378251753436, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966284378251753436, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1966284378251753436, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
@@ -540,6 +548,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2329177006932285497, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329177006932285497, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2329177006932285497, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
@@ -840,6 +852,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6411118798894003767, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411118798894003767, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6411118798894003767, guid: 7e6508b975455384da03aa4c100d65a3, type: 3}
@@ -21631,7 +21647,7 @@ PrefabInstance:
     - target: {fileID: 2834857970355891945, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
       propertyPath: _music
       value: 
-      objectReference: {fileID: 8300000, guid: 2bdd0243443a2e948b9cdb44dc6b3ec7, type: 3}
+      objectReference: {fileID: 8300000, guid: f0784542616866140ac67ed673ca70a1, type: 3}
     - target: {fileID: 2834857970575314691, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
       propertyPath: _enemyWaves.Array.size
       value: 8
