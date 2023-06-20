@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 210b753301794beaa4ec9b5f3dbb6b48, type: 3}
-  m_Name: Chapter4
+  m_Script: {fileID: 11500000, guid: a2f3e5cba27b4c35baa223527d4b009d, type: 3}
+  m_Name: S-0021-ClashInTheCaverns
   m_EditorClassIdentifier: 
-  _scenarios:
-  - {fileID: 11400000, guid: 71d6f994914801e438f197a516c3854f, type: 2}
+  _name: Clash in the Caverns
+  _path: S-0021-ClashInTheCaverns
