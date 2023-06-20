@@ -74,6 +74,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenarios/Chapter3/S-0018-AntarcticEdge.unity
     guid: d150145b54aa5de4bb1785f6cad2df2a
+  - enabled: 1
+    path: Assets/Scenarios/Chapter3/S-0019-FrozenSkirmish.unity
+    guid: 54793f77c5503bf47a374a5e944cb367
+  - enabled: 1
+    path: Assets/Scenarios/Chapter3/S-0020-WintersKeep.unity
+    guid: 7ba1018fa162b494cbce8740cae5f0ef
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 0a973215422802b45b1325e4a9892a4d, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 8227f14c061c5f541bd1d184274b701a, type: 2}
