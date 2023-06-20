@@ -1591,6 +1591,531 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: CaveGround
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0735de7273ef34948bdf9a08335303ce
+      internalID: -83094732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveGroundDetail1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc4516351fc84a34fb5766121de38d44
+      internalID: -724828524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveGroundDetail2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78172a15a8ade9345a42271925f7b27b
+      internalID: -1193662966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveGroundDetail3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f2bdf3aeafafaa48b151b41ae902dd7
+      internalID: 1993765907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveMoss1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2af19374ea04f1d4e9c17125e534a695
+      internalID: 1379106828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveMoss2
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ee320a44f30d9478b95eade6d9675a
+      internalID: 930635766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveWaterTopLeft
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5442578c37b78a54ebf522badc36e3e9
+      internalID: -1423044311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveWaterTop
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86432a47146fa6141b6ae75668423b27
+      internalID: 1073522674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveWaterTopRight
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 830d2680f38b13a44b49503cedba8423
+      internalID: 1917558301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveWaterLeft
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82deae8fe31d8ae4792c031fba6e7363
+      internalID: 1553412158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveWaterCenter
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b39f397ff2b04004e8f8ec745fddae64
+      internalID: -265653005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveWaterRight
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5a37a18b1b2c2f41b2eaf4fd36252e7
+      internalID: -392466308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveWaterBottomLeft
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ac3b41ec0a5b447b74d23c16653093
+      internalID: 1318251963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveWaterBottom
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5fdeaeec6006264bb262ee13c77e008
+      internalID: -873255174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveWaterBottomRight
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c9376d83ba5e8644b602bbaf273b9d1
+      internalID: -830613603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveWaterBendTL
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2379dd8fd6927254eab2ba7e1af44948
+      internalID: 1466081456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveWaterBendTR
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df5cb971177f3034da77815f579d58a8
+      internalID: -1880002668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveWaterBendBL
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0353719d465a6df4fb9b62caf32da6f2
+      internalID: 1156161472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveWaterBendBR
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ec553db94575664f87974d70201d946
+      internalID: 1268548543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveRockSmall
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd5a3df078c20f4fb6c937f3517b24b
+      internalID: 1365061837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveRock
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 64
+        width: 16
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e50558774caa35640931eba9ec982369
+      internalID: -445257012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CaveRockLarge
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab2018db16384d042b19d366274e235d
+      internalID: 208456947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stakes
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a82212acbf449194c8e79475da4acd7c
+      internalID: 88832696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e831a8a8919c54844bb4f1297c80462e
+      internalID: 858073900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal2
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8487b8bc9d35ea34e8ebe682a712f7f2
+      internalID: -1939873811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1603,86 +2128,111 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       ColdRock: -745730087
-      WaterColdBend1: -1805855309
       BridgeVertical: 530055341
-      PathColdCornerBR: 792271191
       Weed: -1579357476
-      TreeSnowyFlowery: -748069639
       WaterTopLeft: -101034694
-      WaterColdTop: 1349510651
-      PathColdCornerTR: 241393239
-      WaterColdBottomRight: -1422293799
+      Stakes: 88832696
       WaterBottomLeft: 521888339
       PathCold: -1183214887
-      tiles_5: -2081100833
-      tiles_14: -1210079810
+      CaveWaterBendTL: 1466081456
       tiles_19: -1099245951
       WaterCenter: 2057487192
-      SnowDetail2: -1011027027
       WaterBend4: 1310383369
       tiles_6: 11632520
       WaterColdRight: 1073874037
-      PathEdge3Lef: -367072251
       WaterColdBend3: 654969874
       WaterBend1: 1293106344
       tiles_16: 1593566479
       tiles_4: -367630493
       PathEdge3Top: -144467439
       tiles_21: -1335965555
-      Flower: -91175311
+      Crystal1: 858073900
       WaterColdBend2: 2138091580
-      WaterBottom: -880940868
-      WaterBend2: 1632635553
-      WaterLeft: -2042250969
       WaterColdTopRight: 1700131323
       PathEdge3Right: -604261436
       FlowerBush2: 1758111285
       tiles_24: -498899092
       tiles_13: 2141073574
-      tiles_2: -492439088
-      PathEdge2TL: -1753957470
+      CaveWaterBottomRight: -830613603
       WaterColdCenter: 2062682621
-      tiles_7: 1707198037
       tiles_9: -1834507335
-      tiles_17: 1406550379
-      BridgeHorizontalSupports: -1562382815
       PathEdge2TR: 1408039168
-      WaterRight: -826379376
+      CaveGroundDetail2: -1193662966
       tiles_22: -1106657727
       tiles_11: 1923481094
-      BigFlower: -995821088
-      BridgeHorizontal: -1774298751
+      Crystal2: -1939873811
       FlowerPair: -673734970
       tiles_18: -317590901
-      tiles_1: 1632304769
+      CaveWaterRight: -392466308
       tiles_20: -323725298
-      PathColdCornerTL: -2057300491
       PathEdge4: 1737798663
+      WaterTop: 260172956
+      WaterBend3: -605740389
+      tiles_26: 115580694
+      WaterColdBottom: 1776588762
+      WaterColdTopLeft: -4272037
+      CaveGroundDetail1: -724828524
+      Snow: 1600626143
+      CaveRock: -445257012
+      tiles_0: 878226083
+      TreeSnowy: 1114041034
+      tiles_12: 755175667
+      WaterColdLeft: -1873154885
+      ColdFlower2: 1957230119
+      WaterColdBottomRight: -1422293799
+      WaterColdBend4: 321993773
+      WaterColdBend1: -1805855309
+      PathColdCornerBR: 792271191
+      TreeSnowyFlowery: -748069639
+      WaterColdTop: 1349510651
+      CaveMoss2: 930635766
+      PathColdCornerTR: 241393239
+      tiles_5: -2081100833
+      tiles_14: -1210079810
+      SnowDetail2: -1011027027
+      PathEdge3Lef: -367072251
+      CaveRockSmall: 1365061837
+      CaveWaterTopLeft: -1423044311
+      CaveWaterBendBR: 1268548543
+      CaveWaterBottom: -873255174
+      Flower: -91175311
+      CaveGroundDetail3: 1993765907
+      WaterBottom: -880940868
+      WaterBend2: 1632635553
+      WaterLeft: -2042250969
+      tiles_2: -492439088
+      CaveGround: -83094732
+      CaveWaterLeft: 1553412158
+      CaveWaterTopRight: 1917558301
+      PathEdge2TL: -1753957470
+      CaveWaterTop: 1073522674
+      tiles_7: 1707198037
+      tiles_17: 1406550379
+      BridgeHorizontalSupports: -1562382815
+      CaveWaterBendTR: -1880002668
+      WaterRight: -826379376
+      CaveWaterBendBL: 1156161472
+      CaveWaterCenter: -265653005
+      BigFlower: -995821088
+      BridgeHorizontal: -1774298751
+      CaveWaterBottomLeft: 1318251963
+      tiles_1: 1632304769
+      PathColdCornerTL: -2057300491
       PathEdge3Bottom: 1130024153
       SnowDetail1: -348527848
       PathColdCornerBL: 990232311
-      WaterTop: 260172956
       WaterTopRight: 2114805801
       tiles_3: -1760306654
-      WaterBend3: -605740389
-      tiles_26: 115580694
       WaterColdBottomLeft: -1994747457
-      WaterColdBottom: 1776588762
-      WaterColdTopLeft: -4272037
       Bush: -480430633
       ColdFlower1: 629209318
+      CaveRockLarge: 208456947
       FlowerBush1: 1222898513
       tiles_15: 1017031572
-      Snow: 1600626143
-      tiles_0: 878226083
       WaterBottomRight: 1696338227
       PathEdge2BL: -233437657
-      TreeSnowy: 1114041034
-      tiles_12: 755175667
       PathEdge2BR: -1820821406
-      ColdFlower2: 1957230119
-      WaterColdLeft: -1873154885
-      WaterColdBend4: 321993773
+      CaveMoss1: 1379106828
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
