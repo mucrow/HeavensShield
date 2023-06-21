@@ -1,1 +1,1 @@
-aseprite --batch --split-slices --layer "Main" .\Textures.aseprite --save-as ..\..\MobileTowerDefense\Assets\Textures\{slice}.png
+aseprite --batch --split-slices --layer "Main" .\Textures.aseprite --save-as ..\..\HeavensShield\Assets\Textures\{slice}.png
