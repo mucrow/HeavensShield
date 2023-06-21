@@ -83,6 +83,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenarios/Chapter4/S-0021-ClashInTheCaverns.unity
     guid: e318ba252d4ded64b8df403859491bbe
+  - enabled: 1
+    path: Assets/Scenarios/Chapter4/S-0022-CaveRave.unity
+    guid: 2eadabaf324863142a4f03ba3bf5f6e9
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 0a973215422802b45b1325e4a9892a4d, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 8227f14c061c5f541bd1d184274b701a, type: 2}
