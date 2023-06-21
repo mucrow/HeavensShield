@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1239123174091370179
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -7384697093893124003, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _animationFrames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7384697093893124003, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _animationFrames.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 554915c0417cbd84b8837062a7be1d82, type: 3}
+    - target: {fileID: 342406528237587769, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _speed
+      value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _maxHealth
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _moneyOnKill
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _scoreOnKill
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _defaultEnemyCount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _defaultWaitTimeAfterWave
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _defaultWaitTimeBeforeWave
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958833510802306938, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: _defaultWaitTimeBetweenEach
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467403111871537242, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467403111871537242, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467403111871537242, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467403111871537242, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467403111871537242, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467403111871537242, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467403111871537242, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467403111871537242, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467403111871537242, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467403111871537242, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467403111871537242, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843700559086065460, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843700559086065460, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843700559086065460, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843700559086065460, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6953710727018059057, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_Name
+      value: CaveSpider2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458727276083086698, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458727276083086698, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458727276083086698, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 554915c0417cbd84b8837062a7be1d82, type: 3}
+    - target: {fileID: 7458727276083086698, guid: 79506bb289fc81241a41905375020013, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 79506bb289fc81241a41905375020013, type: 3}
