@@ -53,6 +53,7 @@ namespace Mtd {
           }
           var orderedScenarioInfo = new OrderedScenarioInfo() {
             ChapterID = indexOfChapter,
+            IndexInChapter = indexOfScenario,
             ID = id,
             Name = scenario.Name,
             Path = scenario.Path,

@@ -19,6 +19,9 @@ namespace Mtd.UI {
     [SerializeField] HUD _hud;
     public HUD HUD => _hud;
 
+    [SerializeField] TMP_Text _scenarioNameInHUDText;
+    public TMP_Text ScenarioNameInHUDText => _scenarioNameInHUDText;
+
     [SerializeField] UnitSelector _unitSelector;
     public UnitSelector UnitSelector => _unitSelector;
 
@@ -27,6 +30,12 @@ namespace Mtd.UI {
 
     [SerializeField] ShowHideUIElement _scenarioTapToStartOverlay;
     public ShowHideUIElement ScenarioTapToStartOverlay => _scenarioTapToStartOverlay;
+
+    [SerializeField] TMP_Text _scenarioNumberOnTapToStartOverlayText;
+    public TMP_Text ScenarioNumberOnTapToStartOverlayText => _scenarioNumberOnTapToStartOverlayText;
+
+    [SerializeField] TMP_Text _scenarioNameOnTapToStartOverlayText;
+    public TMP_Text ScenarioNameOnTapToStartOverlayText => _scenarioNameOnTapToStartOverlayText;
 
     [SerializeField] ScenarioUI _scenarioUI;
     public ScenarioUI ScenarioUI => _scenarioUI;

@@ -46,6 +46,13 @@ namespace Mtd {
       UpdateTimeScale();
 
       Globals.UI.EnsureReady();
+
+      Globals.LoadedScenario.With(info => {
+        Globals.UI.ScenarioNumberOnTapToStartOverlayText.text = FormatChapterAndScenarioNumber(info);
+        Globals.UI.ScenarioNameOnTapToStartOverlayText.text = info.Name;
+        Globals.UI.ScenarioNameInHUDText.text = info.Name;
+      });
+
       Globals.UI.HUD.ShowInstant();
       Globals.UI.ScenarioUI.UpdateLeftSideButtons(this);
       Globals.UI.ScenarioLeftSideButtons.ShowInstant();
@@ -187,6 +194,12 @@ namespace Mtd {
         banner.Hide(),
         Globals.UI.ScoreTallyModal.Show()
       );
+    }
+
+    string FormatChapterAndScenarioNumber(OrderedScenarioInfo info) {
+      int chapterNumber = info.ChapterID + 1;
+      int scenarioNumber = info.IndexInChapter + 1;
+      return "Chapter " + chapterNumber + ", Scenario " + scenarioNumber;
     }
 
     AudioClip ChooseJingle(bool outcomeIsVictory) {

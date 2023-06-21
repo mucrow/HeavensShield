@@ -4726,9 +4726,12 @@ MonoBehaviour:
   _uiGraphicRaycaster: {fileID: 5281173861250695870}
   _canvas: {fileID: 1257358792567449009}
   _hud: {fileID: 1658877764115468802}
+  _scenarioNameInHUDText: {fileID: 4422628645938121627}
   _unitSelector: {fileID: 4287955091002205989}
   _scenarioLeftSideButtons: {fileID: 2980690867050128294}
   _scenarioTapToStartOverlay: {fileID: 7286841258276815817}
+  _scenarioNumberOnTapToStartOverlayText: {fileID: 6432527154248749406}
+  _scenarioNameOnTapToStartOverlayText: {fileID: 2145419528166106707}
   _scenarioUI: {fileID: 142395017021165339}
   _scenarioMenu: {fileID: 4020656424004786153}
   _victoryBanner: {fileID: 8987191298133773445}
