@@ -81,7 +81,8 @@ namespace Mtd {
     }
 
     void OnPlayerAgentRegistered(PlayerAgent playerAgent) {
-      playerAgent.SetMoney(_startingMoney);
+      var startingUnits = _unitsGroup.GetComponentsInChildren<Unit>();
+      playerAgent.SetMoney(_startingMoney - startingUnits.Length * 300);
       Globals.PlayerAgent.RemoveRegisterListener(OnPlayerAgentRegistered);
     }
 
