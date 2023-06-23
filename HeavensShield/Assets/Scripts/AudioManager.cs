@@ -48,12 +48,13 @@ namespace Mtd {
       return newObject.GetComponent<AudioSource>();
     }
 
-    public void PlayMusic(AudioClip musicClip) {
+    public void PlayMusic(AudioClip musicClip, bool shouldLoop=true) {
       if (musicClip == _currentMusicClip && _musicSource.isPlaying) {
         return;
       }
       _musicSource.Stop();
       _musicSource.clip = musicClip;
+      _musicSource.loop = shouldLoop;
       _musicSource.volume = 1f;
       _musicSource.Play();
       _currentMusicClip = musicClip;

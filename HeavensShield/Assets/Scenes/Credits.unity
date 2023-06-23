@@ -891,6 +891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _music: {fileID: 8300000, guid: 642596ca25241874cb1b19d55e8b04d6, type: 3}
+  _shouldLoop: 0
   _uiObjectKeys: 03000000
   _onUIReady:
     m_PersistentCalls:
