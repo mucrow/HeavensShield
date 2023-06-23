@@ -1,24 +1,25 @@
 Credits
 
-Mistigri
-secret level music
+jony
+music counsel
 
 Loni
 testing, advice
 
-trayson
-testing, advice
+Mistigri
+music counsel
 
 sulkaritari
 music counsel, advice, localization
+
+trayson
+testing, advice
 
 
 Special Thanks
 
 my game jam buddies, dolo, Yon, and Quicksell
 
-my mom and my sisters Emily, Jamie, and Kylie
-
-my cousins Anthony, Joey, Jony, Matt, and Nick
+my mom and my sisters
 
 Violet, wooxer, BestSupport, thursday, and all my other treasured friends
