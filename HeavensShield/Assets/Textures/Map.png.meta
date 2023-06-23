@@ -2125,7 +2125,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2146,7 +2146,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2167,7 +2167,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2175,6 +2175,48 @@ TextureImporter:
       bones: []
       spriteID: 8d1344e70cc2f4c439fce2436826d330
       internalID: -808593207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hole
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed5b25404d085d40b858a7107ed39ea
+      internalID: 55416862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoleEdge
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aab9b4bfba1b0664b8878d02447941e6
+      internalID: -1876601822
       vertices: []
       indices: 
       edges: []
@@ -2211,6 +2253,7 @@ TextureImporter:
       tiles_21: -1335965555
       Crystal1: 858073900
       WaterColdBend2: 2138091580
+      Hole: 55416862
       CavePathDetail2: -808593207
       WaterColdTopRight: 1700131323
       PathEdge3Right: -604261436
@@ -2240,10 +2283,11 @@ TextureImporter:
       CaveRock: -445257012
       tiles_0: 878226083
       TreeSnowy: 1114041034
-      tiles_12: 755175667
-      WaterColdLeft: -1873154885
-      ColdFlower2: 1957230119
       WaterColdBottomRight: -1422293799
+      tiles_12: 755175667
+      ColdFlower2: 1957230119
+      WaterColdLeft: -1873154885
+      HoleEdge: -1876601822
       WaterColdBend4: 321993773
       WaterColdBend1: -1805855309
       PathColdCornerBR: 792271191

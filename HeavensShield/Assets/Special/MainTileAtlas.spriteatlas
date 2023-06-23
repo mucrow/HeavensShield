@@ -59,6 +59,7 @@ SpriteAtlas:
     - d745f6cfd20f6a34982fd171f991c133: -808593207
     - d745f6cfd20f6a34982fd171f991c133: 443717624
     - d745f6cfd20f6a34982fd171f991c133: -367072251
+    - d745f6cfd20f6a34982fd171f991c133: -1876601822
     - d745f6cfd20f6a34982fd171f991c133: -101034694
     - d745f6cfd20f6a34982fd171f991c133: -83094732
     - d745f6cfd20f6a34982fd171f991c133: -651758360
@@ -100,6 +101,7 @@ SpriteAtlas:
     - d745f6cfd20f6a34982fd171f991c133: 88832696
     - d745f6cfd20f6a34982fd171f991c133: 1222898513
     - d745f6cfd20f6a34982fd171f991c133: 1758111285
+    - d745f6cfd20f6a34982fd171f991c133: 55416862
     - d745f6cfd20f6a34982fd171f991c133: -1423044311
     - d745f6cfd20f6a34982fd171f991c133: -1193662966
     - d745f6cfd20f6a34982fd171f991c133: 1993765907
@@ -158,6 +160,7 @@ SpriteAtlas:
   - {fileID: -808593207, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: 443717624, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: -367072251, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
+  - {fileID: -1876601822, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: -101034694, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: -83094732, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: -651758360, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
@@ -199,6 +202,7 @@ SpriteAtlas:
   - {fileID: 88832696, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: 1222898513, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: 1758111285, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
+  - {fileID: 55416862, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: -1423044311, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: -1193662966, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
   - {fileID: 1993765907, guid: d745f6cfd20f6a34982fd171f991c133, type: 3}
@@ -256,6 +260,7 @@ SpriteAtlas:
   - CavePathDetail2
   - CavePathDetail1
   - PathEdge3Lef
+  - HoleEdge
   - WaterTopLeft
   - CaveGround
   - CavePath
@@ -297,6 +302,7 @@ SpriteAtlas:
   - Stakes
   - FlowerBush1
   - FlowerBush2
+  - Hole
   - CaveWaterTopLeft
   - CaveGroundDetail2
   - CaveGroundDetail3
