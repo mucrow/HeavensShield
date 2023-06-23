@@ -15,3 +15,8 @@ MonoBehaviour:
   _scenarios:
   - {fileID: 11400000, guid: 71d6f994914801e438f197a516c3854f, type: 2}
   - {fileID: 11400000, guid: a6e187cb3d9917e42a2bb8e3b5723f70, type: 2}
+  - {fileID: 11400000, guid: d081981d06603b7459bcd98f51e36c92, type: 2}
+  - {fileID: 11400000, guid: f22d693dc8e1bdb44bb3bbf6f10ffcf3, type: 2}
+  - {fileID: 11400000, guid: 7dea3b0eec4e37942bec474ce50de705, type: 2}
+  - {fileID: 11400000, guid: 74aa8f1a0c41020469c1a61b106df556, type: 2}
+  - {fileID: 11400000, guid: 2ca384b78e8fc16468daa48648b61882, type: 2}

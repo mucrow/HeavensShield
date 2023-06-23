@@ -89,6 +89,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenarios/Chapter5/S-0028-TheFinalBattle.unity
     guid: f40970e8b2269b743aa67688a1668857
+  - enabled: 1
+    path: Assets/Scenarios/Chapter4/S-0023-BlastlightBattle.unity
+    guid: 14635615658ba79408977c553ef83e8f
+  - enabled: 1
+    path: Assets/Scenarios/Chapter4/S-0024-TraitorsTunnel.unity
+    guid: da032c2ef1da6474da6645be66e8a27d
+  - enabled: 1
+    path: Assets/Scenarios/Chapter4/S-0025-AttackOfTheCaveBeastsI.unity
+    guid: 4eb3716f0631fbd4984515919533d70c
+  - enabled: 1
+    path: Assets/Scenarios/Chapter4/S-0026-AttackOfTheCaveBeastsII.unity
+    guid: d175a5d143e52cb4999ce53b3c827ae1
+  - enabled: 1
+    path: Assets/Scenarios/Chapter4/S-0027-AttackOfTheCaveBeastsIII.unity
+    guid: 7c36547934faedd439029a6f862c42b8
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 0a973215422802b45b1325e4a9892a4d, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 8227f14c061c5f541bd1d184274b701a, type: 2}
