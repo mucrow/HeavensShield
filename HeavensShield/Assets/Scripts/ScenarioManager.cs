@@ -30,6 +30,7 @@ namespace Mtd {
 
     [SerializeField] AudioClip _music;
     [SerializeField] bool _isBigBattle = false;
+    [SerializeField] bool _isFinalBattle = false;
 
     void Awake() {
       Globals.ScenarioManager.Register(this);
@@ -144,8 +145,52 @@ namespace Mtd {
 
     void CheckIfPlayerWon() {
       if (_enemySpawningComplete && _livingEnemies.Count == 0) {
-        DoScenarioOutcome(true);
+        if (_isFinalBattle) {
+          DoFinalBattleScenarioOutcome();
+        }
+        else {
+          DoScenarioOutcome(true);
+        }
       }
+    }
+
+    async void DoFinalBattleScenarioOutcome() {
+      SetScenarioPaused(true);
+
+      var saveData = Globals.GameManager.SaveData;
+
+      Globals.PlayerAgent.With(playerAgent => {
+        Globals.LoadedScenario.With(loadedScenario => {
+          int towerHP = _tower.Health;
+          int money = playerAgent.Money;
+          int baseScore = playerAgent.Score;
+
+          int moneyBonus = Mathf.FloorToInt(money / 100f);
+          int towerHPBonus = Mathf.FloorToInt(towerHP * 2f);
+          int totalScore = Mathf.FloorToInt(baseScore + moneyBonus + towerHPBonus);
+
+          bool newHighScore = saveData.Game.RegisterScore(loadedScenario.ID, totalScore);
+          if (newHighScore) {
+            // TODO you can do somethin abt it..
+          }
+
+          saveData.Game.UnlockScenarios(loadedScenario.Unlocks.ToArray());
+
+          if (saveData.Game.NextStoryScenarioID == loadedScenario.ID) {
+            saveData.Game.NextStoryScenarioID += 1;
+          }
+
+          Globals.GameManager.WriteSaveData();
+        });
+      });
+
+      Globals.UI.UnitSelector.CloseInstant();
+
+      var whiteOutFadeTask = Globals.UI.WhiteOutOverlay.Show();
+      var musicFadeTask = Globals.AudioManager.FadeCurrentMusic(5f);
+      await Task.WhenAll(whiteOutFadeTask, musicFadeTask);
+
+      Globals.GameManager.LoadCreditsScene();
     }
 
     async void DoScenarioOutcome(bool isVictory) {

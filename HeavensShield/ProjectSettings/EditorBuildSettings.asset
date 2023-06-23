@@ -104,6 +104,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenarios/Chapter4/S-0027-AttackOfTheCaveBeastsIII.unity
     guid: 7c36547934faedd439029a6f862c42b8
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 25dd407cf5414484b9cf5a1e5c543e6b
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 0a973215422802b45b1325e4a9892a4d, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 8227f14c061c5f541bd1d184274b701a, type: 2}

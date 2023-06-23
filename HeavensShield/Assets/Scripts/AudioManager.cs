@@ -59,6 +59,24 @@ namespace Mtd {
       _currentMusicClip = musicClip;
     }
 
+    public Task FadeCurrentMusic(float time = 1f) {
+      var tcs = new TaskCompletionSource<bool>();
+
+      LeanTween.value(
+        _musicSource.gameObject,
+        volume => { _musicSource.volume = volume; },
+        1f,
+        0f,
+        time
+      ).setOnComplete(() => {
+        _musicSource.Stop();
+        _musicSource.volume = 1f;
+        tcs.SetResult(true);
+      }).setIgnoreTimeScale(true);
+
+      return tcs.Task;
+    }
+
     /**
      * A jingle is a short piece of music that temporarily interrupts the current background music.
      *

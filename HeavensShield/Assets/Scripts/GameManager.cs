@@ -75,6 +75,10 @@ namespace Mtd {
       LoadSceneHelper("Scenes/StartMenu", null);
     }
 
+    public void LoadCreditsScene() {
+      LoadSceneHelper("Scenes/Credits", null);
+    }
+
     public void LoadNextStoryScenarioFromMainMenu() {
       LoadNextStoryScenario(ScenarioSceneQuitTarget.MainMenu);
     }

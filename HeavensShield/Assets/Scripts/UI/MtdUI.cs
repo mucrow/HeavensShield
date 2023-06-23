@@ -66,6 +66,10 @@ namespace Mtd.UI {
     [SerializeField] ShowHideUIElement _startMenu;
     [SerializeField] ShowHideUIElement _settingsMenu;
     [SerializeField] ShowHideUIElement _mainMenu;
+    [SerializeField] ShowHideUIElement _credits;
+
+    [SerializeField] ShowHideUIElement _whiteOutOverlay;
+    public ShowHideUIElement WhiteOutOverlay => _whiteOutOverlay;
 
     EventSystem _eventSystem;
     bool _isWholeUIReady = false;
@@ -113,6 +117,8 @@ namespace Mtd.UI {
           return _settingsMenu;
         case UIObjectKey.MainMenu:
           return _mainMenu;
+        case UIObjectKey.Credits:
+          return _credits;
       }
       throw new Exception("Unhandled UIObjectKey " + key);
     }
@@ -122,5 +128,6 @@ namespace Mtd.UI {
     StartMenu = 0,
     SettingsMenu = 1,
     MainMenu = 2,
+    Credits = 3,
   }
 }
