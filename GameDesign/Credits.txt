@@ -1,8 +1,5 @@
 Credits
 
-jony
-music counsel
-
 Loni
 testing, advice
 
@@ -15,9 +12,6 @@ music counsel, advice, localization
 trayson
 testing, advice
 
-BestSupport
-swamp monster
-
 
 Special Thanks
 
@@ -25,4 +19,4 @@ my game jam buddies, dolo, Yon, and Quicksell
 
 my mom and my sisters
 
-Violet, wooxer, thursday, and all my other treasured friends
+Violet, jony, wooxer, BestSupport, thursday, and all my other treasured friends
