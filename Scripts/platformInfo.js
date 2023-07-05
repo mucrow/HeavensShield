@@ -37,7 +37,7 @@ function getArtifactSubpath(buildDirBaseName, platform) {
     case 'ios':
       return `${GAME_NAME}-Xcode-${buildDirBaseName}`;
     case 'android':
-      return `${GAME_NAME}.apk`;
+      return '.';
   }
 }
 
@@ -46,8 +46,6 @@ function getArtifactPath(buildDirBaseName, buildDir, platform) {
   const artifactSubpath = getArtifactSubpath(buildDirBaseName, platform);
   return path.join(platformDir, artifactSubpath);
 }
-
-
 
 function getPackPathBaseName(buildDirBaseName, buildDir, platform) {
   switch (platform) {
@@ -60,7 +58,7 @@ function getPackPathBaseName(buildDirBaseName, buildDir, platform) {
     case 'ios':
       return `${GAME_NAME}-Xcode-${buildDirBaseName}`;
     case 'android':
-      return `${GAME_NAME}-Android-${buildDirBaseName}.apk`;
+      return `${GAME_NAME}-Android-${buildDirBaseName}`;
   }
 }
 

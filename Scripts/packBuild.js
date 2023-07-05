@@ -143,16 +143,17 @@ async function packAndroid(platformsInfo) {
   }
 
   const info = platformsInfo.android;
-  const artifactName = 'Android build';
+  const artifactName = 'Android APK and app bundle';
 
   logPreparingMessage(artifactName);
-  await fs.copyFile(info.artifactPath, info.packPath);
+  await fs.cp(info.dir, info.packPath, { recursive: true });
+  await removeNoShipSubdirs(info.packPath);
 
   logCompressingMessage(artifactName);
-  await zip(info.packPath, false);
+  await zip(info.packPath, true);
 
   logCleanupMessage(artifactName);
-  await fs.rm(info.packPath);
+  await fs.rm(info.packPath, { recursive: true });
 
   logFinishedMessage(artifactName);
   return true;
