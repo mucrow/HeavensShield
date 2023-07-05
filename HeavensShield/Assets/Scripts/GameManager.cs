@@ -91,6 +91,10 @@ namespace Mtd {
       LoadScenario(Globals.ScenarioOrder.GetScenarioByID(id), quitTarget);
     }
 
+    public void OpenPrivacyPolicy() {
+      Application.OpenURL("https://mucrow.github.io/heavens-shield/privacy");
+    }
+
     public void ReloadScenario() {
       Globals.LoadedScenario.With(scenarioInfo => {
         LoadScenario(scenarioInfo, Globals.ScenarioSceneQuitTarget);
