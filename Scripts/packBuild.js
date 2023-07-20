@@ -14,12 +14,13 @@ const {
 const { zip } = require('./archiverAdapter');
 
 async function removeNoShipSubdirs(dir) {
-  const subdirA = path.join(dir, `${GAME_NAME}_BackUpThisFolder_ButDontShipItWithYourGame`);
-  const subdirB = path.join(dir, `${GAME_NAME}_BurstDebugInformation_DoNotShip`);
-  await Promise.all([
-    fs.rm(subdirA, { force: true, recursive: true }),
-    fs.rm(subdirB, { force: true, recursive: true })
-  ]);
+  const filesAndDirectories = await fs.readdir(dir);
+  for (const fileOrDirectoryName of filesAndDirectories) {
+    if (fileOrDirectoryName.toLowerCase().includes('dontship') || fileOrDirectoryName.toLowerCase().includes('donotship')) {
+      const absPath = path.join(dir, fileOrDirectoryName);
+      await fs.rm(absPath, { force: true, recursive: true });
+    }
+  }
 }
 
 async function shouldPackDirectory(path) {
