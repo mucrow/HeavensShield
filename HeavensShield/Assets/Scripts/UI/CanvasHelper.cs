@@ -71,7 +71,13 @@ namespace Mtd.UI {
         return;
       }
 
-      var safeArea = Screen.safeArea;
+      Rect safeArea = Screen.safeArea;
+      if (safeArea.x == 0f && safeArea.y == 0f && safeArea.width == Screen.width && safeArea.height == Screen.height) {
+        // Debug.Log("The entire screen is safe (max safeArea)");
+        _safeAreaTransform.anchorMin = Vector2.zero;
+        _safeAreaTransform.anchorMax = Vector2.one;
+        return;
+      }
 
       var anchorMin = safeArea.position;
       var anchorMax = safeArea.position + safeArea.size;
