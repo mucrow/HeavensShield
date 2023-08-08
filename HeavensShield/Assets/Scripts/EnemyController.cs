@@ -51,7 +51,10 @@ namespace Mtd {
     }
 
     void Start() {
-      UpdateHealthBar();
+      var scenarioManager = Globals.ScenarioManager.GetNullable();
+      if (!scenarioManager || !scenarioManager.IsScreenshotScenario) {
+        UpdateHealthBar();
+      }
     }
 
     void Update() {
@@ -146,8 +149,6 @@ namespace Mtd {
         return;
       }
 
-      // float dt = Time.deltaTime;
-      // transform.position = Vector3.MoveTowards(currentPos, nextWaypoint, _speed * dt);
       var nextVelocity = (nextWaypoint - currentPos).normalized * _speed;
       _rigidbody2D.velocity = nextVelocity;
       if (nextVelocity.x < 0) {

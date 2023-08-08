@@ -70,6 +70,11 @@ namespace Mtd {
       ScoreChange.Invoke(_score);
     }
 
+    public void SetScore(int newScore) {
+      _score = newScore;
+      ScoreChange.Invoke(_score);
+    }
+
     void OnDragStart(Vector2 screenPos) {
       _ignoreCurrentDrag = Globals.UI.DoesUICoverScreenPoint(screenPos);
       if (!_ignoreCurrentDrag) {

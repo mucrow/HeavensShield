@@ -27,10 +27,15 @@ namespace Mtd {
     float[] _battleSpeeds = new float[] {1f, 2f, 3f};
 
     [SerializeField] int _startingMoney = 1100;
+    [SerializeField] int _startingScore = 0;
 
     [SerializeField] AudioClip _music;
     [SerializeField] bool _isBigBattle = false;
     [SerializeField] bool _isFinalBattle = false;
+
+    /** Is this a fake scenario set up only for the purposes of taking a promotional screenshot? */
+    [SerializeField] bool _isScreenshotScenario = false;
+    public bool IsScreenshotScenario => _isScreenshotScenario;
 
     void Awake() {
       Globals.ScenarioManager.Register(this);
@@ -43,7 +48,7 @@ namespace Mtd {
       }
 
       IsPaused = true;
-      BattleSpeed = 1f;
+      BattleSpeed = _isScreenshotScenario ? 0f : 1f;
       UpdateTimeScale();
 
       Globals.UI.EnsureReady();
@@ -84,6 +89,7 @@ namespace Mtd {
     void OnPlayerAgentRegistered(PlayerAgent playerAgent) {
       var startingUnits = _unitsGroup.GetComponentsInChildren<Unit>();
       playerAgent.SetMoney(_startingMoney - startingUnits.Length * 300);
+      playerAgent.SetScore(_startingScore);
       Globals.PlayerAgent.RemoveRegisterListener(OnPlayerAgentRegistered);
     }
 

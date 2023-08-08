@@ -85,5 +85,9 @@ namespace Mtd {
         await callback(_proxied);
       }
     }
+
+    public T GetNullable() {
+      return _proxied;
+    }
   }
 }

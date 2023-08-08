@@ -43,6 +43,10 @@ namespace Mtd {
     }
 
     void Update() {
+      if (Time.timeScale <= 0f) {
+        return;
+      }
+
       UpdateSprite();
 
       if (_actionCooldownTimer > 0f) {
