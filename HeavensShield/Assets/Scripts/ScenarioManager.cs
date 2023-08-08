@@ -33,7 +33,27 @@ namespace Mtd {
     [SerializeField] bool _isBigBattle = false;
     [SerializeField] bool _isFinalBattle = false;
 
-    /** Is this a fake scenario set up only for the purposes of taking a promotional screenshot? */
+    /**
+     * Is this a fake scenario set up only for the purposes of taking a promotional screenshot?
+     *
+     * Screenshot scenarios lock the timeScale at zero, meaning that they will not play out, even
+     * while unpaused.
+     *
+     * To create a screenshot scenario, play the normal scenario it will be based on, create the
+     * desired situation you would like to capture, and then pause the game. Copy the "Units" and
+     * "Enemies" hierarchy objects and stop the running game.
+     *
+     * Duplicate the scenario you were playing and move the clone to the Assets\Scenarios\Debug
+     * folder. Open the new scene and paste the Units and Enemies hierarchy objects. Focus the
+     * ScenarioManager in the inspector and check the "Is Screenshot Scenario" checkbox. Don't
+     * forget to also set the starting money and starting score fields, as well as other properties
+     * in the scene, like the tower's health.
+     *
+     * Notes:
+     * - You can click the pause button to change its look, but the scenario will not run!
+     * - You can click the battle speed button to change its look, but the scenario will not run!
+     * - A unit's exact animation frame will carry over when copied using the process above!
+     */
     [SerializeField] bool _isScreenshotScenario = false;
     public bool IsScreenshotScenario => _isScreenshotScenario;
 
@@ -48,7 +68,7 @@ namespace Mtd {
       }
 
       IsPaused = true;
-      BattleSpeed = _isScreenshotScenario ? 0f : 1f;
+      BattleSpeed = 1f;
       UpdateTimeScale();
 
       Globals.UI.EnsureReady();
@@ -88,7 +108,12 @@ namespace Mtd {
 
     void OnPlayerAgentRegistered(PlayerAgent playerAgent) {
       var startingUnits = _unitsGroup.GetComponentsInChildren<Unit>();
-      playerAgent.SetMoney(_startingMoney - startingUnits.Length * 300);
+      var startingMoneyAfterDebugCost = _startingMoney;
+      if (!_isScreenshotScenario) {
+        // Do not subtract this if it is a screenshot scenario.
+        startingMoneyAfterDebugCost -= startingUnits.Length * 300;
+      }
+      playerAgent.SetMoney(startingMoneyAfterDebugCost);
       playerAgent.SetScore(_startingScore);
       Globals.PlayerAgent.RemoveRegisterListener(OnPlayerAgentRegistered);
     }
@@ -123,7 +148,7 @@ namespace Mtd {
     }
 
     void UpdateTimeScale() {
-      if (IsPaused) {
+      if (_isScreenshotScenario || IsPaused) {
         Time.timeScale = 0f;
       }
       else {
