@@ -66,8 +66,7 @@ namespace Mtd {
     }
 
     public void AddToScore(int points) {
-      _score += points;
-      ScoreChange.Invoke(_score);
+      SetScore(_score + points);
     }
 
     public void SetScore(int newScore) {

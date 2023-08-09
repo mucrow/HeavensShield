@@ -32,6 +32,8 @@ namespace Mtd {
     void OnPlayerAgentRegister(PlayerAgent playerAgent) {
       playerAgent.MoneyChange.AddListener(UpdateMoney);
       playerAgent.ScoreChange.AddListener(UpdateScore);
+      UpdateMoney(playerAgent.Money);
+      UpdateScore(playerAgent.Score);
     }
 
     void OnPlayerAgentUnregister(PlayerAgent playerAgent) {
