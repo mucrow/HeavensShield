@@ -26659,7 +26659,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: f0784542616866140ac67ed673ca70a1, type: 3}
     - target: {fileID: 2834857970355891945, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
       propertyPath: _startingMoney
-      value: 1400
+      value: 849
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834857970355891945, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
+      propertyPath: _startingScore
+      value: 1478
       objectReference: {fileID: 0}
     - target: {fileID: 2834857970355891945, guid: 7bac8b3c71c6f67408fd7099a4f0d811, type: 3}
       propertyPath: _isScreenshotScenario
