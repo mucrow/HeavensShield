@@ -19,12 +19,18 @@ namespace Mtd {
 
     void Awake() {
       _camera = GetComponent<Camera>();
+    }
+
+    void Start() {
       var zoomSizeRange = _farthestZoomSize - _closestZoomSize;
       var pointInZoomSizeRange = (_camera.orthographicSize - _closestZoomSize) / zoomSizeRange;
       var clampedPointInZoomSizeRange = Mathf.Clamp01(pointInZoomSizeRange);
 
       var zoomLevel = 1f - Mathf.Pow(clampedPointInZoomSizeRange, 1f / _zoomLevelCurve);
-      SetZoomLevel(zoomLevel);
+      var scenarioManager = Globals.ScenarioManager.GetNullable();
+      if (!scenarioManager || !scenarioManager.IsScreenshotScenario) {
+        SetZoomLevel(zoomLevel);
+      }
     }
 
     void Update() {
